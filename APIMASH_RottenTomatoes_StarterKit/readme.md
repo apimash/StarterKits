@@ -6,7 +6,7 @@
 
 ----------
 ###Description
-The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Template that demonstrates calling the Rotten Tomatoes REST API's. The JSON payload for Movies or DVD's is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to the WInRT XAML controls.
+The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Template that demonstrates calling the Rotten Tomatoes REST API's. The JSON payload for Movies or DVD's is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to the WinRT XAML controls.
 
 
 ###Features
