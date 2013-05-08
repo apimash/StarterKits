@@ -1,0 +1,4 @@
+C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit.csproj;neutral
+C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoesLib\APIMASH_RottenTomatoesLib.csproj;neutral
+C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\APIMASHLib.csproj;neutral
+C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\APIMASHLib.csproj;neutral

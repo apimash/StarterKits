@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>BOBSASUS</Machine>
+    <WindowsUser>robfamil</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <RegisteredManifestChecksum>2325815386DE8B8521617E4ED7B3DE2671FE8563ED8542407DD5944027A0AFBD</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>72095178-8cb2-4560-bb76-02fa6c4ee00a_1.0.0.0_neutral__cksyazta1kjae</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>72095178-8cb2-4560-bb76-02fa6c4ee00a_cksyazta1kjae!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>72095178-8cb2-4560-bb76-02fa6c4ee00a</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=robfamil</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-05-08T18:56:17.374</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\APIMASH_RottenTomatoes_StarterKit.exe">
+      <PackagePath>APIMASH_RottenTomatoes_StarterKit.exe</PackagePath>
+      <Modified>2013-05-08T18:56:16.791</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\APIMASH_RottenTomatoes_StarterKit.pdb">
+      <PackagePath>APIMASH_RottenTomatoes_StarterKit.pdb</PackagePath>
+      <Modified>2013-05-08T18:56:16.745</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\bin\Debug\APIMASHLib.pdb">
+      <PackagePath>APIMASHLib.pdb</PackagePath>
+      <Modified>2013-05-07T23:30:51.387</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoesLib\bin\Debug\APIMASH_RottenTomatoesLib.pdb">
+      <PackagePath>APIMASH_RottenTomatoesLib.pdb</PackagePath>
+      <Modified>2013-05-08T18:34:21.226</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\bin\Debug\APIMASHLib.dll">
+      <PackagePath>APIMASHLib.dll</PackagePath>
+      <Modified>2013-05-07T23:30:51.418</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoesLib\bin\Debug\APIMASH_RottenTomatoesLib.dll">
+      <PackagePath>APIMASH_RottenTomatoesLib.dll</PackagePath>
+      <Modified>2013-05-08T18:34:21.259</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit.dll">
+      <PackagePath>WinRTXamlToolkit.dll</PackagePath>
+      <Modified>2013-05-03T14:42:54.944</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\bin\Debug\Newtonsoft.Json.dll">
+      <PackagePath>Newtonsoft.Json.dll</PackagePath>
+      <Modified>2013-05-07T18:58:42.580</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\bin\Debug\Newtonsoft.Json.xml">
+      <PackagePath>Newtonsoft.Json.xml</PackagePath>
+      <Modified>2013-05-07T18:58:42.830</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\Logo.png">
+      <PackagePath>Assets\Logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-16T00:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\Rotten_Tomatoes_logo.png">
+      <PackagePath>Assets\Rotten_Tomatoes_logo.png</PackagePath>
+      <Modified>2013-05-01T17:36:21.655</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\SmallLogo.png">
+      <PackagePath>Assets\SmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-16T00:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\SplashScreen.png">
+      <PackagePath>Assets\SplashScreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-16T00:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2012-03-16T00:42:52.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\LightGray.png">
+      <PackagePath>Assets\LightGray.png</PackagePath>
+      <Modified>2011-12-13T02:08:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\MediumGray.png">
+      <PackagePath>Assets\MediumGray.png</PackagePath>
+      <Modified>2011-12-13T02:08:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\DarkGray.png">
+      <PackagePath>Assets\DarkGray.png</PackagePath>
+      <Modified>2011-12-13T02:08:56.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\Assets\Critic.png">
+      <PackagePath>Assets\Critic.png</PackagePath>
+      <Modified>2013-05-02T01:45:17.460</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\App.xaml">
+      <PackagePath>App.xaml</PackagePath>
+      <Modified>2013-05-06T17:30:22.290</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\PreviewControl.xaml">
+      <PackagePath>PreviewControl.xaml</PackagePath>
+      <Modified>2013-05-02T02:32:29.166</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\Common\StandardStyles.xaml">
+      <PackagePath>Common\StandardStyles.xaml</PackagePath>
+      <Modified>2013-05-02T13:09:43.617</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\GroupedItemsPage.xaml">
+      <PackagePath>GroupedItemsPage.xaml</PackagePath>
+      <Modified>2013-05-06T17:41:30.880</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\GroupDetailPage.xaml">
+      <PackagePath>GroupDetailPage.xaml</PackagePath>
+      <Modified>2013-05-01T17:43:16.627</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\ItemDetailPage.xaml">
+      <PackagePath>ItemDetailPage.xaml</PackagePath>
+      <Modified>2013-05-02T12:53:09.775</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\ReviewControl.xaml">
+      <PackagePath>ReviewControl.xaml</PackagePath>
+      <Modified>2013-05-06T21:52:41.841</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\AnimatingContainer.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\AnimatingContainer.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:03.080</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\CascadingTextBlock.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\CascadingTextBlock.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:06.333</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\CountdownControl.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\CountdownControl.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:11.042</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\CameraCaptureControl\CameraCaptureControl.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\CameraCaptureControl\CameraCaptureControl.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:04.226</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\CascadingImageControl\CascadingImageControl.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\CascadingImageControl\CascadingImageControl.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:04.942</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\ColorPicker\ColorPicker.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:10.460</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\CustomAppBar\CustomAppBar.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:12.334</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\DelayedLoadControl\DelayedLoadControl.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:13.593</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\ImageButton\ImageButton.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\ImageButton\ImageButton.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:15.529</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\ImageToggleButton\ImageToggleButton.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\ImageToggleButton\ImageToggleButton.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:17.453</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\InputDialog\InputDialog.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\InputDialog\InputDialog.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:17.906</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\NumericUpDown\NumericUpDown.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\NumericUpDown\NumericUpDown.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:18.936</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\TreeView\TreeView.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeView.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:20.833</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\TreeView\TreeViewItem.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewItem.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:22.060</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\TreeView\TreeViewMouse.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewMouse.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:23.053</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\TreeView\TreeViewTouch.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\TreeView\TreeViewTouch.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:24.697</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\WatermarkPasswordBox\WatermarkPasswordBox.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\WatermarkPasswordBox\WatermarkPasswordBox.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:26.605</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\WatermarkTextBox\WatermarkTextBox.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\WatermarkTextBox\WatermarkTextBox.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:27.823</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xaml">
+      <PackagePath>WinRTXamlToolkit\Controls\WebBrowser\WebBrowser.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:28.594</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\packages\WinRTXamlToolkit.1.3.8.0\lib\netcore45\WinRTXamlToolkit\Themes\Generic.xaml">
+      <PackagePath>WinRTXamlToolkit\Themes\Generic.xaml</PackagePath>
+      <Modified>2013-05-03T14:43:29.142</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_RottenTomatoes_StarterKit\APIMASH_RottenTomatoes_StarterKit\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-05-08T18:34:24.128</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>
