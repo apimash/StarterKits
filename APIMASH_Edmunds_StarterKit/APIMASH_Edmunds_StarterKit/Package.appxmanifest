@@ -2,12 +2,10 @@
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
 
   <Identity Name="36ccc304-e45a-48b9-a111-9967adf6b323"
-            Publisher="CN=robfamil"
             Version="1.0.0.0" />
 
   <Properties>
     <DisplayName>APIMASH_Edmunds_StarterKit</DisplayName>
-    <PublisherDisplayName>robfamil</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

@@ -8,6 +8,10 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
+/*
+ * LICENSE: http://opensource.org/licenses/ms-pl) 
+ */
+
 namespace APIMASH_Edmunds_StarterKit
 {
     /// <summary>

@@ -9,6 +9,10 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
+/*
+ * LICENSE: http://opensource.org/licenses/ms-pl) 
+ */
+
 namespace APIMASH_Edmunds_StarterKit
 {
     /// <summary>

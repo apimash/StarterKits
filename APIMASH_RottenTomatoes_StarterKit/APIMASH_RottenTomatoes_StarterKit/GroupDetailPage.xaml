@@ -1,4 +1,5 @@
-﻿<common:LayoutAwarePage
+﻿<!-- LICENSE: http://opensource.org/licenses/ms-pl)  -->
+    <common:LayoutAwarePage
     x:Name="pageRoot"
     x:Class="APIMASH_RottenTomatoes_StarterKit.GroupDetailPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"

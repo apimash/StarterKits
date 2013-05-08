@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="72095178-8cb2-4560-bb76-02fa6c4ee00a" Publisher="CN=robfamil" Version="1.0.0.0" />
+  <Identity Name="72095178-8cb2-4560-bb76-02fa6c4ee00a" Version="1.0.0.0" />
   <Properties>
     <DisplayName>APIMASH_RottenTomatoes_StarterKit</DisplayName>
-    <PublisherDisplayName>robfamil</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Prerequisites>

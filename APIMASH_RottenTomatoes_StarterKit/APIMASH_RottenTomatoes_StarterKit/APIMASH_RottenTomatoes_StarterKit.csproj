@@ -146,7 +146,6 @@
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <None Include="Common\ReadMe.txt" />
     <None Include="APIMASH_RottenTomoatoes_StarterKit_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
