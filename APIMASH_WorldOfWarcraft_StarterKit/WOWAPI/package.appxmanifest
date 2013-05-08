@@ -1,9 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="cd357622-57ac-469f-aca8-12fec60bda08" Version="1.0.0.0" Publisher="CN=Dave" />
+  <Identity Name="cd357622-57ac-469f-aca8-12fec60bda08" Version="1.0.0.0"  />
   <Properties>
     <DisplayName>WOWAPI</DisplayName>
-    <PublisherDisplayName>Dave</PublisherDisplayName>
     <Logo>images\50x50.png</Logo>
   </Properties>
   <Prerequisites>
