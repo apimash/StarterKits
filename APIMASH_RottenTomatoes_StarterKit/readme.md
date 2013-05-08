@@ -26,7 +26,7 @@ The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Tem
 
  - Register at Mashery.com (http://developer.mashery.com/)
  - Request a Developer Key from Rotten Tomatoes (http://developer.rottentomatoes.com/)
- - Download the Starter Kit Zip Portfolio from http://apimash.github.io/StarterKits/
+ - Download the Starter Kit Zip Portfolio from (http://apimash.github.io/StarterKits/)
  - Open the Solution in Visual Studio
  - Add your Developer Key in the Globals.cs file
  - Compile and Run
