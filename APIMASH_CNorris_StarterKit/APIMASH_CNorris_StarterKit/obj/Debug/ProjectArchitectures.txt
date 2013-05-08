@@ -1,3 +1,0 @@
-C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_CNorris_StarterKit\APIMASH_CNorris_StarterKit\APIMASH_CNorris_StarterKit.csproj;neutral
-C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_CNorris_StarterKit\APIMASH_CNorrisLib\APIMASH_CNorrisLib.csproj;neutral
-C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\APIMASHLib.csproj;neutral
