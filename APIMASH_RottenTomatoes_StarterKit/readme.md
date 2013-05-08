@@ -18,6 +18,7 @@ The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Tem
 
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
+ - WintRT XAML Toolkit (https://winrtxamltoolkit.codeplex.com/)
  - JSON.NET form Newtonsoft (https://json.codeplex.com/)
  - Mashery.com Developer Account (http://developer.mashery.com/)
  - Rotten Tomatoes Developer Key (http://developer.rottentomatoes.com/)
