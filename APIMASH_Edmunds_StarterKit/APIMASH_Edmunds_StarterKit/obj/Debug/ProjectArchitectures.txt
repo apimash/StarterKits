@@ -1,0 +1,3 @@
+C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_Edmunds_StarterKit\APIMASH_Edmunds_StarterKit\APIMASH_Edmunds_StarterKit.csproj;neutral
+C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASH_Edmunds_StarterKit\APIMASH_EdmundsLib\APIMASH_EdmundsLib.csproj;neutral
+C:\Users\robfamil\Documents\Visual Studio 2012\Cookbooks\APIMASHLib\APIMASHLib\APIMASHLib.csproj;neutral
