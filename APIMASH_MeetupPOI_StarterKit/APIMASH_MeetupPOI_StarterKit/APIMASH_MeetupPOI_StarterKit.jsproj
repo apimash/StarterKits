@@ -52,6 +52,7 @@
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <PackageCertificateKeyFile>APIMASH_MeetupPOI_StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>E7AA018C6AE7C94B70D52D74C67B52030DF2612C</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
@@ -74,6 +75,7 @@
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
     <Content Include="js\converters.js" />
+    <Content Include="js\customizeMe_local.js" />
     <Content Include="js\customizeMe.js" />
     <Content Include="js\default.js" />
     <Content Include="js\meetupData.js" />
@@ -88,7 +90,6 @@
     <Content Include="pages\groupedItems\groupedItems.html" />
     <Content Include="pages\groupedItems\groupedItems.js" />
     <Content Include="default.html" />
-    <None Include="APIMASH_MeetupPOI_StarterKit_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <SDKReference Include="Bing.Maps.JavaScript, Version=1.0" />

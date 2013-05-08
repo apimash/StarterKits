@@ -3,12 +3,10 @@
 
   <Identity
     Name="db415872-0730-460d-bd81-731341affe61"
-    Version="1.0.0.0"
-    Publisher="CN=gduthie" />
+    Version="1.0.0.0" />
 
   <Properties>
     <DisplayName>APIMASH_MeetupPOI_StarterKit</DisplayName>
-    <PublisherDisplayName>gduthie</PublisherDisplayName>
     <Logo>images\storelogo.png</Logo>
   </Properties>
 

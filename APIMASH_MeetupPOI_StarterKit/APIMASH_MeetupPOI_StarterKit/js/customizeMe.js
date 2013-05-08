@@ -1,6 +1,10 @@
 ﻿(function () {
     "use strict";
 
+    /*
+     * LICENSE: http://opensource.org/licenses/ms-pl) 
+     */
+
     WinJS.Namespace.define("Common", {
         // Create a unique meetup account for your app, and go to http://www.meetup.com/meetup_api/key/ 
         //    to get your API key

@@ -1,4 +1,8 @@
-﻿// For an introduction to the Grid template, see the following documentation:
+﻿/*
+ * LICENSE: http://opensource.org/licenses/ms-pl) 
+ */
+
+// For an introduction to the Grid template, see the following documentation:
 // http://go.microsoft.com/fwlink/?LinkID=232446
 (function () {
     "use strict";

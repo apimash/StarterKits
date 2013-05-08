@@ -1,4 +1,8 @@
-﻿/// <reference path="/Bing.Maps.JavaScript/js/veapicore.js" />
+﻿/*
+ * LICENSE: http://opensource.org/licenses/ms-pl) 
+ */
+
+/// <reference path="/Bing.Maps.JavaScript/js/veapicore.js" />
 (function () {
     "use strict";
 

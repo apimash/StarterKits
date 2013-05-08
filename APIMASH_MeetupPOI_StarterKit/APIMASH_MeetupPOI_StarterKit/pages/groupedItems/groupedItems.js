@@ -1,4 +1,8 @@
-﻿(function () {
+﻿/*
+ * LICENSE: http://opensource.org/licenses/ms-pl) 
+ */
+
+(function () {
     "use strict";
 
     var appView = Windows.UI.ViewManagement.ApplicationView;

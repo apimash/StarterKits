@@ -1,4 +1,8 @@
-﻿.groupdetailpage section[role=main] {
+﻿    /*
+     * LICENSE: http://opensource.org/licenses/ms-pl) 
+     */
+
+.groupdetailpage section[role=main] {
     -ms-grid-row: 1;
     -ms-grid-row-span: 2;
 }

@@ -1,6 +1,6 @@
 #Meetup/Bing Maps Starter Kit
 ##Date: 05/08/2013
-##Version: v0.0.1
+##Version: v0.0.2
 ##Author(s): G. Andrew Duthie
 ##URL: http://github.com/apimash/starterkits
 
@@ -20,7 +20,8 @@ The Meetup/Bing Maps Starter Kit is a native HTML5 and JavaScript Windows Store 
 
 ###Requirements
  - Meetup API Key (don't use your day-to-day meetup ID for this...create a unique account, and sign up for a key [here][2])
- - Bing Maps API Key (sign up [here][3] - Microsoft Account required for the Bing Maps Portal)
+ - Bing Maps SDK for Windows Store apps - Download [here][3], and follow the instructions [here][4] for adding a reference to the SDK to your app. 
+ - Bing Maps API Key (sign up [here][5] - Microsoft Account required for the Bing Maps Portal)
  - Windows Store Account (to submit app for certification)
 
 ###Setup
@@ -35,6 +36,8 @@ Basic customization is done via the file customizeMe.js, found in the js folder.
  - bingMapsKey: Your custom Bing Maps API key
  - shareTitle: Default text for Share contract Title property
  - shareMessage: Default text for Share contract Text property
+
+**NOTE**: You will need to add your own developer signing certificate to the project, by opening the package.appxmanifest file, and switching to the Packaging tab. On the packaging tab, click the "Choose Certificate..." button, and in the resulting dialog, click the "Configure Certificate..." drop-down, and select "Create test certificate..." then click OK to dismiss all dialogs, and save the app manifest file.
  
 More advanced customization is possible by digging into the code and stylesheets. All logic for retrieving and grouping Meetup data may be found in js/meetupData.js. App-wide styles may be found in css/default.css, and page-specific styles may be found in each respective page folder.
 
@@ -47,9 +50,15 @@ Here are the currently known issues (aka learning opportunities for the develope
 ----------
 
 ##Change Log
-###v0.0.1
-Initial Version
+###v0.0.2
+
+ - Added license information to all source files
 
   [1]: http://www.meetup.com/meetup_api/ "Meetup API"
   [2]: http://www.meetup.com/meetup_api/ "Meetup API"
-  [3]: https://www.bingmapsportal.com/ "Bing Maps Portal"
+
+ - List item
+
+  [3]: http://visualstudiogallery.msdn.microsoft.com/bb764f67-6b2c-4e14-b2d3-17477ae1eaca
+  [4]: http://msdn.microsoft.com/en-us/library/hh852186.aspx
+  [5]: https://www.bingmapsportal.com/ "Bing Maps Portal"
