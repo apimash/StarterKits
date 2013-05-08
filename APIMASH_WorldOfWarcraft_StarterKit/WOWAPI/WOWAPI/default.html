@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>WOWAPI</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- WOWAPI references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+    <script src="/js/navigator.js"></script>
+    <script src="/js/jquery-2.0.0.min.js"></script>
+</head>
+<body>
+    <!-- Targetting Surface screen resolutions and scaling up with Viewbox. Remove for native resolutions. -->
+    <div data-win-control="WinJS.UI.ViewBox">
+        <div id="contenthost" data-win-control="Application.PageControlNavigator" data-win-options="{home: '/pages/home/home.html'}"></div>
+    </div>
+    <div id="localesFlyout" data-win-control="WinJS.UI.Flyout">
+         <div>
+            <p><input type="radio" id="radioUS" name="localeRadio" value="en_US"/>English - US</p> 
+            <p><input type="radio" id="radioMX" name="localeRadio" value="es_MX"/>Spanish - MX</p>
+            <p><input type="radio" id="radioBR" name="localeRadio" value="pt_BR"/>Portuguese - BR</p>
+        </div>
+        <button id="submitButton">Save</button>
+    </div>
+     <div id="AppBar" data-win-control="WinJS.UI.AppBar" data-win-options="">
+            <button id="cmdLocale" data-win-control="WinJS.UI.AppBarCommand" data-win-options="{id:'cmdLocale',label:'Language',icon:'world',section:'global',tooltip:'Language'}">
+            </button>
+     </div>
+</body>
+</html>

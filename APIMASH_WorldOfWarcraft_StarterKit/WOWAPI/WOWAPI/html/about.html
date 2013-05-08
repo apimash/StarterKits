@@ -1,0 +1,32 @@
+﻿<!doctype HTML>
+<html>
+    <head>
+        <title>About settings flyout</title>
+        <link href="/css/settings.css" rel="stylesheet" />
+    </head>
+    <body >
+        <!-- BEGINSETTINGSFLYOUT -->
+        <div data-win-control="WinJS.UI.SettingsFlyout" aria-label="About World of Warcraft API Kit settings flyout" data-win-options="{settingsCommandId:'aboutSettings',width:'wide'}">
+            <!-- Use either 'win-ui-light' or 'win-ui-dark' depending on the contrast between the header title and background color -->
+            <div class="win-ui-dark win-header" > <!-- Background color reflects app's personality -->
+                <button type="button" onclick="WinJS.UI.SettingsFlyout.show()" class="win-backbutton"></button>
+                <div class="win-label">About World of Warcraft API Kit</div>
+                </div>
+            <div class="win-content" >
+                <div class="win-settings-section">
+                    <div id="aboutSpaceCadet">
+                       The Windows 8 World of Warcraft API Kit is a completely free app for educational and entertainment purposes only.  The code for this app is open source and available on Github&nbsp;<a href="http://github.com/disbitski/win8wowapikit" target="_blank" >here.</a><p>
+                    For more information about my other free apps and developer starter kits check out <a href="http://blogs.msdn.com/davedev/" target="_blank" >my blog</a> on MSDN.<p>
+                    Other Apps from DaveDev Productions:<br />
+                    <ul>
+                        <li>Balloons (<a href="http://bit.ly/balloonswin8" target="_blank" >Windows Store</a>)</li>
+                        <li>DoodlePad (<a href="http://www.windowsphone.com/s?appid=aded583e-cadc-df11-a844-00237de2db9e" target="_blank" >Windows Phone</a>)</li>
+                        <li>DoodlePad Free (<a href="http://www.windowsphone.com/s?appid=5188a4a4-421c-e011-9264-00237de2db9e" target="_blank" >Windows Phone</a>)</li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ENDSETTINGSFLYOUT -->
+    </body>
+</html>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="cd357622-57ac-469f-aca8-12fec60bda08" Version="1.0.0.0" Publisher="CN=Dave" />
+  <Properties>
+    <DisplayName>WOWAPI</DisplayName>
+    <PublisherDisplayName>Dave</PublisherDisplayName>
+    <Logo>images\50x50.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="World of Warcraft API Starter Kit" Logo="images\150x150.png" SmallLogo="images\30x30.png" Description="World of Warcraft API Starter Kit" ForegroundText="light" BackgroundColor="#D35841">
+        <DefaultTile ShowName="allLogos" ShortName="WOWAPI Starter Kit" WideLogo="images\WideLogo.png" />
+        <SplashScreen Image="images\splashscreen.png" BackgroundColor="#D35841" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
