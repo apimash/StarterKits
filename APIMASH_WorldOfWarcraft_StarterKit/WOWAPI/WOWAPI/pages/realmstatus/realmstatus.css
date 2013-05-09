@@ -1,0 +1,36 @@
+﻿.realmstatus section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .realmstatus section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .realmstatus section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
+
+.realmstatus section[role=main] .win-listview {
+    height: 480px;
+    width: auto;
+}
+
+.realmstatus section[role=main] .win-item h3 {
+    height: 80px;
+    width: 120px;
+    text-align: center;
+    display:table-cell;
+    vertical-align:middle;
+   
+}
+
+.realmstatus #headername {
+    color: green;
+}

@@ -1,0 +1,12 @@
+﻿body {
+    font-size: 22px;
+}
+
+win-content {
+    background-color: black;
+    color: white;
+}
+
+win-header {
+    background-color: #D35841;
+}
