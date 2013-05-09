@@ -26,19 +26,14 @@ namespace APIMASH_EdmundsLib
     {
         [DataMember(Name = "id")]
         public long Id { get; set; }
-
         [DataMember(Name = "models")]
         public Model[] Models { get; set; }
-
         [DataMember(Name = "name")]
         public string Name { get; set; }
-
         [DataMember(Name = "niceName")]
         public string NiceName { get; set; }
-
         [DataMember(Name = "manufacturer", IsRequired = false)]
         public string Manufacturer { get; set; }
-
         [DataMember(Name = "attributeGroups", IsRequired = false)]
         public AttributeGroup AttributeGroups { get; set; }
     }

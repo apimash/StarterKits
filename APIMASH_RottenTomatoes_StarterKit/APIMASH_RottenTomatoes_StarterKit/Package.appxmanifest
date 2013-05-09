@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="72095178-8cb2-4560-bb76-02fa6c4ee00a" Version="1.0.0.0" />
+  <Identity Name="72095178-8cb2-4560-bb76-02fa6c4ee00a" Version="1.0.0.0" Publisher="CN=APIMASH" />
   <Properties>
     <DisplayName>APIMASH_RottenTomatoes_StarterKit</DisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
+    <PublisherDisplayName>APIMASH</PublisherDisplayName>
   </Properties>
   <Prerequisites>
     <OSMinVersion>6.2.1</OSMinVersion>
