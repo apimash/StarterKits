@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASH_CNorris_StarterKit", "APIMASH_CNorris_StarterKit\APIMASH_CNorris_StarterKit.csproj", "{D7289935-5920-47EA-B917-14D91B521F27}"
@@ -8,21 +8,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASH_CNorrisLib", "APIMASH_CNorrisLib\APIMASH_CNorrisLib.csproj", "{41841177-26FF-4BCA-B644-D948BA63570A}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://dpeus.visualstudio.com/defaultcollection
-		SccProjectUniqueName0 = ..\\APIMASHLib\\APIMASHLib\\APIMASHLib.csproj
-		SccProjectName0 = ../APIMASHLib/APIMASHLib
-		SccLocalPath0 = ..\\APIMASHLib\\APIMASHLib
-		SccLocalPath1 = .
-		SccProjectUniqueName2 = APIMASH_CNorris_StarterKit\\APIMASH_CNorris_StarterKit.csproj
-		SccProjectName2 = APIMASH_CNorris_StarterKit
-		SccLocalPath2 = APIMASH_CNorris_StarterKit
-		SccProjectUniqueName3 = APIMASH_CNorrisLib\\APIMASH_CNorrisLib.csproj
-		SccProjectName3 = APIMASH_CNorrisLib
-		SccLocalPath3 = APIMASH_CNorrisLib
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|ARM = Debug|ARM
