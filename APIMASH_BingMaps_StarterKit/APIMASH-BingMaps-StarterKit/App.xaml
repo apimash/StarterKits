@@ -21,8 +21,8 @@
             </ResourceDictionary.MergedDictionaries>
 
             
-            <x:String x:Key="BingMapsAPIKey">AiXg2NzPrN_cNdEmOPeYGX7UsNYZfXI_EyUf2SNYTRpg3Ku9fIPAlj4eL7zKkyYU</x:String>
-            <x:String x:Key="TomTomAPIKey">dku9t2ayqyh87aqnvt9w3tqy</x:String>
+            <x:String x:Key="BingMapsAPIKey">[ENTER-YOUR-BING-MAPS-APP-KEY]</x:String>
+            <x:String x:Key="TomTomAPIKey">[ENTER-YOUR-TOMTOM-TRAFFICCAM-API-KEY]</x:String>
  
             
             <SolidColorBrush x:Key="AppThemeColor" Color="Navy" />
