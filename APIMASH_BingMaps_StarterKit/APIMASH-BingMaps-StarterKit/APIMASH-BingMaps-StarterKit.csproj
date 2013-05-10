@@ -13,7 +13,6 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>APIMASH-BingMaps-StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <PackageCertificateThumbprint>E064CD3777AB0BF10B60D1E47E1089FF5DB1D50A</PackageCertificateThumbprint>

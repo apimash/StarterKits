@@ -12,7 +12,6 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{3c716dbd-e0e3-4e52-a141-3fd36e75ab76}</ProjectGuid>
-    <SccProvider>SAK</SccProvider>
     <SccAuxPath>SAK</SccAuxPath>
     <SccLocalPath>SAK</SccLocalPath>
   </PropertyGroup>
