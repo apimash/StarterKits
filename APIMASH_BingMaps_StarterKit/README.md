@@ -8,6 +8,8 @@
 ###Description
 The Bing Maps/TomTom Starter Kit is a XAML/C# Windows Store application that demonstrates a mashup of BingMaps with the Traffic Cams API provided by [TomTom][10].  The application has been built to easily overlay and display locality-based information obtained from other APIs.
 
+![Traffic Cam application](screenshot.png)
+
 ###Features
  - Incorporates [Bing Maps for Windows Store][2] control and invokes a the [Bing Maps Find a Location by Query REST API][3]
  - Invokes the [TomTom Traffic Cameras API][1]
@@ -43,3 +45,4 @@ The Bing Maps/TomTom Starter Kit is a XAML/C# Windows Store application that dem
 [8]:http://json.codeplex.com "JSON.NET"
 [9]:http://developer.tomtom.com/member "Register for TomTom API keys"
 [10]:http://www.tomtom.com "TomTom"
+[11]:
