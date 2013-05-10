@@ -1,0 +1,34 @@
+User id to roaming storage, settings panel
+Status line at bottom w user id and such
+
+Parameterize queries
+Split display.  
+=> Simple text - option
+=> Map it - option
+=> Databound GridView
+
+Could the entire project be bundled as a zip inside the project, that they can then copy out to their hard drive?  phase II...
+Windows Phone version
+
+LIB version in DLL
+
+USER KEY PROTECTION
+Store user key in roaming storage
+Prompt for it if its not entered
+Have SETTINGS area in charms for it
+
+IF ADDING/REMOVING A FIELD, WHERE IS IT NECESSARY
+in this order
+APIMASH_WikiPediaLib -> geoname.cs geoname class
+APIMASH_OM_Bindable.cs -> abstract base class, constructors
+APIMASH_OM.cs / copy function
+
+TESTS
+Test with 'demo' user, see what errors the api stuff returns
+Test with internet down
+Test with bad user name
+
+
+DEMO
+Adding to new project
+Cutting up existing project

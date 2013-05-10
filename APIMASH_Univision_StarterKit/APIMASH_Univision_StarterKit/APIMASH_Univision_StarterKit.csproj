@@ -12,7 +12,6 @@
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <PackageCertificateThumbprint>A8114013D37146FE33D3F36DF864CA2AA8106937</PackageCertificateThumbprint>
     <PackageCertificateKeyFile>APIMASH_Univision_StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>

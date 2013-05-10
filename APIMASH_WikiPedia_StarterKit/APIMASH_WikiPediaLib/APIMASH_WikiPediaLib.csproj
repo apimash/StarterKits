@@ -6,14 +6,15 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{02AFEBD2-E87D-4079-8696-DBF83F571EEA}</ProjectGuid>
+    <ProjectGuid>{4AEE8FC0-4241-4AC6-BB46-81A1FE01FE8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>APIMASH_EdmundsLib</RootNamespace>
-    <AssemblyName>APIMASH_EdmundsLib</AssemblyName>
+    <RootNamespace>APIMASH_WikiPediaLib</RootNamespace>
+    <AssemblyName>APIMASH_WikiPediaLib</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccLocalPath>SAK</SccLocalPath>
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
   </PropertyGroup>
@@ -104,10 +105,10 @@
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIMASH_Edmund.cs" />
-    <Compile Include="APIMASH_OM_MakeCollection.cs" />
+    <Compile Include="APIMASH_WikiPedia.cs" />
+    <Compile Include="APIMASH_OM.cs" />
     <Compile Include="APIMASH_OM_Bindable.cs" />
-    <Compile Include="APIMASH_OM_ModelYearCollection.cs" />
+    <Compile Include="APIMASH_OM.geoname.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">

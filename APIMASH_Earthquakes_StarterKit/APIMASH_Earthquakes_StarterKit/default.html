@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>APIMASH Earthquake Starter Kit</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- apimash_earthquakes references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <script src="/js/default.js"></script>
+
+    <!-- BingMaps JavaScript Control references -->
+    <script type="text/javascript" src="ms-appx:///Bing.Maps.JavaScript//js/veapicore.js"></script>
+    <script type="text/javascript" src="ms-appx:///Bing.Maps.JavaScript//js/veapiModules.js"></script>
+
+    <!-- Use script tag to register custom module, this should be done before adding the custom module js reference -->
+    <script>Microsoft.Maps.registerModule('clusterModule');</script>
+    <script type="text/javascript" src="js/V7ClientSideClustering.js"></script>
+    <script type="text/javascript"  src="/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript"  src="/js/jquery-ui.min.js"></script>
+
+
+</head>
+<body>
+   <div id="mapdiv"></div>
+</body>
+</html>

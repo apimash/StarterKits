@@ -35,7 +35,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>cd357622-57ac-469f-aca8-12fec60bda08</ProjectGuid>
+    <ProjectGuid>9b8b22c1-1f55-4093-bb2f-cff74e2fcaca</ProjectGuid>
   </PropertyGroup>
   <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">
     <VisualStudioVersion>11.0</VisualStudioVersion>
@@ -47,42 +47,27 @@
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <TargetPlatformVersion>8.0</TargetPlatformVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
-    <PackageCertificateKeyFile>WOWAPI_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>APIMASH_Earthquakes_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>0604BC3B0D83E82B4EAF897156609A62E05D271A</PackageCertificateThumbprint>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
-    <Content Include="css\default.css" />
-    <Content Include="css\settings.css" />
-    <Content Include="html\about.html" />
-    <Content Include="html\privacy.html" />
-    <Content Include="images\150x150.scale-100.png" />
-    <Content Include="images\30x30.scale-100.png" />
-    <Content Include="images\50x50.scale-100.png" />
+    <Content Include="default.html" />
     <Content Include="images\logo.png" />
     <Content Include="images\smalllogo.png" />
-    <Content Include="images\smalllogo.scale-100.png" />
     <Content Include="images\splashscreen.png" />
     <Content Include="images\storelogo.png" />
-    <Content Include="images\WideLogo.scale-100.png" />
-    <Content Include="images\WOWAPILogo.PNG" />
-    <Content Include="images\WOWAPILogo.scale-100.png" />
     <Content Include="js\default.js" />
+    <Content Include="css\default.css" />
     <Content Include="js\jquery-2.0.0.min.js" />
-    <Content Include="js\navigator.js" />
-    <Content Include="js\wowapi.js" />
-    <Content Include="pages\home\home.css" />
-    <Content Include="pages\home\home.html" />
-    <Content Include="pages\home\home.js" />
-    <Content Include="default.html" />
-    <Content Include="pages\realmstatus\realmstatus.css" />
-    <Content Include="pages\realmstatus\realmstatus.html" />
-    <Content Include="pages\realmstatus\realmstatus.js" />
-    <Content Include="readme.txt" />
-    <None Include="WOWAPI_TemporaryKey.pfx" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\V7ClientSideClustering.js" />
+    <None Include="apimash_earthquakes_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <SDKReference Include="Bing.Maps.JavaScript, Version=1.0" />
     <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />

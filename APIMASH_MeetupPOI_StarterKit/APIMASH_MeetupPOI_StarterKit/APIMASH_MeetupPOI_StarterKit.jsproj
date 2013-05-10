@@ -36,7 +36,6 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>db415872-0730-460d-bd81-731341affe61</ProjectGuid>
-    <SccLocalPath>SAK</SccLocalPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">
     <VisualStudioVersion>11.0</VisualStudioVersion>
