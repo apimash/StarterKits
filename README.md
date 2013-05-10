@@ -3,9 +3,8 @@
 
 ----------
 
-
 ##Description
-APIMASH Starter Kits demonstrate how to use public Web Service API's such as Edmunds, Tom-Tom, Twitter, Tumblr, Yelp, Meetup and many others to create Windows 8 Store Apps. These Starter Kits will put you on the fast path to publishing your first App to the Windows Store
+APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's such as Edmunds, Tom-Tom, Twitter, Tumblr, Yelp, Meetup and many others to create Windows 8 Store Apps. These Starter Kits will put you on the fast path to publishing your first App to the Windows Store
 
 
 ##Starter Kits
@@ -29,5 +28,5 @@ APIMASH Starter Kits demonstrate how to use public Web Service API's such as Edm
  17. Chuck Norris 
 
 ##1 - Download the StarterKits
-##2 - Customize the API calls and UPdate the User Experience
+##2 - Customize the API calls and Update the User Experience
 ##3 - Submit your App to the Windows Store
