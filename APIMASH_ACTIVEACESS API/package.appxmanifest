@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="APIMASHDPESTARTERKIT" Version="1.0.0.0" Publisher="CN=APIMASH" />
+  <Properties>
+    <DisplayName>APIMASH_ACTIVEACESSAPI</DisplayName>
+    <PublisherDisplayName>APIMASH STARTER KIT</PublisherDisplayName>
+    <Description>ListView working with data sources JS sample</Description>
+    <Logo>Assets\StoreLogo.jpg</Logo>
+  </Properties>
+  <Resources>
+    <Resource Language="en-us" />
+  </Resources>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Applications>
+    <Application Id="Microsoft.SDKSamples.ListViewDataSources.JS" StartPage="default.html">
+      <VisualElements DisplayName="Active ACCESS API Starter Kit" Logo="images\squareTile-sdk.png" SmallLogo="Assets\SmallLogo.jpg" Description="This starter kit uses the Active Access API  to search for exercise activities in NYC" ForegroundText="light" BackgroundColor="#00BCF2">
+        <DefaultTile ShortName="ListView working with data sources JS" ShowName="allLogos" />
+        <SplashScreen BackgroundColor="#00BCF2" Image="SplashScreen.jpg" />
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

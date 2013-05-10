@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" href="/css/scenario1.css" />
+    <script src="/js/scenario1.js"></script>
+   <!-- <script src="/js/BingImageSearchDataSource.js"></script>-->
+    <script src="/js/ActiveAcessAPI.js"></script>
+</head>
+<body>
+    <div data-win-control="SdkSample.ScenarioInput">
+       
+        <p>
+            APIMASH_ACTIVEACCESS API_StarterKit shows you how to interact with an external webservice((in this case Active Access API) using the datadapter, 
+            Binding.ListAPI , ListDataSourceAPI, and how to display the grouped data using custom group and item datasources. Starter Kit was inspried 
+            by the <a href="http://code.msdn.microsoft.com/windowsapps/ListView-custom-data-4dcfb128/sourcecode?fileId=50893&pathId=1185249808">HTML ListView working data sources sample</a>.
+        </p>
+        
+        <p>
+            This scenario demonstrates how to create a data adapter to interface with a web
+            service. A data adapter is the component to interface between the list view and
+            the supply of data, enabling virtualization. This specific example uses XmlHttpRequest
+            to access the Active Access search feature of <a href="http://developer.active.com"> Active Access</a>
+            which is exposed as a web service.
+            Key Rates Limits: 2 call per second and 10,000 calls per day.
+        </p>
+        <p>
+            The Active Access API requires an account key to identify the application please visit active.com or mashery.com. To use this sample you will need
+            to get a key from the <a href="http://developer.active.com4">Active Access</a>.
+            Then paste the key into the text box below.</p>
+        <div>
+            <label for="devkey">
+                API Key:
+            </label>
+            <input id="devkey" placeholder="Enter Account Key here" />
+            
+            <button class="action secondary" id="savekey">
+                Save key
+            </button>
+        </div>
+        <br />
+        <div id="queryCtrls">
+            <label for="query">
+                Search Activity
+            </label>
+            <input id="query" value="Enter activity"/>
+            <button class="action" id="runquery">
+                Search
+            </button>
+        </div>
+    </div>
+    <div data-win-control="SdkSample.ScenarioOutput">
+        <div id="itemTemplate" data-win-control="WinJS.Binding.Template">
+            <div class="itemTempl">
+                <img data-win-bind="src: thumbnail" alt="Databound image" />
+                <span class="content" data-win-bind="innerText: title"></span>
+               </div>
+             
+        </div>
+
+        <div id="listview1" class="box"
+             data-win-control="WinJS.UI.ListView"
+             data-win-options="{ selectionMode: 'none', tapBehavior: 'none', swipeBehavior: 'none', layout: 
+            { type: WinJS.UI.GridLayoutLayout, maxRows: 2 } }"
+            ></div>
+
+
+    </div>
+   
+</body>
+</html>

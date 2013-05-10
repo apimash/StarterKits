@@ -13,7 +13,6 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>APIMASH_RottenTomatoes_StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <PackageCertificateThumbprint>F7A0052FBC444D56E62DF91B1534181753CCB37C</PackageCertificateThumbprint>
   </PropertyGroup>
