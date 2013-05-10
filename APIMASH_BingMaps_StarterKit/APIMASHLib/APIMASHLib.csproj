@@ -104,27 +104,27 @@
   <ItemGroup>
     <Compile Include="APIMASH_ApiBase.cs" />
     <Compile Include="APIMASH_Deserializers.cs" />
-    <Compile Include="Debug\ApiDebugPanel.xaml.cs">
+    <Compile Include="Diagnostics\ApiDebugPanel.xaml.cs">
       <DependentUpon>ApiDebugPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="BindableBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="APIMASH_Invocation.cs" />
-    <Compile Include="Debug\ApiStatusColorConverter.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\APIMASH_BingMaps_StarterKit\packages\Newtonsoft.Json.5.0.4\lib\netcore45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
+    <Compile Include="Diagnostics\ApiStatusColorConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Debug\ApiDebugPanel.xaml">
+    <Page Include="Diagnostics\ApiDebugPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.5\lib\netcore45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
