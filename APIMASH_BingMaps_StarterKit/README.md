@@ -45,4 +45,3 @@ The Bing Maps/TomTom Starter Kit is a XAML/C# Windows Store application that dem
 [8]:http://json.codeplex.com "JSON.NET"
 [9]:http://developer.tomtom.com/member "Register for TomTom API keys"
 [10]:http://www.tomtom.com "TomTom"
-[11]:
