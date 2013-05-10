@@ -11,10 +11,10 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
  1. Edmunds
  2. Rotten Tomatoes
- 3. Tom-Tom
+ 3. Bing Maps + Tom-Tom
  4. Stackoverflow
  5. Univision 
- 6. Wikipedia + GeoNames
+ 6. GeoNames + Wikipedia
  7. Twitter
  8. Facebook
  9. Meetup + Bing
