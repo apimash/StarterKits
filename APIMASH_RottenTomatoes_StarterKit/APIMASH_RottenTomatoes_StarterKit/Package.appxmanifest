@@ -3,7 +3,7 @@
   <Identity Name="72095178-8cb2-4560-bb76-02fa6c4ee00a" Version="1.0.0.0" Publisher="CN=APIMASH" />
   <Properties>
     <DisplayName>APIMASH_RottenTomatoes_StarterKit</DisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
+    <Logo>Assets\APIMASH_Store.png</Logo>
     <PublisherDisplayName>APIMASH</PublisherDisplayName>
   </Properties>
   <Prerequisites>
@@ -15,9 +15,9 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_RottenTomatoes_StarterKit.App">
-      <VisualElements DisplayName="APIMASH Rotten Tomatoes Starter Kit" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="APIMASH_RottenTomatoes_StarterKit" ForegroundText="light" BackgroundColor="#464646">
-        <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+      <VisualElements DisplayName="APIMASH Rotten Tomatoes Starter Kit" Logo="Assets\APIMASH_Logo.png" SmallLogo="Assets\APIMASH_Small.png" Description="APIMASH_RottenTomatoes_StarterKit" ForegroundText="light" BackgroundColor="#121212">
+        <DefaultTile ShowName="allLogos" ShortName="Rotten Tomatoes" />
+        <SplashScreen Image="Assets\APIMASH_Splash.png" />
       </VisualElements>
     </Application>
   </Applications>
