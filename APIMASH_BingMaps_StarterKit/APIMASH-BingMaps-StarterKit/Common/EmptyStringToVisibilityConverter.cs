@@ -8,7 +8,10 @@ using Windows.UI.Xaml;
 
 namespace APIMASH_BingMaps_StarterKit.Common
 {
-    class EmptyStringToVisibilityConverter : IValueConverter
+    /// <summary>
+    /// Value converter that translates an empty or null string value to <see cref="Visibility.Collapsed"/>
+    /// </summary>
+    public sealed class EmptyStringToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
