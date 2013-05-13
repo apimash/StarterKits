@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>APIMASH_CNorris_StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <PackageCertificateThumbprint>FBA4229764F88C57ADCFC073E7AB7C4096C52ED2</PackageCertificateThumbprint>
   </PropertyGroup>
@@ -131,10 +133,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="APIMASHLib.sln" />
-    <Content Include="Assets\Logo.png" />
-    <Content Include="Assets\SmallLogo.png" />
-    <Content Include="Assets\SplashScreen.png" />
-    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\APIMASH_Logo.png" />
+    <Content Include="Assets\APIMASH_Small.png" />
+    <Content Include="Assets\APIMASH_Splash.png" />
+    <Content Include="Assets\APIMASH_Store.png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

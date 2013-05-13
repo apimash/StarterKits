@@ -9,23 +9,20 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
 ##Starter Kits
 
- 1. Edmunds
- 2. Rotten Tomatoes
- 3. Bing Maps + Tom-Tom
- 4. Stackoverflow
- 5. Univision 
- 6. GeoNames + Wikipedia
- 7. Twitter
- 8. Facebook
- 9. Meetup + Bing
- 10. Tumblr
- 11. Worldwide Telescope 
- 12. Earthquakes + Bing
- 13. World of Warcraft
- 14. Active
- 15. Untapped
- 16. Yelp
- 17. Chuck Norris 
+ 1. Edmunds [XAML/C#]
+ 2. Rotten Tomatoes [XAML/C#]
+ 3. Bing Maps + Tom-Tom [XAML/C#]
+ 4. Stackoverflow [ XAML/C#]
+ 5. Univision [XAML/C#]
+ 6. GeoNames + Wikipedia [XAML/C#]
+ 7. Meetup + Bing [HTML5/JS]
+ 8. Tumblr [HTML5/JS]
+ 9. Worldwide Telescope [HTML5/JS
+ 10. Earthquakes + Bing [HTML5/JS]
+ 11. World of Warcraft [HTML5/JS]
+ 12. Active [HTML5/JS]
+ 13. Yelp [XAML/C#]
+ 14. Chuck Norris [XAML/C#]
 
 ##1 - Download the StarterKits
 ##2 - Customize the API calls and Update the User Experience

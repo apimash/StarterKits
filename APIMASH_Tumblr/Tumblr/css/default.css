@@ -1,0 +1,340 @@
+﻿
+
+
+@media screen and (-ms-view-state: fullscreen-landscape) {
+}
+
+@media screen and (-ms-view-state: filled) {
+}
+
+@media screen and (-ms-view-state: snapped) {
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+}
+
+body {
+    background-color: #333333;
+}
+
+img {
+    margin-bottom: 0px;
+    display: none;
+    float: left;
+    clear: both;
+    width: 500px;
+    height: 300px;
+}
+
+.bar-holder {
+    width: 200px;
+    float: left;
+}
+
+.img-area {
+    width: 80%;
+    height: 80%;
+    float: left;
+}
+
+.controls {
+    float: left;
+    width: 100%;
+}
+
+.progress-loader {
+    margin-top: 10px;
+}
+
+#next {
+    position: absolute;
+    float: left;
+    top: 30%;
+    left: 90%;
+    color: #ffffff;
+    background-color: #222222;
+    border: none;
+    margin-top: 20px;
+    height: 100px;
+    font-size: 50px;
+    width: 100px;
+}
+
+    #next:hover, #previous:hover, #download:hover, #download:active, #previous:active, #next:active {
+        background-color: #ff1493;
+    }
+
+    #next .arrow-right {
+        width: 0;
+        height: 0;
+        margin-top: 20px;
+        margin-left: 40px;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-left: 30px solid white;
+    }
+
+#previous {
+    position: absolute;
+    float: left;
+    top: 30%;
+    left: 5%;
+    color: #ffffff;
+    background-color: #222222;
+    border: none;
+    margin-top: 20px;
+    height: 100px;
+    font-size: 50px;
+    width: 100px;
+}
+    /*}*/
+    #previous .arrow-left {
+        width: 0;
+        height: 0;
+        border-top: 30px solid transparent;
+        border-bottom: 30px solid transparent;
+        border-right: 30px solid white;
+        margin-top: 20px;
+        margin-left: 30px;
+    }
+
+#download {
+    width: 100%;
+    color: #ffffff;
+    background-color: #222222;
+    border: none;
+    margin-top: 20px;
+    height: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.download-message {
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: none;
+}
+
+.controls-container {
+    text-align: center;
+    width: 200px;
+    border-top: #ffffff solid thin;
+    float: left;
+}
+
+
+.img-holder {
+    background-color: #333333;
+    float: left;
+    margin: 20px;
+    border: 10px solid white;
+    height: 300px;
+    width: 500px;
+}
+
+.meter {
+    display: none;
+    height: 10px; /* Can be anything */
+    position: relative;
+    margin: 0px /* Just for demo spacing */
+    background: #555;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    border-radius: 10px;
+    padding: 2px;
+    -webkit-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+    -moz-box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+    box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+}
+
+    .meter > span {
+        display: block;
+        height: 100%;
+        -webkit-border-top-right-radius: 8px;
+        -webkit-border-bottom-right-radius: 8px;
+        -moz-border-radius-topright: 8px;
+        -moz-border-radius-bottomright: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        -webkit-border-top-left-radius: 20px;
+        -webkit-border-bottom-left-radius: 20px;
+        -moz-border-radius-topleft: 20px;
+        -moz-border-radius-bottomleft: 20px;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        background-color: rgb(43,194,83);
+        background-image: -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(43,194,83)), color-stop(1, rgb(84,240,84)) );
+        background-image: -moz-linear-gradient( center bottom, rgb(43,194,83) 37%, rgb(84,240,84) 69% );
+        -webkit-box-shadow: inset 0 2px 9px rgba(255,255,255,0.3), inset 0 -2px 6px rgba(0,0,0,0.4);
+        -moz-box-shadow: inset 0 2px 9px rgba(255,255,255,0.3), inset 0 -2px 6px rgba(0,0,0,0.4);
+        box-shadow: inset 0 2px 9px rgba(255,255,255,0.3), inset 0 -2px 6px rgba(0,0,0,0.4);
+        position: relative;
+        overflow: hidden;
+    }
+
+        .meter > span:after, .animate > span > span {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent), color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent), to(transparent) );
+            background-image: -moz-linear-gradient( -45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent );
+            z-index: 1;
+            -webkit-background-size: 50px 50px;
+            -moz-background-size: 50px 50px;
+            -webkit-animation: move 2s linear infinite;
+            -webkit-border-top-right-radius: 8px;
+            -webkit-border-bottom-right-radius: 8px;
+            -moz-border-radius-topright: 8px;
+            -moz-border-radius-bottomright: 8px;
+            border-top-right-radius: 8px;
+            border-bottom-right-radius: 8px;
+            -webkit-border-top-left-radius: 20px;
+            -webkit-border-bottom-left-radius: 20px;
+            -moz-border-radius-topleft: 20px;
+            -moz-border-radius-bottomleft: 20px;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+            overflow: hidden;
+        }
+
+.animate > span:after {
+    display: none;
+}
+
+@-webkit-keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+.progress-loader {
+    width: 100px;
+}
+
+.orange > span {
+    background-color: #ff1493;
+    background-image: -moz-linear-gradient(top, #ff1493, #ff1493);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f1a165),color-stop(1, #f36d0a));
+    background-image: -webkit-linear-gradient(#ff1493, #ff1493);
+}
+
+
+
+.nostripes > span > span, .nostripes > span:after {
+    -webkit-animation: none;
+    background-image: none;
+}
+
+/* 
+Set the container for the bar
+*/
+.bar {
+    height: 20px;
+    width: 200px;
+    padding: 10px;
+    max-width: 200px;
+    margin: 200px auto 0;
+    background-color: rgba(0,0,0,.1);
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+    -moz-box-shadow: 0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+    -ms-box-shadow: 0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+    box-shadow: 0 1px 0 rgba(255,255,255,.03),inset 0 1px 0 rgba(0,0,0,.1);
+}
+
+    /* 
+This is the actual bar with stripes
+*/
+
+
+    .bar span {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border: 1px solid #FF6EC7;
+        border-bottom-color: #FF00FF;
+        background-color: #d3d3d3;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        border-radius: 20px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -ms-box-sizing: border-box;
+        box-sizing: border-box;
+        background-image: -webkit-linear-gradient( -45deg, rgba(255, 20, 147, 1) 25%, transparent 25%, transparent 50%, rgba(255, 20, 147, 1) 50%, rgba(255, 20, 147, 1) 75%, transparent 75%, transparent );
+        background-image: -moz-linear-gradient( -45deg, rgba(255, 20, 147, 1) 25%, transparent 25%, transparent 50%, rgba(255, 20, 147, 1) 50%, rgba(255, 20, 147, 1) 75%, transparent 75%, transparent );
+        background-image: -ms-linear-gradient( -45deg, rgba(255, 20, 147, 1) 25%, transparent 25%, transparent 50%, rgba(255, 20, 147, 1) 50%, rgba(255, 20, 147, 1) 75%, transparent 75%, transparent );
+        background-image: linear-gradient( -45deg, rgba(255, 20, 147, 1) 25%, transparent 25%, transparent 50%, rgba(255, 20, 147, 1) 50%, rgba(255, 20, 147, 1) 75%, transparent 75%, transparent );
+        -webkit-background-size: 50px 50px;
+        -moz-background-size: 50px 50px;
+        -ms-background-size: 50px 50px;
+        background-size: 50px 50px;
+        -webkit-animation: move 2s linear infinite;
+        -moz-animation: move 2s linear infinite;
+        -ms-animation: move 2s linear infinite;
+        animation: move 2s linear infinite;
+        -webkit-border-radius: 20px;
+        -moz-border-radius: 20px;
+        -ms-border-radius: 20px;
+        border-radius: 20px;
+        overflow: hidden;
+        -webkit-box-shadow: inset 0 10px 0 rgba(255,255,255,.2);
+        -moz-box-shadow: inset 0 10px 0 rgba(255,255,255,.2);
+        -ms-box-shadow: inset 0 10px 0 rgba(255,255,255,.2);
+        box-shadow: inset 0 10px 0 rgba(255,255,255,.2);
+    }
+
+/*
+Animate the stripes
+*/
+@-webkit-keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+@-moz-keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+@-ms-keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}
+
+@keyframes move {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 50px 50px;
+    }
+}

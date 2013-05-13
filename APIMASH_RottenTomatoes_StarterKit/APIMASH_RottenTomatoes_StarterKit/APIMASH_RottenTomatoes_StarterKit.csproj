@@ -13,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>APIMASH_RottenTomatoes_StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <PackageCertificateThumbprint>F7A0052FBC444D56E62DF91B1534181753CCB37C</PackageCertificateThumbprint>
   </PropertyGroup>
@@ -148,11 +150,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Logo.png" />
+    <Content Include="Assets\APIMASH_Logo.png" />
+    <Content Include="Assets\APIMASH_Small.png" />
+    <Content Include="Assets\APIMASH_Splash.png" />
+    <Content Include="Assets\APIMASH_Store.png" />
     <Content Include="Assets\Rotten_Tomatoes_logo.png" />
-    <Content Include="Assets\SmallLogo.png" />
-    <Content Include="Assets\SplashScreen.png" />
-    <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\LightGray.png" />
     <Content Include="Assets\MediumGray.png" />
     <Content Include="Assets\DarkGray.png" />

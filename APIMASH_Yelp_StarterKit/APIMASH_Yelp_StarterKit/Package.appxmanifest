@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="YelpStarterKit" Publisher="CN=APIMash" Version="1.0.0.3" />
+  <Properties>
+    <DisplayName>YelpStarterKit</DisplayName>
+    <PublisherDisplayName>StarterKit</PublisherDisplayName>
+    <Logo>Assets\Kit50x50.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_Yelp_StarterKit.App">
+      <VisualElements DisplayName="Yelp Starter Kit" Logo="Assets\Kit150x150.png" SmallLogo="Assets\Kit30x30.png" Description="The Yelp Starter Kit app displays restaurant information from the Yelp API." ForegroundText="light" BackgroundColor="#663300">
+        <DefaultTile ShowName="allLogos" ShortName="Yelp Starter Kit" />
+        <SplashScreen Image="Assets\KitSplashscreen.png" BackgroundColor="#663300" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
