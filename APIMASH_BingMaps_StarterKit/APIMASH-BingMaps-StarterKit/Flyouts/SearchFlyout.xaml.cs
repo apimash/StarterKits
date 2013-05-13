@@ -103,9 +103,9 @@ namespace APIMASH_BingMaps_StarterKit.Flyouts
             DependencyProperty.Register("MaxResults", typeof(Int32), typeof(SearchFlyout), new PropertyMetadata(0));
         #endregion
 
-        #region LocationSelectedEvent handler
+        #region LocationSelected event handler
         /// <summary>
-        /// Triggered when one of location search results is selected
+        /// Occurs when one of location search results is selected. Attach an event handler here to reflect selection of the location in the main map.
         /// </summary>
         public event EventHandler<LocationSelectedEventArgs> LocationChanged;
         private void OnLocationChanged(LocationSelectedEventArgs e)
