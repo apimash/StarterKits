@@ -58,9 +58,11 @@ namespace APIMASH_TomTom
         /// <summary>
         /// Copy the desired portions of the deserialized model data to the view model collection of cameras
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="viewModel"></param>
-        public static void PopulateViewModel(cameras model, ObservableCollection<TomTomCameraViewModel> viewModel, Int32 maxResults = 0)
+        /// <param name="model">Deserializeed result from API call</param>
+        /// <param name="viewModel">Collection of view model items</param>
+        /// <param name="maxResults">Maximum number of results to assign to view model (0 = assign all results)</param>
+        /// <returns>Indicator of whether items were left out of the view model due to max size restrictions</returns>
+        public static Boolean PopulateViewModel(cameras model, ObservableCollection<TomTomCameraViewModel> viewModel, Int32 maxResults = 0)
         {
             Int32 sequence = 0;
 
@@ -78,17 +80,19 @@ namespace APIMASH_TomTom
                                     Sequence = ++sequence,
                                     CameraId = c.cameraId,
                                     Name = c.cameraName,
-                                    Orientation = c.orientation,
+                                    Orientation = c.orientation.Replace("Traffic closest to camera is t", "T"),
                                     RefreshRate = c.refreshRate,
                                     Latitude = c.latitude,
                                     Longitude = c.longitude
                                 }))
-                    viewModel.Add(camera);
+                    stagingList.Add(camera);
 
             // apply max count if provided
-            maxResults = maxResults <= 0 ? stagingList.Count : maxResults;
-            foreach (var s in stagingList.Take(maxResults))
+            var maxResultsExceeded = (maxResults > 0) && (stagingList.Count > maxResults);
+            foreach (var s in stagingList.Take(maxResultsExceeded ? maxResults : stagingList.Count))
                 viewModel.Add(s);
+
+            return maxResultsExceeded;
         }
     }
 
@@ -129,27 +133,38 @@ namespace APIMASH_TomTom
     /// <summary>
     /// Wrapper class for TomTom API
     /// </summary>
-    public class TomTomApi : APIMASH.ApiBase
+    public sealed class TomTomApi : APIMASH.ApiBase
     {
         public TomTomApi()
         {
             _apiKey = Application.Current.Resources["TomTomAPIKey"] as String;
         }
 
-        private ObservableCollection<TomTomCameraViewModel> _cameras =
-            new ObservableCollection<TomTomCameraViewModel>();
         /// <summary>
+        /// Indicates whether camera list was truncated at a max size and other camera are in the same field of view
+        /// </summary>
+        public Boolean CameraListTruncated
+        {
+            get { return _cameraListTruncated; }
+            set { SetProperty(ref _cameraListTruncated, value); }
+        }
+        private Boolean _cameraListTruncated;
+
+         /// <summary>
         /// List of cameras returned by a search (bindable to the UI)
         /// </summary>
         public ObservableCollection<TomTomCameraViewModel> Cameras
         {
             get { return _cameras; }
         }
+        private ObservableCollection<TomTomCameraViewModel> _cameras =
+            new ObservableCollection<TomTomCameraViewModel>();
 
-         /// <summary>
+        /// <summary>
         /// Performs a query for traffic cameras within the given BoundingBox, <paramref name="b"/>
         /// </summary>
         /// <param name="b">Bounding box defining area for which to return traffic cams</param>
+        /// <param name="maxResults">Maximum number of results to assign to view model (0 = assign all results)</param>
         /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/></returns>        
         public async Task<APIMASH.ApiResponseStatus> GetCameras(BoundingBox b, Int32 maxResults = 0)
         {
@@ -161,12 +176,13 @@ namespace APIMASH_TomTom
                 this._apiKey);
 
             // clear the results
-            _cameras.Clear();
+            Cameras.Clear();
+            CameraListTruncated = false;
 
             // if successful, copy relevant portions from model to the view model
             if (apiResponse.IsSuccessStatusCode)
             {
-                TomTomCamerasModel.PopulateViewModel(apiResponse.DeserializedResponse, _cameras, maxResults);
+                CameraListTruncated = TomTomCamerasModel.PopulateViewModel(apiResponse.DeserializedResponse, _cameras, maxResults);
             }
             else
             {

@@ -24,12 +24,11 @@
             <Setter Property="AutomationProperties.Name" Value="Find Location"/>
             <Setter Property="Content" Value="&#xE000;"/>
         </Style>
-        <Rectangle x:Key="CurrentLocationPin" Fill="Red" Stroke="Black" StrokeThickness="3"
-                   Height="15" Width="15" Visibility="Collapsed" >
-            <Rectangle.RenderTransform>
-                <RotateTransform Angle="45" />
-            </Rectangle.RenderTransform>
-        </Rectangle>
+        <Style x:Key="TrafficAppBarButtonStyle" TargetType="ButtonBase" BasedOn="{StaticResource AppBarButtonStyle}">
+            <Setter Property="AutomationProperties.AutomationId" Value="TrafficAppBarButton"/>
+            <Setter Property="AutomationProperties.Name" Value="Show Traffic"/>
+            <Setter Property="Content" Value="&#x26D6;"/>
+        </Style>
     </Page.Resources>
 
     <Page.BottomAppBar>
@@ -44,7 +43,7 @@
                 </StackPanel>
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Style="{StaticResource RefreshAppBarButtonStyle}" AutomationProperties.Name="Refresh" Click="Refresh_Click"/>
-                    <TextBlock Text="|" VerticalAlignment="Center" FontSize="40"/>
+                    <TextBlock Text="|" VerticalAlignment="Center" FontSize="40" Margin="15,0"/>
                     <Button Style="{StaticResource CurrentLocationAppBarButtonStyle}" Click="LocationButton_Click" />
                     <Button Style="{StaticResource NewLocationAppBarButtonStyle}" Click="FindButton_Click" />
                 </StackPanel>
@@ -58,16 +57,21 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
-        <local:LeftPanel x:Name="TomTomPanel" Map="{Binding ElementName=TheMap}" MaxResults="99"/> 
+        <local:LeftPanel x:Name="LeftPanel" Map="{Binding ElementName=TheMap}" MaxResults="25"/> 
         
         <bingmaps:Map Grid.Column="1" 
               x:Name="TheMap" 
-              Credentials="{StaticResource BingMapsAPIKey}" ZoomLevel="4" MinWidth="20" >
-            <bingmaps:Map.Center>
+              Credentials="{StaticResource BingMapsAPIKey}" ZoomLevel="4" MinWidth="20" 
+              ScaleBarPosition="TopLeft"
+              ViewRestriction="OneWorldOnly"
+              LogoPosition="BottomRight"
+              CopyrightPosition="BottomRight"
+        >
+        <bingmaps:Map.Center>
                 <bingmaps:Location Latitude="39.83" Longitude="-98.58" />
             </bingmaps:Map.Center>
         </bingmaps:Map>
-
+        
         <flyouts:SearchFlyout x:Name="SearchFlyout" Grid.Column="1" Map="{Binding ElementName=TheMap}" 
                              HorizontalAlignment="Right" Visibility="Collapsed" MaxResults="12" />
        

@@ -71,7 +71,6 @@ namespace APIMASH
         /// </summary>
         public T DeserializedResponse { get; internal set; }
 
-
         /// <summary>
         /// Constructor
         /// </summary>

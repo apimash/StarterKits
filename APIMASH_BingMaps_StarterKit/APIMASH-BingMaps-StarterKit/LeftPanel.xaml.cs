@@ -13,6 +13,23 @@ using Windows.UI.Xaml.Controls;
 
 namespace APIMASH_BingMaps_StarterKit
 {
+
+    /// <summary>
+    /// ItemSelected event arguments
+    /// </summary>
+    public class ItemSelectedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// Item selected
+        /// </summary>
+        public Object Item { get; private set; }
+
+        public ItemSelectedEventArgs(Object i)
+        {
+            Item = i;
+        }
+    }
+
     /// <summary>
     /// View model supporting left panel of items associated with map
     /// </summary>
@@ -66,7 +83,18 @@ namespace APIMASH_BingMaps_StarterKit
         public static readonly DependencyProperty MaxResultsProperty =
             DependencyProperty.Register("MaxResults", typeof(Int32), typeof(LeftPanel), new PropertyMetadata(0));
         #endregion  
-    
+
+        #region ItemSelected event handler
+        /// <summary>
+        /// Occurs when an item is selected in this panel's list view. Attach an event handler here to reflect selection of this item on the main map.
+        /// </summary>
+        public event EventHandler<ItemSelectedEventArgs> ItemSelected;
+        private void OnItemSelected(ItemSelectedEventArgs e)
+        {
+            if (ItemSelected != null) ItemSelected(this, e);
+        }
+        #endregion
+
         LeftPanelViewModel _defaultViewModel = new LeftPanelViewModel();
         public LeftPanel()
         {
@@ -87,6 +115,7 @@ namespace APIMASH_BingMaps_StarterKit
                 {
                     CamImage.Source = _defaultViewModel.TomTomApi.GetCameraImage(camera.CameraId);
                 }
+                OnItemSelected(new ItemSelectedEventArgs(camera));
             }
             CamImage.Visibility = camera == null ? Visibility.Collapsed : Visibility.Visible;
         }
@@ -99,24 +128,27 @@ namespace APIMASH_BingMaps_StarterKit
         // handle refresh request of the data in the left panel
         public async Task Refresh()
         {
+
             // make call to TomTom API to get the camera in the map view
             _defaultViewModel.ApiStatus = 
                 await _defaultViewModel.TomTomApi.GetCameras(new BoundingBox(
                         Map.TargetBounds.North, Map.TargetBounds.South,
-                        Map.TargetBounds.West, Map.TargetBounds.East));
+                        Map.TargetBounds.West, Map.TargetBounds.East),
+                        this.MaxResults);
 
-            // replace all of the push pins
-            Map.Children.Clear();
-            foreach (var c in _defaultViewModel.TomTomApi.Cameras)
+            // clear the map layer of points - note this assumes the first MapLayer in the map children is the one containing
+            // point of interest pushpins
+            var _poiLayer = Map.Children.OfType<MapLayer>().FirstOrDefault();
+            if (_poiLayer != null)
             {
-                Pushpin p = new Pushpin();
-                p.Text = c.Sequence.ToString();
-                p.PointerPressed += (s, e) =>
+                _poiLayer.Children.Clear();
+
+                foreach (var c in _defaultViewModel.TomTomApi.Cameras)
                 {
-                    ///GotoLocation(new Location(c.Latitude, c.Longitude));
-                };
-                MapLayer.SetPosition(p, new Location(c.Latitude, c.Longitude));
-                Map.Children.Add(p);
+                    PointOfInterestPin p = new PointOfInterestPin() { Id = c.Sequence };
+                    MapLayer.SetPosition(p, new Location(c.Latitude, c.Longitude));
+                    _poiLayer.Children.Add(p);
+                }
             }
 
             var item = CameraListView.Items.Where(o => (o as TomTomCameraViewModel).Sequence == 1).FirstOrDefault();

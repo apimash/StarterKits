@@ -14,8 +14,30 @@ namespace APIMASH
     /// <summary>
     /// Base class for all API wrapper classes
     /// </summary>
-    public abstract class ApiBase
+    public abstract class ApiBase : INotifyPropertyChanged
     {
+
+        #region INotifyPropertyChanged handling
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
+        {
+            if (object.Equals(storage, value)) return false;
+
+            storage = value;
+            this.OnPropertyChanged(propertyName);
+            return true;
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var eventHandler = this.PropertyChanged;
+            if (eventHandler != null)
+            {
+                eventHandler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion  
+
         /// <summary>
         /// API access key (required by most APIs)
         /// </summary>
@@ -92,13 +114,23 @@ namespace APIMASH
     /// </summary>
     public class ApiMonitor : INotifyPropertyChanged
     {
-        #region INotifyPropertyChanged handler
+        #region INotifyPropertyChanged handling
         public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
         {
-            if (PropertyChanged != null)
+            if (object.Equals(storage, value)) return false;
+
+            storage = value;
+            this.OnPropertyChanged(propertyName);
+            return true;
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            var eventHandler = this.PropertyChanged;
+            if (eventHandler != null)
             {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                eventHandler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
         #endregion  
@@ -109,17 +141,9 @@ namespace APIMASH
         public ApiResponseStatus LastResponseStatus
         {
             get { return _lastResponseStatus; }
-            set
-            {
-                if (value != _lastResponseStatus)
-                {
-                    _lastResponseStatus = value;
-                    NotifyPropertyChanged();
-                }
-            }
+            set { SetProperty(ref _lastResponseStatus, value); }
         }
         private ApiResponseStatus _lastResponseStatus;
-
 
         /// <summary>
         /// Indicator whether an API call is in currently executing (useful for databinding a progress indicator)
@@ -127,14 +151,7 @@ namespace APIMASH
         public Boolean IsExecuting
         {
             get { return _isExecuting; }
-            set
-            {
-                if (value != _isExecuting)
-                {
-                    _isExecuting = value;
-                    NotifyPropertyChanged();
-                }
-            }
+            set { SetProperty(ref _isExecuting, value); }
         }
         private Boolean _isExecuting;
     }

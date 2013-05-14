@@ -123,9 +123,10 @@ namespace APIMASH_BingMaps
         /// <summary>
         /// Copies the desired portions of the deserialized model data to the view model collection of locations
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="viewModel"></param>
-        public static void PopulateViewModel(RootObject model, ObservableCollection<BingLocationsViewModel> viewModel, Int32 maxResults = 0)
+        /// <param name="model">Deserialized result from API call</param>
+        /// <param name="maxResults">Maximum number of results to assign to view model (0 = assign all results)</param>
+        /// <returns>Indicator of whether items were left out of the view model due to max size restrictions</returns>
+        public static Boolean PopulateViewModel(RootObject model, ObservableCollection<BingLocationsViewModel> viewModel, Int32 maxResults = 0)
         {
             // filter criteria
             String[] countryList = { "United States", "Canada" };
@@ -156,9 +157,11 @@ namespace APIMASH_BingMaps
             }
 
             // apply max count if provided
-            maxResults = maxResults <= 0 ? stagingList.Count : maxResults;
-            foreach (var s in stagingList.Take(maxResults))
+            var maxResultsExceeded = (maxResults > 0) && (stagingList.Count > maxResults);
+            foreach (var s in stagingList.Take(maxResultsExceeded ? maxResults : stagingList.Count))
                 viewModel.Add(s);
+
+            return maxResultsExceeded;
         }
     }
 
@@ -195,6 +198,7 @@ namespace APIMASH_BingMaps
         /// Performs a Bing Maps location query given <paramref name="searchCriteria"/>
         /// </summary>
         /// <param name="searchCriteria">Free form search criteria</param>
+        /// <param name="maxResults">Maximum number of results to assign to view model (0 = assign all results)</param>
         /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/></returns>
         public async Task<APIMASH.ApiResponseStatus> GetLocations(String searchCriteria, Int32 maxResults = 0)
         {

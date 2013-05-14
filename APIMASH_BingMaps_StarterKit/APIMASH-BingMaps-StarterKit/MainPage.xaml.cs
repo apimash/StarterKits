@@ -1,15 +1,16 @@
-﻿using APIMASH_BingMaps;
+﻿using APIMASH_BingMaps_StarterKit.Flyouts;
 using Bing.Maps;
+using Callisto.Controls;
+using Callisto.Controls.Common;
 using System;
 using System.Threading.Tasks;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
-using Windows.System;
-using Windows.UI;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 //
@@ -20,7 +21,7 @@ namespace APIMASH_BingMaps_StarterKit
 {
     public sealed partial class MainPage : LayoutAwarePage
     {
-        private UIElement  _currentLocationPin;
+        private CurrentLocationPin _currentLocationPin;
         private Geolocator _geolocator;
 
         public MainPage()
@@ -35,21 +36,13 @@ namespace APIMASH_BingMaps_StarterKit
                 ApplicationData.Current.LocalSettings.Values.Add(
                     new System.Collections.Generic.KeyValuePair<string, object>("InitialRunDate", DateTime.UtcNow.ToString()));
 
+            // add a pin for the current location
+            _currentLocationPin = new CurrentLocationPin() { Visibility = Visibility.Collapsed };
+            MapLayer.SetPositionAnchor(_currentLocationPin, _currentLocationPin.AnchorPoint);
+            TheMap.Children.Add(_currentLocationPin);
 
-            // create a pin to mark user's current location (if granted access)
-            //currentLocationPin = Resources["CurrentLocationPin"] as Windows.UI.Xaml.Shapes.Rectangle;
-
-            _currentLocationPin = new Windows.UI.Xaml.Shapes.Rectangle()
-            {
-                Height = 15,
-                Width = 15,
-                StrokeThickness = 3,
-                Stroke = new SolidColorBrush(Colors.Black),
-                Fill = new SolidColorBrush(Colors.Red),
-                Visibility = Visibility.Collapsed,
-                RenderTransform = new RotateTransform() { Angle = 45 }
-            };
-            
+            // add a layer to store the points of interest
+            TheMap.Children.Add(new MapLayer());
 
             // if location access if revoked while app running, hide the user's location
             _geolocator = new Geolocator();
@@ -63,7 +56,7 @@ namespace APIMASH_BingMaps_StarterKit
                             })
                     );
                 };
-            GotoLocation(null, !_firstRun);
+            GotoLocation(null, true, !_firstRun);
 
             this.Tapped += (s, e) =>
                 {
@@ -73,20 +66,25 @@ namespace APIMASH_BingMaps_StarterKit
                         e.Handled = true;
                     }
                 };
-
+            BottomAppBar.Opened += (s, e) => { SearchFlyout.Visibility = Visibility.Collapsed; };            
             SearchFlyout.Tapped += (s, e) => { e.Handled = true; };
-            SearchFlyout.LocationChanged += (s, e) => GotoLocation(new Location(e.Latitude, e.Longitude));
+            SearchFlyout.LocationChanged += (s, e) => GotoLocation(new Location(e.Latitude, e.Longitude), showMarker: true);
 
-            BottomAppBar.Opened += (s, e) => { SearchFlyout.Visibility = Visibility.Collapsed; };
+
+            // TODO: Implement change in map when an item in the left panel is selected
+            LeftPanel.ItemSelected += (s, e) =>
+            {
+                // do something when item in panel is selected
+            };
         }
-        
+
         /// <summary>
         /// Navigates map centering on given location
         /// </summary>
         /// <param name="location">Latitude/longitude point of new location (if null, current location is detected via GPS)</param>
         /// <param name="ShowMessage">Whether to show message informing user that location tracking is not enabled on device.</param>
         /// <returns></returns>
-        async Task GotoLocation(Location location, Boolean ShowMessage = false)
+        async Task GotoLocation(Location location, Boolean showMarker, Boolean ShowMessage = false)
         {
             try
             {
@@ -100,18 +98,15 @@ namespace APIMASH_BingMaps_StarterKit
                 // pan map to desired location with a default zoom level
                 TheMap.SetView(location, (Double)App.Current.Resources["DefaultZoomLevel"]);
 
-                // show the traffic cameras currently in map view
-                await TomTomPanel.Refresh();
+                // refresh the left panel to reflect points of interest in current view
+                await LeftPanel.Refresh();
 
-                // add pushpin for current location
-                if (!TheMap.Children.Contains(_currentLocationPin))
-                    TheMap.Children.Add(_currentLocationPin);
+                // set the current position
                 MapLayer.SetPosition(_currentLocationPin, location);
-                _currentLocationPin.Visibility = Visibility.Visible;
-
+                _currentLocationPin.Visibility = showMarker ? Visibility.Visible : Visibility.Collapsed;
             }
 
-            // catch exception is location permission not granted
+            // catch exception if location permission not granted
             catch (UnauthorizedAccessException)
             {
                 if (ShowMessage)
@@ -134,35 +129,63 @@ namespace APIMASH_BingMaps_StarterKit
         {
             // pan map to the user's curent location
             BottomAppBar.IsOpen = false;
-            await GotoLocation(null, true);
+            await GotoLocation(null, showMarker: true);
         }
 
         private async void Refresh_Click(object sender, RoutedEventArgs e)
         {
             // refresh the panel to reflect items in map view
             BottomAppBar.IsOpen = false;
-            await TomTomPanel.Refresh();
+            await LeftPanel.Refresh();
         }        
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // handle Settings pane options
+            // TODO: Modify the contents of the "Flyout" UserObjects to include text or other UI specific to your app
             SettingsPane settingsPane = Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView();
             settingsPane.CommandsRequested += (s, e2) =>
             {
                 e2.Request.ApplicationCommands.Add(
                     new SettingsCommand("About", "About",
-                                        (x) => Launcher.LaunchUriAsync(new Uri("ms-appx:///Assets/About.html")))
+                                        (x) => ShowSettingsFlyout("About", new AboutFlyout()))
                 );
                 e2.Request.ApplicationCommands.Add(
                     new SettingsCommand("Support", "Support",
-                                        (x) => Launcher.LaunchUriAsync(new Uri("ms-appx:///Assets/Support.html")))
+                                        (x) => ShowSettingsFlyout("Support", new SupportFlyout()))
                 );
                 e2.Request.ApplicationCommands.Add(
-                    new SettingsCommand("Privacy", "Privacy",
-                                        (x) => Launcher.LaunchUriAsync(new Uri("ms-appx:///Assets/Privacy.html")))
+                    new SettingsCommand("Privacy", "Privacy Statement",
+                                        (x) => ShowSettingsFlyout("Privacy Statement", new PrivacyFlyout()))
                 );
             };
+        }
+
+        /// <summary>
+        /// Show a settings flyout using the Callisto toolkit (http://callistotoolkit.com/)
+        /// </summary>
+        /// <param name="title">Name of flyout</param>
+        /// <param name="content">UserControl containing the content to be displayed in the flyout</param>
+        /// <param name="width">Flyout width (narrow or wide)</param>
+        private async void ShowSettingsFlyout(string title, Windows.UI.Xaml.Controls.UserControl content, 
+            SettingsFlyout.SettingsFlyoutWidth width = SettingsFlyout.SettingsFlyoutWidth.Narrow)
+        {
+            // grab app theme color from resources (optional)
+            SolidColorBrush color = null;
+            if (App.Current.Resources.Keys.Contains("AppThemeColor"))
+                 color = App.Current.Resources["AppThemeColor"] as SolidColorBrush;
+
+            // create the flyout
+            var flyout = new SettingsFlyout();
+            if (color != null) flyout.HeaderBrush = color;
+            flyout.HeaderText = title;
+            flyout.FlyoutWidth = width;
+
+            // access the small logo from the manifest
+            flyout.SmallLogoImageSource = new BitmapImage((await AppManifestHelper.GetManifestVisualElementsAsync()).SmallLogoUri);
+
+            // assign content and show
+            flyout.Content = content;
+            flyout.IsOpen = true;
         }
     }
 }

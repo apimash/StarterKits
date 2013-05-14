@@ -77,9 +77,13 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Traffic Cameras" Style="{StaticResource SubheaderTextStyle}" />
-                <Button Grid.Column="1" Content="&#xE117;" FontFamily="Segoe UI Symbol" FontSize="25" Padding="6"
+                <TextBlock Text="Traffic Cameras" Style="{StaticResource SubheaderTextStyle}" TextTrimming="WordEllipsis" />
+                <Image Grid.Column="1" Source="ms-appx:///Images/warning.png" Height="25" Margin="10,0" 
+                       Visibility="{Binding TomTomApi.CameraListTruncated, Converter={StaticResource BooleanToVisibilityConverter}}"
+                       ToolTipService.ToolTip="More results are available than are shown. Try zooming in on the map to a smaller target area and then refresh the list." />
+                <Button Grid.Column="2" Content="&#xE117;" FontFamily="Segoe UI Symbol" FontSize="25" Padding="6"
                         Style="{StaticResource ImageButtonStyle}" Click="Refresh_Click"/>
             </Grid>
 
@@ -93,7 +97,8 @@
                                 <TextBlock Text="{Binding Sequence}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Grid>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
-                                <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" />
+                                <TextBlock Text="{Binding Name}" TextTrimming="WordEllipsis" 
+                                   ToolTipService.ToolTip="{Binding Name}" ToolTipService.Placement="Right" />
                                 <TextBlock Text="{Binding Orientation}" TextWrapping="Wrap" VerticalAlignment="Stretch"/>
                             </StackPanel>
                         </StackPanel>
