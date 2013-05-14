@@ -104,6 +104,12 @@ namespace APIMASH_BingMaps_StarterKit
             ErrorPanel.Dismissed += (s, e) => _defaultViewModel.ApiStatus = APIMASH.ApiResponseStatus.DefaultInstance;
         }
 
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh();
+        }
+
+        // TODO: handle the selection of an individual item in the list. Note that the main view can listen 
         private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // update camera image source based on selected camera
@@ -120,12 +126,7 @@ namespace APIMASH_BingMaps_StarterKit
             CamImage.Visibility = camera == null ? Visibility.Collapsed : Visibility.Visible;
         }
 
-        private void Refresh_Click(object sender, RoutedEventArgs e)
-        {
-            Refresh();
-        }
-
-        // handle refresh request of the data in the left panel
+        // TODO: refresh the items in the panel to reflect points of interest in the current map view.
         public async Task Refresh()
         {
 

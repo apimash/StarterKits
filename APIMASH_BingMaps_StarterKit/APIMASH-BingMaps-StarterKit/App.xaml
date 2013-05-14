@@ -21,17 +21,22 @@
                 <ResourceDictionary Source="Common/StandardStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
-            <x:String x:Key="BingMapsAPIKey">ENTER-YOUR-BING-MAPS-KEY-HERE</x:String>
-            <x:String x:Key="TomTomAPIKey">ENTER-YOUR-TOMTOM-KEY-HERE</x:String>
-
-            <SolidColorBrush x:Key="AppThemeColor" Color="Navy" />
-            <x:Double x:Key="DefaultZoomLevel">12</x:Double>
-            
             <apimash:ApiMonitor x:Key="ApiMonitor" />
 
             <common:ApiStatusToInvisibilityConverter x:Key="ApiStatusToInvisibilityConverter" />
             <common:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter" />
             <common:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+            
+            <!-- TODO: Replace with your API keys -->
+            <x:String x:Key="BingMapsAPIKey">AiXg2NzPrN_cNdEmOPeYGX7UsNYZfXI_EyUf2SNYTRpg3Ku9fIPAlj4eL7zKkyYU</x:String>
+            <x:String x:Key="TomTomAPIKey">dku9t2ayqyh87aqnvt9w3tqy</x:String>
+
+            <!-- TODO: (optional) Modify theme color of app -->
+            <SolidColorBrush x:Key="AppThemeColor" Color="Navy" />
+            
+            <!-- TODO: (optional) Modify the default zoom level (0-19) that occurs when selecting a specific location -->
+            <x:Double x:Key="DefaultZoomLevel">12</x:Double>
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

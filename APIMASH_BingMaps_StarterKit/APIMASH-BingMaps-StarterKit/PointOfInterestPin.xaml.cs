@@ -42,6 +42,8 @@ namespace APIMASH_BingMaps_StarterKit
             }));
         #endregion
 
+        // TODO: (optional) if the indicator graphic is changed, update the AnchorPoint to reflect what point in the 
+        //   graphic should be anchored to the lat/long in the location.
         /// <summary>
         /// Anchor point of pushpin (for circular marker, the center point)
         /// </summary>

@@ -41,6 +41,8 @@
                 <StackPanel Orientation="Horizontal">
 
                 </StackPanel>
+                
+                <!-- TODO: Modify/add additonal AppBar options -->
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Style="{StaticResource RefreshAppBarButtonStyle}" AutomationProperties.Name="Refresh" Click="Refresh_Click"/>
                     <TextBlock Text="|" VerticalAlignment="Center" FontSize="40" Margin="15,0"/>
@@ -57,6 +59,11 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         
+        <!-- TODO: (optional) Change MaxResults to reflect the max number of items to appear in the left
+             panel, typically resulting from an API call. If more elements are available, a glyph
+             will automatically appear. You might consider virtualizng the results for a better
+             enduser experience.
+        -->
         <local:LeftPanel x:Name="LeftPanel" Map="{Binding ElementName=TheMap}" MaxResults="25"/> 
         
         <bingmaps:Map Grid.Column="1" 
@@ -65,13 +72,15 @@
               ScaleBarPosition="TopLeft"
               ViewRestriction="OneWorldOnly"
               LogoPosition="BottomRight"
-              CopyrightPosition="BottomRight"
-        >
-        <bingmaps:Map.Center>
+              CopyrightPosition="BottomRight">
+             <bingmaps:Map.Center>
                 <bingmaps:Location Latitude="39.83" Longitude="-98.58" />
             </bingmaps:Map.Center>
         </bingmaps:Map>
-        
+
+        <!-- TODO: (optional) Change MaxResults to reflect number of location options to appear on a
+            search. The value of 12 will fill the panel in 1366x768 without need for scrolling.
+        -->
         <flyouts:SearchFlyout x:Name="SearchFlyout" Grid.Column="1" Map="{Binding ElementName=TheMap}" 
                              HorizontalAlignment="Right" Visibility="Collapsed" MaxResults="12" />
        

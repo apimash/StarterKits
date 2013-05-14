@@ -54,7 +54,7 @@ namespace APIMASH_BingMaps_StarterKit
 
                 if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    //TODO: Load state from previously suspended application
+                    // TODO: Load state from previously suspended application
                 }
 
                 // Place the frame in the current Window
@@ -85,7 +85,7 @@ namespace APIMASH_BingMaps_StarterKit
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            //TODO: Save application state and stop any background activity
+            // TODO: Save application state and stop any background activity
             deferral.Complete();
         }
     }

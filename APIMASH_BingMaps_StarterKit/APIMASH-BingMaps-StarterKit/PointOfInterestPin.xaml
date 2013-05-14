@@ -12,7 +12,10 @@
     mc:Ignorable="d"
     d:DesignHeight="50"
     d:DesignWidth="50">
-    
+
+    <!-- TODO: (optional) modify rendering of the point-of-interest marker.  Be sure to change the AnchorPoint in the code
+            behind to reflect what point in the graphic should be anchored to the lat/long in the location.
+    -->
     <Grid Width="50" Height="50">
             <Ellipse x:Name="Corona" Fill="Red" Visibility="Collapsed" />
             <Ellipse Width="30" Height="30" Fill="White" />
