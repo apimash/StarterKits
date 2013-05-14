@@ -12,22 +12,39 @@ using System.Xml.Serialization;
 
 namespace APIMASH
 {
-    public static class Deserializers<T>
+    /// <summary>
+    /// Repository of deserializers to handle response from API calls
+    /// </summary>
+    /// <typeparam name="T">Deserialized type, typically the type of the model class to store results for a given API call</typeparam>
+    public static partial class Deserializers<T>
     {
+        /// <summary>
+        /// Map of Content-Type header values to deserializer classes 
+        /// </summary>
         private static Dictionary<String, Func<String, T>> _mapping = new Dictionary<String, Func<String, T>>()
         {
             { "application/json", DeserializeJsonNet },
             { "application/xml", DeserializeXml }
         };
 
-        public static Func<String, T> GetDefaultDeserializer(String mimeType)
+        /// <summary>
+        /// Return default serializer for a given <paramref name="mediaType"/> (e.g., application/json)
+        /// </summary>
+        /// <param name="mediaType">mediaType of the response (from HTTP Content-Type header)</param>
+        /// <returns></returns>
+        public static Func<String, T> GetDefaultDeserializer(String mediaType)
         {
-            if (_mapping.ContainsKey(mimeType))
-                return _mapping[mimeType];
+            if (_mapping.ContainsKey(mediaType))
+                return _mapping[mediaType];
             else
                 return null;
         }
 
+        /// <summary>
+        /// Deserialize payload via JSON.NET
+        /// </summary>
+        /// <param name="objString">Raw HTTP response string containing JSON</param>
+        /// <returns>Deserialized object</returns>
         public static T DeserializeJsonNet(String objString)
         {
             try
@@ -37,6 +54,11 @@ namespace APIMASH
             catch (Exception) { throw; }
         }
 
+        /// <summary>
+        /// Deserialize payload via .NET DataContractJsonSerializer
+        /// </summary>
+        /// <param name="objString">Raw HTTP response string containing JSON</param>
+        /// <returns>Deserialized object</returns>
         public static T DeserializeJson(String objString)
         {
             using (var stream = new MemoryStream(Encoding.Unicode.GetBytes(objString)))
@@ -50,6 +72,11 @@ namespace APIMASH
             }
         }
 
+        /// <summary>
+        /// Deserialize payload via .NET XmlSerializer
+        /// </summary>
+        /// <param name="objString">Raw HTTP response string containing XML</param>
+        /// <returns>Deserialized object</returns>
         public static T DeserializeXml(string objString)
         {
             using (var stream = new MemoryStream(Encoding.Unicode.GetBytes(objString)))

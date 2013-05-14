@@ -1,17 +1,15 @@
-﻿using APIMASH_TomTom;
+﻿using APIMASH_BingMaps;
 using Bing.Maps;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Resources;
 using Windows.Devices.Geolocation;
+using Windows.Storage;
 using Windows.System;
 using Windows.UI;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 //
@@ -22,13 +20,20 @@ namespace APIMASH_BingMaps_StarterKit
 {
     public sealed partial class MainPage : LayoutAwarePage
     {
-        private TomTomApi _TomTomApi = new TomTomApi();
-        private UIElement _currentLocationPin;
+        private UIElement  _currentLocationPin;
         private Geolocator _geolocator;
 
         public MainPage()
         {
             this.InitializeComponent();
+
+            // check to see if this is the first time application is being executed by check to see if there is any
+            // data in local storage. After checking we'll add some notional data.  This will be used to determine whether
+            // to prompt (or not) user that location services are not turned on for the app/system.
+            Boolean _firstRun = ApplicationData.Current.LocalSettings.Values.Count == 0;
+            if (_firstRun)
+                ApplicationData.Current.LocalSettings.Values.Add(
+                    new System.Collections.Generic.KeyValuePair<string, object>("InitialRunDate", DateTime.UtcNow.ToString()));
 
 
             // create a pin to mark user's current location (if granted access)
@@ -58,24 +63,29 @@ namespace APIMASH_BingMaps_StarterKit
                             })
                     );
                 };
-            GotoLocation(null, true);
+            GotoLocation(null, !_firstRun);
 
             this.Tapped += (s, e) =>
                 {
-                    if (LocateFlyout.Visibility == Visibility.Visible)
+                    if (SearchFlyout.Visibility == Visibility.Visible)
                     {
-                        LocateFlyout.Visibility = Visibility.Collapsed;
+                        SearchFlyout.Visibility = Visibility.Collapsed;
                         e.Handled = true;
                     }
                 };
 
-            LocateFlyout.Tapped += (s, e) => { e.Handled = true; };
+            SearchFlyout.Tapped += (s, e) => { e.Handled = true; };
+            SearchFlyout.LocationChanged += (s, e) => GotoLocation(new Location(e.Latitude, e.Longitude));
 
-            LocateFlyout.LocationChanged += (s, e) => GotoLocation(new Location(e.Latitude, e.Longitude));
-
-            BottomAppBar.Opened += (s, e) => { LocateFlyout.Visibility = Visibility.Collapsed; };
+            BottomAppBar.Opened += (s, e) => { SearchFlyout.Visibility = Visibility.Collapsed; };
         }
         
+        /// <summary>
+        /// Navigates map centering on given location
+        /// </summary>
+        /// <param name="location">Latitude/longitude point of new location (if null, current location is detected via GPS)</param>
+        /// <param name="ShowMessage">Whether to show message informing user that location tracking is not enabled on device.</param>
+        /// <returns></returns>
         async Task GotoLocation(Location location, Boolean ShowMessage = false)
         {
             try
@@ -91,7 +101,7 @@ namespace APIMASH_BingMaps_StarterKit
                 TheMap.SetView(location, (Double)App.Current.Resources["DefaultZoomLevel"]);
 
                 // show the traffic cameras currently in map view
-                await PlotCameras();
+                await TomTomPanel.Refresh();
 
                 // add pushpin for current location
                 if (!TheMap.Children.Contains(_currentLocationPin))
@@ -106,31 +116,10 @@ namespace APIMASH_BingMaps_StarterKit
             {
                 if (ShowMessage)
                 {
-                    MessageDialog md = new MessageDialog("This application has not been granted permission to capture your current location. Use the Settings charm to provide this access, then try the operation again.");
+                    MessageDialog md = 
+                        new MessageDialog("This application has not been granted permission to capture your current location. Use the Settings charm to provide this access, then try the operation again.");
                     md.ShowAsync();
                 }
-            }
-        }
-
-        public async Task PlotCameras()
-        {
-            // make call to TomTom API to get the camera in the map view
-            await TomTomApi.GetCameras(new BoundingBox(
-                        TheMap.TargetBounds.North, TheMap.TargetBounds.South,
-                        TheMap.TargetBounds.West, TheMap.TargetBounds.East));
-
-            // replace all of the push pins
-            TheMap.Children.Clear();
-            foreach (var c in TomTomApi.Cameras)
-            {
-                Pushpin p = new Pushpin();
-                p.Text = c.Sequence.ToString();
-                p.PointerPressed += (s, e) =>
-                {
-                    GotoLocation(new Location(c.Latitude, c.Longitude));
-                };
-                MapLayer.SetPosition(p, new Location(c.Latitude, c.Longitude));
-                TheMap.Children.Add(p);
             }
         }
 
@@ -138,7 +127,7 @@ namespace APIMASH_BingMaps_StarterKit
         {
             // open the search flyout
             BottomAppBar.IsOpen = false;            
-            LocateFlyout.Visibility = Visibility.Visible;
+            SearchFlyout.Visibility = Visibility.Visible;
         }
 
         private async void LocationButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -148,27 +137,12 @@ namespace APIMASH_BingMaps_StarterKit
             await GotoLocation(null, true);
         }
 
-        private async void RefreshCams_Click(object sender, RoutedEventArgs e)
+        private async void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            // refresh the camera list to reflect cameras in map view
+            // refresh the panel to reflect items in map view
             BottomAppBar.IsOpen = false;
-            await PlotCameras();
+            await TomTomPanel.Refresh();
         }        
-        
-        private void CameraList_SelectionChanged(object sender, Windows.UI.Xaml.Controls.SelectionChangedEventArgs e)
-        {
-            // update camera image source based on selected camera
-            APIMASH_TomTom.TomTomCameraViewModel camera = null;
-            if (e.AddedItems.Count > 0)
-            {
-                camera = e.AddedItems[0] as TomTomCameraViewModel;
-                if (camera != null)
-                {
-                    CamImage.Source = TomTomApi.GetCameraImage(camera.CameraId);
-                }
-            }
-            CamImage.Visibility = camera == null ? Visibility.Collapsed : Visibility.Visible;
-        }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {

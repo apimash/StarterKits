@@ -1,7 +1,8 @@
-﻿using APIMASH;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Net;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
@@ -12,18 +13,48 @@ using Windows.UI.Xaml;
 
 namespace APIMASH_BingMaps
 {
+    /// <summary>
+    /// View model class for list of locations returned from a Bing Maps search
+    /// </summary>
     public class BingLocationsViewModel
     {
+        /// <summary>
+        /// Address (taken from Address.AddressLine)
+        /// </summary>
         public String Address { get; set; }
+
+        /// <summary>
+        /// City (taken from Address.Locality)
+        /// </summary>
         public String City { get; set; }
+
+        /// <summary>
+        /// State (taken from Address.AdminDistrict)
+        /// </summary>
         public String State { get; set; }
+
+        /// <summary>
+        /// Latitude (average of the bounding box, bbox)
+        /// </summary>
         public Double Latitude { get; set; }
+
+        /// <summary>
+        /// Longitude (average of the bounding box, bbox)
+        /// </summary>
         public Double Longitude { get; set; }
     }
 
+    /// <summary>
+    /// Class for deserializing raw response data from a Bing Maps location query
+    /// </summary>
     public class BingLocationsModel
     {
+        /// <summary>
+        /// Root node of reponse data in raw format (JSON)
+        /// </summary>
         public RootObject ModelData { get; private set; }
+
+        #region model data generated via http://json2csharp.com
         public class Point
         {
             public string type { get; set; }
@@ -87,18 +118,34 @@ namespace APIMASH_BingMaps
             public string statusDescription { get; set; }
             public string traceId { get; set; }
         }
+        #endregion
 
-
-        // copy the model to the view model
-        public static void PopulateViewModel(RootObject model, ObservableCollection<BingLocationsViewModel> viewModel)
+        /// <summary>
+        /// Copies the desired portions of the deserialized model data to the view model collection of locations
+        /// </summary>
+        /// <param name="model"></param>
+        /// <param name="viewModel"></param>
+        public static void PopulateViewModel(RootObject model, ObservableCollection<BingLocationsViewModel> viewModel, Int32 maxResults = 0)
         {
+            // filter criteria
+            String[] countryList = { "United States", "Canada" };
+
+            // set up a staging list for applying any filters/max # of items returned, etc.
+            var stagingList = new List<BingLocationsViewModel>();
+
+            // clear the view model first
             viewModel.Clear();
+
+            // loop through resource sets (there should only be one)
             foreach (var resourceSet in model.resourceSets)
             {
-                foreach (var resource in resourceSet.resources)
+                // loop through resources in resource set
+                foreach (var resource in resourceSet.resources.Where((r) => countryList.Contains(r.address.countryRegion)))
                 {
-                    viewModel.Add(new BingLocationsViewModel()
-                    { 
+
+                    // add location to staging list list
+                    stagingList.Add(new BingLocationsViewModel()
+                    {
                         Address = resource.address.addressLine,
                         City = resource.address.locality,
                         State = resource.address.adminDistrict,
@@ -106,42 +153,89 @@ namespace APIMASH_BingMaps
                         Longitude = (resource.bbox[1] + resource.bbox[3]) / 2
                     });
                 }
-
             }
+
+            // apply max count if provided
+            maxResults = maxResults <= 0 ? stagingList.Count : maxResults;
+            foreach (var s in stagingList.Take(maxResults))
+                viewModel.Add(s);
         }
     }
 
-    public sealed class BingApi : APIMASH_ApiBase
+    /// <summary>
+    /// Wrapper class for Bing Maps API
+    /// </summary>
+    public sealed class BingApi : APIMASH.ApiBase
     {
         public BingApi()
         {
             _apiKey = Application.Current.Resources["BingMapsAPIKey"] as String;
         }
 
+        /// <summary>
+        /// Update API key to a session key to eliminate billable transactions
+        /// </summary>
+        /// <param name="key">Session key</param>
+        public void SetSessionKey(String key)
+        {
+            _apiKey = key;
+        }
+
         private ObservableCollection<BingLocationsViewModel> _locations =
             new ObservableCollection<BingLocationsViewModel>();
+        /// <summary>
+        /// List of locations returned by a search (bindable to the UI)
+        /// </summary>
         public ObservableCollection<BingLocationsViewModel> Locations
         {
             get { return _locations; }
         }
         
-        // invoke API to get list of locations matching search criteria
-        public async Task GetLocations(String searchCriteria)
+        /// <summary>
+        /// Performs a Bing Maps location query given <paramref name="searchCriteria"/>
+        /// </summary>
+        /// <param name="searchCriteria">Free form search criteria</param>
+        /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/></returns>
+        public async Task<APIMASH.ApiResponseStatus> GetLocations(String searchCriteria, Int32 maxResults = 0)
         {
-
+            // invoke the API
             var apiResponse = await Invoke<BingLocationsModel.RootObject>(
-                "http://dev.virtualearth.net/REST/v1/Locations?q={0}&maxResults=10&key={1}",
+                "http://dev.virtualearth.net/REST/v1/Locations?q={0}&maxResults=20&key={1}",
                 Uri.EscapeUriString(searchCriteria), 
                 this._apiKey);
 
-            if (apiResponse.IsSuccessStatusCode)
+            // clear the results
+            _locations.Clear();
+
+            // check special X-MS-BM-WS-INFO header, when 1, system may be too busy and you should try again
+            if (apiResponse.Headers.GetValues("X-MS-BM-WS-INFO").FirstOrDefault() == "1")
             {
-                BingLocationsModel.PopulateViewModel(apiResponse.DeserializedResponse, _locations);
+                apiResponse.StatusCode = HttpStatusCode.Unused;
+                apiResponse.Message = "Bing Maps system overloaded. Please try again in a few seconds.";
+            }
+               
+            // otherwise, if successful, copy relevant portions from model to the view model
+            else if (apiResponse.IsSuccessStatusCode)
+            {
+                BingLocationsModel.PopulateViewModel(apiResponse.DeserializedResponse, _locations, maxResults);
             }
             else
             {
-                // error information is in apiResponse process as desired :)
+                switch (apiResponse.StatusCode)
+                {
+                    case HttpStatusCode.Unauthorized:
+                        apiResponse.Message = "Supplied API key is not valid for this request.";
+                        break;
+
+                    case HttpStatusCode.InternalServerError:
+                    case HttpStatusCode.ServiceUnavailable:
+                        apiResponse.Message = "Problem appears to be on TomTom's side. Please retry later.";
+                        break;
+                }  
             }
+
+            // return the status information
+            return apiResponse as APIMASH.ApiResponseStatus;
         }
     }
 }

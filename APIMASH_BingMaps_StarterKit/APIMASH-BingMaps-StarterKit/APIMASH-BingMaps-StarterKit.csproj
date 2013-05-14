@@ -83,7 +83,7 @@
     <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
-    <NoWarn>;2008</NoWarn>
+    <NoWarn>;2008;4014</NoWarn>
     <DebugType>full</DebugType>
     <PlatformTarget>x86</PlatformTarget>
     <UseVSHostingProcess>false</UseVSHostingProcess>
@@ -102,15 +102,23 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="APIErrorPanel.xaml.cs">
+      <DependentUpon>APIErrorPanel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\ApiStatusToInvisibilityConverter.cs" />
+    <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\EmptyStringToVisibilityConverter.cs" />
-    <Compile Include="LocateFlyout.xaml.cs">
-      <DependentUpon>LocateFlyout.xaml</DependentUpon>
+    <Compile Include="Flyouts\SearchFlyout.xaml.cs">
+      <DependentUpon>SearchFlyout.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeftPanel.xaml.cs">
+      <DependentUpon>LeftPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -122,18 +130,25 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="APIMASH-BingMaps-StarterKit_TemporaryKey.pfx" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="LeftPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="APIErrorPanel.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Content Include="Assets\About.html" />
-    <Content Include="Assets\Privacy.html" />
-    <Content Include="Assets\Support.html" />
     <Content Include="Assets\Logo.png" />
-    <Content Include="Assets\Refresh.png" />
+    <Content Include="Assets\Privacy.html" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
-    <Page Include="LocateFlyout.xaml">
+    <Content Include="Assets\Support.html" />
+    <Content Include="Assets\Refresh.png" />
+    <Page Include="Flyouts\SearchFlyout.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -156,9 +171,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\APIMASHLib\APIMASHLib.csproj">
+    <ProjectReference Include="..\APIMASH\APIMASH.csproj">
       <Project>{a7cb71b9-c19e-4a82-8308-d83490f16ef2}</Project>
-      <Name>APIMASHLib</Name>
+      <Name>APIMASH</Name>
     </ProjectReference>
     <ProjectReference Include="..\APIMASH_TrafficCamAPI\APIMASH_TrafficCam.csproj">
       <Project>{1936cd5d-859c-4eb7-8ffa-a4c824955488}</Project>

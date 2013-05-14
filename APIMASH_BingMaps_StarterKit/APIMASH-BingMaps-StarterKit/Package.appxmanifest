@@ -15,9 +15,9 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_BingMaps_StarterKit.App">
-      <VisualElements DisplayName="RoutePlanner" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Mashup of Bing Maps with TomTom traffic cams" ForegroundText="light" BackgroundColor="#464646">
-        <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+      <VisualElements DisplayName="RoutePlanner" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Mashup of Bing Maps with TomTom traffic cams" ForegroundText="light" BackgroundColor="#000000">
+        <DefaultTile ShowName="allLogos" ShortName="Starter Kit" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#000000" />
         <InitialRotationPreference>
           <Rotation Preference="landscape" />
         </InitialRotationPreference>
