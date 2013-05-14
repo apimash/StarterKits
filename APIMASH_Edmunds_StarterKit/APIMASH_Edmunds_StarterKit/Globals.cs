@@ -24,7 +24,7 @@ namespace APIMASH_Edmunds_StarterKit
         public static string EDMUNDS_API_MODELSPECS_MODEL = @"&model=";
         public static string EDMUNDS_API_MODELSPECS_YEAR = @"&year=";
 
-        // vehivle photos by style id
+        // vehicle photos by style id
         public static string EDMUNDS_API_PHOTOS = @"http://api.edmunds.com/v1/api/vehiclephoto/service/findphotosbystyleid?fmt=json" + EDMUNDS_API_DEVKEY + @"&styleId=";
         public static string EDMUNDS_API_PHOTOBASE = @"http://media.ed.edmunds-media.com/";
     }

@@ -17,7 +17,7 @@ namespace APIMASH_RottenTomatoes_StarterKit
     public static class Globals
     {
         // DEV KEY
-        public static string ROTTEN_TOMATOES_API_KEY = @"apikey=[YOUR-DEV-KEY-HERE]";
+        public static string ROTTEN_TOMATOES_API_KEY = @"apikey=[YOUR-API-KEY-HERE]";
 
         // API URI's for Movies and DVD's
         public static string ROTTEN_TOMATOES_API_MOVIES_BOXOFFICE = @"http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?limit=6&country=us&" + ROTTEN_TOMATOES_API_KEY;

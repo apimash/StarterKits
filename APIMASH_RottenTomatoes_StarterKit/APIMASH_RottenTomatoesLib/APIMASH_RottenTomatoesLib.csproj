@@ -102,17 +102,19 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\..\APIMASHLib\APIMASHLib\APIMASHLib.csproj">
-      <Project>{a7cb71b9-c19e-4a82-8308-d83490f16ef2}</Project>
-      <Name>APIMASHLib</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="APIMASH_RottenTomatoes.cs" />
     <Compile Include="APIMASH_OM.cs" />
     <Compile Include="APIMASH_OM_Bindable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\APIMASHLib\APIMASHLib\APIMASHLib.csproj">
+      <Project>{a7cb71b9-c19e-4a82-8308-d83490f16ef2}</Project>
+      <Name>APIMASHLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>
