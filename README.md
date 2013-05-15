@@ -9,8 +9,8 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
 API Partners
 
- ![alt text][1]
-
+![alt text][1]
+[Mashery][2]
 
 ##Starter Kits
  1. Edmunds [XAML/C#]
@@ -35,7 +35,5 @@ API Partners
 ###3 - Submit your App to the Windows Store
 
 
- 
-
-
-  [1]: https://github.com/apimash/StarterKits/blob/master/mashery_logo-small.png "Mashery"
+  [1]: https://raw.github.com/apimash/StarterKits/master/mashery_logo-small.png "Mashery"
+  [2]: http://dev.mashery.com "Mashery Developer Page"
