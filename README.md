@@ -9,7 +9,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
 API Partners
 
- [1]: https://github.com/apimash/StarterKits/blob/master/mashery_logo-feature.png "Mashery"
+ ![alt text][1]
 
 
 ##Starter Kits
@@ -36,3 +36,6 @@ API Partners
 
 
  
+
+
+  [1]: https://github.com/apimash/StarterKits/blob/master/mashery_logo-small.png "Mashery"
