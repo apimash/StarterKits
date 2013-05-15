@@ -11,8 +11,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="1366"
-    d:DesignWidth="320" 
-    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}">
+    d:DesignWidth="320" >
 
     <Grid Width="320" Background="{StaticResource AppThemeColor}" >
         <Grid.RowDefinitions>

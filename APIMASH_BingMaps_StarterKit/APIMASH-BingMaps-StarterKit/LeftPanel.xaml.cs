@@ -1,11 +1,16 @@
 ﻿using APIMASH_BingMaps_StarterKit.Common;
 using APIMASH_TomTom;
+using APIMASH;
 using Bing.Maps;
 using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using APIMASH_BingMaps_StarterKit.Mapping;
 
 //
 // LICENSE: http://opensource.org/licenses/ms-pl
@@ -15,27 +20,33 @@ namespace APIMASH_BingMaps_StarterKit
 {
 
     /// <summary>
-    /// ItemSelected event arguments
+    /// ItemSelectionChanged event arguments
     /// </summary>
-    public class ItemSelectedEventArgs : EventArgs
+    public class ItemSelectionChangedEventArgs : EventArgs
     {
         /// <summary>
-        /// Item selected
+        /// Newly selected item
         /// </summary>
-        public Object Item { get; private set; }
+        public Object NewItem { get; private set; }
 
-        public ItemSelectedEventArgs(Object i)
+
+        /// <summary>
+        /// Previously selected item (or null)
+        /// </summary>
+        public Object OldItem { get; private set; }
+
+        public ItemSelectionChangedEventArgs(Object n, Object o)
         {
-            Item = i;
+            NewItem = n;
+            OldItem = o;
         }
     }
 
     /// <summary>
     /// View model supporting left panel of items associated with map
     /// </summary>
-    public sealed class LeftPanelViewModel : BindableBase
+    public sealed class LeftPanelViewModel : APIMASH.BindableBase
     {
-        private TomTomApi _tomTomApi;
         /// <summary>
         /// TomTom API wrapper class
         /// </summary>
@@ -44,8 +55,8 @@ namespace APIMASH_BingMaps_StarterKit
             get { return _tomTomApi; }
             set { SetProperty(ref _tomTomApi, value); }
         }
+        private TomTomApi _tomTomApi;
 
-        private APIMASH.ApiResponseStatus _apiStatus;
         /// <summary>
         /// API response status
         /// </summary>
@@ -54,6 +65,7 @@ namespace APIMASH_BingMaps_StarterKit
             get { return _apiStatus; }
             set { SetProperty (ref _apiStatus, value); }
         }
+        private APIMASH.ApiResponseStatus _apiStatus;
 
         public LeftPanelViewModel()
         {
@@ -83,25 +95,81 @@ namespace APIMASH_BingMaps_StarterKit
         public static readonly DependencyProperty MaxResultsProperty =
             DependencyProperty.Register("MaxResults", typeof(Int32), typeof(LeftPanel), new PropertyMetadata(0));
         #endregion  
-
+               
         #region ItemSelected event handler
         /// <summary>
         /// Occurs when an item is selected in this panel's list view. Attach an event handler here to reflect selection of this item on the main map.
         /// </summary>
-        public event EventHandler<ItemSelectedEventArgs> ItemSelected;
-        private void OnItemSelected(ItemSelectedEventArgs e)
-        {
-            if (ItemSelected != null) ItemSelected(this, e);
+        public event EventHandler<ItemSelectionChangedEventArgs> ItemSelectionChanged;
+        private void OnItemSelectionChanged(ItemSelectionChangedEventArgs e)
+        {            
+            MapUtilities.HighlighPointOfInterestPin(Map, e.NewItem as IMappable, true);
+            MapUtilities.HighlighPointOfInterestPin(Map, e.OldItem as IMappable, false);
+
+
+            if (ItemSelectionChanged != null) ItemSelectionChanged(this, e);
         }
         #endregion
-
+       
         LeftPanelViewModel _defaultViewModel = new LeftPanelViewModel();
         public LeftPanel()
         {
             this.InitializeComponent();
-
             this.DataContext = _defaultViewModel;
+
+            // use collection changed event to associate view model with point-of-interest pin on map
+            _defaultViewModel.TomTomApi.Cameras.CollectionChanged += ViewModel_CollectionChanged;
+
+            // reset the error panel
             ErrorPanel.Dismissed += (s, e) => _defaultViewModel.ApiStatus = APIMASH.ApiResponseStatus.DefaultInstance;
+        }
+
+        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            object newItem = e.AddedItems.FirstOrDefault();
+            object oldItem = e.RemovedItems.FirstOrDefault();
+
+            //
+            //
+            // TODO: handle the selection of an INDIVIDUAL item in the list. Note that the main view can listen 
+            //       to changes via the ItemSelectedEvent.  If you enable multi-selection on the list, this 
+            //       code will need to be updated accordingly.
+            //
+            //
+            
+            if (newItem != null)
+            {
+                _defaultViewModel.TomTomApi.GetCameraImage(newItem as TomTomCameraViewModel);
+            }
+
+
+
+            // trigger event listeners
+            OnItemSelectionChanged(new ItemSelectionChangedEventArgs(newItem, oldItem));
+        }
+
+        //
+        //
+        // TODO: refresh the items in the panel to reflect points of interest in the current map view.
+        //       this will also require modifying the XAML bindings to reflect properties and information
+        //       you want expose from your specific view model
+        //
+        //
+        /// <summary>
+        /// Refresh the list of items obtained from the API and have it populate the view model
+        /// </summary>
+        public async Task Refresh()
+        {
+            // make call to TomTom API to get the cameras in the map view
+            _defaultViewModel.ApiStatus = 
+                await _defaultViewModel.TomTomApi.GetCameras(new BoundingBox(
+                        Map.TargetBounds.North, Map.TargetBounds.South,
+                        Map.TargetBounds.West, Map.TargetBounds.East),
+                        this.MaxResults);
+
+            // scroll list back to top
+            if (CameraListView.Items.Count > 0)
+                CameraListView.ScrollIntoView(CameraListView.Items[0]);
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
@@ -109,54 +177,42 @@ namespace APIMASH_BingMaps_StarterKit
             Refresh();
         }
 
-        // TODO: handle the selection of an individual item in the list. Note that the main view can listen 
-        private void List_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        // synchronizes changes in the view model collection with the map push pins
+        void ViewModel_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            // update camera image source based on selected camera
-            APIMASH_TomTom.TomTomCameraViewModel camera = null;
-            if (e.AddedItems.Count > 0)
+            // only additions and wholesale reset of the ObservableCollection are currently supported
+            switch (e.Action)
             {
-                camera = e.AddedItems[0] as TomTomCameraViewModel;
-                if (camera != null)
-                {
-                    CamImage.Source = _defaultViewModel.TomTomApi.GetCameraImage(camera.CameraId);
-                }
-                OnItemSelected(new ItemSelectedEventArgs(camera));
+                case NotifyCollectionChangedAction.Add:
+                    foreach (var item in e.NewItems)
+                    {
+                        IMappable mapItem = (IMappable)item;
+                        MapUtilities.AddPointOfInterestPin(
+                            new PointOfInterestPin(mapItem.Id, mapItem.Label),
+                            Map,
+                            new Location(mapItem.Latitude, mapItem.Longitude)
+                        );
+                    }
+                    break;
+
+                case NotifyCollectionChangedAction.Reset:
+                    MapUtilities.ClearPointOfInterestPins(Map);
+                    break;
+
+                // case NotifyCollectionChangedAction.Remove:    
+                        //
+                        // TODO: (optional) if your application allows items to be selectively removed from the view model
+                        //       code to remove a single associated push pin will be required.
+                        //
+                        //
+                        //
+                        // break;
+
+
+                // not implemented in this context
+                // case NotifyCollectionChangedAction.Replace:
+                // case NotifyCollectionChangedAction.Move:
             }
-            CamImage.Visibility = camera == null ? Visibility.Collapsed : Visibility.Visible;
-        }
-
-        // TODO: refresh the items in the panel to reflect points of interest in the current map view.
-        public async Task Refresh()
-        {
-
-            // make call to TomTom API to get the camera in the map view
-            _defaultViewModel.ApiStatus = 
-                await _defaultViewModel.TomTomApi.GetCameras(new BoundingBox(
-                        Map.TargetBounds.North, Map.TargetBounds.South,
-                        Map.TargetBounds.West, Map.TargetBounds.East),
-                        this.MaxResults);
-
-            // clear the map layer of points - note this assumes the first MapLayer in the map children is the one containing
-            // point of interest pushpins
-            var _poiLayer = Map.Children.OfType<MapLayer>().FirstOrDefault();
-            if (_poiLayer != null)
-            {
-                _poiLayer.Children.Clear();
-
-                foreach (var c in _defaultViewModel.TomTomApi.Cameras)
-                {
-                    PointOfInterestPin p = new PointOfInterestPin() { Id = c.Sequence };
-                    MapLayer.SetPosition(p, new Location(c.Latitude, c.Longitude));
-                    _poiLayer.Children.Add(p);
-                }
-            }
-
-            var item = CameraListView.Items.Where(o => (o as TomTomCameraViewModel).Sequence == 1).FirstOrDefault();
-            if (item != null)
-                CameraListView.ScrollIntoView(
-                    item, ScrollIntoViewAlignment.Leading
-                );
         }
     }
 }

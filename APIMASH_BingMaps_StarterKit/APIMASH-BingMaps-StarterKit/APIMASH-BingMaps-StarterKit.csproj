@@ -17,6 +17,9 @@
     <PackageCertificateThumbprint>E064CD3777AB0BF10B60D1E47E1089FF5DB1D50A</PackageCertificateThumbprint>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -114,10 +117,11 @@
     <Compile Include="Common\ApiStatusToInvisibilityConverter.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\ImageToVisibilityConverter.cs" />
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\EmptyStringToVisibilityConverter.cs" />
-    <Compile Include="CurrentLocationPin.xaml.cs">
+    <Compile Include="Mapping\CurrentLocationPin.xaml.cs">
       <DependentUpon>CurrentLocationPin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Flyouts\AboutFlyout.xaml.cs">
@@ -138,7 +142,8 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PointOfInterestPin.xaml.cs">
+    <Compile Include="Mapping\MapUtilities.cs" />
+    <Compile Include="Mapping\PointOfInterestPin.xaml.cs">
       <DependentUpon>PointOfInterestPin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,7 +156,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="PointOfInterestPin.xaml">
+    <Page Include="Mapping\PointOfInterestPin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,7 +172,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="CurrentLocationPin.xaml">
+    <Page Include="Mapping\CurrentLocationPin.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

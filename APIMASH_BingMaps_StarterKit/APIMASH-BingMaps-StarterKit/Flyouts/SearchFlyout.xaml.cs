@@ -86,11 +86,10 @@ namespace APIMASH_BingMaps_StarterKit.Flyouts
         }
         public static readonly DependencyProperty MapProperty =
             DependencyProperty.Register("Map", typeof(Map), typeof(SearchFlyout),
-            new PropertyMetadata("", new PropertyChangedCallback(OnMapChanged)));
-        public async static void OnMapChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 
-        {
-             ((SearchFlyout) d)._defaultViewModel.BingApi.SetSessionKey(await ((Map)e.NewValue).GetSessionIdAsync());
-        }
+            new PropertyMetadata("", async (d, e) => 
+                {
+                    ((SearchFlyout) d)._defaultViewModel.BingApi.SetSessionKey(await ((Map)e.NewValue).GetSessionIdAsync());
+                }));
         #endregion
 
         #region MaxResults dependency property
@@ -139,7 +138,7 @@ namespace APIMASH_BingMaps_StarterKit.Flyouts
             }
         }
 
-        // handle return key as request to initiate search (as long as text box is not empty)
+        // handle RETURN key as request to initiate search (as long as text box is not empty)
         private void LocationText_KeyUp(object sender, Windows.UI.Xaml.Input.KeyRoutedEventArgs e)
         {
             if ((e.Key == Windows.System.VirtualKey.Enter) && (LocationSearchText.Text.Trim().Length > 0))

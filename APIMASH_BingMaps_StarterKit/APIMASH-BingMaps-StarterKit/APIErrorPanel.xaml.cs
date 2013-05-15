@@ -22,14 +22,14 @@ namespace APIMASH_BingMaps_StarterKit
             if (Dismissed != null) Dismissed(this, e);
         }
 
-        public ApiErrorPanel()
-        {
-            this.InitializeComponent();
-        }
-
         private void Dismiss_Tapped(object sender, TappedRoutedEventArgs e)
         {
             OnDismissed(new EventArgs());
+        }
+
+        public ApiErrorPanel()
+        {
+            this.InitializeComponent();
         }
     }
 }
