@@ -7,11 +7,15 @@
 ##Description
 APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's such as Edmunds, Tom-Tom, Twitter, Tumblr, Yelp, Meetup and many others to create Windows 8 Store Apps. These Starter Kits will put you on the fast path to publishing your first App to the Windows Store.
 
+API Partners
+
+![alt text][1]
+[Mashery][2]
 
 ##Starter Kits
  1. Edmunds [XAML/C#]
  2. Rotten Tomatoes [XAML/C#]
- 3. Bing Maps + Tom-Tom [XAML/C#]
+ 3. Tom-Tom + Bing Maps [XAML/C#]
  4. Active [HTML5/JS]
  5. Stackoverflow [ XAML/C#]
  6. Univision [XAML/C#]
@@ -29,3 +33,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 ###1 - Download the StarterKits
 ###2 - Customize the API calls and Update the User Experience
 ###3 - Submit your App to the Windows Store
+
+
+  [1]: https://raw.github.com/apimash/StarterKits/master/mashery_logo-small.png "Mashery"
+  [2]: http://dev.mashery.com "Mashery Developer Page"
