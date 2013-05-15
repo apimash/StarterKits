@@ -11,7 +11,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 ##Starter Kits
  1. Edmunds [XAML/C#]
  2. Rotten Tomatoes [XAML/C#]
- 3. Bing Maps + Tom-Tom [XAML/C#]
+ 3. Tom-Tom + Bing Maps [XAML/C#]
  4. Active [HTML5/JS]
  5. Stackoverflow [ XAML/C#]
  6. Univision [XAML/C#]
