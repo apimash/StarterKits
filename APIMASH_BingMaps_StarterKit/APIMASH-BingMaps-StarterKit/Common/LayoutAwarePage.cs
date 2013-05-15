@@ -1,9 +1,7 @@
 ﻿using APIMASH_BingMaps_StarterKit.Common;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.System;
 using Windows.UI.Core;
@@ -11,6 +9,10 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+
+/*
+ * LICENSE: http://opensource.org/licenses/ms-pl) 
+ */
 
 namespace APIMASH_BingMaps_StarterKit
 {

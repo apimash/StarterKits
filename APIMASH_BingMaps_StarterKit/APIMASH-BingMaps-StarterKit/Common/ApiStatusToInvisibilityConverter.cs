@@ -3,6 +3,10 @@ using System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
+/*
+ * LICENSE: http://opensource.org/licenses/ms-pl) 
+ */
+
 namespace APIMASH_BingMaps_StarterKit.Common
 {
     /// <summary>

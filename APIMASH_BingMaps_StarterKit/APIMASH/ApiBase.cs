@@ -14,30 +14,8 @@ namespace APIMASH
     /// <summary>
     /// Base class for all API wrapper classes
     /// </summary>
-    public abstract class ApiBase : INotifyPropertyChanged
+    public abstract class ApiBase : BindableBase
     {
-
-        #region INotifyPropertyChanged handling
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
-        {
-            if (object.Equals(storage, value)) return false;
-
-            storage = value;
-            this.OnPropertyChanged(propertyName);
-            return true;
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var eventHandler = this.PropertyChanged;
-            if (eventHandler != null)
-            {
-                eventHandler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        #endregion  
-
         /// <summary>
         /// API access key (required by most APIs)
         /// </summary>
@@ -112,29 +90,8 @@ namespace APIMASH
     /// <code><apimash:ApiMonitor x:Key="ApiMonitor" /></para>
     /// <para>This class does not synchronize across simultaneous API calls.</para>
     /// </summary>
-    public class ApiMonitor : INotifyPropertyChanged
+    public class ApiMonitor : BindableBase
     {
-        #region INotifyPropertyChanged handling
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] String propertyName = null)
-        {
-            if (object.Equals(storage, value)) return false;
-
-            storage = value;
-            this.OnPropertyChanged(propertyName);
-            return true;
-        }
-
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            var eventHandler = this.PropertyChanged;
-            if (eventHandler != null)
-            {
-                eventHandler(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-        #endregion  
-
         /// <summary>
         /// HTTP status code (or exception details) from last executed API call
         /// </summary>

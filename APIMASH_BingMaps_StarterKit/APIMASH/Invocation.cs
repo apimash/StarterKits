@@ -119,7 +119,7 @@ namespace APIMASH
 
                 // capture the status code, headers, and raw response
                 apiResponse.StatusCode = httpResponse.StatusCode;
-                apiResponse.Headers = httpResponse.Headers;                
+                apiResponse.Headers = httpResponse.Headers;
                 apiResponse.RawResponse = await httpResponse.Content.ReadAsStringAsync();
 
                 // if successful
@@ -136,12 +136,23 @@ namespace APIMASH
                     apiResponse.DeserializedResponse = deserializer(apiResponse.RawResponse);
                 }
             }
+            catch (WebException wex)
+            {
+                apiResponse.StatusCode = HttpStatusCode.Unused;
+                apiResponse.Message = wex.Message;
+                apiResponse.Exception = wex;
+            }
             catch (Exception e)
             {
-                // capture exceptions that may have been raised and store the response class
+                // capture exception that may have been raised and store the response class
                 apiResponse.StatusCode = HttpStatusCode.Unused;
-                apiResponse.Message = e.Message;
-                apiResponse.Exception = e;
+
+                // get to the root exception message
+                Exception ne;
+                for (ne = e; ne.InnerException != null; ne = ne.InnerException)
+                    ;
+                apiResponse.Message = ne.Message;
+                apiResponse.Exception = ne;
             }
 
             return apiResponse;

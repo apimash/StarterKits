@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APIMASH;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,20 +13,43 @@ using Windows.UI.Xaml.Media.Imaging;
 // LICENSE: http://opensource.org/licenses/ms-pl
 //
 
+//
+// TODO: implement (at least) three classes comprising your API ViewModel, Model, and methods
+//       ViewModel class includes the information of interest you want to show in the left panel of the app, it should
+//               implement IMappable so it will have the necessary fields to associate with push pins on the map
+//
+//
+
 namespace APIMASH_TomTom
 {
     /// <summary>
     /// View model class for list of cameras returned from a TomTom Traffic Cams query
     /// </summary>
-    public class TomTomCameraViewModel
+    public class TomTomCameraViewModel : BindableBase, APIMASH.IMappable
     {
         public Int32 Sequence { get; set; }
         public Int32 CameraId { get; set; }
         public String Name { get; set; }
         public String Orientation { get; set; }
         public Int32 RefreshRate { get; set; }
+
+        private BitmapImage _image;
+        public BitmapImage Image {
+            get { return _image; }
+            set { SetProperty(ref _image, value); }
+        }
+
+        private DateTime _lastRefresh;
+        public DateTime LastRefresh {
+            get { return _lastRefresh; }
+            set { SetProperty(ref _lastRefresh, value); }
+        }
+
+        // IMappable properties
         public Double Latitude { get; set; }
         public Double Longitude { get; set; }
+        public string Id     { get { return CameraId.ToString(); } }
+        public string Label  { get { return Sequence.ToString(); } }
     }
 
     /// <summary>
@@ -38,8 +62,8 @@ namespace APIMASH_TomTom
         {
             [XmlElement("camera")]
             public camera[] CameraList { get; set; }
-        }        
-        
+        }
+
         public class camera
         {
             public Int32 cameraId { get; set; }
@@ -75,16 +99,17 @@ namespace APIMASH_TomTom
             // pull desired fields from model and insert into view model
             if (model.CameraList != null)
                 foreach (var camera in
-                            (from c in model.CameraList select new TomTomCameraViewModel()
-                                {
-                                    Sequence = ++sequence,
-                                    CameraId = c.cameraId,
-                                    Name = c.cameraName,
-                                    Orientation = c.orientation.Replace("Traffic closest to camera is t", "T"),
-                                    RefreshRate = c.refreshRate,
-                                    Latitude = c.latitude,
-                                    Longitude = c.longitude
-                                }))
+                            (from c in model.CameraList
+                             select new TomTomCameraViewModel()
+                                 {
+                                     Sequence = ++sequence,
+                                     CameraId = c.cameraId,
+                                     Name = c.cameraName,
+                                     Orientation = c.orientation.Replace("Traffic closest to camera is t", "T"),
+                                     RefreshRate = c.refreshRate,
+                                     Latitude = c.latitude,
+                                     Longitude = c.longitude
+                                 }))
                     stagingList.Add(camera);
 
             // apply max count if provided
@@ -135,11 +160,6 @@ namespace APIMASH_TomTom
     /// </summary>
     public sealed class TomTomApi : APIMASH.ApiBase
     {
-        public TomTomApi()
-        {
-            _apiKey = Application.Current.Resources["TomTomAPIKey"] as String;
-        }
-
         /// <summary>
         /// Indicates whether camera list was truncated at a max size and other camera are in the same field of view
         /// </summary>
@@ -150,7 +170,7 @@ namespace APIMASH_TomTom
         }
         private Boolean _cameraListTruncated;
 
-         /// <summary>
+        /// <summary>
         /// List of cameras returned by a search (bindable to the UI)
         /// </summary>
         public ObservableCollection<TomTomCameraViewModel> Cameras
@@ -194,7 +214,7 @@ namespace APIMASH_TomTom
                     case HttpStatusCode.InternalServerError:
                         apiResponse.Message = "Problem appears to be at TomTom's site. Please retry later.";
                         break;
-                }   
+                }
             }
 
             // return the status information
@@ -202,18 +222,23 @@ namespace APIMASH_TomTom
         }
 
         /// <summary>
-        /// Gets camera image 
+        /// Gets camera image for given element of the view model 
         /// </summary>
-        /// <param name="cameraId">Camera identfier as determined by previous call to <see cref="GetCameras"/></param>
+        /// <param name="camera">Camera for which image is requested</param>
         /// <returns>Bitmap of the current camera image</returns>
-        public BitmapImage GetCameraImage(Int32 cameraId)
+        public void GetCameraImage(TomTomCameraViewModel camera)
         {
-           return new BitmapImage(
-                    new Uri(
-                        String.Format("https://api.tomtom.com/trafficcams/getfullcam/{0}.jpg?key={1}", 
-                        cameraId,
-                        this._apiKey)
-                    ));
+            camera.Image = new BitmapImage(
+                     new Uri(
+                         String.Format("https://api.tomtom.com/trafficcams/getfullcam/{0}.jpg?key={1}",
+                         camera.CameraId,
+                         this._apiKey)
+                     ));
+        }
+
+        public TomTomApi()
+        {
+            _apiKey = Application.Current.Resources["TomTomAPIKey"] as String;
         }
     }
 }

@@ -170,20 +170,6 @@ namespace APIMASH_BingMaps
     /// </summary>
     public sealed class BingApi : APIMASH.ApiBase
     {
-        public BingApi()
-        {
-            _apiKey = Application.Current.Resources["BingMapsAPIKey"] as String;
-        }
-
-        /// <summary>
-        /// Update API key to a session key to eliminate billable transactions
-        /// </summary>
-        /// <param name="key">Session key</param>
-        public void SetSessionKey(String key)
-        {
-            _apiKey = key;
-        }
-
         private ObservableCollection<BingLocationsViewModel> _locations =
             new ObservableCollection<BingLocationsViewModel>();
         /// <summary>
@@ -192,7 +178,7 @@ namespace APIMASH_BingMaps
         public ObservableCollection<BingLocationsViewModel> Locations
         {
             get { return _locations; }
-        }
+        }        
         
         /// <summary>
         /// Performs a Bing Maps location query given <paramref name="searchCriteria"/>
@@ -205,23 +191,24 @@ namespace APIMASH_BingMaps
             // invoke the API
             var apiResponse = await Invoke<BingLocationsModel.RootObject>(
                 "http://dev.virtualearth.net/REST/v1/Locations?q={0}&maxResults=20&key={1}",
-                Uri.EscapeUriString(searchCriteria), 
+                Uri.EscapeUriString(searchCriteria),
                 this._apiKey);
 
             // clear the results
             _locations.Clear();
 
-            // check special X-MS-BM-WS-INFO header, when 1, system may be too busy and you should try again
-            if (apiResponse.Headers.GetValues("X-MS-BM-WS-INFO").FirstOrDefault() == "1")
+            // if successful, copy relevant portions from model to the view model (and handle special case of server overload)
+            if (apiResponse.IsSuccessStatusCode)
             {
-                apiResponse.StatusCode = HttpStatusCode.Unused;
-                apiResponse.Message = "Bing Maps system overloaded. Please try again in a few seconds.";
-            }
-               
-            // otherwise, if successful, copy relevant portions from model to the view model
-            else if (apiResponse.IsSuccessStatusCode)
-            {
-                BingLocationsModel.PopulateViewModel(apiResponse.DeserializedResponse, _locations, maxResults);
+                if (apiResponse.Headers.Contains("X-MS-BM-WS-INFO") && apiResponse.Headers.GetValues("X-MS-BM-WS-INFO").First() == "1")
+                {
+                    apiResponse.StatusCode = HttpStatusCode.Unused;
+                    apiResponse.Message = "Bing Maps is running a bit ragged at the moment. Please try again in a few seconds.";
+                }
+                else
+                {
+                    BingLocationsModel.PopulateViewModel(apiResponse.DeserializedResponse, _locations, maxResults);
+                }
             }
             else
             {
@@ -235,11 +222,25 @@ namespace APIMASH_BingMaps
                     case HttpStatusCode.ServiceUnavailable:
                         apiResponse.Message = "Problem appears to be on TomTom's side. Please retry later.";
                         break;
-                }  
+                }
             }
 
             // return the status information
             return apiResponse as APIMASH.ApiResponseStatus;
+        }
+
+        public BingApi()
+        {
+            _apiKey = Application.Current.Resources["BingMapsAPIKey"] as String;
+        }
+
+        /// <summary>
+        /// Update API key to a session key to eliminate billable transactions
+        /// </summary>
+        /// <param name="key">Session key</param>
+        public void SetSessionKey(String key)
+        {
+            _apiKey = key;
         }
     }
 }
