@@ -8,6 +8,7 @@
 ###Description
 The Chuck Norris Starter Kit is a XAML/C# Windows 8 app that demonstrates calling a Web Service that returned a simple JSON payload. The JSON payload is deserialized into a View Model.
 
+![alt text][1]
 
 ###Features
  - Invokes the Internet Chuck Norris Database API (http://www.icndb.com/)
@@ -37,3 +38,6 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 ##Change Log
 ###v1.0.0
+
+
+  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_CNorris_StarterKit/CNorrisScreenshot.png "Chuck Norris Starter Kit"
