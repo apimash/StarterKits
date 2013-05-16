@@ -32,6 +32,39 @@ The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Tem
  - Add your Developer Key in the Globals.cs file
  - Compile and Run
 
+###Customization
+
+Step 1. Add your Developer Key in the Globals.cs source file on line 20
+
+Step 2. Global.cs provides URI's for the 9 API’s that Rotten Tomatoes [offers][2]. 
+
+ - **movies.json** - Search for movies    
+  - **movie.json** - info on an individual movie
+     - **reviews.json** - the reviews for an individual movie 
+     - **cast.json** - the full cast for an individual movie
+     - **similar.json** - a list of movies similar to the individual movie    
+     - **clips.json** - a list of clips related  to an individual movie
+ - **box_office.json** - a current list of box office movies  
+ - **upcoming.json** -movies that are upcoming
+ - **in_theaters.json** - movies that are in theaters 
+ - **opening.json** - movies that are opening this week  
+ - **top_rentals.json**  - top dvd rentals 
+ - **current_releases.json** - dvds that are currently released  
+ - **new_releases.json** - dvds that are getting released  
+ - **upcoming.json** - dvds that are getting released
+
+Each API returns the same JSON payload format. The Starter Kit can be customized to display results from any of these API’s. I encourage you to experiment  by simple changing the API selection in the GroupedItemsPage.Xaml.cs file on line 76 from 
+
+> ROTTEN TOMATOES API MOVIES INTHEATERS
+
+to
+
+> ROTTEN TOMATOES API DVD CURRENTRELEASES
+
+Step 3. You can modify the parameters to each query such as the limit of the number of movies to return in total, or per page and the country. Experiment by changing the ‘country’ parameter on the ‘InTheaters’ API call on line 24 of Globals.cs. Experiment with other parameter to learn the API. Visit the API [I/O Docs page][3] to experiment on line.
+
+Step 4. Movie information is EXTREMELY  mashable! Experiment by combining Rotten Tomatoes with Bing Maps showing nearby movie theaters (check out [the Bing Map Starter Kit][4]!)
+
 ##DISCLAIMER: 
 
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
@@ -46,3 +79,6 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 
   [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_RottenTomatoes_StarterKit/RottenTomatoesScreenshot.png "Rotten Tomatoes Starter Kit"
+  [2]: http://developer.rottentomatoes.com/docs/read/JSON "other API's:"
+  [3]: http://developer.mashery.com/iodocs "I/O Docs page"
+  [4]: https://github.com/apimash/StarterKits/tree/master/APIMASH_BingMaps_StarterKit "Bing Maps Starter Kit"
