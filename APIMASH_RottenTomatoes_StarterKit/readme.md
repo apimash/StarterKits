@@ -34,9 +34,9 @@ The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Tem
 
 ###Customization
 
-Step 1. Add your Developer Key in the Globals.cs source file on line 20
+Step 1. Add your Developer Key in the *Globals.cs* source file on line 20
 
-Step 2. Global.cs provides URI's for the 9 API’s that Rotten Tomatoes [offers][2]. 
+Step 2. *Global.cs* provides URI's for the 9 API’s that Rotten Tomatoes [offers][2]. Note that the Movie payload provides URI's to additional APIs such as reviews, cast, similar and clips. The Starter Kit implements the Review API as an example.
 
  - **movies.json** - Search for movies    
   - **movie.json** - info on an individual movie
@@ -53,7 +53,7 @@ Step 2. Global.cs provides URI's for the 9 API’s that Rotten Tomatoes [offers]
  - **new_releases.json** - dvds that are getting released  
  - **upcoming.json** - dvds that are getting released
 
-Each API returns the same JSON payload format. The Starter Kit can be customized to display results from any of these API’s. I encourage you to experiment  by simple changing the API selection in the GroupedItemsPage.Xaml.cs file on line 76 from 
+Each API returns the same JSON payload format. The Starter Kit can be customized to display results from any of these API’s. I encourage you to experiment  by simple changing the API selection in the *GroupedItemsPage.Xaml.cs* file on line 76 from 
 
 > ROTTEN TOMATOES API MOVIES INTHEATERS
 
@@ -61,9 +61,9 @@ to
 
 > ROTTEN TOMATOES API DVD CURRENTRELEASES
 
-Step 3. You can modify the parameters to each query such as the limit of the number of movies to return in total, or per page and the country. Experiment by changing the ‘country’ parameter on the ‘InTheaters’ API call on line 24 of Globals.cs from 'us' to 'uk'. Experiment with other parameter to learn the API. Visit the API [I/O Docs page][3] to experiment on line.
+Step 3. You can modify the parameters to each query such as the limit of the number of movies to return in total, or per page and the country. Experiment by changing the ‘country’ parameter on the ‘InTheaters’ API call on line 24 of *Globals.cs* from 'us' to 'uk'. Experiment with other parameter to learn the API. Visit the API [I/O Docs page][3] to experiment on line.
 
-Step 4. Movie information is EXTREMELY  mashable! Experiment by combining Rotten Tomatoes with Bing Maps showing nearby movie theaters (check out [the Bing Map Starter Kit][4]!)
+Step 4. Movie information is EXTREMELY mashable! Experiment by combining Rotten Tomatoes with Bing Maps showing nearby movie theaters (check out [the Bing Map Starter Kit][4]!)
 
 ##DISCLAIMER: 
 
