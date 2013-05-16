@@ -61,7 +61,7 @@ to
 
 > ROTTEN TOMATOES API DVD CURRENTRELEASES
 
-Step 3. You can modify the parameters to each query such as the limit of the number of movies to return in total, or per page and the country. Experiment by changing the ‘country’ parameter on the ‘InTheaters’ API call on line 24 of Globals.cs. Experiment with other parameter to learn the API. Visit the API [I/O Docs page][3] to experiment on line.
+Step 3. You can modify the parameters to each query such as the limit of the number of movies to return in total, or per page and the country. Experiment by changing the ‘country’ parameter on the ‘InTheaters’ API call on line 24 of Globals.cs from 'us' to 'uk'. Experiment with other parameter to learn the API. Visit the API [I/O Docs page][3] to experiment on line.
 
 Step 4. Movie information is EXTREMELY  mashable! Experiment by combining Rotten Tomatoes with Bing Maps showing nearby movie theaters (check out [the Bing Map Starter Kit][4]!)
 
@@ -71,11 +71,6 @@ The sample code described herein is provided on an "as is" basis, without warran
 Microsoft and I do not warrant, guarantee or make any representations regarding the use, results of use, accuracy, timeliness or completeness of any data or information relating to the sample code. Microsoft and I disclaim all warranties, express or implied, and in particular, disclaims all warranties of merchantability, fitness for a particular purpose, and warranties related to the code, or any service or software related thereto. 
 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
-
-----------
-
-##Change Log
-###v1.0.0
 
 
   [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_RottenTomatoes_StarterKit/RottenTomatoesScreenshot.png "Rotten Tomatoes Starter Kit"
