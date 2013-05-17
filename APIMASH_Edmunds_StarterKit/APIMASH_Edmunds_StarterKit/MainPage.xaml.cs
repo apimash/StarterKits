@@ -59,6 +59,7 @@ namespace APIMASH_Edmunds_StarterKit
             Sleep(1000); 
             _apiInvokeYearMakeModel.OnResponse += apiInvokeYearMakeModel_OnResponse;
             var apiCall = Globals.EDMUNDS_API_FINDBYYEAR + year;
+            //var apiCall = Globals.EDMUNDS_API_FINDALL;
             _apiInvokeYearMakeModel.Invoke<MakeCollection>(apiCall);
         }
 

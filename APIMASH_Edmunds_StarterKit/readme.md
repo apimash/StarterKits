@@ -8,7 +8,7 @@
 ###Description
 The Edmunds Starter Kit is a XAML/C# Windows 8 app based on the Blank Template that demonstrates calling the Edmunds REST API's. The JSON payload for Makes, Models, Model Specs and Pictures is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to WinRT XAML controls.
 
-![alt text][1]
+
 ###Features
  - Invokes the Edmunds REST API (http://developer.edmunds.com/)
  - Demonstrates how to deserialize JSON to C# and bind to WinRT XAML Controls
@@ -42,6 +42,3 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 ##Change Log
 ###v1.0.0
-
-
-  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Edmunds_StarterKit/EdmundsScreenshot.png "Edmunds Starter Kit"
