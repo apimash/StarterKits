@@ -24,7 +24,7 @@ The Meetup/Bing Maps Starter Kit is a native HTML5 and JavaScript Windows Store 
  - Bing Maps API Key (sign up [here][6] - Microsoft Account required for the Bing Maps Portal)
  - Windows Store Account (to submit app for certification)
 
-###Setup
+###Setup and Customization
 Basic customization is done via the file customizeMe.js, found in the js folder. Here are the key items you can customize:
 
  - meetupKey: Your custom Meetup API key
