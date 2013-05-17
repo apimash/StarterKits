@@ -19,6 +19,11 @@
         <DefaultTile ShowName="allLogos" ShortName="WOWAPI Starter Kit" WideLogo="images\WideLogo.png" />
         <SplashScreen Image="images\splashscreen.png" BackgroundColor="#D35841" />
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash" />
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
