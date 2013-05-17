@@ -19,6 +19,11 @@
         <DefaultTile ShowName="allLogos" WideLogo="images\WideLogo.png" ShortName="APIMASH_MessierSkyObjects" />
         <SplashScreen Image="images\splashscreen.png" BackgroundColor="#000000" />
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash" />
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
