@@ -5,31 +5,91 @@
 ##URL: http://github.com/apimash/starterkits
 
 ----------
-###Description
-The Edmunds Starter Kit is a XAML/C# Windows 8 app based on the Blank Template that demonstrates calling the Edmunds REST API's. The JSON payload for Makes, Models, Model Specs and Pictures is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to WinRT XAML controls.
+##Description
+The Edmunds Starter Kit is a XAML/C# Windows 8 app based on the Blank Template that demonstrates calling the Edmunds REST API's. The JSON payload for Makes, Models, Model Specs and Pictures is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to WinRT XAML controls. You can use the breadth and detail of the automotive information available through the Edmunds API to create mashups, visualizations and other applications that will provide an added dimension of user experience for the automotive consumer.
 
 ![alt text][1]
-###Features
- - Invokes the Edmunds REST API (http://developer.edmunds.com/)
+
+##Features
+ - Invokes the [Edmunds REST API][2]
  - Demonstrates how to deserialize JSON to C# and bind to WinRT XAML Controls
  - Provides a baseline for a Windows 8 Store App
 
-###Requirements
+##Requirements
 
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
- - JSON.NET form Newtonsoft (https://json.codeplex.com/)
- - Mashery.com Developer Account (http://developer.mashery.com/)
- - Edmunds Developer Key (http://developer.edmunds.com/)
+ - [JSON.NET form Newtonsoft][3]
+ - [Mashery.com Developer Account][4]
+ - [Edmunds Developer Key][5]
 
-###Setup
+##Setup
 
- - Register at Mashery.com (http://developer.mashery.com/)
- - Request a Developer Key at Edmunds (http://developer.edmunds.com/)
- - Download the Starter Kit Zip Portfolio from (http://apimash.github.io/StarterKits/)
+ - [Register at Mashery.com][6]
+ - [Request a Developer Key at Edmunds][7]
+ - [Download the Starter Kit Zip Portfolio][8] 
  - Open the Solution in Visual Studio
- - Add your Developer Key in the Globals.cs file
+ - Add your Developer Key in the *Globals.cs* file
+ - Update the reference to the *Newtonsoft JSON.NET Library* in the *APIMASHLib* project
  - Compile and Run
+
+##Customization
+
+The Edmunds API, one a scale of 1 to 10, where 1 is simple and 10 is complex, is an 11 :). Edmunds provides a rich set of API collections each with several API's and methods that give you access to Articles, Vehicle Data, Dealer info and Inventory data that can be used together or with other API's to create compelling apps.
+
+Edmunds provides these 4 API collections:
+
+ - [Editorial API][9]
+ - [Vehicle API][10]
+ - [Inventory API][11] - available to Edmunds Partners
+ - [Dealer API][12]
+
+The Edmunds Starter Kit uses the following API's in the Vehicle API collection:
+
+ - [Make Repository][13] - The Make repository provides information according to the Make of a vehicle
+ - [Model Year Repository][14] - The Model Year repository is the root entity of the Edmunds data repository. All vehicles data is organized according to Model Year
+ - [Photo Repository][15] - The Photo Repository provides links that resolve back to photo media on the Edmunds Media Server
+
+The Starter Kit starts by calling the ***findmakesbymodelyear*** method of the Make Repository API to retrieve a list of makes and models by a particular year. [*See Line 57 in the *MainPage.Xaml.cs* file*].
+
+Next It then invokes the Model Year Repository API ***foryearmakemodel*** method to get the Model Spec data which contains a StylerId. [*See line 88 in the *MainPage.Xaml.cs* file*]
+
+The StyleId is used as input to the third call, the Vehicle Photo Repository ***findphotosbystyleid*** method that is used to get a list of vehicle images. [*See line 142 of the *MainPage.Xaml.cs* file*.]
+
+You can customize the initial call to the Make Repository method by commenting out line 61 and uncommenting line 62 in *MainPage.Xaml.cs* to invoke the ***findall*** method.
+
+To experiment further you can look at the additional capabilities of the Make and Model/Year Repository API's.
+
+The Make Repository API makes the following methods available:
+
+ - ***findall*** - Get the list of all makes and their all their models
+ - ***findbyid*** - Find a make and its models by providing a make ID
+ - ***findfuturemakes*** - Find all future makes and their models
+ - ***findmakebyname*** - Find a make details by its name 
+ - ***findmakesbymodelyear*** - Find a make by a year 
+ - ***findmakesbypublicationstate*** - Find makes by their state (new or used) 
+ - ***findnewandused*** - Find all new and used makes 
+ - ***findnewandusedmakesbymodelyear*** - Find all new and used makes for a particular year
+ - ***findnewmakes*** - Find only new makes 
+ - ***findusedmakes*** - Find only old makes 
+
+The Model Year Repository API also provides these methods:
+
+ - ***findbyid*** - Get details on a specifc vehicle by its model year ID
+ - ***finddistinctyearwithnew*** - Get a list of years under which there are new vehicle listings 
+ - ***finddistinctyearwithneworused*** - Get a list of years under which there are new or used vehicle listings
+ - ***finddistinctyearwithused*** - Get a list of years under which there are used vehicle listings 
+ - ***findfuturemodelyearsbymodelid*** - Get a list of future model years by the model ID 
+ - ***findmodelyearsbymakeandyear*** - Get a list of model years for a specific make and year
+ - ***findmodelyearsbymakemodel*** - Get a list of model years for a specific make and model 
+ - ***findnewandusedmodelyearsbymakeidandyear*** - Get a list of new and used model years for a specific make ID and year
+ - ***findnewmodelyearsbymodelid*** - Get a list of new model years by the model ID 
+ - ***findusedmodelyearsbymodelid*** - Get a list of used model years by the model ID 
+ - ***findyearsbycategoryandpublicationstate*** - Get a list of model years for a specific category and publication state 
+ - ***formodelid*** - Get a list of model years by the model ID 
+ - ***foryearmakemodel*** - Get a list of model years for a specific make, model and year 
+
+You can also experiment with adding in the Editorial or Dealer API's to add color commentary and availability information.
 
 ##DISCLAIMER: 
 
@@ -38,10 +98,18 @@ Microsoft and I do not warrant, guarantee or make any representations regarding 
 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
 
-----------
-
-##Change Log
-###v1.0.0
-
-
   [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Edmunds_StarterKit/EdmundsScreenshot.png "Edmunds Starter Kit"
+  [2]: http://developer.edmunds.com "Edmunds"
+  [3]: https://json.codeplex.com/ "JSON.NET"
+  [4]: http://developer.mashery.com/ "Mashery.com"
+  [5]: http://developer.edmunds.com "Edmunds Developer Key"
+  [6]: http://developer.mashery.com/ "Register at Mashery.com"
+  [7]: http://developer.edmunds.com "Edmunds Developer Key"
+  [8]: http://apimash.github.io/StarterKits "APIMASH Starter Kits"
+  [9]: http://developer.edmunds.com/docs/read/the_editorial_api "Editorial API"
+  [10]: http://developer.edmunds.com/docs/read/The_Vehicle_API "Vehicle API"
+  [11]: http://developer.edmunds.com/docs/read/the_inventory_api "Inventory API"
+  [12]: http://developer.edmunds.com/docs/read/The_Dealer_API "Dealer API"
+  [13]: http://developer.edmunds.com/docs/read/the_vehicle_api/Make_Repository "Make Repository"
+  [14]: http://developer.edmunds.com/docs/read/the_vehicle_api/Year_Repository "Model Year Repository"
+  [15]: http://developer.edmunds.com/docs/read/the_vehicle_api/Photos "Photo Repository"

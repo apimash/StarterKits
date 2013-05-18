@@ -30,6 +30,7 @@ The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Tem
  - Download the Starter Kit Zip Portfolio from (http://apimash.github.io/StarterKits/)
  - Open the Solution in Visual Studio
  - Add your Developer Key in the Globals.cs file
+ - Update the reference to the Newtonsoft JSON.NET Library in the APIMASHLib project
  - Compile and Run
 
 ###Customization

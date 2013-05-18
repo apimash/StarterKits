@@ -18,6 +18,7 @@ namespace APIMASH_Edmunds_StarterKit
 
         // get initial lists of makes and models by year
         public static string EDMUNDS_API_FINDBYYEAR = @"http://api.edmunds.com/v1/api/vehicle/makerepository/findmakesbymodelyear?fmt=json" + EDMUNDS_API_DEVKEY + @"&year=";
+        public static string EDMUNDS_API_FINDALL = @"http://api.edmunds.com/v1/api/vehicle/makerepository/findall?fmt=json" + EDMUNDS_API_DEVKEY + @"&year=";
 
         // model specs by make-model-year, using this to get style id so we can retrieve vehicle photos
         public static string EDMUNDS_API_MODELSPECS_MAKE = @"http://api.edmunds.com/v1/api/vehicle/modelyearrepository/foryearmakemodel?fmt=json&make=";
