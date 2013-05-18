@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
   <Identity Name="Microsoft.SDKSamples.WindowsBlogReader.CS" Version="1.0.0.0" Publisher="CN=APIMash" />
   <Properties>
@@ -20,6 +20,13 @@
         <DefaultTile ShowName="allLogos" ShortName="API Mashup Starterkit" />
         <SplashScreen Image="Assets\splash-sdk.png" BackgroundColor="#00b2f0" />
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash">
+            <DisplayName>apimash</DisplayName>
+          </Protocol>
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>
