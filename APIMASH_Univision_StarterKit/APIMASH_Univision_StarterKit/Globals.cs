@@ -17,7 +17,7 @@ namespace APIMASH_Univision_StarterKit
     public static class Globals
     {
         // DEV KEY
-        public static string UNIVISION_API_KEY = @"apikey=[YOUR-DEV-KEY-HERE]";
+        public static string UNIVISION_API_KEY = @"YOUR-DEV-KEY-HERE";
 
         // 
         public static string UNIVISION_DEFAULT_QUERY = @"http://apiservice.univision.com/rest/feed/getFeed?url=%2Fsearch%2Farticles%3Fcount%3D10%26site%3Dnoticias%26tags%3DNovedades%26outputMode%3Dxml&api_key=" + UNIVISION_API_KEY;
