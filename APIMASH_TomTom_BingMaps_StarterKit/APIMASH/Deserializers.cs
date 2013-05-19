@@ -27,7 +27,11 @@ namespace APIMASH
         private static Dictionary<String, Func<Byte[], T>> _mapping = new Dictionary<String, Func<Byte[], T>>()
         {
             { "application/json", DeserializeJsonNet },
-            { "application/xml", DeserializeXml }
+            { "application/xml", DeserializeXml },
+            { "image/png", DeserializeImage },
+            { "image/jpg", DeserializeImage },
+            { "image/jpeg", DeserializeImage },
+            { "image/gif", DeserializeImage }
         };
 
         /// <summary>
