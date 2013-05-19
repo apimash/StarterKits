@@ -22,7 +22,7 @@ namespace APIMASH_StarterKit.Common
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return value is Visibility && (Visibility)value == Visibility.Visible;
+            throw new NotImplementedException();
         }
     }
 }

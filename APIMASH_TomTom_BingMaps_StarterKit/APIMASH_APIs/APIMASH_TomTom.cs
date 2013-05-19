@@ -119,6 +119,12 @@ namespace APIMASH_TomTom
 
             return maxResultsExceeded;
         }
+
+        public static void PopulateViewModel(BitmapImage camImage, TomTomCameraViewModel viewModel)
+        {
+            viewModel.Image = camImage;
+            viewModel.LastRefresh = DateTime.UtcNow;
+        }
     }
 
     /// <summary>
@@ -222,18 +228,42 @@ namespace APIMASH_TomTom
         }
 
         /// <summary>
-        /// Gets camera image for given element of the view model 
+        /// Get latest image for a given camera
         /// </summary>
-        /// <param name="camera">Camera for which image is requested</param>
-        /// <returns>Bitmap of the current camera image</returns>
-        public void GetCameraImage(TomTomCameraViewModel camera)
+        /// <param name="camera">Camera object</param>
+        /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/>. This method will alway return success.</returns>
+        public async Task<APIMASH.ApiResponseStatus> GetCameraImage(TomTomCameraViewModel camera)
         {
-            camera.Image = new BitmapImage(
-                     new Uri(
-                         String.Format("https://api.tomtom.com/trafficcams/getfullcam/{0}.jpg?key={1}",
-                         camera.CameraId,
-                         this._apiKey)
-                     ));
+            BitmapImage cameraImage = null;
+
+            // invoke the API (explicit deserialized provided because the image responses from TomTom don't include a Content-Type header
+            var apiResponse = await Invoke<BitmapImage>(
+                Deserializers<BitmapImage>.DeserializeImage,
+                "https://api.tomtom.com/trafficcams/getfullcam/{0}.jpg?key={1}",
+                camera.CameraId,
+                this._apiKey);
+
+            // if successful, grab image as deserialized response
+            if (apiResponse.IsSuccessStatusCode)
+            {
+                cameraImage = apiResponse.DeserializedResponse;
+            }
+
+            // otherwise, use some stock images to reflect error condition
+            else if (apiResponse.StatusCode == HttpStatusCode.NotFound)
+            {
+                cameraImage = new BitmapImage(new Uri("ms-appx:///APIMASH_APIs/Assets/camera404.png"));
+            }
+            else
+            {
+                cameraImage = new BitmapImage(new Uri("ms-appx:///APIMASH_APIs/Assets/cameraError.png"));
+            }
+
+            // populate the ViewModel with the image
+            TomTomCamerasModel.PopulateViewModel(cameraImage, camera);
+
+            // return a success status (there will always be an image returned)
+            return ApiResponseStatus.DefaultInstance;
         }
 
         public TomTomApi()

@@ -140,6 +140,9 @@ namespace APIMASH_StarterKit
             }
 
 
+            // HACK ALERT: explicity setting visibility because a reset of list isn't triggering the rebinding so 
+            // that the XAML converter for Visibility kicks in.  
+            CamImage.Visibility = newItem != null ? Visibility.Visible : Visibility.Collapsed;
 
             // trigger event listeners
             OnItemSelectionChanged(new ItemSelectionChangedEventArgs(newItem, oldItem));

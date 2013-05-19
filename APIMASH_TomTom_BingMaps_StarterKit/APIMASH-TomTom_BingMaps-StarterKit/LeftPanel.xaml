@@ -86,7 +86,8 @@
                         Style="{StaticResource ImageButtonStyle}" Click="Refresh_Click"/>
             </Grid>
 
-            <ListView x:Name="CameraListView" Grid.Row="1" ItemsSource="{Binding TomTomApi.Cameras}" Margin="0,15,0,15" SelectionMode="Single" SelectionChanged="List_SelectionChanged">
+            <ListView x:Name="CameraListView" Grid.Row="1" ItemsSource="{Binding TomTomApi.Cameras}" Margin="0,15,0,15" 
+                      SelectionMode="Single" SelectionChanged="List_SelectionChanged">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
@@ -104,10 +105,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Image Grid.Row="2" x:Name="CamImage" 
-                   Source="{Binding SelectedItem.Image, ElementName=CameraListView}" 
+            <Image Grid.Row="2" x:Name="CamImage"
+                   Source="{Binding SelectedItem.Image, ElementName=CameraListView, Mode=TwoWay}" 
                    VerticalAlignment="Bottom" Stretch="Uniform" Height="240" Margin="0" 
-                   Visibility="{StaticResource ImageToVisibilityConverter}"/>
+                   Visibility="{Binding SelectedItem.Image, ElementName=CameraListView, Converter={StaticResource ImageToVisibilityConverter}}"/>
 
             <local:ApiErrorPanel x:Name="ErrorPanel" DataContext="{Binding ApiStatus}" Margin="0,15,0,0" Grid.Row="1"
                              Visibility="{Binding Converter={StaticResource ApiStatusToInvisibilityConverter}}" />
