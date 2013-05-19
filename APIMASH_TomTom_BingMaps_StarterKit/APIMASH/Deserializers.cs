@@ -4,7 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
+using System.Threading.Tasks;
 using System.Xml.Serialization;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Media.Imaging;
 
 //
 // LICENSE: http://opensource.org/licenses/ms-pl
@@ -21,7 +24,7 @@ namespace APIMASH
         /// <summary>
         /// Map of Content-Type header values to deserializer classes 
         /// </summary>
-        private static Dictionary<String, Func<String, T>> _mapping = new Dictionary<String, Func<String, T>>()
+        private static Dictionary<String, Func<Byte[], T>> _mapping = new Dictionary<String, Func<Byte[], T>>()
         {
             { "application/json", DeserializeJsonNet },
             { "application/xml", DeserializeXml }
@@ -32,7 +35,7 @@ namespace APIMASH
         /// </summary>
         /// <param name="mediaType">mediaType of the response (from HTTP Content-Type header)</param>
         /// <returns></returns>
-        public static Func<String, T> GetDefaultDeserializer(String mediaType)
+        public static Func<Byte[], T> GetDefaultDeserializer(String mediaType)
         {
             if (_mapping.ContainsKey(mediaType))
                 return _mapping[mediaType];
@@ -43,13 +46,13 @@ namespace APIMASH
         /// <summary>
         /// Deserialize payload via JSON.NET
         /// </summary>
-        /// <param name="objString">Raw HTTP response string containing JSON</param>
+        /// <param name="objBytes">Raw HTTP response byte array containing JSON</param>
         /// <returns>Deserialized object</returns>
-        public static T DeserializeJsonNet(String objString)
+        public static T DeserializeJsonNet(Byte[] objBytes)
         {
             try
             {
-                return (T) JsonConvert.DeserializeObject<T>(objString);
+                return (T) JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(objBytes,0,objBytes.Length));
             }
             catch (Exception) { throw; }
         }
@@ -57,11 +60,11 @@ namespace APIMASH
         /// <summary>
         /// Deserialize payload via .NET DataContractJsonSerializer
         /// </summary>
-        /// <param name="objString">Raw HTTP response string containing JSON</param>
+        /// <param name="objBytes">Raw HTTP response byte array containing JSON</param>
         /// <returns>Deserialized object</returns>
-        public static T DeserializeJson(String objString)
+        public static T DeserializeJson(Byte[] objBytes)
         {
-            using (var stream = new MemoryStream(Encoding.Unicode.GetBytes(objString)))
+            using (var stream = new MemoryStream(objBytes))
             {
                 try
                 {
@@ -75,11 +78,11 @@ namespace APIMASH
         /// <summary>
         /// Deserialize payload via .NET XmlSerializer
         /// </summary>
-        /// <param name="objString">Raw HTTP response string containing XML</param>
+        /// <param name="objBytes">Raw HTTP response byte array containing XML</param>
         /// <returns>Deserialized object</returns>
-        public static T DeserializeXml(string objString)
+        public static T DeserializeXml(Byte[] objBytes)
         {
-            using (var stream = new MemoryStream(Encoding.Unicode.GetBytes(objString)))
+            using (var stream = new MemoryStream(objBytes))
             {
                 try
                 {
@@ -88,6 +91,37 @@ namespace APIMASH
                 }
                 catch (Exception e) { throw e; }
             }
+        }
+
+        /// <summary>
+        /// Deserialize payload as Bitmap Image
+        /// </summary>
+        /// <param name="objBytes">Raw HTTP response byte array containing image bytes</param>
+        /// <returns>BitmapImage</returns>
+        public static T DeserializeImage(Byte[] objBytes)
+        {
+            try
+            {
+                BitmapImage image = new BitmapImage();
+
+                // create a new in memory stream and datawriter
+                using (var stream = new InMemoryRandomAccessStream())
+                {
+                    using (DataWriter dw = new DataWriter(stream))
+                    {
+                        // write the raw bytes and store synchronously
+                        dw.WriteBytes(objBytes);
+                        dw.StoreAsync().AsTask().Wait();
+                        
+                        // set the image source
+                        stream.Seek(0);
+                        image.SetSource(stream);
+                    }
+                }
+
+                return (T) ((object) image);
+            }
+            catch (Exception e) { throw e; }
         }
     }
 }

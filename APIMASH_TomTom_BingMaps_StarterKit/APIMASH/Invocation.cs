@@ -64,7 +64,7 @@ namespace APIMASH
         /// <summary>
         /// HTTP response payload
         /// </summary>
-        public String RawResponse { get; internal set; }
+        public Byte[] RawResponse { get; internal set; }
 
         /// <summary>
         /// Payload deserialized into a class of <paramref name="T"/>, the model class type
@@ -106,7 +106,7 @@ namespace APIMASH
         /// </summary>
         /// <param name="deserializer">Deserializer method to use on the HTTP response payload. If null, a default deserializer will be selected based on the mediaType found in the HTTP response Content-Type header.</param>
         /// <returns>An <see cref="ApiResponse"/> containing the HTTP response payload, headers, and status or error information</returns>
-        async public Task<ApiResponse<T>> Invoke(Func<String, T> deserializer = null)
+        async public Task<ApiResponse<T>> Invoke(Func<Byte[], T> deserializer = null)
         {
 
             // set up a new response class to capture the results
@@ -120,17 +120,19 @@ namespace APIMASH
                 // capture the status code, headers, and raw response
                 apiResponse.StatusCode = httpResponse.StatusCode;
                 apiResponse.Headers = httpResponse.Headers;
-                apiResponse.RawResponse = await httpResponse.Content.ReadAsStringAsync();
+                apiResponse.RawResponse = await httpResponse.Content.ReadAsByteArrayAsync();
 
                 // if successful
                 if (apiResponse.IsSuccessStatusCode)
                 {
                     // determine contentType and select appropriate deserializer
-                    var contentType = httpResponse.Content.Headers.ContentType.MediaType;
-                    deserializer = deserializer ?? Deserializers<T>.GetDefaultDeserializer(contentType);
+                    var contentType = httpResponse.Content.Headers.ContentType;
+                    var mediaType = contentType != null ? contentType.MediaType : String.Empty;
+
+                    deserializer = deserializer ?? Deserializers<T>.GetDefaultDeserializer(mediaType);
 
                     if (deserializer == null)
-                        throw new Exception(String.Format("No deserializer specified for content type {0}", contentType));
+                        throw new Exception(String.Format("No deserializer specified for content type {0}", mediaType));
 
                     // deserialize response
                     apiResponse.DeserializedResponse = deserializer(apiResponse.RawResponse);

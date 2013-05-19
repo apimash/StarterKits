@@ -27,7 +27,7 @@ namespace APIMASH
         /// <param name="uri">Full URI of the API call with optional format items</param>
         /// <param name="p">Optional parameters to be supplied to the format items in the <paramref name="uri"/></param>
         /// <returns><paramref name="ApiResponse&lt;T&gt;"/> where <typeparamref name="T"/> is the deserialzed (model) data type.</returns>
-        public async Task<ApiResponse<T>> Invoke<T>(Func<String, T> deserializer, String uri, params object[] p)
+        public async Task<ApiResponse<T>> Invoke<T>(Func<Byte[], T> deserializer, String uri, params object[] p)
         {
             // access API Monitor resource (useful but not required)
             ApiMonitor _apiMonitor = null;
