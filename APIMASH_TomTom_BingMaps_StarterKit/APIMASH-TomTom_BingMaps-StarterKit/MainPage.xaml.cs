@@ -10,6 +10,7 @@ using Windows.Storage;
 using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
@@ -184,6 +185,7 @@ namespace APIMASH_StarterKit
             flyout.IsOpen = true;
         }
 
+        #region AppBar implementations
         private void FindButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             // open the search flyout
@@ -200,9 +202,18 @@ namespace APIMASH_StarterKit
 
         private async void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            // refresh the panel to reflect items in map view
-            BottomAppBar.IsOpen = false;
             await LeftPanel.Refresh();
-        }        
+        }
+
+        private void Aerial_Click(object sender, RoutedEventArgs e)
+        {
+            TheMap.MapType = (((ToggleButton)sender).IsChecked ?? false) ? MapType.Aerial : MapType.Road;
+        }
+
+        private void Traffic_Click(object sender, RoutedEventArgs e)
+        {
+            TheMap.ShowTraffic = ((ToggleButton)sender).IsChecked ?? false;
+        }
+        #endregion
     }
 }
