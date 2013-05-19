@@ -172,6 +172,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Content Include="Images\bing.png" />
+    <Content Include="Images\tomtom.png" />
     <Content Include="Images\warning.png" />
     <Page Include="LeftPanel.xaml">
       <SubType>Designer</SubType>

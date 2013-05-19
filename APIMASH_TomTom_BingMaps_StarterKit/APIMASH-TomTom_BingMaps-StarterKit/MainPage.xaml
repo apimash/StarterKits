@@ -1,7 +1,7 @@
 ﻿<!--
 // LICENSE: http://opensource.org/licenses/ms-pl
 -->
-    
+
 <local:LayoutAwarePage
     x:Class="APIMASH_StarterKit.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -12,7 +12,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    
+
     <Page.Resources>
         <!-- from http://social.msdn.microsoft.com/Forums/en-US/winappswithcsharp/thread/c95b40da-25a2-40c6-b143-ea818c86ef59 -->
         <Style x:Key="ToggleAppBarButtonStyle" TargetType="ToggleButton">
@@ -143,11 +143,15 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Orientation="Horizontal">
-
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,10">
+                    <TextBlock Text="Powered by:" HorizontalAlignment="Center" FontWeight="Light" FontSize="24"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,5,0,0">
+                        <Image Stretch="None" Source="ms-appx:///Images/bing.png" />
+                        <Image Stretch="None" Source="ms-appx:///Images/tomtom.png" />
+                    </StackPanel>
                 </StackPanel>
-                
-                <!-- TODO: Modify/add additonal AppBar options -->
+
+                <!-- TODO: (optional) Modify/add additional AppBar options -->
                 <StackPanel Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
                     <Button Style="{StaticResource AppBarButtonStyle}" Content="&#xE117;" AutomationProperties.Name="Refresh" Click="Refresh_Click"/>
                     <ToggleButton Style="{StaticResource ToggleAppBarButtonStyle}" Content="&#xE174;" AutomationProperties.Name="Traffic" Click="Traffic_Click"/>
@@ -165,14 +169,14 @@
             <ColumnDefinition Width="320" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        
+
         <!-- TODO: (optional) Change MaxResults to reflect the max number of items to appear in the left
              panel, typically resulting from an API call. If more elements are available, a glyph
              will automatically appear. You might consider virtualizng the results for a better
              enduser experience.
         -->
-        <local:LeftPanel x:Name="LeftPanel" Map="{Binding ElementName=TheMap}" MaxResults="25" /> 
-        
+        <local:LeftPanel x:Name="LeftPanel" Map="{Binding ElementName=TheMap}" MaxResults="25" />
+
         <bingmaps:Map Grid.Column="1" 
               x:Name="TheMap" 
               Credentials="{StaticResource BingMapsAPIKey}" ZoomLevel="4" MinWidth="20" 
@@ -181,18 +185,18 @@
               ViewRestriction="OneWorldOnly"
               LogoPosition="BottomRight"
               CopyrightPosition="BottomRight">
-             <bingmaps:Map.Center>
+            <bingmaps:Map.Center>
                 <bingmaps:Location Latitude="39.83" Longitude="-98.58" />
             </bingmaps:Map.Center>
         </bingmaps:Map>
-        
+
 
         <!-- TODO: (optional) Change MaxResults to reflect number of location options to appear on a
             search. The value of 12 will fill the panel in 1366x768 without need for scrolling.
         -->
         <flyouts:SearchFlyout x:Name="SearchFlyout" Grid.Column="1" Map="{Binding ElementName=TheMap}" 
                              HorizontalAlignment="Right" Visibility="Collapsed" MaxResults="12" />
-        
+
         <Border Background="Transparent" Height="40" VerticalAlignment="Top" >
             <ProgressBar  VerticalAlignment="Center" Height="30" IsIndeterminate="True" 
                           Visibility="{Binding Source={StaticResource ApiMonitor}, Path=IsExecuting, Converter={StaticResource BooleanToVisibilityConverter}}"
