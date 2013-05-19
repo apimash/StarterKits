@@ -70,9 +70,10 @@ namespace APIMASH_RottenTomatoes_StarterKit
 
         private void Invoke()
         {
-            // get the movies that are currently in theaters
             _apiInvokeInTheaters.OnResponse += apiInvoke_OnResponseInTheaters;
-            var apiCall = Globals.ROTTEN_TOMATOES_API_MOVIES_INTHEATERS;
+
+            // STEP 2. Change the API here to see different movie listings
+            var apiCall = Globals.ROTTEN_TOMATOES_API_MOVIES_INTHEATERS; 
             _apiInvokeInTheaters.Invoke<RottenTomatoesMovies>(apiCall);
         }
 
