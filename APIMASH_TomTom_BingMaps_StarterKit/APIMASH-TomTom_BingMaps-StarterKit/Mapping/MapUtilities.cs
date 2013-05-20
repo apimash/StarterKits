@@ -77,7 +77,7 @@ namespace APIMASH_StarterKit.Mapping
                 PointOfInterestPin poiPin = poiLayer.Children.Where((c) =>
                 {
                     var p = c as PointOfInterestPin;
-                    return ((p != null) && (p.Id == item.Id));
+                    return ((p != null) && (p.PointOfInterest.Id == item.Id));
                 }).FirstOrDefault() as PointOfInterestPin;
 
                 poiPin.IsHighlighted = highlight;

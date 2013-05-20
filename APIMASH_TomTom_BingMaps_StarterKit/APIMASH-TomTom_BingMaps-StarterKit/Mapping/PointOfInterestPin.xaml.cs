@@ -1,4 +1,5 @@
-﻿using System;
+﻿using APIMASH;
+using System;
 using Windows.Foundation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -15,10 +16,10 @@ namespace APIMASH_StarterKit.Mapping
     public class SelectedEventArgs : EventArgs
     {
         /// <summary>
-        /// Unique id of item associated with pin.
+        /// Point-of-interest (as IMappable) associated with pin
         /// </summary>
-        public String Id { get; private set; }
-        public SelectedEventArgs(String id) { id = Id; }
+        public IMappable PointOfInterest { get; private set; }
+        public SelectedEventArgs(IMappable poi) { PointOfInterest = poi; }
     }
     public sealed partial class PointOfInterestPin : UserControl, IAnchorable
     {
@@ -31,9 +32,9 @@ namespace APIMASH_StarterKit.Mapping
         }
 
         /// <summary>
-        /// Unique id for this marker used as lookup in other view models
+        /// Point-of-interest object (an IMappable object typically part of the view model assocated with map items).
         /// </summary>
-        public String Id { get; private set; }
+        public IMappable PointOfInterest { get; private set; }
 
         #region Label dependency property (changing it will change the label)
         public String Label
@@ -79,21 +80,40 @@ namespace APIMASH_StarterKit.Mapping
             get { return new Point(40, 40); }
         }
 
-
         /// <summary>
         /// Creates a new push pin marking a point of interest on the map
         /// </summary>
         /// <param name="map">Reference to Bing Maps control</param>
-        /// <param name="uid">Unique id of associated item view models (use GUID if no other natural key)</param>
-        /// <param name="label">String to displayed as label (depends on design of marker)</param>
-        /// <param name="location">Location (latitude/longitude) to place the marker)</param>
-        public PointOfInterestPin(String uid, String label)
+        /// <param name="poi">Reference to an IMappable instance</param>
+        public PointOfInterestPin(IMappable poi)
         {
             this.InitializeComponent();
+            PointOfInterest = poi;
 
-            // set push pin properties
-            Id = uid;
-            Label = label;
+            // track label as a separate property, but it's populated on creation from the point-of-interest info
+            Label = poi.Label;
+
+            this.PointerPressed += (s, e) => { OnSelected(new SelectedEventArgs(PointOfInterest)); };
         }
+
+        #region cursor hover feedback for mouse input
+        protected override void OnPointerEntered(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            base.OnPointerEntered(e);
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Hand, 0);
+        }
+
+        protected override void OnPointerExited(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            base.OnPointerExited(e);
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+        }
+
+        protected override void OnPointerCanceled(Windows.UI.Xaml.Input.PointerRoutedEventArgs e)
+        {
+            base.OnPointerExited(e);
+            Window.Current.CoreWindow.PointerCursor = new Windows.UI.Core.CoreCursor(Windows.UI.Core.CoreCursorType.Arrow, 0);
+        }
+        #endregion
     }
 }

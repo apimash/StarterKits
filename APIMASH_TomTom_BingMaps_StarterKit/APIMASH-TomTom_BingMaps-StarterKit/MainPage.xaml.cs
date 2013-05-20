@@ -46,16 +46,6 @@ namespace APIMASH_StarterKit
             // register callback to navigate to new spot on map as selected on the SearchFlyout
             SearchFlyout.LocationChanged += (s, e) => GotoLocation(new Location(e.Latitude, e.Longitude), showMarker: true);
 
-            //
-            //
-            // TODO: Implement change in map when an item in the left panel is selected
-            //
-            //
-            LeftPanel.ItemSelectionChanged += (s, e) =>
-            {
-                // do something when item in panel is selected
-            };
-
             // register callback to reset (hide) the user's location, if location access is revoked while app is running
             _geolocator.StatusChanged += (s, a) =>
                 {

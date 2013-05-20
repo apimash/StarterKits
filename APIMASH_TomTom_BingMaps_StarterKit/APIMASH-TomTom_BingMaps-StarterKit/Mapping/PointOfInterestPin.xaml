@@ -17,7 +17,7 @@
             behind to reflect what point in the graphic should be anchored to the lat/long in the location.
     -->
     <Grid Width="50" Height="50">
-            <Ellipse x:Name="Corona" Fill="Red" Visibility="Collapsed" />
+            <Ellipse x:Name="Corona" Fill="{StaticResource AppThemeColor}" Visibility="Collapsed" />
             <Ellipse Width="30" Height="30" Fill="White" />
             <Ellipse Width="26" Height="26" Fill="#FF4397FE" />
             <TextBlock x:Name="PinLabel" Margin="0,2,0,0" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="16"/>
