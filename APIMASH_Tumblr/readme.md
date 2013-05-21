@@ -7,7 +7,7 @@
 ----------
 ###Description
 The Tumblr Daily Lawls App is an application that shows how to call a web service ( tumblr ) and present a UI based on the data.
-![My image](username.github.com/repository/img/image.jpg) 
+![Alt text](https://nkz01w.dm1.livefilestore.com/y2pQ9n58fsXoTpY_laEYMY2uIsg8n3frMHpD08vrR4vjL3OeFpNYWTYGb_HqpoyxZXjwzlqXnvublW2sBMtdmHEifHesHsf8mR4-Nrl4xJdeXw/APIMash_Tumblr.png?psid=1)
 ###Features
  - Invokes the Tumblr API (http://www.tumblr.com/docs/en/api/v2), specifically the tags endpoint
  - Demonstrates how to download an image to the pictures directory
