@@ -45,6 +45,8 @@ namespace APIMASH_TomTom
             set { SetProperty(ref _lastRefresh, value); }
         }
 
+        public Double DistanceFromCenter { get; set; }
+
         // IMappable properties
         public Double Latitude { get; set; }
         public Double Longitude { get; set; }
@@ -84,9 +86,11 @@ namespace APIMASH_TomTom
         /// </summary>
         /// <param name="model">Deserializeed result from API call</param>
         /// <param name="viewModel">Collection of view model items</param>
+        /// <param name="centerLatitude">Latitude of center point of current map view</param>
+        /// <param name="centerLongitude">Longitude of center point of current map view</param>
         /// <param name="maxResults">Maximum number of results to assign to view model (0 = assign all results)</param>
         /// <returns>Indicator of whether items were left out of the view model due to max size restrictions</returns>
-        public static Boolean PopulateViewModel(cameras model, ObservableCollection<TomTomCameraViewModel> viewModel, Int32 maxResults = 0)
+        public static Boolean PopulateViewModel(cameras model, ObservableCollection<TomTomCameraViewModel> viewModel, Double centerLatitude, Double centerLongitude, Int32 maxResults = 0)
         {
             Int32 sequence = 0;
 
@@ -102,22 +106,27 @@ namespace APIMASH_TomTom
                             (from c in model.CameraList
                              select new TomTomCameraViewModel()
                                  {
-                                     Sequence = ++sequence,
                                      CameraId = c.cameraId,
                                      Name = c.cameraName,
                                      Orientation = c.orientation.Replace("Traffic closest to camera is t", "T"),
                                      RefreshRate = c.refreshRate,
                                      Latitude = c.latitude,
-                                     Longitude = c.longitude
+                                     Longitude = c.longitude,
+                                     DistanceFromCenter = Utilities.HaversineDistance(centerLatitude, centerLongitude, c.latitude, c.longitude)
                                  }))
                     stagingList.Add(camera);
 
             // apply max count if provided
-            var maxResultsExceeded = (maxResults > 0) && (stagingList.Count > maxResults);
-            foreach (var s in stagingList.Take(maxResultsExceeded ? maxResults : stagingList.Count))
+            var resultsWereTruncated = (maxResults > 0) && (stagingList.Count > maxResults);
+            foreach (var s in stagingList
+                              .OrderBy((c) => c.DistanceFromCenter)
+                              .Take(resultsWereTruncated ? maxResults : stagingList.Count))
+            {
+                s.Sequence = ++sequence;
                 viewModel.Add(s);
+            }
 
-            return maxResultsExceeded;
+            return resultsWereTruncated;
         }
 
         public static void PopulateViewModel(BitmapImage camImage, TomTomCameraViewModel viewModel)
@@ -166,8 +175,8 @@ namespace APIMASH_TomTom
     /// </summary>
     public sealed class TomTomApi : APIMASH.ApiBase
     {
-        /// <summary>
-        /// Indicates whether camera list was truncated at a max size and other camera are in the same field of view
+        /// <summary>git
+        /// Indicates whether camera list was truncated at a max size and other cameras are in the same field of view
         /// </summary>
         public Boolean CameraListTruncated
         {
@@ -208,7 +217,12 @@ namespace APIMASH_TomTom
             // if successful, copy relevant portions from model to the view model
             if (apiResponse.IsSuccessStatusCode)
             {
-                CameraListTruncated = TomTomCamerasModel.PopulateViewModel(apiResponse.DeserializedResponse, _cameras, maxResults);
+                CameraListTruncated = TomTomCamerasModel.PopulateViewModel(
+                    apiResponse.DeserializedResponse,
+                    _cameras, 
+                    (b.Top + b.Bottom) / 2, 
+                    (b.Left + b.Right) / 2,
+                    maxResults);
             }
             else
             {

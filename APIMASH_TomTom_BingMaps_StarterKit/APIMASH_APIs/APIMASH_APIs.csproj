@@ -103,6 +103,7 @@
     <Compile Include="APIMASH_TomTom.cs" />
     <Compile Include="IMappable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\APIMASH\APIMASH.csproj">
