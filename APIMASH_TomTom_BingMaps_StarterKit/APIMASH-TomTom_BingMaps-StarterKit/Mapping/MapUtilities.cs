@@ -80,7 +80,19 @@ namespace APIMASH_StarterKit.Mapping
                     return ((p != null) && (p.PointOfInterest.Id == item.Id));
                 }).FirstOrDefault() as PointOfInterestPin;
 
-                poiPin.IsHighlighted = highlight;
+                // if pin is found
+                if (poiPin != null)
+                {
+                    // set highlight appropriately
+                    poiPin.IsHighlighted = highlight;
+
+                    // if it's highlighted bring to top by removing and adding back in
+                    if (highlight)
+                    {
+                        poiLayer.Children.Remove(poiPin);
+                        poiLayer.Children.Add(poiPin);
+                    }
+                }
             }
         }
 
