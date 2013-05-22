@@ -220,7 +220,7 @@ namespace APIMASH_BingMaps
 
                     case HttpStatusCode.InternalServerError:
                     case HttpStatusCode.ServiceUnavailable:
-                        apiResponse.Message = "Problem appears to be on TomTom's side. Please retry later.";
+                        apiResponse.Message = "Problem appears to be on Bing's side. Please retry later.";
                         break;
                 }
             }

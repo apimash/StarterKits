@@ -8,18 +8,12 @@ using Windows.UI.Xaml.Data;
 
 namespace APIMASH_StarterKit.Common
 {
-    /// <summary>
-    /// Value converter that the more common types to Visibility values
-    /// </summary>
-    public sealed class BasicTypeToInvisibilityConverter : IValueConverter
+    public sealed class ValueTypeToInvisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (value is Boolean)
                 return ((Boolean)value) ? Visibility.Collapsed : Visibility.Visible;
-
-            if (value is String)
-                return String.IsNullOrEmpty(value as String) ? Visibility.Visible : Visibility.Collapsed;
 
             if (value is Int32)
                 return ((Int32)value == 0) ? Visibility.Visible : Visibility.Collapsed;
@@ -32,7 +26,7 @@ namespace APIMASH_StarterKit.Common
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
-            return value is Visibility && (Visibility)value == Visibility.Collapsed;
+            throw new NotImplementedException();
         }
     }
 }
