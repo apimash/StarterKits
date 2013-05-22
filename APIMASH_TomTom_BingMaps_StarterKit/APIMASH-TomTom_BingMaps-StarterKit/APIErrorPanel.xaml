@@ -26,7 +26,7 @@
             <Run Text="{Binding StatusCode}" />
         </TextBlock>
         <TextBlock Margin="0,10,0,0" Text="Message:" FontWeight="Bold" 
-                   Visibility="{Binding Message, Converter={StaticResource EmptyStringToVisibilityConverter}}"/>
+                   Visibility="{Binding Message, Converter={StaticResource BasicTypeToVisibilityConverter}}"/>
         <TextBlock Text="{Binding Message}" Margin="5,0,0,0" TextWrapping="Wrap"/>
         <Button Margin="0,25,0,0" HorizontalAlignment="Center" Content="Dismiss" Tapped="Dismiss_Tapped"/>
     </StackPanel>

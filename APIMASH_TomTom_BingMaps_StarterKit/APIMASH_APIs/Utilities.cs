@@ -1,5 +1,9 @@
 ﻿using System;
 
+//
+// LICENSE: http://opensource.org/licenses/ms-pl
+//
+
 namespace APIMASH
 {
     public static class Utilities

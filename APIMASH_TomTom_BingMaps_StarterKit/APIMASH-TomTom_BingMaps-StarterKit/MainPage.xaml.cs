@@ -44,7 +44,11 @@ namespace APIMASH_StarterKit
             GotoLocation(null, showMarker: true, ShowMessage: !_firstRun);
 
             // register callback to navigate to new spot on map as selected on the SearchFlyout
-            SearchFlyout.LocationChanged += (s, e) => GotoLocation(new Location(e.Latitude, e.Longitude), showMarker: true);
+            SearchFlyout.LocationChanged += (s, e) =>
+                {
+                    GotoLocation(new Location(e.Latitude, e.Longitude), showMarker: true);
+                    SearchFlyout.Visibility = Visibility.Collapsed;
+                };
 
             // register callback to reset (hide) the user's location, if location access is revoked while app is running
             _geolocator.StatusChanged += (s, a) =>

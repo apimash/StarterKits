@@ -18,7 +18,7 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <StackPanel Margin="20,20,25,20" >
+        <StackPanel Margin="20,20,25,10" >
             <TextBlock Text="Find" Style="{StaticResource SubheaderTextStyle}" />
             <Grid Margin="0,20">
                 <Grid.ColumnDefinitions>
@@ -30,12 +30,18 @@
             </Grid>
         </StackPanel>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding BingApi.Locations}" Margin="20,0,20,20" SelectionMode="None" IsItemClickEnabled="True" ItemClick="LocationList_ItemClick">
+        <ListView Grid.Row="1" ItemsSource="{Binding ApiClass.Locations}" Margin="20,0,20,20" SelectionMode="None" 
+                  IsItemClickEnabled="True" ItemClick="LocationList_ItemClick"
+                  Visibility="{Binding Refreshed, Converter={StaticResource BasicTypeToVisibilityConverter}}">
+            <ListView.Header>
+                <TextBlock Text="No locations found" FontSize="20" FontWeight="Light"
+                               Visibility="{Binding ApiClass.Locations.Count, Converter={StaticResource BasicTypeToInvisibilityConverter}}"/>
+            </ListView.Header>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
                          <TextBlock Text="{Binding Address}"  
-                                   Visibility="{Binding Address, Converter={StaticResource EmptyStringToVisibilityConverter}}" 
+                                   Visibility="{Binding Address, Converter={StaticResource BasicTypeToVisibilityConverter}}" 
                                    TextTrimming="WordEllipsis" />
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="{Binding City}" />
@@ -45,7 +51,7 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <local:ApiErrorPanel x:Name="ErrorPanel" DataContext="{Binding ApiStatus}" Margin="20,0,20,0" Grid.Row="1"
+        <local:ApiErrorPanel x:Name="ErrorPanel" DataContext="{Binding ApiStatus}" Margin="20,45,20,0" Grid.Row="1"
                              Visibility="{Binding Converter={StaticResource ApiStatusToInvisibilityConverter}}" />
     </Grid>
 </UserControl>

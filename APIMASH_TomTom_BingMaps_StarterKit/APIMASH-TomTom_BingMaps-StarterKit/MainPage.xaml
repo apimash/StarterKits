@@ -199,7 +199,7 @@
 
         <Border Background="Transparent" Height="40" VerticalAlignment="Top" >
             <ProgressBar  VerticalAlignment="Center" Height="30" IsIndeterminate="True" 
-                          Visibility="{Binding Source={StaticResource ApiMonitor}, Path=IsExecuting, Converter={StaticResource BooleanToVisibilityConverter}}"
+                          Visibility="{Binding Source={StaticResource ApiMonitor}, Path=IsExecuting, Converter={StaticResource BasicTypeToVisibilityConverter}}"
             />
         </Border>
     </Grid>

@@ -1,4 +1,5 @@
 ﻿using APIMASH;
+using APIMASH_APIs;
 using APIMASH_StarterKit.Mapping;
 using Bing.Maps;
 using System;
@@ -34,8 +35,8 @@ namespace APIMASH_StarterKit
         }
         public static readonly DependencyProperty MaxResultsProperty =
             DependencyProperty.Register("MaxResults", typeof(Int32), typeof(LeftPanel), new PropertyMetadata(0));
-        #endregion  
-              
+        #endregion
+
         //
         // TODO: change the type parameter to the API class you've written to encapsulate the "mappable" API class
         //       you're using in your application.  Once you change this type, you'll need to make appropriate coding 
@@ -43,7 +44,7 @@ namespace APIMASH_StarterKit
         //       any code in this file that references _defaultViewModel.ApiClass
         //
         //
-        private LeftPanelViewModel<APIMASH_TomTom.TomTomApi> _defaultViewModel = new LeftPanelViewModel<APIMASH_TomTom.TomTomApi>();
+        ApiViewModelBase<APIMASH_TomTom.TomTomApi> _defaultViewModel = new ApiViewModelBase<APIMASH_TomTom.TomTomApi>();
 
 
         public LeftPanel()
@@ -175,38 +176,5 @@ namespace APIMASH_StarterKit
             Refresh();
         }
         #endregion
-    }    
-    
-    /// <summary>
-    /// View model supporting functionality of the left panel
-    /// </summary>
-    /// <typeparam name="T">Type of API being used</typeparam>
-    public sealed class LeftPanelViewModel<T> : APIMASH.BindableBase where T : APIMASH.ApiBase, new()
-    {
-        /// <summary>
-        /// API wrapper class (extends APIMASH.ApiBase)
-        /// </summary>
-        public T ApiClass
-        {
-            get { return _apiClass; }
-            set { SetProperty(ref _apiClass, value); }
-        }
-        private T _apiClass;
-
-        /// <summary>
-        /// API response status
-        /// </summary>
-        public ApiResponseStatus ApiStatus
-        {
-            get { return _apiStatus; }
-            set { SetProperty (ref _apiStatus, value); }
-        }
-        private ApiResponseStatus _apiStatus;
-
-        public LeftPanelViewModel()
-        {
-            ApiClass = new T();
-            ApiStatus = ApiResponseStatus.DefaultInstance;
-        }
     }
 }

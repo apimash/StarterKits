@@ -112,11 +112,10 @@
     </Compile>
     <Compile Include="Common\ApiStatusToInvisibilityConverter.cs" />
     <Compile Include="Common\BindableBase.cs" />
-    <Compile Include="Common\ImageToVisibilityConverter.cs" />
-    <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\BasicTypeToInvisibilityConverter.cs" />
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="Common\EmptyStringToVisibilityConverter.cs" />
+    <Compile Include="Common\BasicTypeToVisibilityConverter.cs" />
     <Compile Include="Mapping\CurrentLocationPin.xaml.cs">
       <DependentUpon>CurrentLocationPin.xaml</DependentUpon>
     </Compile>

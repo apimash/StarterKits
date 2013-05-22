@@ -1,4 +1,5 @@
-﻿using APIMASH_BingMaps;
+﻿using APIMASH_APIs;
+using APIMASH_BingMaps;
 using APIMASH_StarterKit;
 using APIMASH_StarterKit.Common;
 using Bing.Maps;
@@ -34,39 +35,6 @@ namespace APIMASH_StarterKit.Flyouts
     }
 
     /// <summary>
-    /// View model supporting the Search flyout
-    /// </summary>
-    public sealed class SearchFlyoutViewModel : BindableBase
-    {
-
-        private BingApi _bingApi;
-        /// <summary>
-        /// Bing Maps API wrapper class <seealso cref="APIMASH_BingMaps.BingApi"/>
-        /// </summary>
-        public BingApi BingApi
-        {
-            get { return _bingApi; }
-            set { SetProperty(ref _bingApi, value); }
-        }
-
-        private APIMASH.ApiResponseStatus _apiStatus;
-        /// <summary>
-        /// API response status
-        /// </summary>
-        public APIMASH.ApiResponseStatus ApiStatus
-        {
-            get { return _apiStatus; }
-            set { SetProperty (ref _apiStatus, value); }
-        }
-
-        public SearchFlyoutViewModel()
-        {
-            BingApi = new BingApi();
-            ApiStatus = APIMASH.ApiResponseStatus.DefaultInstance;
-        }
-    }
-
-    /// <summary>
     /// Flyout panel providing map search feature
     /// </summary>
     public sealed partial class SearchFlyout : UserControl
@@ -88,7 +56,7 @@ namespace APIMASH_StarterKit.Flyouts
             DependencyProperty.Register("Map", typeof(Map), typeof(SearchFlyout),
             new PropertyMetadata("", async (d, e) => 
                 {
-                    ((SearchFlyout) d)._defaultViewModel.BingApi.SetSessionKey(await ((Map)e.NewValue).GetSessionIdAsync());
+                    ((SearchFlyout) d)._defaultViewModel.ApiClass.SetSessionKey(await ((Map)e.NewValue).GetSessionIdAsync());
                 }));
         #endregion
 
@@ -113,7 +81,7 @@ namespace APIMASH_StarterKit.Flyouts
         }
         #endregion
 
-        SearchFlyoutViewModel _defaultViewModel = new SearchFlyoutViewModel();
+        ApiViewModelBase<BingApi> _defaultViewModel = new ApiViewModelBase<BingApi>();
         public SearchFlyout()
         {
             this.InitializeComponent();
@@ -125,7 +93,7 @@ namespace APIMASH_StarterKit.Flyouts
         // handle the search request
         private async void FindButton_Tapped(object sender, RoutedEventArgs e)
         {
-            _defaultViewModel.ApiStatus = await _defaultViewModel.BingApi.GetLocations(LocationSearchText.Text, this.MaxResults);
+            _defaultViewModel.ApiStatus = await _defaultViewModel.ApiClass.GetLocations(LocationSearchText.Text, this.MaxResults);
         }
 
         // trigger event when a location has been selected from among the results
