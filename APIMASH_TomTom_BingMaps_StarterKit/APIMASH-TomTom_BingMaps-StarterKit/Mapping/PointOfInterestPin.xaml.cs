@@ -62,7 +62,10 @@ namespace APIMASH_StarterKit.Mapping
             DependencyProperty.Register("IsHighlighted", typeof(Boolean), typeof(PointOfInterestPin),
             new PropertyMetadata(false, (d, e) =>
             {
-                ((PointOfInterestPin)d).Corona.Visibility = (Boolean)e.NewValue ? Visibility.Visible : Visibility.Collapsed;
+                PointOfInterestPin p = (PointOfInterestPin)d;
+                Visibility v = (Boolean)e.NewValue ? Visibility.Visible : Visibility.Collapsed;
+                p.Corona.Visibility = p.CoronaEffect.Visibility = v;
+                if (v == Visibility.Visible) p.RotateEffect.Begin();
             }));
         #endregion
 
