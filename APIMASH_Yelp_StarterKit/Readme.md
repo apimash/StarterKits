@@ -8,6 +8,7 @@
 ###Description
 The Yelp Starter Kit is a XAML-based Windows 8 app that demonstrates calling a Web Service that returned a simple JSON payload. The JSON payload is deserialized into a View Model.
 
+![Yelp Starter Kit Screenshot][1] 
 
 ###Features
  - Invokes the Yelp API (http://www.yelp.com/developers)
@@ -28,8 +29,8 @@ The Yelp Starter Kit is a XAML-based Windows 8 app that demonstrates calling a W
  - Download the Starter Kit Zip Portfolio from (http://apimash.github.io/StarterKits/)
  - Open the Solution in Visual Studio
  - Obtain JSON.NET from Newtonsoft (https://json.codeplex.com/)
-    - Add reference to JSON.NET in APIMASHLib project
- - Alternatively, add JSON.NET to APIMASHLib via NuGet in Visual Studio
+    - Use NuGet in Visual Studio to add JSON.NET to the APIMASHLib project
+    - Alternatively, download/install and add reference to JSON.NET in APIMASHLib project
  - Add your Developer Key MainPage.xaml.cs, replacing the [YOUR-DEV-KEY-HERE] placeholder
  - Compile and Run
 
@@ -46,3 +47,5 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 ##Change Log
 ###v1.0.0
+  
+  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Yelp_StarterKit/screenshot_main.png "Yelp Starter Kit Screenshot" 
