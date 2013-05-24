@@ -5,6 +5,10 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
+/*
+* LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
+*/
+
 namespace APIMASH_RottenTomatoes_StarterKit
 {
     /// <summary>

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 /*
- * LICENSE: http://opensource.org/licenses/ms-pl) 
- */
+* LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
+*/
 
 namespace APIMASH_CNorrisLib
 {
