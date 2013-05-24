@@ -14,7 +14,7 @@ using Windows.UI.Xaml.Navigation;
 // LICENSE: http://opensource.org/licenses/ms-pl) 
 //
 
-namespace APIMASH_StarterKit
+namespace APIMASH_StarterKit.Common
 {
     /// <summary>
     /// Typical implementation of Page that provides several important conveniences:

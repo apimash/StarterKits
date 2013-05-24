@@ -13,7 +13,7 @@
     d:DesignHeight="1366"
     d:DesignWidth="320" >
 
-    <Grid Width="320" Background="{StaticResource AppThemeColor}" >
+    <Grid Width="320" Background="{StaticResource AppThemeBrush}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />

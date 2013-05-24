@@ -30,7 +30,7 @@
             behind to reflect what point in the graphic should be anchored to the lat/long in the location.
     -->
     <Grid Width="50" Height="50">
-            <Ellipse x:Name="Corona" Fill="{StaticResource AppThemeColor}" Visibility="Collapsed" />
+            <Ellipse x:Name="Corona" Fill="{StaticResource AppThemeBrush}" Visibility="Collapsed" />
             <Ellipse x:Name="CoronaEffect" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5" >
             	<Ellipse.RenderTransform>
             		<CompositeTransform/>

@@ -19,23 +19,34 @@
                 <ResourceDictionary Source="Common/StandardStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
+            <!-- static/global monitor object used to capture and show diagnostics from last API call-->
             <apimash:ApiMonitor x:Key="ApiMonitor" />
 
+            <!-- converter classes -->
             <common:ApiStatusToInvisibilityConverter x:Key="ApiStatusToInvisibilityConverter" />
             <common:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
             <common:ValueTypeToVisibilityConverter x:Key="ValueTypeToVisibilityConverter" />
             <common:ValueTypeToInvisibilityConverter x:Key="ValueTypeToInvisibilityConverter" />
-            
+
+
             <!-- TODO: Replace with your API keys -->
             <x:String x:Key="BingMapsAPIKey">ENTER_YOUR_BING_MAPS_API_KEY_HERE</x:String>
             <x:String x:Key="TomTomAPIKey">ENTER_YOUR_TOMTOM_API_KEY_HERE</x:String>
 
-            <!-- TODO: (optional) Modify theme color of app -->
-            <SolidColorBrush x:Key="AppThemeColor" Color="Navy" />
-            
             <!-- TODO: (optional) Modify the default zoom level (0-19) that occurs when selecting a specific location -->
             <x:Double x:Key="DefaultZoomLevel">12</x:Double>
 
+            <!-- TODO: (optional) Modify theme color of app -->
+            <Color x:Key="AppThemeColor">Navy</Color>
+
+
+
+
+            <!-- set additional resources to reflect main color theme (AppThemeColor) -->
+            <SolidColorBrush x:Key="AppThemeBrush" Color="{StaticResource AppThemeColor}" />
+            <SolidColorBrush x:Key="ListViewItemSelectedBackgroundThemeBrush" Color="{StaticResource AppThemeColor}"></SolidColorBrush>
+            <SolidColorBrush x:Key="ListViewItemSelectedPointerOverBackgroundThemeBrush" Color="{StaticResource AppThemeColor}"></SolidColorBrush>
+            <x:Double x:Key="ListViewItemSelectedBorderThemeThickness">2</x:Double>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

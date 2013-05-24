@@ -1,4 +1,5 @@
-﻿using APIMASH_StarterKit.Flyouts;
+﻿using APIMASH_StarterKit.Common;
+using APIMASH_StarterKit.Flyouts;
 using APIMASH_StarterKit.Mapping;
 using Bing.Maps;
 using Callisto.Controls;
@@ -94,9 +95,12 @@ namespace APIMASH_StarterKit
                     }
                     catch (Exception)
                     {
-                        MessageDialog md =
-                            new MessageDialog("This application is not able to determine your current location. This can occur if your machine is operating in Airplane mode or if the GPS sensor is otherwise not operating.");
-                        md.ShowAsync();
+                        if (ShowMessage)
+                        {
+                            MessageDialog md =
+                                new MessageDialog("This application is not able to determine your current location. This can occur if your machine is operating in Airplane mode or if the GPS sensor is otherwise not operating.");
+                            md.ShowAsync();
+                        }
                     }
                 }
 
@@ -162,8 +166,8 @@ namespace APIMASH_StarterKit
         {
             // grab app theme color from resources (optional)
             SolidColorBrush color = null;
-            if (App.Current.Resources.Keys.Contains("AppThemeColor"))
-                 color = App.Current.Resources["AppThemeColor"] as SolidColorBrush;
+            if (App.Current.Resources.Keys.Contains("AppThemeBrush"))
+                 color = App.Current.Resources["AppThemeBrush"] as SolidColorBrush;
 
             // create the flyout
             var flyout = new SettingsFlyout();
