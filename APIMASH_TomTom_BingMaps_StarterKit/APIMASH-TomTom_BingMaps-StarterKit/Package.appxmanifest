@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_StarterKit.App">
-      <VisualElements DisplayName="Traffic Cams" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Mashup of Bing Maps with TomTom traffic cams" ForegroundText="light" BackgroundColor="#000000">
+      <VisualElements DisplayName="Traffic Cams" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Mashup of Bing Maps with TomTom traffic cams" ForegroundText="light" BackgroundColor="#00FF00">
         <DefaultTile ShowName="allLogos" ShortName="Starter Kit" />
         <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#000000" />
         <InitialRotationPreference>
@@ -26,6 +26,7 @@
         <Extension Category="windows.protocol">
           <Protocol Name="apimash" />
         </Extension>
+        <Extension Category="windows.search" />
       </Extensions>
     </Application>
   </Applications>

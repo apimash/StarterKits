@@ -110,10 +110,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Common\ApiStatusToInvisibilityConverter.cs" />
+    <Compile Include="Common\ApiStatusToVisibilityConverter.cs" />
     <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\LayoutAwarePanel.cs" />
     <Compile Include="Common\StringToVisibilityConverter.cs" />
-    <Compile Include="Common\ValueTypeToInvisibilityConverter.cs" />
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
     <Compile Include="Common\ValueTypeToVisibilityConverter.cs" />
@@ -129,8 +129,9 @@
     <Compile Include="Flyouts\PrivacyFlyout.xaml.cs">
       <DependentUpon>PrivacyFlyout.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Flyouts\SearchFlyout.xaml.cs">
-      <DependentUpon>SearchFlyout.xaml</DependentUpon>
+    <Compile Include="Mapping\IAnchorable.cs" />
+    <Compile Include="SearchPanel.xaml.cs">
+      <DependentUpon>SearchPanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="LeftPanel.xaml.cs">
       <DependentUpon>LeftPanel.xaml</DependentUpon>
@@ -138,11 +139,14 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Mapping\MapUtilities.cs" />
+    <Compile Include="Mapping\BingMapExtensions.cs" />
     <Compile Include="Mapping\PointOfInterestPin.xaml.cs">
       <DependentUpon>PointOfInterestPin.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LocationSearchResultsPage.xaml.cs">
+      <DependentUpon>LocationSearchResultsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -152,6 +156,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="LocationSearchResultsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Mapping\PointOfInterestPin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -172,7 +180,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Images\bing.png" />
+    <Content Include="Images\genericmap.png" />
     <Content Include="Images\tomtom.png" />
     <Content Include="Images\warning.png" />
     <Page Include="LeftPanel.xaml">
@@ -183,11 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Content Include="Assets\Logo.png" />
     <Content Include="Assets\SmallLogo.png" />
     <Content Include="Assets\SplashScreen.png" />
     <Content Include="Assets\StoreLogo.png" />
-    <Page Include="Flyouts\SearchFlyout.xaml">
+    <Page Include="SearchPanel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

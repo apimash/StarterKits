@@ -103,8 +103,7 @@
     <Compile Include="APIMASH_TomTom.cs" />
     <Compile Include="IMappable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities.cs" />
-    <Compile Include="ViewModelBase.cs" />
+    <Compile Include="MapUtilities.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\APIMASH\APIMASH.csproj">
@@ -119,6 +118,7 @@
     <Content Include="Assets\cameraError.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assets\genericTile.png" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
     <VisualStudioVersion>11.0</VisualStudioVersion>

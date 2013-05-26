@@ -2,16 +2,18 @@
 // LICENSE: http://opensource.org/licenses/ms-pl
 -->
 
-<UserControl
+<common:LayoutAwarePanel
     x:Class="APIMASH_StarterKit.LeftPanel"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:APIMASH_StarterKit"
+    xmlns:common="using:APIMASH_StarterKit.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="768"
-    d:DesignWidth="320">
+    d:DesignWidth="320"
+    DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}">
 
     <UserControl.Resources>
         <Style x:Key="ImageButtonStyle" TargetType="Button">
@@ -307,22 +309,18 @@
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Traffic Cameras" Style="{StaticResource SubheaderTextStyle}" TextTrimming="WordEllipsis" />
+                <TextBlock Text="{Binding AppName}" Style="{StaticResource SubheaderTextStyle}" TextTrimming="WordEllipsis" />
                 <Image Grid.Column="1" Source="ms-appx:///Images/warning.png" Height="25" Margin="10,0" 
-                       Visibility="{Binding ApiClass.CameraListTruncated, Converter={StaticResource ValueTypeToVisibilityConverter}}"
+                       Visibility="{Binding ApiViewModel.ResultsTruncated, Converter={StaticResource ValueTypeToVisibilityConverter}}"
                        ToolTipService.ToolTip="More results are available than are shown. Try zooming in on the map to a smaller target area and then refresh the list." />
                 <Button Grid.Column="2" Content="&#xE117;" FontFamily="Segoe UI Symbol" FontSize="25" Padding="6"
                         Style="{StaticResource ImageButtonStyle}" Click="Refresh_Click"/>
             </Grid>
 
-            <ListView x:Name="MappableListView" Grid.Row="1" ItemsSource="{Binding ApiClass.Cameras}" Margin="0,15,0,15" 
+            <ListView x:Name="MappableListView" Grid.Row="1" ItemsSource="{Binding ApiViewModel.Results}" Margin="0,15" 
                       SelectionMode="Single" SelectionChanged="MappableListView_SelectionChanged"
-                      Visibility="{Binding Refreshed, Converter={StaticResource ValueTypeToVisibilityConverter}}" ItemContainerStyle="{StaticResource AppThemeColorListViewItemStyle}" 
+                      ItemContainerStyle="{StaticResource AppThemeColorListViewItemStyle}" 
                       >
-                <ListView.Header>
-                    <TextBlock Text="No cameras found in the area." FontSize="20" FontWeight="Light"
-                               Visibility="{Binding ApiClass.Cameras.Count, Converter={StaticResource ValueTypeToInvisibilityConverter}}"/>
-                </ListView.Header>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" >
@@ -340,16 +338,14 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <TextBlock Grid.Row="1" Margin="0,15" Text="No cameras found in the area." FontSize="20" FontWeight="Light"
+                       Visibility="{Binding NoResults, Converter={StaticResource ValueTypeToVisibilityConverter}}"/>
             <Image Grid.Row="2" x:Name="MappableItem"
                    Source="{Binding SelectedItem.Image, ElementName=MappableListView, Mode=TwoWay}" 
                    VerticalAlignment="Bottom" Stretch="Uniform" Height="240" Margin="0" Visibility="Collapsed" />
-
-            <!-- SelectedItem binding isn't refreshing when list reset so programmatically handling visibility
-                   Visibility="{Binding SelectedItem.Image, ElementName=MappableListView, Converter={StaticResource ImageToVisibilityConverter}}"/>
-            -->
-            <local:ApiErrorPanel x:Name="ErrorPanel" DataContext="{Binding ApiStatus}" Margin="0,60,0,0" Grid.Row="1"
-                             Visibility="{Binding Converter={StaticResource ApiStatusToInvisibilityConverter}}" />
-
+            
+            <local:ApiErrorPanel x:Name="ErrorPanel" Margin="0,60,0,0" Grid.Row="1"
+                             Visibility="{Binding ApiStatus, Converter={StaticResource ApiStatusToVisibilityConverter}}" />
         </Grid>
     </Grid>
-</UserControl>
+</common:LayoutAwarePanel>

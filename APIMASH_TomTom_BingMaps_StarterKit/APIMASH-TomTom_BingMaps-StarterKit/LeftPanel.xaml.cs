@@ -1,5 +1,6 @@
 ﻿using APIMASH;
-using APIMASH_APIs;
+using APIMASH.Mapping;
+using APIMASH_StarterKit.Common;
 using APIMASH_StarterKit.Mapping;
 using Bing.Maps;
 using System;
@@ -15,9 +16,12 @@ using Windows.UI.Xaml.Controls;
 
 namespace APIMASH_StarterKit
 {
-    public sealed partial class LeftPanel : UserControl
+    public sealed partial class LeftPanel : LayoutAwarePanel
     {
         #region Map dependency property
+        /// <summary>
+        /// Reference to map on the main page
+        /// </summary>
         public Map Map
         {
             get { return (Map)GetValue(MapProperty); }
@@ -28,6 +32,9 @@ namespace APIMASH_StarterKit
         #endregion
 
         #region MaxResults dependency property
+        /// <summary>
+        /// Maximum number of results that will appear in panel ListView (0 indicates no limit)
+        /// </summary>
         public Int32 MaxResults
         {
             get { return (Int32)GetValue(MaxResultsProperty); }
@@ -38,65 +45,60 @@ namespace APIMASH_StarterKit
         #endregion
 
         //
-        // TODO: change the type parameter to the API class you've written to encapsulate the "mappable" API class
-        //       you're using in your application.  Once you change this type, you'll need to make appropriate coding 
-        //       changes everywhere there are references to API-specific calls and view model classes - essentially
-        //       any code in this file that references _defaultViewModel.ApiClass
+        // TODO: instantiate an instance of your API class
         //
-        //
-        ApiViewModelBase<APIMASH_TomTom.TomTomApi> _defaultViewModel = new ApiViewModelBase<APIMASH_TomTom.TomTomApi>();
-
-
+        APIMASH_TomTom.TomTomApi _tomTomApi = new APIMASH_TomTom.TomTomApi();
         public LeftPanel()
         {
             this.InitializeComponent();
-            this.DataContext = _defaultViewModel;
 
-            // reset the error panel
-            ErrorPanel.Dismissed += (s, e) => _defaultViewModel.ApiStatus = ApiResponseStatus.DefaultInstance;
+            // intialize generic elements of the view model
+            this.DefaultViewModel["AppName"] = App.DisplayName;
+            this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.DefaultInstance;
+            this.DefaultViewModel["NoResults"] = false;
+
+            // event callback implementtaion for dismissing the error panel
+            ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.DefaultInstance;
 
             //
-            // TODO: change the reference to reflect the property of your API's ViewModel class that is the basis of the
-            //       ObservableCollection bound to the list view in this UserControl. You'll also have to modify the 
-            //       Binding references in the XAML to reflect the correct properties in your view model that should 
-            //       display in the listview.
-            //
-            _defaultViewModel.ApiClass.Cameras.CollectionChanged += ViewModel_CollectionChanged;
+            // TODO: change the reference to reflect your API's view model class, which should include an
+            //       ObservableCollecation of results that will get bound to the ListView in this panel.
+            //       Add the CollectionChanged event event handler to the ObservableCollection in that view model.
+            //            
+            this.DefaultViewModel["ApiViewModel"] = _tomTomApi.TomTomViewModel;
+            _tomTomApi.TomTomViewModel.Results.CollectionChanged += Results_CollectionChanged;
         }
-
-        //
-        // TODO: add code that should execute whenever an item is selected from the listview
-        //
-        //
+     
         /// <summary>
         /// Carries out application-specific handling of the item selected in the listview. The synchronization with
         /// the map display is already accomodated.
         /// </summary>
-        /// <param name="item">Newly selected item that should be case to a view model class for further processing</param>
+        /// <param name="item">Newly selected item that should be cast to a view model class for further processing</param>
         /// <returns></returns>
         private async Task ProcessSelectedItem(object item)
         {
-            await _defaultViewModel.ApiClass.GetCameraImage(item as APIMASH_TomTom.TomTomCameraViewModel);
+            //
+            // TODO: replace with code that should execute whenever an item is selected from the ListView
+            //
+            await _tomTomApi.GetCameraImage(item as APIMASH_TomTom.TomTomCameraViewModel);
         }
 
-        //
-        // TODO: refresh the items in the panel to reflect points of interest in the current map view.
-        //       this will also require modifying the XAML bindings to reflect properties and information
-        //       you want expose from your specific view model
-        //
-        //
         /// <summary>
-        /// Refresh the list of items obtained from the API and have it populate the view model
+        /// Refreshes the list of items obtained from the API and populates the view model
         /// </summary>
-        public async Task Refresh()
+        public async Task Refresh(Double north, Double south, Double west, Double east)
         {
-            // make call to TomTom API to get the cameras in the map view
-            _defaultViewModel.ApiStatus =
-                await _defaultViewModel.ApiClass.GetCameras(new APIMASH_TomTom.BoundingBox(
-                        Map.TargetBounds.North, Map.TargetBounds.South,
-                        Map.TargetBounds.West, Map.TargetBounds.East),
-                        this.MaxResults);
-        }
+            //
+            // TODO: refresh the items in the panel to reflect points of interest in the current map view. You
+            //       will invoke your target API that populates the view model's ObservableCollection and returns
+            //       a status object.  The "NoResults" entry in the view model is used to drive the visibility
+            //       of text that appears when the query returns no elements (versus providing no feedback).
+            //
+            //
+            this.DefaultViewModel["ApiStatus"] =
+                await _tomTomApi.GetCameras(new BoundingBox(north, south, west, east), this.MaxResults);
+            this.DefaultViewModel["NoResults"] = _tomTomApi.TomTomViewModel.Results.Count == 0;
+        }   
 
         #region event handlers (API agnostic)
         // handle synchronization for new selection in the list with the map
@@ -107,8 +109,11 @@ namespace APIMASH_StarterKit
             object oldItem = e.RemovedItems.FirstOrDefault();
 
             // highlight/unhighlight map pins 
-            MapUtilities.HighlighPointOfInterestPin(Map, newItem as IMappable, true);
-            MapUtilities.HighlighPointOfInterestPin(Map, oldItem as IMappable, false);
+            if (Map != null)
+            {
+                Map.HighlightPointOfInterestPin(newItem as IMappable, true);
+                Map.HighlightPointOfInterestPin(oldItem as IMappable, false);
+            }
 
             // process new selection
             if (newItem != null)
@@ -130,8 +135,11 @@ namespace APIMASH_StarterKit
         }
 
         // synchronize changes in the view model collection with the map push pins
-        void ViewModel_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        void Results_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
+            // nothing to do here if there no map to sync with
+            if (Map == null) return;
+
             // only additions and wholesale reset of the ObservableCollection are currently supported
             switch (e.Action)
             {
@@ -146,12 +154,12 @@ namespace APIMASH_StarterKit
                                 MappableListView.SelectedItem = MappableListView.Items.Where((c) => (c as IMappable).Id == e2.PointOfInterest.Id).FirstOrDefault();
                             };
 
-                        MapUtilities.AddPointOfInterestPin(poiPin, Map, new Location(mapItem.Latitude, mapItem.Longitude));
+                        Map.AddPointOfInterestPin(poiPin, mapItem.Position);
                     }
                     break;
 
                 case NotifyCollectionChangedAction.Reset:
-                    MapUtilities.ClearPointOfInterestPins(Map);
+                    Map.ClearPointOfInterestPins();
                     break;
 
                 // case NotifyCollectionChangedAction.Remove:    
@@ -173,7 +181,11 @@ namespace APIMASH_StarterKit
         // invoke refresh when clicking on glyph next to title
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            Refresh();
+            if (Map != null)
+            {
+                Refresh(Map.TargetBounds.North, Map.TargetBounds.South,
+                    Map.TargetBounds.West, Map.TargetBounds.East);
+            }
         }
         #endregion
     }

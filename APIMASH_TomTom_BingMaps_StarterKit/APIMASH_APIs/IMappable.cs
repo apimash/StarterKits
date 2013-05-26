@@ -4,7 +4,7 @@
 // LICENSE: http://opensource.org/licenses/ms-pl
 //
 
-namespace APIMASH
+namespace APIMASH.Mapping
 {
     /// <summary>
     /// Interface implemented by view model types that will be overlayed on map
@@ -22,13 +22,8 @@ namespace APIMASH
         String Label { get;  }        
 
         /// <summary>
-        /// Latitude associated with item
+        /// Position associated with item
         /// </summary>
-        Double Latitude {get; }
-
-        /// <summary>
-        /// Longitude associated with item
-        /// </summary>
-        Double Longitude { get;  }
+        LatLong Position {get; }
     }
 }

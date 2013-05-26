@@ -1,4 +1,4 @@
-﻿using APIMASH;
+﻿using APIMASH.Mapping;
 using System;
 using Windows.Foundation;
 using Windows.UI.Xaml;
@@ -16,14 +16,20 @@ namespace APIMASH_StarterKit.Mapping
     public class SelectedEventArgs : EventArgs
     {
         /// <summary>
-        /// Point-of-interest (as IMappable) associated with pin
+        /// Point-of-interest associated with pin (as IMappable)
         /// </summary>
-        public IMappable PointOfInterest { get; private set; }
-        public SelectedEventArgs(IMappable poi) { PointOfInterest = poi; }
+        public readonly IMappable PointOfInterest;
+
+        public SelectedEventArgs(IMappable poi) 
+        { 
+            PointOfInterest = poi; 
+        }
     }
     public sealed partial class PointOfInterestPin : UserControl, IAnchorable
     {
-
+        /// <summary>
+        /// Triggered when a point-of-interest pin is selected on the map
+        /// </summary>
         public event EventHandler<SelectedEventArgs> Selected;
         private void OnSelected(SelectedEventArgs e)
         {
@@ -32,7 +38,7 @@ namespace APIMASH_StarterKit.Mapping
         }
 
         /// <summary>
-        /// Point-of-interest object (an IMappable object typically part of the view model assocated with map items).
+        /// Point-of-interest object (an IMappable object typically part of the view model assocated with map items)
         /// </summary>
         public IMappable PointOfInterest { get; private set; }
 
@@ -57,7 +63,7 @@ namespace APIMASH_StarterKit.Mapping
             set { SetValue(IsHighlightedProperty, value); }
         }
 
-        // Using a DependencyProperty as the backing store for IsHighlighted.  This enables animation, styling, binding, etc...
+        // IsHighlighted dependency property enabling animation, styling, binding, etc...
         public static readonly DependencyProperty IsHighlightedProperty =
             DependencyProperty.Register("IsHighlighted", typeof(Boolean), typeof(PointOfInterestPin),
             new PropertyMetadata(false, (d, e) =>
@@ -69,24 +75,21 @@ namespace APIMASH_StarterKit.Mapping
             }));
         #endregion
 
-        //
-        //
-        // TODO: (optional) if the indicator graphic is changed, update the AnchorPoint to reflect what point in the 
-        //       graphic should be anchored to the lat/long in the location.
-        //
-        //
         /// <summary>
         /// Anchor point of push pin (for circular marker, the center point)
         /// </summary>
         public Point AnchorPoint
         {
+            //
+            // TODO: (optional) if the indicator graphic is changed, update the AnchorPoint to reflect what point in the 
+            //       graphic should be anchored to the lat/long in the location.
+            //
             get { return new Point(40, 40); }
         }
 
         /// <summary>
         /// Creates a new push pin marking a point of interest on the map
         /// </summary>
-        /// <param name="map">Reference to Bing Maps control</param>
         /// <param name="poi">Reference to an IMappable instance</param>
         public PointOfInterestPin(IMappable poi)
         {

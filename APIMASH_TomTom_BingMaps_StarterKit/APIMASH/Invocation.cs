@@ -23,12 +23,12 @@ namespace APIMASH
         /// <summary>
         /// HTTP Status Code (Unused 306 used to mark non HTTP errors, typically exceptions)
         /// </summary>
-        public HttpStatusCode StatusCode {get; set;}
+        public HttpStatusCode StatusCode {get; internal set;}
 
         /// <summary>
         /// Explanatory message (or <paramref name="Exception"/> message if one occurred)
         /// </summary>
-        public String Message { get; set; }
+        public String Message { get; internal set; }
 
         /// <summary>
         /// Exception object, if one occured
@@ -38,14 +38,25 @@ namespace APIMASH
         /// <summary>
         /// Shortcut to detecting success return code (200 - 299)
         /// </summary>
-         public Boolean IsSuccessStatusCode { get { return ((Int32)this.StatusCode / 100U) == 2; } }
+        public Boolean IsSuccessStatusCode { get { return (this.StatusCode == 0) || ((Int32)this.StatusCode / 100U) == 2; } }
 
         /// <summary>
-        /// Return a default instance representing an unexecuted request
+        /// Default instance representing an unexecuted request
         /// </summary>
         public static ApiResponseStatus DefaultInstance { 
-            get { return new ApiResponseStatus() { StatusCode = HttpStatusCode.OK }; }
+            get { return new ApiResponseStatus() { StatusCode = 0 }; }
         }        
+
+        /// <summary>
+        /// Sets custom status message and (optionally) code
+        /// </summary>
+        /// <param name="message">Error or status message</param>
+        /// <param name="statusCode">optional HTTP Status code (defaults to 306 "Unused")</param>
+        public void SetCustomStatus(String message, HttpStatusCode statusCode = HttpStatusCode.Unused)
+        {
+            this.Message = message;
+            this.StatusCode = StatusCode;
+        }
         
         internal ApiResponseStatus() {}
     }

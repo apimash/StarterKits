@@ -1,38 +1,25 @@
 ﻿using APIMASH;
+using APIMASH.Mapping;
 using Bing.Maps;
 using System;
 using System.Linq;
-using Windows.Foundation;
 using Windows.UI.Xaml;
 
 //
 // LICENSE: http://opensource.org/licenses/ms-pl
 //
-
 namespace APIMASH_StarterKit.Mapping
 {
     /// <summary>
-    /// Interface implemented for custom map push pins
+    /// Bing Maps map extension methods
     /// </summary>
-    public interface IAnchorable
+    public static partial class BingMapsExtensions
     {
         /// <summary>
-        /// Offset into graphic element that defines how the object should be overlaid on the target map location 
+        /// Gets the layer of map containing point-of-interest pins
         /// </summary>
-        Point AnchorPoint { get; }
-    }
-
-    /// <summary>
-    /// Helper class for comment map functionality
-    /// </summary>
-    public static class MapUtilities
-    {
-        /// <summary>
-        /// Return the layer of map containing point-of-interest pins
-        /// </summary>
-        /// <param name="m">Map</param>
         /// <returns>Map layer containing point-of-interest pins</returns>
-        public static MapLayer PoiLayer(Map m)
+        public static MapLayer PoiLayer(this Map m)
         {
             if (m == null) return null;
 
@@ -40,19 +27,21 @@ namespace APIMASH_StarterKit.Mapping
             return m.Children.OfType<MapLayer>().FirstOrDefault();
         }
 
-        public static void ClearPointOfInterestPins(Map m)
+        /// <summary>
+        /// Removes all point-of-interest pins from the map
+        /// </summary>
+        public static void ClearPointOfInterestPins(this Map m)
         {
             MapLayer poiLayer = PoiLayer(m);
             if (poiLayer != null) poiLayer.Children.Clear();
         }
 
-        public static void RemovePointOfInterestPin(Map m)
-        {
-            MapLayer poiLayer = PoiLayer(m);
-            if (poiLayer != null) poiLayer.Children.Clear();
-        }
-
-        public static void AddPointOfInterestPin(this PointOfInterestPin p, Map m, Location l)
+        /// <summary>
+        /// Adds point-of-interest pin to designated location
+        /// </summary>
+        /// <param name="pin">Point-of-interest pin instance</param>
+        /// <param name="position">Latitude/longitude for pin placement</param>
+        public static void AddPointOfInterestPin(this Map m, PointOfInterestPin pin, LatLong position)
         {
             MapLayer poiLayer = PoiLayer(m);
             if (poiLayer == null)
@@ -61,13 +50,18 @@ namespace APIMASH_StarterKit.Mapping
                 m.Children.Add(poiLayer);
             }
 
-            MapLayer.SetPositionAnchor(p, p.AnchorPoint);
+            MapLayer.SetPositionAnchor(pin, pin.AnchorPoint);
 
-            MapLayer.SetPosition(p, l);
-            poiLayer.Children.Add(p);
+            MapLayer.SetPosition(pin, new Location(position.Latitude, position.Longitude));
+            poiLayer.Children.Add(pin);
         }
 
-        public static void HighlighPointOfInterestPin(Map m, IMappable item, Boolean highlight)
+        /// <summary>
+        /// Hides/shows point-of-interest pin
+        /// </summary>
+        /// <param name="item">Item associated with the point-of-interest pin</param>
+        /// <param name="highlight">Flag indicating whether point-of-interest pin should be highlighted or unhighlighted</param>
+        public static void HighlightPointOfInterestPin(this Map m, IMappable item, Boolean highlight)
         {
             MapLayer poiLayer = PoiLayer(m);
             if ((poiLayer != null) && (item != null))
@@ -96,15 +90,20 @@ namespace APIMASH_StarterKit.Mapping
             }
         }
 
-        public static void SetLocation(this CurrentLocationPin p, Map m, Location l)
+        /// <summary>
+        /// Positions current location indicator on map
+        /// </summary>
+        /// <param name="pin">Current location pin object</param>
+        /// <param name="position">Latitude/longitude at which to place pin</param>
+        public static void SetCurrentLocationPin(this Map m, CurrentLocationPin pin, LatLong position)
         {
-            MapLayer.SetPositionAnchor(p, p.AnchorPoint);
-            MapLayer.SetPosition(p, l);
+            MapLayer.SetPositionAnchor(pin, pin.AnchorPoint);
+            MapLayer.SetPosition(pin, new Location(position.Latitude, position.Longitude));
 
-            if (!m.Children.Contains(p))
-                m.Children.Add(p);
+            if (!m.Children.Contains(pin))
+                m.Children.Add(pin);
 
-            p.Visibility = Visibility.Visible;
+            pin.Visibility = Visibility.Visible;
         }
     }
 }

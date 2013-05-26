@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using Callisto.Controls.Common;
+using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
+using Windows.ApplicationModel.Search;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 //
 // LICENSE: http://opensource.org/licenses/ms-pl
@@ -26,6 +18,11 @@ namespace APIMASH_StarterKit
     sealed partial class App : Application
     {
         /// <summary>
+        /// Application display name extracted from the manifest
+        /// </summary>
+        public static String DisplayName { get; private set; }
+
+        /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
@@ -33,6 +30,7 @@ namespace APIMASH_StarterKit
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
         }
 
         /// <summary>
@@ -41,8 +39,11 @@ namespace APIMASH_StarterKit
         /// search results, and so forth.
         /// </summary>
         /// <param name="args">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs args)
+        protected override async void OnLaunched(LaunchActivatedEventArgs args)
         {
+            // get the name of the app from the mainfest
+            DisplayName = (await AppManifestHelper.GetManifestVisualElementsAsync()).DisplayName;
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -87,6 +88,74 @@ namespace APIMASH_StarterKit
             var deferral = e.SuspendingOperation.GetDeferral();
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        /// <summary>
+        /// Invoked when the application is activated to display search results.
+        /// </summary>
+        /// <param name="args">Details about the activation request.</param>
+        protected async override void OnSearchActivated(Windows.ApplicationModel.Activation.SearchActivatedEventArgs args)
+        {
+            // get the name of the app from the mainfest
+            DisplayName = (await AppManifestHelper.GetManifestVisualElementsAsync()).DisplayName;
+
+            // If the Window isn't already using Frame navigation, insert our own Frame
+            var previousContent = Window.Current.Content;
+            var frame = previousContent as Frame;
+
+            // If the app does not contain a top-level frame, it is possible that this 
+            // is the initial launch of the app. Typically this method and OnLaunched 
+            // in App.xaml.cs can call a common method.
+            if (frame == null)
+            {
+                // Create a Frame to act as the navigation context and associate it with
+                // a SuspensionManager key
+                frame = new Frame();
+                APIMASH_StarterKit.Common.SuspensionManager.RegisterFrame(frame, "AppFrame");
+
+                if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
+                {
+                    // Restore the saved session state only when appropriate
+                    try
+                    {
+                        await APIMASH_StarterKit.Common.SuspensionManager.RestoreAsync();
+                    }
+                    catch (APIMASH_StarterKit.Common.SuspensionManagerException)
+                    {
+                        //Something went wrong restoring state.
+                        //Assume there is no state and continue
+                    }
+                }
+            }
+
+            frame.Navigate(typeof(LocationSearchResultsPage), args.QueryText);
+            Window.Current.Content = frame;
+
+            // Ensure the current window is active
+            Window.Current.Activate();
+        }
+
+        /// <summary>
+        /// Invoked when the application window is created.
+        /// </summary>
+        /// <param name="args">Details about the window creation.</param>
+        protected override void OnWindowCreated(WindowCreatedEventArgs args)
+        {
+            // handle search request when app is active
+            var searchPane = SearchPane.GetForCurrentView();
+            searchPane.PlaceholderText = "Enter a city or address";
+            searchPane.QuerySubmitted += (s, e) =>
+            {
+                Frame rootFrame = Window.Current.Content as Frame;
+                if (rootFrame != null)
+                {
+                    rootFrame.Navigate(typeof(LocationSearchResultsPage), e.QueryText);
+                    Window.Current.Content = rootFrame;
+
+                    // Ensure the current window is active
+                    Window.Current.Activate();
+                }
+            };
         }
     }
 }

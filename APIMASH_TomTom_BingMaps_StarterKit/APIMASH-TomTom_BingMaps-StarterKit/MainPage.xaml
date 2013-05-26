@@ -8,7 +8,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:APIMASH_StarterKit"
     xmlns:common="using:APIMASH_StarterKit.Common"
-    xmlns:flyouts="using:APIMASH_StarterKit.Flyouts"
     xmlns:bingmaps="using:Bing.Maps"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -176,7 +175,7 @@
              will automatically appear. You might consider virtualizng the results for a better
              enduser experience.
         -->
-        <local:LeftPanel x:Name="LeftPanel" Map="{Binding ElementName=TheMap}" MaxResults="25" />
+        <local:LeftPanel x:Name="LeftPanel" MaxResults="25" Map="{Binding ElementName=TheMap}"/>
 
         <bingmaps:Map Grid.Column="1" 
               x:Name="TheMap" 
@@ -195,12 +194,11 @@
         <!-- TODO: (optional) Change MaxResults to reflect number of location options to appear on a
             search. The value of 12 will fill the panel in 1366x768 without need for scrolling.
         -->
-        <flyouts:SearchFlyout x:Name="SearchFlyout" Grid.Column="1" Map="{Binding ElementName=TheMap}" 
-                             HorizontalAlignment="Right" Visibility="Collapsed" MaxResults="12" />
+        <local:SearchPanel x:Name="SearchFlyout" Grid.Column="1" HorizontalAlignment="Right" Visibility="Collapsed" MaxResults="12" />
 
         <Border Background="Transparent" Height="40" VerticalAlignment="Top" >
-            <ProgressBar  VerticalAlignment="Center" Height="30" IsIndeterminate="True" 
-                          Visibility="{Binding Source={StaticResource ApiMonitor}, Path=IsExecuting, Converter={StaticResource ValueTypeToVisibilityConverter}}"
+            <ProgressBar VerticalAlignment="Center" Height="30" IsIndeterminate="True" 
+                         Visibility="{Binding Source={StaticResource ApiMonitor}, Path=IsExecuting, Converter={StaticResource ValueTypeToVisibilityConverter}}"
             />
         </Border>
     </Grid>

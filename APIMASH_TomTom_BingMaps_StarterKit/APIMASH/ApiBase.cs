@@ -12,12 +12,15 @@ namespace APIMASH
     /// <summary>
     /// Base class for all API wrapper classes
     /// </summary>
-    public abstract class ApiBase : BindableBase
+    public abstract class ApiBase
     {
         /// <summary>
         /// API access key (required by most APIs)
         /// </summary>
-        protected String _apiKey;
+        protected virtual String _apiKey 
+        {
+            get { return String.Empty; }
+        }
         
         /// <summary>
         /// Call API specified via <paramref name="uri"/>

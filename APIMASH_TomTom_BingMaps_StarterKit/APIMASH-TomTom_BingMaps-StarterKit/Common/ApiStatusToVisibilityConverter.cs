@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Data;
 
 namespace APIMASH_StarterKit.Common
 {
-    public sealed class ApiStatusToInvisibilityConverter : IValueConverter
+    public sealed class ApiStatusToVisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
