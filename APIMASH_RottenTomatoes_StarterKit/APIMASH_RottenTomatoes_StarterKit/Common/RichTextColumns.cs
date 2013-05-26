@@ -5,8 +5,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 /*
- * LICENSE: http://opensource.org/licenses/ms-pl) 
- */
+* LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
+*/
 
 namespace APIMASH_RottenTomatoes_StarterKit.Common
 {

@@ -8,8 +8,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 
 /*
- * LICENSE: http://opensource.org/licenses/ms-pl) 
- */
+* LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
+*/
 
 /*
  *

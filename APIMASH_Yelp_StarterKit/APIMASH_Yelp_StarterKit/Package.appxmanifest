@@ -22,6 +22,11 @@
           <Rotation Preference="landscape" />
         </InitialRotationPreference>
       </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash" />
+        </Extension>
+      </Extensions>
     </Application>
   </Applications>
   <Capabilities>

@@ -11,8 +11,8 @@ using Windows.System;
 using Windows.UI.ApplicationSettings;
 
 /*
- * LICENSE: http://opensource.org/licenses/ms-pl) 
- */
+* LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
+*/
 
 namespace APIMASH_Edmunds_StarterKit
 {
