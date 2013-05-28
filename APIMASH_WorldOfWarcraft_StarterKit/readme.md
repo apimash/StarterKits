@@ -52,10 +52,16 @@ Microsoft and I do not warrant, guarantee or make any representations regarding 
 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
 
+/*
+* LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
+*/
+
+
+
 ----------
 
 ##Change Log
-###v1.0.0
+###v1.0.0 - Updated to point to new license file
 
 
   [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_WorldOfWarcraft_StarterKit/wowapikit_1366x768.png "Windows 8 Wow API Starter Kit"
