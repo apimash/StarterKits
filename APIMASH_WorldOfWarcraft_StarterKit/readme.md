@@ -52,9 +52,9 @@ Microsoft and I do not warrant, guarantee or make any representations regarding 
 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
 
-/*
+
 * LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
-*/
+
 
 
 
