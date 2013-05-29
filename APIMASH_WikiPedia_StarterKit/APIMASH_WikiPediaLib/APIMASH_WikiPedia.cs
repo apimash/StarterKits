@@ -1,4 +1,8 @@
-﻿using System;
+﻿// LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt   <== yes, there's a space in it, dont ask....
+// APIMash - http://bit.ly/apimash
+// Joe Healy / jhealy@microsoft.com / josephehealy@hotmail.com / @devfish
+
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -23,8 +27,14 @@ namespace APIMASH_WikiPediaLib
         {
             try
             {
-                System.Diagnostics.Debug.WriteLine(response.ToString());
+                // System.Diagnostics.Debug.WriteLine(response.ToString());
                 _all.Clear();
+
+                if (response.geonames == null)
+                {
+                    // nothing came back, just return;
+                    return;
+                }
 
                 foreach (APIMASH_WikiPediaLib.geoname gn in response.geonames)
                 {
@@ -32,9 +42,6 @@ namespace APIMASH_WikiPediaLib
                 }
 
                 response.Copy(_all);
-
-                // copy from response to a bindable collection
-                System.Diagnostics.Debug.WriteLine("lets break here and see what comes in");
             }
             catch (Exception e)
             {

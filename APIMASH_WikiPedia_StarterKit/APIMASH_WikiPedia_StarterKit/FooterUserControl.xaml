@@ -15,7 +15,10 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" x:Name="TextBlock_UserId" Text="user=??????" VerticalAlignment="Bottom" FontSize="20"/>
+        
+        <TextBlock Grid.Column="0" x:Name="TextBlock_UserId"  VerticalAlignment="Bottom" FontSize="20" 
+                   Text="{Binding Source={StaticResource APIMASHGlobals},Path=UserIDDefaultIfBlank}"/>
+        
         <TextBlock Grid.Column="1" x:Name="TextBlock_Status" Text="ready" VerticalAlignment="Bottom" FontSize="20"/>
         <Image Grid.Column="2" Source="Assets/Wikipedia.png" Height="60"/>
     </Grid>

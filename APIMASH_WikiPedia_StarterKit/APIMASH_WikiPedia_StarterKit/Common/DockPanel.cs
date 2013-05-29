@@ -1,4 +1,9 @@
-﻿// http://stackoverflow.com/questions/11137884/let-textbox-stretch-to-fill-width-in-stackpanel
+﻿// LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt   <== yes, there's a space in it, dont ask....
+// APIMash - http://bit.ly/apimash
+// Joe Healy / jhealy@microsoft.com / josephehealy@hotmail.com / @devfish
+
+// Original idea for this from
+// http://stackoverflow.com/questions/11137884/let-textbox-stretch-to-fill-width-in-stackpanel
 
 using System;
 using System.Collections.Generic;

@@ -1,4 +1,8 @@
-﻿using System;
+﻿// LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt   <== yes, there's a space in it, dont ask....
+// APIMash - http://bit.ly/apimash
+// Joe Healy / jhealy@microsoft.com / josephehealy@hotmail.com / @devfish
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,13 +16,11 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
+using APIMASH_WikiPediaLib.geonamesHelpers;
 using APIMASH_WikiPedia_StarterKit.Common;
 
 namespace APIMASH_WikiPedia_StarterKit
 {
-    /// <summary>
-    /// A basic page that provides characteristics common to most applications.
-    /// </summary>
     public sealed partial class TextSearchPage : APIMASH_WikiPedia_StarterKit.Common.LayoutAwarePage
     {
         APIMASHLib.APIMASHInvoke m_api_wikipediaSearch;
@@ -67,12 +69,31 @@ namespace APIMASH_WikiPedia_StarterKit
             Invoke();
         }
         
-        private void Invoke()
+        private void Invoke_Archived()
         {
             string apicall = @"http://api.geonames.org/wikipediaSearchJSON?q=Tampa&maxRows=50&username=devfish";
             System.Diagnostics.Debug.WriteLine("OMG!  GET RID OF THIS HARD CODING OF THE URL!");
             m_msghelper.msg("invoking against " + apicall);
             m_api_wikipediaSearch.Invoke<APIMASH_WikiPediaLib.APIMASH_OM>(apicall);
+        }
+
+        private void Invoke()
+        {
+            string _username = APIMASHGlobals.Instance.UserID;
+            if (_username.Length <= 0)
+            {
+                MessageDialogHelper.ShowMsg("username", "valid geonames username is required to be set, use the CHARMS=>SETTINGS menu to enter yours");
+                return;
+            }
+
+            WikipediaSearchHelper _apihelper = new WikipediaSearchHelper( _username, "Orlando", 50 );
+
+            string _apicall = _apihelper.TargetURL;
+
+            System.Diagnostics.Debug.WriteLine("TargetURL=" + _apicall);
+
+            m_msghelper.msg("invoking against " + _apicall);
+            m_api_wikipediaSearch.Invoke<APIMASH_WikiPediaLib.APIMASH_OM>(_apicall);
         }
 
         void m_api_wikipediaSearch_OnResponse(object sender, APIMASHLib.APIMASHEvent e)
@@ -84,11 +105,17 @@ namespace APIMASH_WikiPedia_StarterKit
                 // not really using right now but it works
                 m_results.Copy(_response);
 
-                m_msghelper.msg(string.Format("{0} wikipedia text search matches returned", _response.geonames.Count()));
+                if (_response.geonames == null)
+                {
+                    m_msghelper.msg("NO RESULTS RETURNED");
+                    return;
+                }
+
+                m_msghelper.msg(string.Format("{0} geonames returned", _response.geonames.Count()));
                 int _count = 1;
                 foreach (APIMASH_WikiPediaLib.geoname gn in _response.geonames)
                 {
-                    m_msghelper.msg(string.Format("{0}:  {1}", _count.ToString(), gn.ToWikipediaSearchResultString()));
+                    m_msghelper.msg(string.Format("{0}:  {1}", _count.ToString(), gn.ToNearbyPlaceString()));
                     _count++;
                 }
             }

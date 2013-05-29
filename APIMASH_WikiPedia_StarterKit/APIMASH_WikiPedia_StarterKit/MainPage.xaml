@@ -35,12 +35,14 @@
             <Image Source="Assets/Wikipedia.png" Height="80" />
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{StaticResource AppName}" Style="{StaticResource PageHeaderTextStyle}"/>
         </Grid>
-        <GridView Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <GridView Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40">
             <GridView.Items>
                 <Button x:Name="Button_FindNearbyPlaces" FontSize="40" Content="Find Nearby Places" Click="Button_FindNearbyPlaces_Click" Style="{StaticResource TextButtonStyle}"/>
                 <Button x:Name="Button_TextSearch" FontSize="40"  Content="Full Text Search" Click="Button_TextSearch_Click" Style="{StaticResource TextButtonStyle}"/>
                 <Button x:Name="Button_BoundingBox" FontSize="40" Content="Bounding Box" Style="{StaticResource TextButtonStyle}" Click="Button_BoundingBox_Click"/>
+                <!--
                 <Button x:Name="Button_GeonamesInfo" FontSize="40" Content="Geonames Info" Click="Button_GeonamesInfo_Click" Style="{StaticResource TextButtonStyle}"/>
+                -->
             </GridView.Items>
         </GridView>
 

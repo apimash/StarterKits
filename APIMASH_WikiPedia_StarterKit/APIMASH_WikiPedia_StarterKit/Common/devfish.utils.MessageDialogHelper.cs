@@ -5,7 +5,7 @@
 using System;
 using Windows.UI.Popups;
 
-namespace APIMASH_WikiPedia_StarterKit.Common
+namespace devfish.utils
 {
     static class MessageDialogHelper
     {

@@ -1,0 +1,79 @@
+<!--
+field list:
+
+summary - string
+distance - float
+rank - integer
+title - string
+wikipediaUrl - string
+elevation - integer
+countryCode - string
+lng - float
+lang - string
+lat - float
+-->
+
+{"geonames":
+[{
+  "summary":"Northeast High School is a high school located in St. Petersburg, Florida. The school is part of the Pinellas County Schools district. The school mascot is the Viking and the school colors are scarlet, cream, and black (...)",
+  "distance":"2.4575",
+  "rank":69,
+  "title":"Northeast High School (St. Petersburg, Florida)",
+  "wikipediaUrl":"en.wikipedia.org/wiki/Northeast_High_School_%28St._Petersburg%2C_Florida%29",
+  "elevation":10,
+  "lng":-82.65565555555555,
+  "lang":"en",
+  "lat":27.822805555555554
+},
+{
+"summary":"WGES (680 AM) is a radio station broadcasting a Spanish language religious format. Licensed to St. Petersburg, Florida, USA, it serves the Tampa Bay area. The station is currently owned by ZGS Communications. It is also home to Spanish-language broadcasts of Tampa Bay Rays baseball.  (...)",
+"distance":"2.5752",
+"rank":39,
+"title":"WGES (AM)",
+"wikipediaUrl":"en.wikipedia.org/wiki/WGES_%28AM%29",
+"elevation":8,
+"countryCode":"US",
+"lng":-82.62388888888889,
+"feature":"landmark",
+"lang":"en",
+"lat":27.85666666666667
+},
+{
+"summary":"Canterbury School of Florida is a private college preparatory school in Saint Petersburg, Florida. Situated on two campuses, Canterbury educates students from Pre-K to Grade 12.  (...)",
+"distance":"3.0574",
+"rank":67,
+"title":"Canterbury School (St. Petersburg, Florida)",
+"wikipediaUrl":"en.wikipedia.org/wiki/Canterbury_School_%28St._Petersburg%2C_Florida%29",
+"elevation":7,
+"countryCode":"US",
+"lng":-82.620883,
+"lang":"en",
+"lat":27.825135
+},
+{
+"summary":"Derby Lane Greyhound Track is a racino located in St. Petersburg, Florida, United States. The track opened in 1925, after it was purchased from the Weaver family, constructed, and returned to the Wiever family, where ownership has been maintained since.  (...)",
+"distance":"3.206",
+"rank":48,
+"title":"Derby Lane Greyhound Track",
+"wikipediaUrl":"en.wikipedia.org/wiki/Derby_Lane_Greyhound_Track",
+"elevation":6,
+"countryCode":"US",
+"lng":-82.6267,
+"feature":"landmark",
+"lang":"en",
+"lat":27.8667
+},
+{
+"summary":"WBTP is a Urban Contemporary radio station that serves the Tampa Bay area that plays hip-hop, R&B, and soul music that aims towards the African American community. Its target audience is African Americans between the ages of 18-34, but its main competitors are WLLD which has a very similar target (...)",
+"distance":"3.3871",
+"rank":87,
+"title":"WBTP",
+"wikipediaUrl":"en.wikipedia.org/wiki/WBTP",
+"elevation":6,
+"countryCode":"US",
+"lng":-82.624,
+"feature":"landmark",
+"lang":"en",
+"lat":27.867
+}
+]}

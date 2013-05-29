@@ -3,12 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASH_WikiPedia_StarterKit", "APIMASH_WikiPedia_StarterKit\APIMASH_WikiPedia_StarterKit.csproj", "{6FE6DB0B-5177-4DCF-AF97-1EFED84088A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASHLib", ""APIMASHLib\APIMASHLib\APIMASHLib.csproj", "{A7CB71B9-C19E-4A82-8308-D83490F16EF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASHLib", "..\APIMASHLib\APIMASHLib\APIMASHLib.csproj", "{A7CB71B9-C19E-4A82-8308-D83490F16EF2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASH_WikiPediaLib", "APIMASH_WikiPediaLib\APIMASH_WikiPediaLib.csproj", "{4AEE8FC0-4241-4AC6-BB46-81A1FE01FE8E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{16C70E0E-6303-4E35-BF88-7E3BC291C6AC}"
 	ProjectSection(SolutionItems) = preProject
+		APIMASH_WikiPedia_StarterKit\license.txt = APIMASH_WikiPedia_StarterKit\license.txt
+		readme.md = readme.md
+		screenshot01.jpg = screenshot01.jpg
 		thots.txt = thots.txt
 	EndProjectSection
 EndProject
