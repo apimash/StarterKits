@@ -1,5 +1,5 @@
 ﻿<!--
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 -->
     
 <Application
@@ -23,15 +23,14 @@
             <apimash:ApiMonitor x:Key="ApiMonitor" />
 
             <!-- converter classes -->
-            <common:ApiStatusToInvisibilityConverter x:Key="ApiStatusToInvisibilityConverter" />
+            <common:ApiStatusToVisibilityConverter x:Key="ApiStatusToVisibilityConverter" />
             <common:StringToVisibilityConverter x:Key="StringToVisibilityConverter" />
             <common:ValueTypeToVisibilityConverter x:Key="ValueTypeToVisibilityConverter" />
-            <common:ValueTypeToInvisibilityConverter x:Key="ValueTypeToInvisibilityConverter" />
-
+            <common:CityStateStringConverter x:Key="CityStateStringConverter" />
 
             <!-- TODO: Replace with your API keys -->
-            <x:String x:Key="BingMapsAPIKey">ENTER_YOUR_BING_MAPS_API_KEY_HERE</x:String>
-            <x:String x:Key="TomTomAPIKey">ENTER_YOUR_TOMTOM_API_KEY_HERE</x:String>
+            <x:String x:Key="BingMapsAPIKey">ENTER_YOUR_BING_MAPS_KEY_HERE</x:String>
+            <x:String x:Key="TomTomAPIKey">ENTER_YOUR_TOMTOM_KEY_HERE</x:String>
 
             <!-- TODO: (optional) Modify the default zoom level (0-19) that occurs when selecting a specific location -->
             <x:Double x:Key="DefaultZoomLevel">12</x:Double>
