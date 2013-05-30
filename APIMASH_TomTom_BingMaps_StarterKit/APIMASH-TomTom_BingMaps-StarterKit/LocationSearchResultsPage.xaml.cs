@@ -4,17 +4,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Windows.ApplicationModel.Search;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit
 {
     /// <summary>
-    /// This page displays search results when a global search is directed to this application.
+    /// This page displays search results when a global location search is directed to this application.
+    /// Most of this code was generated automatically when adding Search Contract via Visual Studio's Add New Item dialog.
     /// </summary>
     public sealed partial class LocationSearchResultsPage : APIMASH_StarterKit.Common.LayoutAwarePage
     {
@@ -22,6 +24,9 @@ namespace APIMASH_StarterKit
         public LocationSearchResultsPage()
         {
             this.InitializeComponent();
+
+            // allow type-to-search in search charm
+            SearchPane.GetForCurrentView().ShowOnKeyboardInput = true;
 
             // event callback implementation for dismissing the error panel
             ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;

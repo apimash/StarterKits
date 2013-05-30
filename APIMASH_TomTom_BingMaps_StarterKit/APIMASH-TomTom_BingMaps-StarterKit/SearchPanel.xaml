@@ -1,5 +1,5 @@
 ﻿<!--
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 -->
     
 <common:LayoutAwarePanel
@@ -27,7 +27,7 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="LocationSearchText" IsTextPredictionEnabled="True" KeyUp="LocationText_KeyUp"/>
+                <TextBox x:Name="LocationSearchText" IsTextPredictionEnabled="True" KeyUp="LocationText_KeyUp" />
                 <Button Content="&#xE11A;" Grid.Column="1" FontFamily="Segoe UI Symbol"  Margin="-3" Padding="4" Tapped="FindButton_Tapped"/>
             </Grid>
         </StackPanel>

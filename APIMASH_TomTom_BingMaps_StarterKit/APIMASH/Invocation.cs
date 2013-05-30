@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH
@@ -51,7 +51,7 @@ namespace APIMASH
         /// Sets custom status message and (optionally) code
         /// </summary>
         /// <param name="message">Error or status message</param>
-        /// <param name="statusCode">optional HTTP Status code (defaults to 306 "Unused")</param>
+        /// <param name="statusCode">Optional HTTP Status code (defaults to 306 "Unused")</param>
         public void SetCustomStatus(String message, HttpStatusCode statusCode = HttpStatusCode.Unused)
         {
             this.Message = message;
@@ -62,7 +62,7 @@ namespace APIMASH
     }
 
     /// <summary>
-    /// HTTP raw and deserialized responses in addition to status information resulting from API call
+    /// Container for HTTP raw and deserialized responses in addition to status information resulting from API call
     /// </summary>
     /// <typeparam name="T">The deserialized data type of results from the API call (the type of the model class)</typeparam>
     public sealed class ApiResponse<T> : ApiResponseStatus
@@ -124,7 +124,7 @@ namespace APIMASH
             var apiResponse = new ApiResponse<T>(this.Uri);
             try
             {
-                // invoke the Get request
+                // invoke the GET request
                 var httpClient = new HttpClient();
                 var httpResponse = await httpClient.GetAsync(this.Uri);
 
@@ -148,12 +148,6 @@ namespace APIMASH
                     // deserialize response
                     apiResponse.DeserializedResponse = deserializer(apiResponse.RawResponse);
                 }
-            }
-            catch (WebException wex)
-            {
-                apiResponse.StatusCode = HttpStatusCode.Unused;
-                apiResponse.Message = wex.Message;
-                apiResponse.Exception = wex;
             }
             catch (Exception e)
             {

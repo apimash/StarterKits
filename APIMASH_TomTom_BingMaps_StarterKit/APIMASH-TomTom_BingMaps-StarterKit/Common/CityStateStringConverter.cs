@@ -5,15 +5,14 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl) 
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit.Common
 {
     public sealed class CityStateStringConverter : IValueConverter
     {
-        // convert ANY incoming type that has City field and a State abbreviation field as string to "City, State" 
-        // if it fails, exceptions are ignored and the original data value is returned
+        // convert ANY incoming type that has city field and a state abbreviation to "City, State" 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             try
@@ -34,7 +33,7 @@ namespace APIMASH_StarterKit.Common
             }
             catch
             {
-                // eat the exception and just return the original value
+                // eat the exception (probably from non-existing property on dynamic type) and just return the original value
             }
 
             return value;
@@ -45,6 +44,9 @@ namespace APIMASH_StarterKit.Common
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Abbreviation dictionary for US states and Canadian provinces
+        /// </summary>
         private Dictionary<String, String> StateLookup = new Dictionary<string, string>(50)
         {
             {"AL","Alabama"},

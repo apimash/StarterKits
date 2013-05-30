@@ -11,7 +11,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_BingMaps
@@ -65,6 +65,7 @@ namespace APIMASH_BingMaps
         {
             return ((this.Address == other.Address) && (this.City == other.City) && (this.State == other.State));
         }
+
 
         public BingMapsLocationViewModel()
         {
@@ -270,7 +271,7 @@ namespace APIMASH_BingMaps
 
         // BingMaps API calls will use a "session key" option available when used in conjunction
         // with the Bing Maps control. The session key incurs one transaction against the license
-        // allotment (versus one transaction for EACH REQUEST, when using the API key). The session
+        // allotment (versus one transaction for EACH REQUEST when using the API key). The session
         // key is obtained via an async API call on the Map control itself, so in order to not take
         // dependency on the Bing Maps control here, the key is communicated through an application
         // level resource.
@@ -291,8 +292,8 @@ namespace APIMASH_BingMaps
         /// Performs a Bing Maps location query given <paramref name="searchCriteria"/>
         /// </summary>
         /// <param name="searchCriteria">Free form search criteria</param>
-        /// <param name="tileSize">Size of square static tile (in pixels) centered on location that should be generated (default is 0 = no tile) (</param>
         /// <param name="maxResults">Maximum number of results to assign to view model (default is 0 = no throttling)</param>
+        /// <param name="tileSize">Size of square static tile (in pixels) centered on location that should be generated (default is 0 = no tile) (</param>
         /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/></returns>
         public async Task<APIMASH.ApiResponseStatus> GetLocations(String searchCriteria, Int32 maxResults = 0, Int32 tileSize = 0)
         {
@@ -319,7 +320,7 @@ namespace APIMASH_BingMaps
                     BingMapsLocationsModel.PopulateViewModel(apiResponse.DeserializedResponse, BingMapsViewModel.Results, maxResults);
 
                     // if tiles are requested, make additional calls to retrieve them. Note there is no error checking of the response.
-                    // If someting goes awry, we'll get a generic map icon image back which will be an 'ok' experience.
+                    // If someting goes awry, a generic map icon image will be returned
                     if (tileSize > 0)
                     {
                         foreach (var location in BingMapsViewModel.Results)
@@ -351,7 +352,7 @@ namespace APIMASH_BingMaps
         /// </summary>
         /// <param name="location">Location for which to generate map image</param>
         /// <param name="tileSize">Dimensions (in pixels) of square map image</param>
-        /// <returns></returns>
+        /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/></returns>
         public async Task<APIMASH.ApiResponseStatus> GetStaticTile(BingMapsLocationViewModel location, Int32 tileSize)
         {
             // determine the best zoom level for this particular image based on the bounding box of the location as returned by the

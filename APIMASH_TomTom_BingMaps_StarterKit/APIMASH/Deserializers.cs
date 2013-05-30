@@ -4,22 +4,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Media.Imaging;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH
 {
     /// <summary>
-    /// Repository of deserializers to handle response from API calls
+    /// Repository of deserializers to handle responses from API calls
     /// </summary>
     /// <typeparam name="T">Deserialized type, typically the type of the model class to store results for a given API call</typeparam>
-    public static partial class Deserializers<T>
+    public static class Deserializers<T>
     {
         /// <summary>
         /// Map of Content-Type header values to deserializer classes 
@@ -38,7 +37,7 @@ namespace APIMASH
         /// Return default serializer for a given <paramref name="mediaType"/> (e.g., application/json)
         /// </summary>
         /// <param name="mediaType">mediaType of the response (from HTTP Content-Type header)</param>
-        /// <returns></returns>
+        /// <returns>Function that accepts a byte stream and returns a serialize class of type T</returns>
         public static Func<Byte[], T> GetDefaultDeserializer(String mediaType)
         {
             if (_mapping.ContainsKey(mediaType))

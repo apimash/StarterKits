@@ -7,6 +7,7 @@ using Callisto.Controls;
 using Callisto.Controls.Common;
 using System;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Search;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
 using Windows.UI.ApplicationSettings;
@@ -18,11 +19,15 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit
 {
+    /// <summary>
+    /// Main page of application displaying a map and a "LeftPanel" object. All code in this class is indepedent of the
+    /// specific API used to populate point-of-interest on the maps (such as TomTom traffic cameras for this sample).
+    /// </summary>
     public sealed partial class MainPage : LayoutAwarePage
     {
         Geolocator _geolocator = new Geolocator();
@@ -77,6 +82,9 @@ namespace APIMASH_StarterKit
             };
             BottomAppBar.Opened += (s, e) => { SearchFlyout.Visibility = Visibility.Collapsed; };
             SearchFlyout.Tapped += (s, e) => { e.Handled = true; };
+
+            // allow type-to-search in search charm
+            SearchPane.GetForCurrentView().ShowOnKeyboardInput = true;
 
             // The BingMaps API allows use of a "session key" if the application leverages the Bing Maps control. By using the session
             // key instead of the API key, only one transaction is logged agains the key versus one transaction for every API call! This 

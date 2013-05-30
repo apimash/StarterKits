@@ -7,7 +7,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit
@@ -34,7 +34,7 @@ namespace APIMASH_StarterKit
     }
 
     /// <summary>
-    /// Flyout panel providing map search feature
+    /// Flyout panel providing quick, in-application map search feature (as opposed to Search contract)
     /// </summary>
     public sealed partial class SearchPanel : LayoutAwarePanel
     {

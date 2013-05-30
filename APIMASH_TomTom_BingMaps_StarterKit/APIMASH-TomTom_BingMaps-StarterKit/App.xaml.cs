@@ -9,7 +9,7 @@ using Windows.UI.Xaml.Controls;
 using System.Linq;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit
@@ -32,7 +32,6 @@ namespace APIMASH_StarterKit
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-
         }
 
         /// <summary>

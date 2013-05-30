@@ -5,7 +5,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit.Mapping
@@ -42,7 +42,7 @@ namespace APIMASH_StarterKit.Mapping
         /// </summary>
         public IMappable PointOfInterest { get; private set; }
 
-        #region Label dependency property (changing it will change the label)
+        #region Label dependency property (changing it will change the label on the PinLabel UIElement)
         public String Label
         {
             get { return (String)GetValue(LabelProperty); }
@@ -56,7 +56,7 @@ namespace APIMASH_StarterKit.Mapping
                     }));
         #endregion
 
-        #region IsHighlighted dependency property (changing it will highlight map marker)
+        #region IsHighlighted dependency property (changing it will highlight map marker via storyboard)
         public Boolean IsHighlighted
         {
             get { return (Boolean)GetValue(IsHighlightedProperty); }

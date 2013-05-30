@@ -1,7 +1,7 @@
 ﻿using System;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH.Mapping
@@ -9,7 +9,7 @@ namespace APIMASH.Mapping
     /// <summary>
     /// Bounding box of latitude/longitude
     /// </summary>
-    public class BoundingBox
+    public sealed class BoundingBox
     {
         /// <summary>
         /// Northernmost latitude value
@@ -35,7 +35,7 @@ namespace APIMASH.Mapping
         /// Create a new bounding box object
         /// </summary>
         /// <param name="n">Northernmost latitudinal point</param>
-        /// <param name="s">Southermost latitudinal point</param>
+        /// <param name="s">Southernmost latitudinal point</param>
         /// <param name="w">Westernmost longitudinal point</param>
         /// <param name="e">Easternmost longitudinal point</param>
         public BoundingBox(Double n, Double s, Double w, Double e)
@@ -50,7 +50,7 @@ namespace APIMASH.Mapping
     /// <summary>
     /// Latitude/longitude structure
     /// </summary>
-    public class LatLong
+    public sealed class LatLong
     {
         /// <summary>
         /// Latitude component
@@ -70,9 +70,9 @@ namespace APIMASH.Mapping
     }
 
     /// <summary>
-    /// Useful map-based utilities as static methods
+    /// Map-focused utility methods
     /// </summary>
-    public static partial class MapUtilities
+    public static class MapUtilities
     {
         /// <summary>
         /// Calculate distance (in meters) between two points on the earth using the Haversine formula
@@ -96,7 +96,7 @@ namespace APIMASH.Mapping
         /// a location search in the tile size alloted.
         /// </summary>
         /// <param name="latitude">Latitude of center point of extent</param>
-        /// <param name="extent">Number of meters of longest side of  bounding box for given location</param>
+        /// <param name="extent">Number of meters of longest side of bounding box for given location</param>
         /// <param name="dimension">Size (in pixels) of desired square map image</param>
         /// <returns></returns>
         public static Int32 OptimalZoomLevel(Double latitude, Double extent, Int32 sizeInPixels)

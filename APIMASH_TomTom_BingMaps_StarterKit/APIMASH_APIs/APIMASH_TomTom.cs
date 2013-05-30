@@ -11,14 +11,14 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Imaging;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 //
-// TODO: implement (at least) three classes comprising your API ViewModel, Model, and methods
-//       ViewModel class includes the information of interest you want to show in the left panel of the app, it should
-//               implement IMappable so it will have the necessary fields to associate with push pins on the map
-//
+// TODO: use this example as a template for implementing your location-aware API that will associate points-of-interest
+//       with the map functionality built into this application. Th ViewModel class includes the information of interest 
+//       you want to show in the left panel of the app, it should implement IMappable so it will have the necessary fields 
+//       to associate with push pins on the map
 //
 
 namespace APIMASH_TomTom
@@ -236,7 +236,7 @@ namespace APIMASH_TomTom
         {
             BitmapImage cameraImage = null;
 
-            // invoke the API (explicit deserialized provided because the image responses from TomTom don't include a Content-Type header
+            // invoke the API (explicit deserializer provided because the image responses from TomTom don't include a Content-Type header
             var apiResponse = await Invoke<BitmapImage>(
                 Deserializers<BitmapImage>.DeserializeImage,
                 "https://api.tomtom.com/trafficcams/getfullcam/{0}.jpg?key={1}",
@@ -249,7 +249,7 @@ namespace APIMASH_TomTom
                 cameraImage = apiResponse.DeserializedResponse;
             }
 
-            // otherwise, use some stock images to reflect error condition
+            // otherwise, use some stock image to reflect error condition
             else if (apiResponse.StatusCode == HttpStatusCode.NotFound)
             {
                 cameraImage = new BitmapImage(new Uri("ms-appx:///APIMASH_APIs/Assets/camera404.png"));
@@ -267,10 +267,16 @@ namespace APIMASH_TomTom
         }
 
         /// <summary>
-        /// Pre-populated list of search suggestions based on known positions of cameras
+        /// Pre-populated list of search results based on known positions of traffic cameras
         /// </summary>
         public static IEnumerable<IMappable> SearchSuggestionList = new List<IMappable>()
         {
+            //
+            // TODO: (option) if implementing the Search contract, you can provide search result suggestions by
+            //       populating this static list of IMappable objects. Up to five of these suggestions will show
+            //       automatically in the Search charm pane as the user edits the query text. Selecting one of the 
+            //       known search results will navigate them to a location with known points-of-interest in the vicinity.
+            //
             new SearchResultSuggestion("Albany, New York", 42.6519355773926, -73.7580604553223),
             new SearchResultSuggestion("Allentown, Pennsylvania", 40.6058902740479, -75.4747734069824),
             new SearchResultSuggestion("Altoona, Pennsylvania", 40.5032196044922, -78.3982429504395),

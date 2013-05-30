@@ -1,4 +1,9 @@
 ﻿using Windows.Foundation;
+
+//
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
+//
+
 namespace APIMASH_StarterKit.Mapping
 {
     /// <summary>

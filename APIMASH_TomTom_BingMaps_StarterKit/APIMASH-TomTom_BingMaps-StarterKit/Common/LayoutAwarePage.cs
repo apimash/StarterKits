@@ -1,5 +1,4 @@
-﻿using APIMASH_StarterKit.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.Foundation.Collections;
@@ -11,7 +10,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl) 
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit.Common

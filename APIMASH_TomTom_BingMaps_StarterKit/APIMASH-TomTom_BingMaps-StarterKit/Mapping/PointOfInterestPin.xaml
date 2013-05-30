@@ -1,5 +1,5 @@
 ﻿<!--
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 -->
     
  <UserControl
@@ -12,7 +12,10 @@
     mc:Ignorable="d"
     d:DesignHeight="50"
     d:DesignWidth="50">
- 	<UserControl.Resources>
+
+    <!-- TODO: (optional) modify the subtle animations that occurs when a point-of-interest pin is first selected.
+    -->
+    <UserControl.Resources>
  		<Storyboard x:Name="RotateEffect">
  			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="CoronaEffect">
  				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
@@ -27,7 +30,7 @@
  	</UserControl.Resources>
 
     <!-- TODO: (optional) modify rendering of the point-of-interest marker.  Be sure to change the AnchorPoint in the code
-            behind to reflect what point in the graphic should be anchored to the lat/long in the location.
+               behind to reflect what point in the graphic should be anchored to the lat/long in the location.
     -->
     <Grid Width="50" Height="50">
             <Ellipse x:Name="Corona" Fill="{StaticResource AppThemeBrush}" Visibility="Collapsed" />

@@ -1,5 +1,5 @@
 ﻿<!--
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 -->
     
     <UserControl
@@ -13,7 +13,7 @@
     d:DesignWidth="20">
     
     <!-- TODO: (optional) modify rendering of current location marker.  Be sure to change the AnchorPoint in the code
-            behind to reflect what point in the graphic should be anchored to the lat/long in the location.
+               behind to reflect what point in the graphic should be anchored to the lat/long in the location.
     -->
     <Grid>
         <Polygon Points="10,2 18,10 10,18, 2,10" Stroke="Black" Fill="OrangeRed" StrokeThickness="3"/>

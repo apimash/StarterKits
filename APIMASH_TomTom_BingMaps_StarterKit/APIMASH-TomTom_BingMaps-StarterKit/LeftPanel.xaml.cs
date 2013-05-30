@@ -11,11 +11,15 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH_StarterKit
 {
+    /// <summary>
+    /// Implementation of left-side panel displaying API-specific points of interest, with synchronization to
+    /// Bing Maps control built-in.
+    /// </summary>
     public sealed partial class LeftPanel : LayoutAwarePanel
     {
         #region Map dependency property
@@ -61,9 +65,10 @@ namespace APIMASH_StarterKit
             ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
 
             //
-            // TODO: change the reference to reflect your API's view model class, which should include an
+            // TODO: change the references below to reflect your API's view model class, which should include an
             //       ObservableCollecation of results that will get bound to the ListView in this panel.
-            //       Add the CollectionChanged event event handler to the ObservableCollection in that view model.
+            //       Add the CollectionChanged event event handler to the ObservableCollection in that view model
+            //       (no changes are required to the inner implementation of Results_CollectionChanged).
             //            
 
             this.DefaultViewModel["ApiViewModel"] = _tomTomApi.TomTomViewModel;
@@ -101,7 +106,8 @@ namespace APIMASH_StarterKit
             this.DefaultViewModel["NoResults"] = _tomTomApi.TomTomViewModel.Results.Count == 0;
         }   
 
-        #region event handlers (API agnostic)
+        #region event handlers (API agnostic thus requiring no modification)
+
         // handle synchronization for new selection in the list with the map
         private async void MappableListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

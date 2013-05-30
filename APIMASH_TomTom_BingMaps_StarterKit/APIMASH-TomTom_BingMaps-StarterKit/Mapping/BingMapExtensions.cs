@@ -1,13 +1,13 @@
-﻿using APIMASH;
-using APIMASH.Mapping;
+﻿using APIMASH.Mapping;
 using Bing.Maps;
 using System;
 using System.Linq;
 using Windows.UI.Xaml;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
+
 namespace APIMASH_StarterKit.Mapping
 {
     /// <summary>
@@ -66,8 +66,8 @@ namespace APIMASH_StarterKit.Mapping
             MapLayer poiLayer = PoiLayer(m);
             if ((poiLayer != null) && (item != null))
             {
-                // search for pin in the layer matching by id - some defensive programming here to not assume everything in this layer is a 
-                // point-of-interest pin (but it should be!)
+                // search for pin in the layer matching by id - some defensive programming here to not assume everything 
+                // in this layer is a point-of-interest pin (but it should be!)
                 PointOfInterestPin poiPin = poiLayer.Children.Where((c) =>
                 {
                     var p = c as PointOfInterestPin;
@@ -80,7 +80,7 @@ namespace APIMASH_StarterKit.Mapping
                     // set highlight appropriately
                     poiPin.IsHighlighted = highlight;
 
-                    // if it's highlighted bring to top by removing and adding back in
+                    // if it's highlighted, bring to top by removing and adding back in
                     if (highlight)
                     {
                         poiLayer.Children.Remove(poiPin);

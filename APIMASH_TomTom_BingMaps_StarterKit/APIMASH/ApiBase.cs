@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Windows.UI.Xaml;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH

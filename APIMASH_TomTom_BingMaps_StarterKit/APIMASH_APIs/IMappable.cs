@@ -1,7 +1,7 @@
 ﻿using System;
 
 //
-// LICENSE: http://opensource.org/licenses/ms-pl
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
 //
 
 namespace APIMASH.Mapping
@@ -22,7 +22,7 @@ namespace APIMASH.Mapping
         String Label { get;  }        
 
         /// <summary>
-        /// Position associated with item
+        /// Latitude/longitude associated with item
         /// </summary>
         LatLong Position {get; }
     }
