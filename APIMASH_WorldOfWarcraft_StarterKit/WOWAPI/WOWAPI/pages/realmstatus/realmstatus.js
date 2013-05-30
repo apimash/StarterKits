@@ -1,9 +1,9 @@
-﻿/// <reference path="/js/jquery-2.0.0.min.js" />
+/// <reference path="/js/jquery-2.0.0.min.js" />
 
 /*
 File: realmstatus.js
 Author: David Isbitski - @TheDaveDev, david.isbitski@microsoft.com, http://about.me/davedev
-Last Mod: 5/1/2013
+Last Mod: 5/30/2013
 Description: Helper JavaScript library for binding WOWAPI Realm Status data to Listview
 
 */
@@ -14,18 +14,31 @@ Description: Helper JavaScript library for binding WOWAPI Realm Status data to L
     var app = WinJS.Application;
 
     WinJS.UI.Pages.define("/pages/realmstatus/realmstatus.html", {
-        // This function is called whenever a user navigates to this page. It
-        // populates the page elements with the app's data.
+
         ready: function (element, options) {
 
+            //Get All Realms
+            wowapi.getRealmStatusAll(app.sessionState.locale).then(function (realms) {
 
-            //Get Realm Status Examples
-            //wowapi.getRealmStatus('terenas', app.sessionState.locale);
-            wowapi.getRealmStatusAll(app.sessionState.locale);
+                var realmsList = new WinJS.Binding.List(realms);
+                var lv = document.querySelector("#servers").winControl;
+                lv.itemDataSource = realmsList.dataSource;
+                lv.itemTemplate = document.querySelector("#servertemplate");
+                WinJS.UI.processAll();
+            });
+
+            //Get Realm
+            //wowapi.getRealmStatus('terenas',app.sessionState.locale).then(function (realms) {
+
+            //    var realmsList = new WinJS.Binding.List(realms);
+            //    var lv = document.querySelector("#servers").winControl;
+            //    lv.itemDataSource = realmsList.dataSource;
+            //    lv.itemTemplate = document.querySelector("#servertemplate");
+            //    WinJS.UI.processAll();
+            //});
 
             //Set share contract info you want here.  Can be specific realms, etc.
             app.sessionState.shareTitle = "realm status ftw!";
-
 
         },
 
