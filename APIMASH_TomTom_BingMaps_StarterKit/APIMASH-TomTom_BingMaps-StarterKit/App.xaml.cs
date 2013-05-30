@@ -3,8 +3,10 @@ using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Search;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System.Linq;
 
 //
 // LICENSE: http://opensource.org/licenses/ms-pl
@@ -143,7 +145,8 @@ namespace APIMASH_StarterKit
         {
             // handle search request when app is active
             var searchPane = SearchPane.GetForCurrentView();
-            searchPane.PlaceholderText = "Enter a city or address";
+            searchPane.PlaceholderText = "Enter a city or point of interest";
+
             searchPane.QuerySubmitted += (s, e) =>
             {
                 Frame rootFrame = Window.Current.Content as Frame;
@@ -153,6 +156,44 @@ namespace APIMASH_StarterKit
                     Window.Current.Content = rootFrame;
 
                     // Ensure the current window is active
+                    Window.Current.Activate();
+                }
+            };
+
+            //
+            // TODO: create an optional customized list of result (or query) suggestions; otherwise, remove the event handler
+            //
+            searchPane.SuggestionsRequested += (s, e) =>
+            {
+                foreach (var option in APIMASH_TomTom.TomTomApi.SearchSuggestionList)
+                {
+                    // search both the start of the string and after the comma where the state name starts
+                    var alternateSearch = option.Label.Substring(Math.Max(0, option.Label.IndexOf(", ") + 2));
+                    if (option.Label.StartsWith(e.QueryText, StringComparison.CurrentCultureIgnoreCase) ||
+                        alternateSearch.StartsWith(e.QueryText, StringComparison.CurrentCultureIgnoreCase))
+                        e.Request.SearchSuggestionCollection.AppendResultSuggestion(option.Label, String.Empty, option.Id, 
+                             RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/cameraSearch.png")), String.Empty);
+
+                    // there's a max of five options in the list
+                    if (e.Request.SearchSuggestionCollection.Size >= 5)
+                        break;
+                }
+            };
+
+            //
+            // TODO: act upon the option selected from the Search flyout, or remove the event handler if not needed
+            //
+            searchPane.ResultSuggestionChosen += (s, e) =>
+            {
+                var selectedLocation = APIMASH_TomTom.TomTomApi.SearchSuggestionList.Where(x => x.Id == e.Tag).FirstOrDefault();
+
+                Frame rootFrame = Window.Current.Content as Frame;
+                if (rootFrame != null)
+                {
+                    rootFrame.Navigate(typeof(MainPage),
+                        new APIMASH.Mapping.LatLong(selectedLocation.Position.Latitude, selectedLocation.Position.Longitude));
+
+                    Window.Current.Content = rootFrame;
                     Window.Current.Activate();
                 }
             };

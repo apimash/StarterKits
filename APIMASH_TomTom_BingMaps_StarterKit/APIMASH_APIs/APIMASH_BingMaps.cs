@@ -19,7 +19,7 @@ namespace APIMASH_BingMaps
     /// <summary>
     /// View model class for list of locations returned from a Bing Maps search
     /// </summary>
-    public class BingMapsLocationViewModel : BindableBase
+    public class BingMapsLocationViewModel : BindableBase, IEquatable<BingMapsLocationViewModel>
     {
         /// <summary>
         /// Address (taken from Address.AddressLine)
@@ -55,6 +55,22 @@ namespace APIMASH_BingMaps
             set { SetProperty(ref _tile, value); }
         }
         private BitmapImage _tile;
+
+        /// <summary>
+        /// Determines whether two location results should be considered equal
+        /// </summary>
+        /// <param name="other">location to which to compare current instance</param>
+        /// <returns>true if two locations should be considered identical</returns>
+        public bool Equals(BingMapsLocationViewModel other)
+        {
+            return ((this.Address == other.Address) && (this.City == other.City) && (this.State == other.State));
+        }
+
+        public BingMapsLocationViewModel()
+        {
+            // setup a placeholder image (1x1 pixel) used for filler in visual displays
+            Tile = new BitmapImage(new Uri("ms-appx:///APIMASH_APIs/Assets/ghost.png"));
+        }
     }
 
     /// <summary>
@@ -82,6 +98,7 @@ namespace APIMASH_BingMaps
             public string countryRegion { get; set; }
             public string formattedAddress { get; set; }
             public string locality { get; set; }
+            public string landmark { get; set; }
         }
 
         public class GeocodePoint
@@ -134,6 +151,49 @@ namespace APIMASH_BingMaps
         #endregion
 
         /// <summary>
+        /// Selects best candidate for view model "Address" field given the entity type
+        /// </summary>
+        /// <param name="mapResult">Resource returned from Bing Maps query</param>
+        /// <returns>String containing text to be used as the "address" in resulting view model</returns>
+        private static String GetFormattedAddress(Resource mapResult)
+        {
+            if (mapResult.entityType == "Neighborhood")
+                return mapResult.address.locality;
+            else
+                return mapResult.address.landmark ?? mapResult.address.addressLine;
+        }
+
+        /// <summary>
+        /// Selects best candidate for view model "City" field given the entity type
+        /// </summary>
+        /// <param name="mapResult">Resource returned from Bing Maps query</param>
+        /// <returns>String containing text to be used as the "city" in resulting view model</returns>
+        private static String GetFormattedCity(Resource mapResult)
+        {
+            if (mapResult.entityType == "AdminDivision1")
+                return String.Empty;
+            else if (mapResult.entityType == "AdminDivision2")
+                return mapResult.address.adminDistrict2;
+            else if (mapResult.entityType == "Neighborhood")
+                return mapResult.address.adminDistrict2;
+            else
+                return mapResult.address.locality;
+        }
+
+        /// <summary>
+        /// Selects best candidate for view model "State" field given the entity type
+        /// </summary>
+        /// <param name="mapResult">Resource returned from Bing Maps query</param>
+        /// <returns>String containing text to be used as the "state" in resulting view model</returns>
+        private static String GetFormattedState(Resource mapResult)
+        {
+            if (mapResult.entityType == "AdminDivision1")
+                return mapResult.name;
+            else
+                return mapResult.address.adminDistrict;
+        }
+
+        /// <summary>
         /// Copies the desired portions of the deserialized model data to the view model collection of locations
         /// </summary>
         /// <param name="model">Deserialized result from API call</param>
@@ -160,9 +220,9 @@ namespace APIMASH_BingMaps
                     // add location to staging list list
                     stagingList.Add(new BingMapsLocationViewModel()
                     {
-                        Address = resource.address.addressLine,
-                        City = resource.address.locality,
-                        State = resource.address.adminDistrict,
+                        Address = GetFormattedAddress(resource),
+                        City = GetFormattedCity(resource),
+                        State = GetFormattedState(resource),
                         Position = new LatLong((resource.bbox[0] + resource.bbox[2]) / 2,(resource.bbox[1] + resource.bbox[3]) / 2),
                         Extent = Math.Max(
                              MapUtilities.HaversineDistance(new LatLong(resource.bbox[0], resource.bbox[1]), new LatLong(resource.bbox[2], resource.bbox[1])),
@@ -172,9 +232,12 @@ namespace APIMASH_BingMaps
                 }
             }
 
+            // only show results that appear unique
+            var uniqueStagingList = stagingList.Distinct();
+
             // apply max count if provided
-            var maxResultsExceeded = (maxResults > 0) && (stagingList.Count > maxResults);
-            foreach (var s in stagingList.Take(maxResultsExceeded ? maxResults : stagingList.Count))
+            var maxResultsExceeded = (maxResults > 0) && (uniqueStagingList.Count() > maxResults);
+            foreach (var s in uniqueStagingList.Take(maxResultsExceeded ? maxResults : uniqueStagingList.Count()))
                 viewModel.Add(s);
 
             return maxResultsExceeded;

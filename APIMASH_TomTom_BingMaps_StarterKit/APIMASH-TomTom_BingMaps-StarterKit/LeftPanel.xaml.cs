@@ -54,17 +54,18 @@ namespace APIMASH_StarterKit
 
             // intialize generic elements of the view model
             this.DefaultViewModel["AppName"] = App.DisplayName;
-            this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.DefaultInstance;
             this.DefaultViewModel["NoResults"] = false;
+            this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
 
-            // event callback implementtaion for dismissing the error panel
-            ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.DefaultInstance;
+            // event callback implementation for dismissing the error panel
+            ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
 
             //
             // TODO: change the reference to reflect your API's view model class, which should include an
             //       ObservableCollecation of results that will get bound to the ListView in this panel.
             //       Add the CollectionChanged event event handler to the ObservableCollection in that view model.
             //            
+
             this.DefaultViewModel["ApiViewModel"] = _tomTomApi.TomTomViewModel;
             _tomTomApi.TomTomViewModel.Results.CollectionChanged += Results_CollectionChanged;
         }
@@ -74,7 +75,6 @@ namespace APIMASH_StarterKit
         /// the map display is already accomodated.
         /// </summary>
         /// <param name="item">Newly selected item that should be cast to a view model class for further processing</param>
-        /// <returns></returns>
         private async Task ProcessSelectedItem(object item)
         {
             //
@@ -86,7 +86,8 @@ namespace APIMASH_StarterKit
         /// <summary>
         /// Refreshes the list of items obtained from the API and populates the view model
         /// </summary>
-        public async Task Refresh(Double north, Double south, Double west, Double east)
+        /// <param name="box">Bounding box of current map view</param>
+        public async Task Refresh(BoundingBox box) 
         {
             //
             // TODO: refresh the items in the panel to reflect points of interest in the current map view. You
@@ -96,7 +97,7 @@ namespace APIMASH_StarterKit
             //
             //
             this.DefaultViewModel["ApiStatus"] =
-                await _tomTomApi.GetCameras(new BoundingBox(north, south, west, east), this.MaxResults);
+                await _tomTomApi.GetCameras(box, this.MaxResults);
             this.DefaultViewModel["NoResults"] = _tomTomApi.TomTomViewModel.Results.Count == 0;
         }   
 
@@ -183,8 +184,8 @@ namespace APIMASH_StarterKit
         {
             if (Map != null)
             {
-                Refresh(Map.TargetBounds.North, Map.TargetBounds.South,
-                    Map.TargetBounds.West, Map.TargetBounds.East);
+                Refresh(new BoundingBox(Map.TargetBounds.North, Map.TargetBounds.South,
+                    Map.TargetBounds.West, Map.TargetBounds.East));
             }
         }
         #endregion

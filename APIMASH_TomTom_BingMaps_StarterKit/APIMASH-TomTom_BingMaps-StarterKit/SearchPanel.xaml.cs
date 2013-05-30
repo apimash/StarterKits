@@ -64,13 +64,13 @@ namespace APIMASH_StarterKit
         {
             this.InitializeComponent();
 
-            // intialize geyneric element of the view model
-            this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.DefaultInstance;
-            this.DefaultViewModel["SearchResults"] = _bingMapsApi.BingMapsViewModel.Results;
+            // intialize elements of the view model
+            this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
             this.DefaultViewModel["NoResults"] = false;
+            this.DefaultViewModel["SearchResults"] = _bingMapsApi.BingMapsViewModel.Results;
 
             // event callback implementation for dismissing the error panel
-            ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.DefaultInstance;
+            ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
         }
 
         // handles the search request
@@ -78,9 +78,12 @@ namespace APIMASH_StarterKit
         {
             this.DefaultViewModel["ApiStatus"] = await _bingMapsApi.GetLocations(LocationSearchText.Text, this.MaxResults);
             this.DefaultViewModel["NoResults"] = _bingMapsApi.BingMapsViewModel.Results.Count == 0;
+
+            // synchronize query text in the search charm flyout 
+            Windows.ApplicationModel.Search.SearchPane.GetForCurrentView().TrySetQueryText(LocationSearchText.Text);
         }
 
-        // triggers when a location has been selected from among the results
+        // triggered when a location has been selected from among the results
         private void LocationList_ItemClick(object sender, ItemClickEventArgs e)
         {
             BingMapsLocationViewModel location = e.ClickedItem as BingMapsLocationViewModel;

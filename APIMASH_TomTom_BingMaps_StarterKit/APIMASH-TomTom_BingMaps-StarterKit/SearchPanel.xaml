@@ -21,7 +21,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <StackPanel Margin="20,20,25,10" >
-            <TextBlock Text="Find" Style="{StaticResource SubheaderTextStyle}" />
+            <TextBlock Text="Find" Style="{StaticResource SubheaderTextStyle}" IsHitTestVisible="false" />
             <Grid Margin="0,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -40,18 +40,15 @@
                          <TextBlock Text="{Binding Address}"  
                                    Visibility="{Binding Address, Converter={StaticResource StringToVisibilityConverter}}" 
                                    TextTrimming="WordEllipsis" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding City}" />
-                            <TextBlock Text="{Binding State}" Margin="10,0,0,0" />
-                        </StackPanel>
+                        <TextBlock Text="{Binding Converter={StaticResource CityStateStringConverter}}" FontWeight="SemiBold" TextTrimming="WordEllipsis" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <TextBlock Grid.Row="1"  Text="No locations found" FontSize="20" Margin="20,0,20,20" FontWeight="Light"
+        <TextBlock Grid.Row="1" IsHitTestVisible="false" Text="No locations found" FontSize="20" Margin="20,0,20,20" FontWeight="Light"
                    Visibility="{Binding NoResults, Converter={StaticResource ValueTypeToVisibilityConverter}}"/>
 
-        <local:ApiErrorPanel x:Name="ErrorPanel" Margin="20,45,20,0" Grid.Row="1"
-                             Visibility="{Binding ApiStatus, Converter={StaticResource ApiStatusToVisibilityConverter}}" />
+        <local:ApiErrorPanel x:Name="ErrorPanel" Margin="20,45,20,0" Grid.Row="1" DataContext="{Binding ApiStatus}"
+                             Visibility="{Binding Converter={StaticResource ApiStatusToVisibilityConverter}}" />
     </Grid>
 </common:LayoutAwarePanel>

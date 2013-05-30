@@ -1,24 +1,15 @@
-﻿using APIMASH_BingMaps;
-using Bing.Maps;
-using Callisto.Controls.Common;
+﻿using APIMASH;
+using APIMASH_BingMaps;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
-using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
-// The Search Contract item template is documented at http://go.microsoft.com/fwlink/?LinkId=234240
+//
+// LICENSE: http://opensource.org/licenses/ms-pl
+//
 
 namespace APIMASH_StarterKit
 {
@@ -31,6 +22,10 @@ namespace APIMASH_StarterKit
         public LocationSearchResultsPage()
         {
             this.InitializeComponent();
+
+            // event callback implementation for dismissing the error panel
+            ErrorPanel.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
+            ErrorPanelSnapped.Dismissed += (s, e) => this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
         }
 
         /// <summary>
@@ -65,6 +60,7 @@ namespace APIMASH_StarterKit
             this.DefaultViewModel["ShowFilters"] = filterList.Count > 1;
             this.DefaultViewModel["Results"] = _bingMapsApi.BingMapsViewModel.Results;
             this.DefaultViewModel["AppName"] = App.DisplayName;
+            this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
         }
 
         /// <summary>
@@ -74,22 +70,45 @@ namespace APIMASH_StarterKit
         /// <param name="e">Event data describing how the selected filter was changed.</param>
         async void Filter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            String targetState = "ResultsFound";
+
             // Determine what filter was selected
             var selectedFilter = e.AddedItems.FirstOrDefault() as Filter;
-            var queryText = this.DefaultViewModel["RawQueryText"] as String;
             if (selectedFilter != null)
             {
                 // Mirror the results into the corresponding Filter object to allow the
                 // RadioButton representation used when not snapped to reflect the change
                 selectedFilter.Active = true;
 
-                // TODO: Respond to the change in active filter by setting this.DefaultViewModel["Results"]
-                //       to a collection of items with bindable Image, Title, Subtitle, and Description properties
-                var ApiStatus = await _bingMapsApi.GetLocations(queryText, 0, 200);
+                // query Bing location API
+                var apiStatus = await _bingMapsApi.GetLocations(this.DefaultViewModel["RawQueryText"] as String, 0, 200);
+                this.DefaultViewModel["ApiStatus"] = apiStatus;
+
+                // display results
+                if (apiStatus.IsSuccessStatusCode)
+                {
+                    // Ensure results are found
+                    object results;
+                    ICollection resultsCollection;
+                    if (this.DefaultViewModel.TryGetValue("Results", out results) &&
+                        (resultsCollection = results as ICollection) != null &&
+                        resultsCollection.Count != 0)
+                    {
+                        targetState = "ResultsFound";
+                    }
+                    else
+                    {
+                        targetState = "NoResultsFound";
+                    }
+                }
+            }
+            else
+            {
+                targetState = "NoResultsFound";
             }
 
-            // Display informational text when there are no search results.
-          //  VisualStateManager.GoToState(this, "NoResultsFound", true);
+            // Transition to targeted state
+            VisualStateManager.GoToState(this, targetState, true);
         }
 
         /// <summary>
@@ -153,6 +172,11 @@ namespace APIMASH_StarterKit
             }
         }
 
+        /// <summary>
+        /// Triggered when item in search result page is selected and navigation back to the main page should occur
+        /// </summary>
+        /// <param name="sender">Object initiating the event</param>
+        /// <param name="e">Event argument including the items selected in the search results list</param>
         private void Location_Clicked(object sender, ItemClickEventArgs e)
         {
             var item = e.ClickedItem as BingMapsLocationViewModel;

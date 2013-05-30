@@ -43,7 +43,7 @@ namespace APIMASH
         /// <summary>
         /// Default instance representing an unexecuted request
         /// </summary>
-        public static ApiResponseStatus DefaultInstance { 
+        public static ApiResponseStatus Default { 
             get { return new ApiResponseStatus() { StatusCode = 0 }; }
         }        
 

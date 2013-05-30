@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="Common\ApiStatusToVisibilityConverter.cs" />
     <Compile Include="Common\BindableBase.cs" />
+    <Compile Include="Common\CityStateStringConverter.cs" />
     <Compile Include="Common\LayoutAwarePanel.cs" />
     <Compile Include="Common\StringToVisibilityConverter.cs" />
     <Compile Include="Common\LayoutAwarePage.cs" />
@@ -180,9 +181,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Content Include="Assets\cameraSearch.png" />
     <Content Include="Assets\Logo.scale-100.png" />
     <Content Include="Images\bing.png" />
-    <Content Include="Images\genericmap.png" />
     <Content Include="Images\tomtom.png" />
     <Content Include="Images\warning.png" />
     <Page Include="LeftPanel.xaml">

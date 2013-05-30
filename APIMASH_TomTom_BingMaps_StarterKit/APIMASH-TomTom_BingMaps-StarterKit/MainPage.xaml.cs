@@ -34,6 +34,9 @@ namespace APIMASH_StarterKit
         {
             this.InitializeComponent();
 
+            // cache this page so you don't have to restore the UI when cancelling a search initiated via search charm
+            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Required;
+
             // check to see if this is the first time application is being executed by checking for data in local settings.
             // After checking add some notional data as marker for next time app is run. This will be used to determine whether
             // to prompt the user (or not) that location services are not turned on for the app/system. Without this check, the
@@ -74,6 +77,15 @@ namespace APIMASH_StarterKit
             };
             BottomAppBar.Opened += (s, e) => { SearchFlyout.Visibility = Visibility.Collapsed; };
             SearchFlyout.Tapped += (s, e) => { e.Handled = true; };
+
+            // The BingMaps API allows use of a "session key" if the application leverages the Bing Maps control. By using the session
+            // key instead of the API key, only one transaction is logged agains the key versus one transaction for every API call! This 
+            // code sets the key asynchronously and stored it as a resource so it's available when the REST API's are invoked.
+            TheMap.Loaded += async (s, e) => 
+            {
+                if (!Application.Current.Resources.ContainsKey("BingMapsSessionKey"))
+                    Application.Current.Resources.Add("BingMapsSessionKey", await TheMap.GetSessionIdAsync());
+            };
         }
 
         /// <summary>
@@ -83,10 +95,11 @@ namespace APIMASH_StarterKit
         /// <param name="showMessage">Whether to show message informing user that location tracking is not enabled on device.</param>
         async Task GotoLocation(LatLong position, Boolean showMessage = false)
         {
+            Boolean currentLocationRequested = position == null;
             try
             {
                 // a null location is the cue to use geopositioning
-                if (position == null)
+                if (currentLocationRequested)
                 {
                     try
                     {
@@ -107,15 +120,14 @@ namespace APIMASH_StarterKit
                 // don't assume a valid location at this point GPS/Wifi disabled may lead to a null location
                 if (position != null)
                 {
-                    // move pin to the current location
-                    TheMap.SetCurrentLocationPin(_locationMarker, position);
+                    // register event handler to do work once the view has been reset
+                    TheMap.ViewChangeEnded += TheMap_ViewChangeEnded;
 
-                    // pan map to desired location with a default zoom level
+                    // set pin for current location
+                    if (currentLocationRequested) TheMap.SetCurrentLocationPin(_locationMarker, position);
+
+                    // pan map to desired location with a default zoom level (when complete, ViewChangeEnded event will fire)
                     TheMap.SetView(new Location(position.Latitude, position.Longitude), (Double)App.Current.Resources["DefaultZoomLevel"]);
-
-                    // refresh the left panel to reflect points of interest in current view
-                    await LeftPanel.Refresh(TheMap.TargetBounds.North, TheMap.TargetBounds.South,
-                                            TheMap.TargetBounds.West, TheMap.TargetBounds.East);
                 }
             }
 
@@ -129,6 +141,21 @@ namespace APIMASH_StarterKit
                     md.ShowAsync();
                 }
             }
+        }
+        
+        /// <summary>
+        /// Fires when map panning is complete, and the current bounds of the map can be accessed to apply the points of interest
+        /// (note that using TargetBounds in lieu of the event handler led to different results for the same target location depending ont 
+        /// the visibilty of the map at the time of invocation - i.e., a navigation initiated from the search results pages reported sligthly
+        /// offset TargetBounds
+        /// </summary>
+        async void TheMap_ViewChangeEnded(object sender, ViewChangeEndedEventArgs e)
+        {
+            // refresh the left panel to reflect points of interest in current view
+            await LeftPanel.Refresh(new BoundingBox(TheMap.TargetBounds.North, TheMap.TargetBounds.South, TheMap.TargetBounds.West, TheMap.TargetBounds.East));
+
+            // unregister the handler
+            TheMap.ViewChangeEnded -= TheMap_ViewChangeEnded;
         }
 
         /// <summary>
@@ -186,26 +213,27 @@ namespace APIMASH_StarterKit
         /// <summary>
         /// Invoked when the Page is loaded and becomes the current source of a parent Frame.
         /// </summary>
-        /// <param name="e">Event data include the Parameter provided to the pending navigation.</param>
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        /// <param name="e">Event data including the Parameter provided to the pending navigation.</param>
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            // The BingMaps API allows use of a "session key" if the application leverages the Bing Maps control. By using the session
-            // key instead of the API key, only one transaction is logged agains the key versus one transaction for every API call! This 
-            // code sets the key asynchronously and stored it as a resource so it's available when the REST API's are invoked.
-            if (!Application.Current.Resources.ContainsKey("BingMapsSessionKey"))
-                Application.Current.Resources.Add("BingMapsSessionKey", await TheMap.GetSessionIdAsync());
-
-            // if a location was passed as a navigation argument (e.g., from the search page) go directly to that location
-            // (if no/invalid parameter, it's a cue for going to current location
-            GotoLocation(e.Parameter as LatLong, showMessage: !_firstRun);
+            // navigate to the location specified in the event args. This page is cached, so a navigation back to the page
+            // should NOT trigger reloading the points-of-interest or repositioning the map
+            if (e.NavigationMode == NavigationMode.New)
+            {
+                GotoLocation(e.Parameter as LatLong, showMessage: !_firstRun);
+            }
 
             // set up settings flyouts
             SettingsPane settingsPane = Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView();
             settingsPane.CommandsRequested += settingsPane_CommandsRequested;
         }
 
+        /// <summary>
+        /// Invoked when the Page is unloaded
+        /// </summary>
+        /// <param name="e">Navigation event data</param>
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
@@ -232,8 +260,8 @@ namespace APIMASH_StarterKit
 
         private async void Refresh_Click(object sender, RoutedEventArgs e)
         {
-            await LeftPanel.Refresh(TheMap.TargetBounds.North, TheMap.TargetBounds.South,
-                                    TheMap.TargetBounds.West, TheMap.TargetBounds.East);
+            await LeftPanel.Refresh(new BoundingBox(TheMap.TargetBounds.North, TheMap.TargetBounds.South,
+                                    TheMap.TargetBounds.West, TheMap.TargetBounds.East));
         }
 
         private void Aerial_Click(object sender, RoutedEventArgs e)

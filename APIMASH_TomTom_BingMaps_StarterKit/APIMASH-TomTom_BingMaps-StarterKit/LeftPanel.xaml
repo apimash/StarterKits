@@ -309,7 +309,7 @@
                     <ColumnDefinition Width="auto" />
                     <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="{Binding AppName}" Style="{StaticResource SubheaderTextStyle}" TextTrimming="WordEllipsis" />
+                <TextBlock Text="{Binding AppName}" Margin="8,0" IsHitTestVisible="false" Style="{StaticResource SubheaderTextStyle}" TextTrimming="WordEllipsis" />
                 <Image Grid.Column="1" Source="ms-appx:///Images/warning.png" Height="25" Margin="10,0" 
                        Visibility="{Binding ApiViewModel.ResultsTruncated, Converter={StaticResource ValueTypeToVisibilityConverter}}"
                        ToolTipService.ToolTip="More results are available than are shown. Try zooming in on the map to a smaller target area and then refresh the list." />
@@ -338,14 +338,14 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <TextBlock Grid.Row="1" Margin="0,15" Text="No cameras found in the area." FontSize="20" FontWeight="Light"
+            <TextBlock Grid.Row="1" Margin="8,15" Text="No cameras found in the area." IsHitTestVisible="false" FontSize="20" FontWeight="Light"
                        Visibility="{Binding NoResults, Converter={StaticResource ValueTypeToVisibilityConverter}}"/>
             <Image Grid.Row="2" x:Name="MappableItem"
                    Source="{Binding SelectedItem.Image, ElementName=MappableListView, Mode=TwoWay}" 
                    VerticalAlignment="Bottom" Stretch="Uniform" Height="240" Margin="0" Visibility="Collapsed" />
             
-            <local:ApiErrorPanel x:Name="ErrorPanel" Margin="0,60,0,0" Grid.Row="1"
-                             Visibility="{Binding ApiStatus, Converter={StaticResource ApiStatusToVisibilityConverter}}" />
+            <local:ApiErrorPanel x:Name="ErrorPanel" Margin="8,60,8,0" Grid.Row="1" DataContext="{Binding ApiStatus}"
+                             Visibility="{Binding Converter={StaticResource ApiStatusToVisibilityConverter}}" />
         </Grid>
     </Grid>
 </common:LayoutAwarePanel>

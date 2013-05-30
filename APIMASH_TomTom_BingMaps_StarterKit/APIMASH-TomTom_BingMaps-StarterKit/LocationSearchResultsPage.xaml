@@ -1,4 +1,8 @@
-﻿<common:LayoutAwarePage
+﻿<!--
+// LICENSE: http://opensource.org/licenses/ms-pl
+-->
+ 
+<common:LayoutAwarePage
     x:Name="pageRoot"
     x:Class="APIMASH_StarterKit.LocationSearchResultsPage"
     DataContext="{Binding DefaultViewModel, RelativeSource={RelativeSource Self}}"
@@ -81,6 +85,7 @@
                     <GridView.ItemContainerStyle>
                         <Style TargetType="Control">
                             <Setter Property="Height" Value="200"/>
+                            <Setter Property="Width" Value="200" />
                             <Setter Property="Margin" Value="0,0,38,8"/>
                         </Style>
                     </GridView.ItemContainerStyle>
@@ -91,22 +96,24 @@
                                     <RowDefinition Height="*" />
                                     <RowDefinition Height="auto" />
                                 </Grid.RowDefinitions>
-                                <Image Source="{Binding Tile}"  Width="200" Height="200" Grid.RowSpan="2" />
+                                <Image Source="{Binding Tile}" Stretch="Uniform" Grid.RowSpan="2" />
 
-                                <Border Grid.Row="1"  Background="Blue" Opacity=".7" Padding="0,5" VerticalAlignment="Bottom">
-                                    <StackPanel Orientation="Vertical">
-                                        <TextBlock Text="{Binding Address}" TextAlignment="Center" FontWeight="SemiBold"
-                                                   Visibility="{Binding Address, Converter={StaticResource StringToVisibilityConverter}}"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <TextBlock Text="{Binding City}" FontWeight="SemiBold" />
-                                            <TextBlock Margin="10,0" Text="{Binding State}" FontWeight="SemiBold" />
-                                        </StackPanel>
+                                <Border Grid.Row="1" Background="Blue" Opacity=".7" VerticalAlignment="Bottom" Padding="2,5">
+                                    <StackPanel Orientation="Vertical" MaxWidth="196" >
+                                        <TextBlock Text="{Binding Address}" TextAlignment="Center" FontWeight="SemiBold" 
+                                                   Visibility="{Binding Address, Converter={StaticResource StringToVisibilityConverter}}" 
+                                                   TextTrimming="WordEllipsis"/>
+                                        <TextBlock Text="{Binding Converter={StaticResource CityStateStringConverter}}" TextAlignment="Center" 
+                                                   FontWeight="SemiBold" TextTrimming="WordEllipsis" />
                                     </StackPanel>
                                 </Border>
                             </Grid>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
+
+                <local:ApiErrorPanel x:Name="ErrorPanel" Margin="110,0,0,0" HorizontalAlignment="Left" Width="300" Grid.Row="1" DataContext="{Binding ApiStatus}"
+                                      Visibility="{Binding Converter={StaticResource ApiStatusToVisibilityConverter}}" />
             </Grid>
 
             <!--
@@ -138,20 +145,30 @@
                     IsSwipeEnabled="false"
                     IsItemClickEnabled="True"
                     ItemsSource="{Binding Source={StaticResource resultsViewSource}}"
+                    ItemClick="Location_Clicked"
 >
 
                     <ListView.ItemContainerStyle>
                         <Style TargetType="Control">
-                            <Setter Property="Height" Value="70"/>
                             <Setter Property="Margin" Value="0,0,18,8"/>
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock Text="{Binding City}" ></TextBlock>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Text="{Binding Address}"  
+                                   Visibility="{Binding Address, Converter={StaticResource StringToVisibilityConverter}}" 
+                                   TextTrimming="WordEllipsis" />
+                                <TextBlock Text="{Binding Converter={StaticResource CityStateStringConverter}}" 
+                                           FontWeight="SemiBold" 
+                                           TextTrimming="WordEllipsis" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
+
+                <local:ApiErrorPanel x:Name="ErrorPanelSnapped" Margin="20,0,20,0" Grid.Row="1" DataContext="{Binding ApiStatus}"
+                                      Visibility="{Binding Converter={StaticResource ApiStatusToVisibilityConverter}}" />
             </Grid>
         </Grid>
 
@@ -163,6 +180,11 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
+
+            <ProgressBar VerticalAlignment="Top" Height="30" IsIndeterminate="True" Grid.ColumnSpan="4"
+                         Visibility="{Binding Source={StaticResource ApiMonitor}, Path=IsExecuting, Converter={StaticResource ValueTypeToVisibilityConverter}}"
+            />
+
             <Button x:Name="backButton" Click="GoBack" IsEnabled="{Binding Frame.CanGoBack, ElementName=pageRoot}" Style="{StaticResource BackButtonStyle}"/>
             <TextBlock x:Name="pageTitle" Grid.Column="1" Text="{Binding AppName}" IsHitTestVisible="false" Style="{StaticResource PageHeaderTextStyle}"  />
             <TextBlock x:Name="resultText" Grid.Column="2" Text="Results for&#x00a0;" IsHitTestVisible="false" Style="{StaticResource PageSubheaderTextStyle}"/>
