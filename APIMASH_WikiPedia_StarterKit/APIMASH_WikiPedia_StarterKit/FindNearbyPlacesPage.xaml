@@ -52,12 +52,12 @@
                 <Button Content="Invoke" x:Name="Button_Invoke" FontSize="40" Click="Button_Invoke_Click"/>
             </Grid>
             <toolkit:DockPanel Grid.Column="1">
-                <TextBlock Text="Value" HorizontalAlignment="Stretch" FontSize="20" x:Name="TextBlock_Msg" ScrollViewer.HorizontalScrollBarVisibility="Visible" IsTextSelectionEnabled="True"/>
+                <ScrollViewer>
+                    <TextBlock Text="Value" HorizontalAlignment="Stretch" FontSize="20" x:Name="TextBlock_Msg" ScrollViewer.HorizontalScrollBarVisibility="Visible" IsTextSelectionEnabled="True"/>
+                </ScrollViewer>
             </toolkit:DockPanel>
         </Grid>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Image Source="Assets/Wikipedia.png" Height="80"/>
-        </StackPanel>
+        <local:FooterUserControl x:Name="footer" Grid.Row="2"/>
 
         <VisualStateManager.VisualStateGroups>
 

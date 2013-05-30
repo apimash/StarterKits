@@ -2,7 +2,7 @@
 // APIMash - http://bit.ly/apimash
 // Joe Healy / jhealy@microsoft.com / josephehealy@hotmail.com / @devfish
 
-// More on storage at
+
 // http://msdn.microsoft.com/en-us/library/windows/apps/xaml/hh700362.aspx
 
 using System;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace APIMASH_WikiPedia_StarterKit.Common
+namespace devfish.utils
 {
     static class RoamingStorageHelper
     {

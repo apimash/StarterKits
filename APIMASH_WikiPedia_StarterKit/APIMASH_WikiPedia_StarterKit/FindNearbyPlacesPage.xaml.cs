@@ -1,4 +1,8 @@
-﻿using System;
+﻿// LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt   <== yes, there's a space in it, dont ask....
+// APIMash - http://bit.ly/apimash
+// Joe Healy / jhealy@microsoft.com / josephehealy@hotmail.com / @devfish
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,9 +16,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-
+using APIMASH_WikiPediaLib.geonamesHelpers;
 using APIMASH_WikiPedia_StarterKit.Common;
-
 
 namespace APIMASH_WikiPedia_StarterKit
 {
@@ -71,9 +74,25 @@ namespace APIMASH_WikiPedia_StarterKit
 
         private void Invoke()
         {
-            string apicall = @"http://api.geonames.org/findNearbyWikipediaJSON?postalcode=33702&country=US&radius=10&username=devfish";
-            m_msghelper.msg("invoking against " + apicall);
-            api_findNearbyPlaces.Invoke<APIMASH_WikiPediaLib.APIMASH_OM>(apicall);
+            //string apicall = @"http://api.geonames.org/findNearbyWikipediaJSON?postalcode=33702&country=US&radius=10&username=demo";
+            //m_msghelper.msg("invoking against " + apicall);
+            //api_findNearbyPlaces.Invoke<APIMASH_WikiPediaLib.APIMASH_OM>(apicall);
+
+            string _username = APIMASHGlobals.Instance.UserID;
+            if (_username.Length <= 0)
+            {
+                MessageDialogHelper.ShowMsg("username", "valid geonames username is required to be set, use the CHARMS=>SETTINGS menu to enter yours");
+                return;
+            }
+
+            FindNearbyWikipediaHelper _apihelper = new FindNearbyWikipediaHelper( 33702, "US", 10, _username );
+
+            string _apicall = _apihelper.TargetURL;
+
+            System.Diagnostics.Debug.WriteLine("TargetURL=" + _apicall);
+
+            m_msghelper.msg("invoking against " + _apicall);
+            api_findNearbyPlaces.Invoke<APIMASH_WikiPediaLib.APIMASH_OM>(_apicall);
         }
 
         void api_findNearbyPlaces_OnResponse(object sender, APIMASHLib.APIMASHEvent e)
@@ -84,6 +103,12 @@ namespace APIMASH_WikiPedia_StarterKit
                 // copy data into bindable format for UI
                 // not really using right now but it works
                 _nearbyplaces.Copy(_response);
+
+                if (_response.geonames == null)
+                {
+                    m_msghelper.msg("NO RESULTS RETURNED");
+                    return;
+                }
 
                 m_msghelper.msg(string.Format("{0} geonames returned", _response.geonames.Count()));
                 int _count = 1;

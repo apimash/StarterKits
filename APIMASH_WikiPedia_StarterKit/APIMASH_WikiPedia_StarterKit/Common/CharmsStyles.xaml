@@ -1,0 +1,25 @@
+﻿
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- TextBlock styles -->
+    <Style x:Key="CharmsBasicTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="18"/>
+    </Style>
+    <Style x:Key="CharmsLargeTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="Black"/>
+        <Setter Property="FontSize" Value="26.667"/>
+    </Style>
+
+    <Style x:Key="CharmsTitleTextStyle" TargetType="TextBlock">
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="30"/>
+    </Style>
+    
+    <Style x:Key="CharmsGrid" TargetType="Grid">
+        <Setter Property="Background" Value="White"/>
+    </Style>
+</ResourceDictionary>

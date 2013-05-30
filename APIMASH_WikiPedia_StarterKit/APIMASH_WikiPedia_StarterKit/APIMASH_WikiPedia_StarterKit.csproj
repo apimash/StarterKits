@@ -13,6 +13,9 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>APIMASH_WikiPedia_StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -117,6 +120,8 @@
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\BooleanNegationConverter.cs" />
     <Compile Include="Common\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Common\devfish.utils.MessageDialogHelper.cs" />
+    <Compile Include="Common\devfish.utils.StorageHelper.cs" />
     <Compile Include="Common\StorageHelper.cs" />
     <Compile Include="Common\DockPanel.cs" />
     <Compile Include="Common\LayoutAwarePage.cs" />
@@ -127,6 +132,7 @@
     <Compile Include="BoundingBoxPage.xaml.cs">
       <DependentUpon>BoundingBoxPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Common\APIMASHGlobals.cs" />
     <Compile Include="Common\UserIdHelper.cs" />
     <Compile Include="FindNearbyPlacesPage.xaml.cs">
       <DependentUpon>FindNearbyPlacesPage.xaml</DependentUpon>
@@ -141,6 +147,7 @@
     <Compile Include="TextSearchPage.xaml.cs">
       <DependentUpon>TextSearchPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserIdUserControl.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -149,10 +156,16 @@
     <None Include="APIMASH_WikiPedia_StarterKit_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Logo.png" />
-    <Content Include="Assets\SmallLogo.png" />
-    <Content Include="Assets\SplashScreen.png" />
-    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\APIMASH_Logo_150x150.png" />
+    <Content Include="Assets\APIMASH_Small_30x30.png" />
+    <Content Include="Assets\APIMASH_Splash.scale-80.png" />
+    <Content Include="Assets\APIMASH_Splash_620x300.png" />
+    <Content Include="Assets\APIMASH_Store_30x30.png" />
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\Logo.scale-100.png" />
+    <Content Include="Assets\SmallLogo.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
     <Content Include="Assets\Wikipedia.png" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +173,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Common\CharmsStyles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Common\StandardStyles.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -183,6 +200,10 @@
     <Page Include="TextSearchPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserIdUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
