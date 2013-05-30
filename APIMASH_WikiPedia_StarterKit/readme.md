@@ -36,7 +36,8 @@ Step 2. Geonames Wikipedia information is EXTREMELY  mashable! Experiment by com
 
 ##Change Log
 ###v1.0.0 Initial release with simple text output for apis, no parameter screens yet
-###v1.0.1 License changed to bobfam %20 special version
+###v1.0.0.1 License changed to bobfam %20 special version
+###v1.0.0.2 Moved APIMASHLib local to main wikipedia project.  Bad practice but when in rome...
 
 ##DISCLAIMER: 
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
