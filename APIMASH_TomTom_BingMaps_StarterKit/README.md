@@ -1,6 +1,6 @@
 #APIMASH TomTom/BingMaps Starter Kit
-##Date: 5.17.2013
-##Version: v1.0.1
+##Date: 5.30.2013
+##Version: v1.0.2
 ##Author(s): Jim O'Neil
 ##URL: http://github.com/apimash/starterkits
 
@@ -36,7 +36,8 @@ The TomTom/BingMaps Starter Kit is a XAML/C# Windows Store application that demo
 
 ###Customization
 This starter kit was built in a modular manner to make it easy to integrate just about any API that has elements exposing latitude and longitude. The Bing Maps implementation already includes necessary 
-logic for showing point-of-interest pins, marking your current location as determined by GPS, and allowing a location search via a flyout accessible from the App Bar.
+logic for showing point-of-interest pins, marking your current location as determined by GPS, and allowing a location search via a flyout accessible from the App Bar. The Search contract is also already
+implemented with a landing pages showing the results and a static map snippet for each location found.
 
 The code includes "TODO" markers in the files to highlight what needs to be modified to accomodate a different geo-encoded API as well as optional steps that can
 be used to further customize the code.  At a high level, you'll need to minimally do three things:
@@ -57,9 +58,10 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 
 ##Change Log
-###v1.0.1
+###v1.0.2
 
 1.0.1: added more detail to the Setup section and added Customization guidance
+1.0.2: called out inclusion of Search contract
 
 [1]:http://developer.tomtom.com/docs/read/traffic_cameras "TrafficCam API"
 [2]:http://msdn.microsoft.com/en-us/library/hh846481.aspx "Bing Maps for Windows Store Apps"
