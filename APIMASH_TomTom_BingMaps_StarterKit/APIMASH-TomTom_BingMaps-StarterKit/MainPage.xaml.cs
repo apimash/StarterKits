@@ -56,7 +56,7 @@ namespace APIMASH_StarterKit
             SearchFlyout.LocationChanged += (s, e) =>
                 {
                     GotoLocation(e.Position);
-                    SearchFlyout.Visibility = Visibility.Collapsed;
+                    SearchFlyout.Hide();
                 };
 
             // register callback to reset (hide) the user's location, if location access is revoked while app is running
@@ -74,13 +74,13 @@ namespace APIMASH_StarterKit
             // manage SearchFlyout visibility/interaction
             this.Tapped += (s, e) =>
             {
-                if (SearchFlyout.Visibility == Visibility.Visible)
+                if (SearchFlyout.IsOpen)
                 {
-                    SearchFlyout.Visibility = Visibility.Collapsed;
+                    SearchFlyout.Hide();
                     e.Handled = true;
                 }
             };
-            BottomAppBar.Opened += (s, e) => { SearchFlyout.Visibility = Visibility.Collapsed; };
+            BottomAppBar.Opened += (s, e) => { SearchFlyout.Hide(); };
             SearchFlyout.Tapped += (s, e) => { e.Handled = true; };
 
             // allow type-to-search in search charm
@@ -256,7 +256,7 @@ namespace APIMASH_StarterKit
         {
             // open the search flyout
             BottomAppBar.IsOpen = false;
-            SearchFlyout.Visibility = Visibility.Visible;
+            SearchFlyout.Show();
         }
 
         private async void LocationButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)

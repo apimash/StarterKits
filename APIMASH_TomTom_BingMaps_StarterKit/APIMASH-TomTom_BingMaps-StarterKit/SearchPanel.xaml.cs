@@ -3,6 +3,7 @@ using APIMASH.Mapping;
 using APIMASH_BingMaps;
 using APIMASH_StarterKit.Common;
 using System;
+using Windows.ApplicationModel.Search;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -60,6 +61,9 @@ namespace APIMASH_StarterKit
         #endregion
 
         private BingMapsApi _bingMapsApi = new BingMapsApi();
+
+        // tracks whether or not the Search Charm is set to activate on keyboard entry
+        private Boolean? _keyboardInputState = null;
         public SearchPanel()
         {
             this.InitializeComponent();
@@ -101,6 +105,30 @@ namespace APIMASH_StarterKit
                 e.Handled = true;
                 FindButton_Tapped(sender, e);
             }
+        }
+
+        // show the pane
+        public override void Show()
+        {
+            base.Show();
+
+            // track whether or not Search charm shows on keyboard input, since we don't want that to occur
+            // if this panel is open
+            _keyboardInputState = SearchPane.GetForCurrentView().ShowOnKeyboardInput;
+            SearchPane.GetForCurrentView().ShowOnKeyboardInput = false;
+
+            // get the focus to the search field
+            LocationSearchText.Focus(Windows.UI.Xaml.FocusState.Programmatic);
+            LocationSearchText.SelectAll();
+        }
+
+        // hide the pane
+        public override void Hide()
+        {
+            base.Hide();
+
+            // restore the state of Search charm reacting to keyboard input
+            if (_keyboardInputState != null) SearchPane.GetForCurrentView().ShowOnKeyboardInput = _keyboardInputState.Value;
         }
     }
 }

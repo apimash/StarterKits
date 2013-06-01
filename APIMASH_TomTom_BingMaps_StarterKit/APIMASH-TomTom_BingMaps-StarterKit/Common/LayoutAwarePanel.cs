@@ -31,6 +31,27 @@ namespace APIMASH_StarterKit.Common
         }
 
         /// <summary>
+        /// Indicates whether panel object is currently showing
+        /// </summary>
+        public Boolean IsOpen { get { return this.Visibility == Visibility.Visible; } }
+
+        /// <summary>
+        /// Show the panel
+        /// </summary>
+        public virtual void Show()
+        {
+            this.Visibility = Visibility.Visible;
+        }
+
+        /// <summary>
+        /// Hide the panel
+        /// </summary>
+        public virtual void Hide()
+        {
+            this.Visibility = Visibility.Collapsed;
+        }
+
+        /// <summary>
         /// An implementation of <see cref="IObservableMap&lt;String, Object&gt;"/> designed to be
         /// used as a trivial view model.
         /// </summary>
