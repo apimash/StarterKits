@@ -34,17 +34,22 @@ namespace APIMASH_StarterKit
         }
 
         /// <summary>
-        /// Populates the page with content passed during navigation.  Any saved state is also
-        /// provided when recreating a page from a prior session.
+        /// Populates the page with content passed during navigation.
         /// </summary>
         /// <param name="navigationParameter">The parameter value passed to
         /// <see cref="Frame.Navigate(Type, Object)"/> when this page was initially requested.
         /// </param>
         /// <param name="pageState">A dictionary of state preserved by this page during an earlier
-        /// session.  This will be null the first time a page is visited.</param>
+        /// session.</param>
         protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            var queryText = navigationParameter as String;
+            String queryText;
+
+            // get query text, either restored from state or via navigation
+            if ((pageState != null) && (pageState.ContainsKey("SearchText")))
+                queryText = pageState["SearchText"] as String;
+            else
+                queryText = navigationParameter as String;
 
             // TODO: Application-specific searching logic.  The search process is responsible for
             //       creating a list of user-selectable result categories:
@@ -66,6 +71,11 @@ namespace APIMASH_StarterKit
             this.DefaultViewModel["Results"] = _bingMapsApi.BingMapsViewModel.Results;
             this.DefaultViewModel["AppName"] = App.DisplayName;
             this.DefaultViewModel["ApiStatus"] = ApiResponseStatus.Default;
+        }
+
+        protected override void SaveState(Dictionary<string, object> pageState)
+        {
+            pageState["SearchText"] = this.DefaultViewModel["RawQueryText"];
         }
 
         /// <summary>
@@ -186,7 +196,7 @@ namespace APIMASH_StarterKit
         {
             var item = e.ClickedItem as BingMapsLocationViewModel;
 
-            Frame.Navigate(typeof(MainPage), item.Position);
+            Frame.Navigate(typeof(MainPage), item.Position.ToString());
         }
     }
 }

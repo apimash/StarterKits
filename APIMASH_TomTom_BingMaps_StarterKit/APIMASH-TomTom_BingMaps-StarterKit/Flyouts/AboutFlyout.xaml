@@ -2,6 +2,12 @@
 // LICENSE: http://aka.ms/LicenseTerms-SampleApps
 -->
     
+<!--
+//
+// TODO: Add content for About settings flyout. If not needed, remove the reference to AboutFlyout in the
+//       OnWindowCreated implementation of App.xaml.cs
+//    
+-->
  <UserControl
     x:Class="APIMASH_StarterKit.Flyouts.AboutFlyout"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"

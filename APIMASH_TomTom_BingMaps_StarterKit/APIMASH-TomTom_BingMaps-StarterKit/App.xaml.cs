@@ -1,12 +1,19 @@
-﻿using Callisto.Controls.Common;
+﻿using APIMASH.Mapping;
+using APIMASH_StarterKit.Common;
+using APIMASH_StarterKit.Flyouts;
+using Callisto.Controls;
+using Callisto.Controls.Common;
 using System;
+using System.Linq;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Search;
 using Windows.Storage.Streams;
+using Windows.UI.ApplicationSettings;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using System.Linq;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 
 //
 // LICENSE: http://aka.ms/LicenseTerms-SampleApps
@@ -45,6 +52,11 @@ namespace APIMASH_StarterKit
             // get the name of the app from the mainfest
             DisplayName = (await AppManifestHelper.GetManifestVisualElementsAsync()).DisplayName;
 
+            // provide types used in page state to the SuspensionManager
+            SuspensionManager.KnownTypes.Add(typeof(BoundingBox));
+            SuspensionManager.KnownTypes.Add(typeof(LatLong));
+            SuspensionManager.KnownTypes.Add(typeof(MainPage.MainPageState));
+
             Frame rootFrame = Window.Current.Content as Frame;
 
             // Do not repeat app initialization when the Window already has content,
@@ -53,10 +65,11 @@ namespace APIMASH_StarterKit
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
+                SuspensionManager.RegisterFrame(rootFrame, "appFrame");
 
                 if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
-                    // TODO: Load state from previously suspended application
+                    await SuspensionManager.RestoreAsync();
                 }
 
                 // Place the frame in the current Window
@@ -84,10 +97,10 @@ namespace APIMASH_StarterKit
         /// </summary>
         /// <param name="sender">The source of the suspend request.</param>
         /// <param name="e">Details about the suspend request.</param>
-        private void OnSuspending(object sender, SuspendingEventArgs e)
+        private async void OnSuspending(object sender, SuspendingEventArgs e)
         {
             var deferral = e.SuspendingOperation.GetDeferral();
-            // TODO: Save application state and stop any background activity
+            await SuspensionManager.SaveAsync();
             deferral.Complete();
         }
 
@@ -112,16 +125,16 @@ namespace APIMASH_StarterKit
                 // Create a Frame to act as the navigation context and associate it with
                 // a SuspensionManager key
                 frame = new Frame();
-                APIMASH_StarterKit.Common.SuspensionManager.RegisterFrame(frame, "AppFrame");
+                SuspensionManager.RegisterFrame(frame, "AppFrame");
 
                 if (args.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     // Restore the saved session state only when appropriate
                     try
                     {
-                        await APIMASH_StarterKit.Common.SuspensionManager.RestoreAsync();
+                        await SuspensionManager.RestoreAsync();
                     }
-                    catch (APIMASH_StarterKit.Common.SuspensionManagerException)
+                    catch (SuspensionManagerException)
                     {
                         //Something went wrong restoring state.
                         //Assume there is no state and continue
@@ -160,7 +173,7 @@ namespace APIMASH_StarterKit
             };
 
             //
-            // TODO: create an optional customized list of result (or query) suggestions; otherwise, remove the event handler
+            // TODO: (optional) create a customized list of result (or query) suggestions; otherwise, remove the event handler
             //
             searchPane.SuggestionsRequested += (s, e) =>
             {
@@ -170,7 +183,7 @@ namespace APIMASH_StarterKit
                     var alternateSearch = option.Label.Substring(Math.Max(0, option.Label.IndexOf(", ") + 2));
                     if (option.Label.StartsWith(e.QueryText, StringComparison.CurrentCultureIgnoreCase) ||
                         alternateSearch.StartsWith(e.QueryText, StringComparison.CurrentCultureIgnoreCase))
-                        e.Request.SearchSuggestionCollection.AppendResultSuggestion(option.Label, String.Empty, option.Id, 
+                        e.Request.SearchSuggestionCollection.AppendResultSuggestion(option.Label, String.Empty, option.Id,
                              RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/cameraSearch.png")), String.Empty);
 
                     // there's a max of five options in the list
@@ -180,7 +193,7 @@ namespace APIMASH_StarterKit
             };
 
             //
-            // TODO: act upon the option selected from the Search flyout, or remove the event handler if not needed
+            // TODO: (optional) act upon the option selected from the Search flyout, or remove the event handler if not needed
             //
             searchPane.ResultSuggestionChosen += (s, e) =>
             {
@@ -190,12 +203,60 @@ namespace APIMASH_StarterKit
                 if (rootFrame != null)
                 {
                     rootFrame.Navigate(typeof(MainPage),
-                        new APIMASH.Mapping.LatLong(selectedLocation.Position.Latitude, selectedLocation.Position.Longitude));
+                        new APIMASH.Mapping.LatLong(selectedLocation.Position.Latitude, selectedLocation.Position.Longitude).ToString());
 
                     Window.Current.Content = rootFrame;
                     Window.Current.Activate();
                 }
             };
+
+            var settingsPane = SettingsPane.GetForCurrentView();
+            settingsPane.CommandsRequested += (s, e) =>
+                {
+                    //
+                    // TODO: (optional) add or remove flyouts to/from the Settings charm. 
+                    //
+                    e.Request.ApplicationCommands.Add(
+                        new SettingsCommand("About", "About",
+                                            (x) => ShowFlyout("About", new AboutFlyout()))
+                    );
+                    e.Request.ApplicationCommands.Add(
+                        new SettingsCommand("Support", "Support",
+                                            (x) => ShowFlyout("Support", new SupportFlyout()))
+                    );
+                    e.Request.ApplicationCommands.Add(
+                        new SettingsCommand("Privacy", "Privacy",
+                                            (x) => ShowFlyout("Privacy", new PrivacyFlyout()))
+                    );
+                };
+        }
+
+        /// <summary>
+        /// Show a settings flyout using the Callisto toolkit (http://callistotoolkit.com/)
+        /// </summary>
+        /// <param name="title">Name of flyout</param>
+        /// <param name="content">UserControl containing the content to be displayed in the flyout</param>
+        /// <param name="width">Flyout width (narrow or wide)</param>
+        private async void ShowFlyout(string title, Windows.UI.Xaml.Controls.UserControl content,
+            SettingsFlyout.SettingsFlyoutWidth width = SettingsFlyout.SettingsFlyoutWidth.Narrow)
+        {
+            // grab app theme color from resources (optional)
+            SolidColorBrush color = null;
+            if (App.Current.Resources.Keys.Contains("AppThemeBrush"))
+                color = App.Current.Resources["AppThemeBrush"] as SolidColorBrush;
+
+            // create the flyout
+            var flyout = new SettingsFlyout();
+            if (color != null) flyout.HeaderBrush = color;
+            flyout.HeaderText = title;
+            flyout.FlyoutWidth = width;
+
+            // access the small logo from the manifest
+            flyout.SmallLogoImageSource = new BitmapImage((await AppManifestHelper.GetManifestVisualElementsAsync()).SmallLogoUri);
+
+            // assign content and show
+            flyout.Content = content;
+            flyout.IsOpen = true;
         }
     }
 }

@@ -1,21 +1,17 @@
 ﻿using APIMASH.Mapping;
 using APIMASH_StarterKit.Common;
-using APIMASH_StarterKit.Flyouts;
 using APIMASH_StarterKit.Mapping;
 using Bing.Maps;
-using Callisto.Controls;
-using Callisto.Controls.Common;
 using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Search;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
-using Windows.UI.ApplicationSettings;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 //
@@ -30,17 +26,45 @@ namespace APIMASH_StarterKit
     /// </summary>
     public sealed partial class MainPage : LayoutAwarePage
     {
+        /// <summary>
+        /// State of current page saved when app is suspended
+        /// </summary>
+        [DataContract]
+        public class MainPageState
+        {
+            /// <summary>
+            /// Center point of the map view
+            /// </summary>
+            [DataMember]
+            public LatLong MapCenter { get; set; }
+
+            /// <summary>
+            /// Zoom level of map view
+            /// </summary>
+            [DataMember]
+            public double Zoom { get; set; }            
+            
+            /// <summary>
+            /// Boundaries of the map when the last refresh occurred
+            /// </summary>
+            [DataMember]
+            public BoundingBox MapBox { get; set; }
+
+            /// <summary>
+            /// Id of IMappable item that was last selected
+            /// </summary>
+            [DataMember]
+            public String SelectedItemId { get; set; }
+        }
+        MainPageState _pageState = new MainPageState();
+
         Geolocator _geolocator = new Geolocator();
         CurrentLocationPin _locationMarker = new CurrentLocationPin();
-
         Boolean _firstRun;
 
         public MainPage()
         {
             this.InitializeComponent();
-
-            // cache this page so you don't have to restore the UI when cancelling a search initiated via search charm
-            this.NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Required;
 
             // check to see if this is the first time application is being executed by checking for data in local settings.
             // After checking add some notional data as marker for next time app is run. This will be used to determine whether
@@ -52,24 +76,37 @@ namespace APIMASH_StarterKit
                 ApplicationData.Current.LocalSettings.Values.Add(
                     new System.Collections.Generic.KeyValuePair<string, object>("InitialRunDate", DateTime.UtcNow.ToString()));
 
-            // register callback to navigate to new spot on map as selected on the SearchFlyout
-            SearchFlyout.LocationChanged += (s, e) =>
+            // whenever map view changes track center point and zoom level in page state
+            TheMap.ViewChangeEnded += (s, e) => 
                 {
-                    GotoLocation(e.Position);
-                    SearchFlyout.Hide();
+                    _pageState.MapCenter = new LatLong(TheMap.TargetCenter.Latitude, TheMap.TargetCenter.Longitude);
+                    _pageState.Zoom = TheMap.TargetZoomLevel;
                 };
 
-            // register callback to reset (hide) the user's location, if location access is revoked while app is running
-            _geolocator.StatusChanged += (s, a) =>
+            // set the reference to the current map for the LeftPanel (note: using Element binding will not handle all of the page navigation scenarios)
+            LeftPanel.Map = TheMap;
+
+            // whenever the contents of left panel are refreshed, save the map coordinates that were in play as part of the page state
+            LeftPanel.Refreshed += (s, e) =>
                 {
-                    this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
-                        new Windows.UI.Core.DispatchedHandler(() =>
-                            {
-                                if (a.Status == PositionStatus.Disabled)
-                                    _locationMarker.Visibility = Visibility.Collapsed;
-                            })
-                    );
+                   _pageState.MapBox = new BoundingBox(TheMap.TargetBounds.North, TheMap.TargetBounds.South, TheMap.TargetBounds.West, TheMap.TargetBounds.East);
                 };
+
+            // whenver a new item is selected in the left panel, update the map pins and save the item selected as part of the page state
+            LeftPanel.ItemSelected += (s, e) =>
+                {
+                    TheMap.HighlightPointOfInterestPin(e.NewItem, true);
+                    TheMap.HighlightPointOfInterestPin(e.OldItem, false);
+
+                    this._pageState.SelectedItemId = e.NewItem == null ? null : e.NewItem.Id;
+                };
+
+            // whenever a new location is selected from the SearchFlyout (this is NOT the Search charm) update the position accordingly
+            SearchFlyout.LocationChanged += (s, e) =>
+            {
+                GotoLocation(e.Position);
+                SearchFlyout.Hide();
+            };
 
             // manage SearchFlyout visibility/interaction
             this.Tapped += (s, e) =>
@@ -83,7 +120,7 @@ namespace APIMASH_StarterKit
             BottomAppBar.Opened += (s, e) => { SearchFlyout.Hide(); };
             SearchFlyout.Tapped += (s, e) => { e.Handled = true; };
 
-            // allow type-to-search in search charm
+            // allow type-to-search for Search charm
             SearchPane.GetForCurrentView().ShowOnKeyboardInput = true;
 
             // The BingMaps API allows use of a "session key" if the application leverages the Bing Maps control. By using the session
@@ -93,6 +130,18 @@ namespace APIMASH_StarterKit
             {
                 if (!Application.Current.Resources.ContainsKey("BingMapsSessionKey"))
                     Application.Current.Resources.Add("BingMapsSessionKey", await TheMap.GetSessionIdAsync());
+            };
+
+            // register callback to reset (hide) the user's location, if location access is revoked while app is running
+            _geolocator.StatusChanged += (s, a) =>
+            {
+                this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal,
+                    new Windows.UI.Core.DispatchedHandler(() =>
+                    {
+                        if (a.Status == PositionStatus.Disabled)
+                            _locationMarker.Visibility = Visibility.Collapsed;
+                    })
+                );
             };
         }
 
@@ -129,12 +178,12 @@ namespace APIMASH_StarterKit
                 if (position != null)
                 {
                     // register event handler to do work once the view has been reset
-                    TheMap.ViewChangeEnded += TheMap_ViewChangeEnded;
+                    TheMap.ViewChangeEnded += TheMap_ViewChangeEndedWithRefreshNeeded;
 
                     // set pin for current location
                     if (currentLocationRequested) TheMap.SetCurrentLocationPin(_locationMarker, position);
 
-                    // pan map to desired location with a default zoom level (when complete, ViewChangeEnded event will fire)
+                    // pan map to desired location with a default zoom level (when complete, ViewChangeEndedWithRefreshNeeded event will fire)
                     TheMap.SetView(new Location(position.Latitude, position.Longitude), (Double)App.Current.Resources["DefaultZoomLevel"]);
                 }
             }
@@ -157,100 +206,61 @@ namespace APIMASH_StarterKit
         /// the visibilty of the map at the time of invocation - i.e., a navigation initiated from the search results pages reported sligthly
         /// offset TargetBounds
         /// </summary>
-        async void TheMap_ViewChangeEnded(object sender, ViewChangeEndedEventArgs e)
+        async void TheMap_ViewChangeEndedWithRefreshNeeded(object sender, ViewChangeEndedEventArgs e)
         {
             // refresh the left panel to reflect points of interest in current view
             await LeftPanel.Refresh(new BoundingBox(TheMap.TargetBounds.North, TheMap.TargetBounds.South, TheMap.TargetBounds.West, TheMap.TargetBounds.East));
 
             // unregister the handler
-            TheMap.ViewChangeEnded -= TheMap_ViewChangeEnded;
+            TheMap.ViewChangeEnded -= TheMap_ViewChangeEndedWithRefreshNeeded;
         }
 
         /// <summary>
-        /// Occurs when opening the settings pan. Listening for this event lets the app initialize the setting commands and pause its UI until the user closes the pane.
+        /// Access state information for the page
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void settingsPane_CommandsRequested(SettingsPane sender, SettingsPaneCommandsRequestedEventArgs e)
+        /// <param name="navigationParameter">Parameter passsed in Navigate request; here it's a lat/long pair</param>
+        /// <param name="pageState">Saved page state</param>
+        protected override void LoadState(Object navigationParameter, Dictionary<String, Object> pageState)
         {
-            //
-            // TODO: Modify the contents of the Flyout classes and add/remove other flyouts as required by your application
-            //
-            e.Request.ApplicationCommands.Add(
-                new SettingsCommand("About", "About",
-                                    (x) => ShowSettingsFlyout("About", new AboutFlyout()))
-            );
-            e.Request.ApplicationCommands.Add(
-                new SettingsCommand("Support", "Support",
-                                    (x) => ShowSettingsFlyout("Support", new SupportFlyout()))
-            );
-            e.Request.ApplicationCommands.Add(
-                new SettingsCommand("Privacy", "Privacy Statement",
-                                    (x) => ShowSettingsFlyout("Privacy Statement", new PrivacyFlyout()))
-            );
+            // Restore page state
+            if ((pageState != null) && (pageState.ContainsKey("MainPageState")))
+            {
+                _pageState = pageState["MainPageState"] as MainPageState;
+            }
         }
 
-        /// <summary>
-        /// Show a settings flyout using the Callisto toolkit (http://callistotoolkit.com/)
-        /// </summary>
-        /// <param name="title">Name of flyout</param>
-        /// <param name="content">UserControl containing the content to be displayed in the flyout</param>
-        /// <param name="width">Flyout width (narrow or wide)</param>
-        private async void ShowSettingsFlyout(string title, Windows.UI.Xaml.Controls.UserControl content,
-            SettingsFlyout.SettingsFlyoutWidth width = SettingsFlyout.SettingsFlyoutWidth.Narrow)
-        {
-            // grab app theme color from resources (optional)
-            SolidColorBrush color = null;
-            if (App.Current.Resources.Keys.Contains("AppThemeBrush"))
-                color = App.Current.Resources["AppThemeBrush"] as SolidColorBrush;
-
-            // create the flyout
-            var flyout = new SettingsFlyout();
-            if (color != null) flyout.HeaderBrush = color;
-            flyout.HeaderText = title;
-            flyout.FlyoutWidth = width;
-
-            // access the small logo from the manifest
-            flyout.SmallLogoImageSource = new BitmapImage((await AppManifestHelper.GetManifestVisualElementsAsync()).SmallLogoUri);
-
-            // assign content and show
-            flyout.Content = content;
-            flyout.IsOpen = true;
-        }
-
-        /// <summary>
-        /// Invoked when the Page is loaded and becomes the current source of a parent Frame.
-        /// </summary>
-        /// <param name="e">Event data including the Parameter provided to the pending navigation.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            // navigate to the location specified in the event args. This page is cached, so a navigation back to the page
-            // should NOT trigger reloading the points-of-interest or repositioning the map
+            // Navigate to new destination
             if (e.NavigationMode == NavigationMode.New)
             {
-                GotoLocation(e.Parameter as LatLong, showMessage: !_firstRun);
-            }
+                LatLong destination;
+                LatLong.TryParse(e.Parameter as String, out destination);
 
-            // set up settings flyouts
-            SettingsPane settingsPane = Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView();
-            settingsPane.CommandsRequested += settingsPane_CommandsRequested;
+                GotoLocation(destination, showMessage: !_firstRun);
+            }
+            else
+            {
+                // refresh the point-of-interest list given coordinates saved in page state.  Note that Refresh is async, but
+                // we are not awaiting it to lessen risk that a resume operation will timeout
+                if (_pageState.MapBox != null) LeftPanel.Refresh(_pageState.MapBox, _pageState.SelectedItemId);
+
+                // reset map to last known view
+                TheMap.SetView(new Location(_pageState.MapCenter.Latitude, _pageState.MapCenter.Longitude), _pageState.Zoom, MapAnimationDuration.None);
+            }
         }
 
         /// <summary>
-        /// Invoked when the Page is unloaded
+        /// Save state of the page
         /// </summary>
-        /// <param name="e">Navigation event data</param>
-        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        /// <param name="pageState">State of the page to be saved in case of app termination while suspended</param>
+        protected override void SaveState(Dictionary<string, object> pageState)
         {
-            base.OnNavigatedFrom(e);
-
-            // unregister flyout callback
-            SettingsPane settingsPane = Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView();
-            settingsPane.CommandsRequested -= settingsPane_CommandsRequested;
+            pageState["MainPageState"] =_pageState;
         }
- 
+
         #region AppBar implementations
         private void FindButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {

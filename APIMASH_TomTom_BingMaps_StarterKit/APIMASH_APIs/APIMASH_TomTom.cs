@@ -188,16 +188,15 @@ namespace APIMASH_TomTom
         /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/></returns>        
         public async Task<APIMASH.ApiResponseStatus> GetCameras(BoundingBox b, Int32 maxResults = 0)
         {
-
+            // clear the results
+            TomTomViewModel.Results.Clear();
+            TomTomViewModel.ResultsTruncated = false;            
+            
             // invoke the API
             var apiResponse = await Invoke<TomTomCamerasModel.cameras>(
                 "http://api.tomtom.com/trafficcams/boxquery?top={0}&bottom={1}&left={2}&right={3}&format=xml&key={4}",
                 b.North, b.South, b.West, b.East,
                 this._apiKey);
-
-            // clear the results
-            TomTomViewModel.Results.Clear();
-            TomTomViewModel.ResultsTruncated = false;
 
             // if successful, copy relevant portions from model to the view model
             if (apiResponse.IsSuccessStatusCode)

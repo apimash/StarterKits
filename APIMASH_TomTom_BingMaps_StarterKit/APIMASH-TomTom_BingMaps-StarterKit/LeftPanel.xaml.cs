@@ -17,23 +17,37 @@ using Windows.UI.Xaml.Controls;
 namespace APIMASH_StarterKit
 {
     /// <summary>
+    /// Event arguments providing the previous and currently selected item from the ListView in the panel
+    /// </summary>
+    public class ItemSelectedEventArgs : EventArgs
+    {
+        /// <summary>
+        /// Item currently selected (possibly null)
+        /// </summary>
+        public IMappable NewItem { get; private set; }
+
+        /// <summary>
+        /// Item previously selected (possibly null)
+        /// </summary>
+        public IMappable OldItem { get; private set; }
+
+        public ItemSelectedEventArgs(object newItem, object oldItem)
+        {
+            NewItem = newItem as IMappable;            
+            OldItem = oldItem as IMappable;
+        }
+    }
+
+    /// <summary>
     /// Implementation of left-side panel displaying API-specific points of interest, with synchronization to
     /// Bing Maps control built-in.
     /// </summary>
     public sealed partial class LeftPanel : LayoutAwarePanel
     {
-        #region Map dependency property
         /// <summary>
         /// Reference to map on the main page
         /// </summary>
-        public Map Map
-        {
-            get { return (Map)GetValue(MapProperty); }
-            set { SetValue(MapProperty, value); }
-        }
-        public static readonly DependencyProperty MapProperty =
-            DependencyProperty.Register("Map", typeof(Map), typeof(LeftPanel), new PropertyMetadata(0));
-        #endregion
+        public Map Map { get; set; }
 
         #region MaxResults dependency property
         /// <summary>
@@ -48,8 +62,30 @@ namespace APIMASH_StarterKit
             DependencyProperty.Register("MaxResults", typeof(Int32), typeof(LeftPanel), new PropertyMetadata(0));
         #endregion
 
+        #region Refreshed event handler
+        /// <summary>
+        /// Occurs when one results in the panel are refreshed allowing parent control to take appropriate actions
+        /// </summary>
+        public event EventHandler<EventArgs> Refreshed;
+        private void OnRefreshed()
+        {
+            if (Refreshed != null) Refreshed(this, new EventArgs());
+        }
+        #endregion
+
+        #region ItemSelected handler
+        /// <summary>
+        /// Occurs when item in the ListView of the panel is selected
+        /// </summary>
+        public event EventHandler<ItemSelectedEventArgs> ItemSelected;
+        private void OnItemSelected(ItemSelectedEventArgs e)
+        {
+            if (ItemSelected != null) ItemSelected(this, e);
+        }
+        #endregion
+
         //
-        // TODO: instantiate an instance of your API class
+        // TODO: create an instance of your API class
         //
         APIMASH_TomTom.TomTomApi _tomTomApi = new APIMASH_TomTom.TomTomApi();
         public LeftPanel()
@@ -92,7 +128,8 @@ namespace APIMASH_StarterKit
         /// Refreshes the list of items obtained from the API and populates the view model
         /// </summary>
         /// <param name="box">Bounding box of current map view</param>
-        public async Task Refresh(BoundingBox box) 
+        /// <param name="id">Id of IMappable item that should be selected</param>
+        public async Task Refresh(BoundingBox box, String id = null) 
         {
             //
             // TODO: refresh the items in the panel to reflect points of interest in the current map view. You
@@ -104,6 +141,14 @@ namespace APIMASH_StarterKit
             this.DefaultViewModel["ApiStatus"] =
                 await _tomTomApi.GetCameras(box, this.MaxResults);
             this.DefaultViewModel["NoResults"] = _tomTomApi.TomTomViewModel.Results.Count == 0;
+
+
+            // if there's an IMappable ID provided, select that item automatically
+            if (id != null)
+                MappableListView.SelectedItem = MappableListView.Items.Where((c) => (c as IMappable).Id == id).FirstOrDefault();
+
+            // signal that panel has been refreshed
+            OnRefreshed();
         }   
 
         #region event handlers (API agnostic thus requiring no modification)
@@ -115,13 +160,6 @@ namespace APIMASH_StarterKit
             object newItem = e.AddedItems.FirstOrDefault();
             object oldItem = e.RemovedItems.FirstOrDefault();
 
-            // highlight/unhighlight map pins 
-            if (Map != null)
-            {
-                Map.HighlightPointOfInterestPin(newItem as IMappable, true);
-                Map.HighlightPointOfInterestPin(oldItem as IMappable, false);
-            }
-
             // process new selection
             if (newItem != null)
                 await ProcessSelectedItem(newItem);
@@ -132,6 +170,9 @@ namespace APIMASH_StarterKit
 
             // attach handler to ensure selected item is in view after layout adjustments
             MappableListView.LayoutUpdated += MappableListView_LayoutUpdated;
+
+            // notify event listeners that new item has been selected
+            OnItemSelected(new ItemSelectedEventArgs(newItem, oldItem));
         }
 
         // make sure selected item is visible whenever list updates
@@ -144,9 +185,10 @@ namespace APIMASH_StarterKit
         // synchronize changes in the view model collection with the map push pins
         void Results_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            // nothing to do here if there no map to sync with
-            if (Map == null) return;
-
+            // the synchronization requires a reference to a Bing.Maps object on the Main page
+            if (Map == null)
+                throw new System.NullReferenceException("An instance of Bing.Maps is required here, yet the Map property was found to be null."); 
+                
             // only additions and wholesale reset of the ObservableCollection are currently supported
             switch (e.Action)
             {

@@ -175,7 +175,7 @@
              will automatically appear. You might consider virtualizng the results for a better
              enduser experience.
         -->
-        <local:LeftPanel x:Name="LeftPanel" MaxResults="25" Map="{Binding ElementName=TheMap}"/>
+        <local:LeftPanel x:Name="LeftPanel" MaxResults="25" />
 
         <bingmaps:Map Grid.Column="1" 
               x:Name="TheMap" 

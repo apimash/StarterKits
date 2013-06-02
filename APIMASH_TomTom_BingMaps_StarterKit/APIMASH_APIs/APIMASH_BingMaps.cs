@@ -297,14 +297,17 @@ namespace APIMASH_BingMaps
         /// <returns>Status of API call <seealso cref="APIMASH.ApiResponseStatus"/></returns>
         public async Task<APIMASH.ApiResponseStatus> GetLocations(String searchCriteria, Int32 maxResults = 0, Int32 tileSize = 0)
         {
+            // clear the results
+            BingMapsViewModel.Results.Clear();
+
+            // if search critera is blank don't run query
+            if (String.IsNullOrEmpty(searchCriteria) || (searchCriteria.Trim().Length == 0)) return ApiResponseStatus.Default;
+            
             // invoke the API
             var apiResponse = await Invoke<BingMapsLocationsModel.RootObject>(
                 "http://dev.virtualearth.net/REST/v1/Locations?q={0}&maxResults=20&key={1}",
                 Uri.EscapeUriString(searchCriteria),
                 this._apiKey);
-
-            // clear the results
-            BingMapsViewModel.Results.Clear();
 
             // if successful, copy relevant portions from model to the view model
             if (apiResponse.IsSuccessStatusCode)
