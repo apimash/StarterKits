@@ -96,18 +96,18 @@ namespace APIMASH
     /// Class representing a single invocation of an API
     /// </summary>
     /// <typeparam name="T">The deserialized data type of results from the API call (the type of the model class)</typeparam>
-    public class ApiInvocation<T>
+    internal class ApiInvocation<T>
     {
         /// <summary>
         /// URI endpoint of the API call
         /// </summary>
-        public String Uri { get; private set; }
+        internal String Uri { get; private set; }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="uri">URI endpoint of the API call</param>
-        public ApiInvocation(String uri)
+        internal ApiInvocation(String uri)
         {
             Uri = uri;
         }
@@ -117,7 +117,7 @@ namespace APIMASH
         /// </summary>
         /// <param name="deserializer">Deserializer method to use on the HTTP response payload. If null, a default deserializer will be selected based on the mediaType found in the HTTP response Content-Type header.</param>
         /// <returns>An <see cref="ApiResponse"/> containing the HTTP response payload, headers, and status or error information</returns>
-        async public Task<ApiResponse<T>> Invoke(Func<Byte[], T> deserializer = null)
+        async internal Task<ApiResponse<T>> Invoke(Func<Byte[], T> deserializer = null)
         {
 
             // set up a new response class to capture the results
