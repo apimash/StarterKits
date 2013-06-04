@@ -105,10 +105,6 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <ProjectReference Include="..\..\APIMASHLib\APIMASHLib\APIMASHLib.csproj">
-      <Project>{a7cb71b9-c19e-4a82-8308-d83490f16ef2}</Project>
-      <Name>APIMASHLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\APIMASH_RottenTomatoesLib\APIMASH_RottenTomatoesLib.csproj">
       <Project>{03898072-999a-4c82-adbd-89e2e9daea5b}</Project>
       <Name>APIMASH_RottenTomatoesLib</Name>
