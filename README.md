@@ -27,7 +27,7 @@ API Partners
  8. Yelp [XAML/C#]
  9. [Meetup + Bing (HTML5/JS)][9]
  10. Tumblr [HTML5/JS]
- 11. Worldwide Telescope [HTML5/JS
+ 11. Messier Sky Objects [HTML5/JS
  12. Earthquakes + Bing [HTML5/JS]
  13. [World of Warcraft (HTML5/JS)][10] 
  14. Chuck Norris Internet Database [XAML/C#]
