@@ -31,8 +31,7 @@ API Partners
  12. Earthquakes + Bing [HTML5/JS]
  13. [World of Warcraft (HTML5/JS)][10] 
  14. Chuck Norris Internet Database [XAML/C#]
-
-
+ 15. Twitter [XAML/C#]
 
 ###1 - Download the StarterKits
 ###2 - Customize the API calls and Update the User Experience
