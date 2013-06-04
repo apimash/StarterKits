@@ -26,10 +26,10 @@ API Partners
  7. GeoNames + Wikipedia [XAML/C#]
  8. Yelp [XAML/C#]
  9. [Meetup + Bing (HTML5/JS)][10]
- 10. Tumblr [HTML5/JS]
+ 10. [Tumblr (HTML5/JS)][11]
  11. Messier Sky Objects [HTML5/JS
  12. Earthquakes + Bing [HTML5/JS]
- 13. [World of Warcraft (HTML5/JS)][11] 
+ 13. [World of Warcraft (HTML5/JS)][12] 
  14. Chuck Norris Internet Database [XAML/C#]
  15. Twitter [XAML/C#]
 
@@ -48,4 +48,5 @@ API Partners
   [8]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/21/api-mashup-series-part-i.aspx
   [9]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/27/serie-api-mashup-parte-i-en-espa-241-ol.aspx
   [10]: http://devhammer.net/blog/windows-store-app-template-to-live-data-in-3-easy-steps#.Ua4St17D-Uk
-  [11]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
+  [11]: http://thebitchwhocodes.com/2013/05/30/apimash-the-tumblr-api/
+  [12]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
