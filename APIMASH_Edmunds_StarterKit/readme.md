@@ -8,10 +8,12 @@
 ##Description
 The Edmunds Starter Kit is a XAML/C# Windows 8 app based on the Blank Template that demonstrates calling the Edmunds REST API's. The JSON payload for Makes, Models, Model Specs and Pictures is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to WinRT XAML controls. You can use the breadth and detail of the automotive information available through the Edmunds API to create mashups, visualizations and other applications that will provide an added dimension of user experience for the automotive consumer.
 
-![alt text][1]
+Blog: [APIMASH Edmunds Starter Kit][1]
+
+![alt text][2]
 
 ##Features
- - Invokes the [Edmunds REST API][2]
+ - Invokes the [Edmunds REST API][3]
  - Demonstrates how to deserialize JSON to C# and bind to WinRT XAML Controls
  - Provides a baseline for a Windows 8 Store App
 
@@ -19,15 +21,15 @@ The Edmunds Starter Kit is a XAML/C# Windows 8 app based on the Blank Template t
 
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
- - [JSON.NET form Newtonsoft][3]
- - [Mashery.com Developer Account][4]
- - [Edmunds Developer Key][5]
+ - [JSON.NET form Newtonsoft][4]
+ - [Mashery.com Developer Account][5]
+ - [Edmunds Developer Key][6]
 
 ##Setup
 
- - [Register at Mashery.com][6]
- - [Request a Developer Key at Edmunds][7]
- - [Download the Starter Kit Zip Portfolio][8] 
+ - [Register at Mashery.com][7]
+ - [Request a Developer Key at Edmunds][8]
+ - [Download the Starter Kit Zip Portfolio][9] 
  - Open the Solution in Visual Studio
  - Add your Developer Key in the *Globals.cs* file
  - Update the reference to the *Newtonsoft JSON.NET Library* in the *APIMASHLib* project
@@ -39,16 +41,16 @@ The Edmunds API, one a scale of 1 to 10, where 1 is simple and 10 is complex, is
 
 Edmunds provides these 4 API collections:
 
- - [Editorial API][9]
- - [Vehicle API][10]
- - [Inventory API][11] - available to Edmunds Partners
- - [Dealer API][12]
+ - [Editorial API][10]
+ - [Vehicle API][11]
+ - [Inventory API][12] - available to Edmunds Partners
+ - [Dealer API][13]
 
 The Edmunds Starter Kit uses the following API's in the Vehicle API collection:
 
- - [Make Repository][13] - The Make repository provides information according to the Make of a vehicle
- - [Model Year Repository][14] - The Model Year repository is the root entity of the Edmunds data repository. All vehicles data is organized according to Model Year
- - [Photo Repository][15] - The Photo Repository provides links that resolve back to photo media on the Edmunds Media Server
+ - [Make Repository][14] - The Make repository provides information according to the Make of a vehicle
+ - [Model Year Repository][15] - The Model Year repository is the root entity of the Edmunds data repository. All vehicles data is organized according to Model Year
+ - [Photo Repository][16] - The Photo Repository provides links that resolve back to photo media on the Edmunds Media Server
 
 The Starter Kit starts by calling the ***findmakesbymodelyear*** method of the Make Repository API to retrieve a list of makes and models by a particular year. [*See Line 57 in the *MainPage.Xaml.cs* file*].
 
@@ -98,18 +100,20 @@ Microsoft and I do not warrant, guarantee or make any representations regarding 
 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
 
-  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Edmunds_StarterKit/EdmundsScreenshot.png "Edmunds Starter Kit"
-  [2]: http://developer.edmunds.com "Edmunds"
-  [3]: https://json.codeplex.com/ "JSON.NET"
-  [4]: http://developer.mashery.com/ "Mashery.com"
-  [5]: http://developer.edmunds.com "Edmunds Developer Key"
-  [6]: http://developer.mashery.com/ "Register at Mashery.com"
-  [7]: http://developer.edmunds.com "Edmunds Developer Key"
-  [8]: http://apimash.github.io/StarterKits "APIMASH Starter Kits"
-  [9]: http://developer.edmunds.com/docs/read/the_editorial_api "Editorial API"
-  [10]: http://developer.edmunds.com/docs/read/The_Vehicle_API "Vehicle API"
-  [11]: http://developer.edmunds.com/docs/read/the_inventory_api "Inventory API"
-  [12]: http://developer.edmunds.com/docs/read/The_Dealer_API "Dealer API"
-  [13]: http://developer.edmunds.com/docs/read/the_vehicle_api/Make_Repository "Make Repository"
-  [14]: http://developer.edmunds.com/docs/read/the_vehicle_api/Year_Repository "Model Year Repository"
-  [15]: http://developer.edmunds.com/docs/read/the_vehicle_api/Photos "Photo Repository"
+
+  [1]: http://theundocumentedapi.com/index.php/apimash-the-edmunds-starter-kit/
+  [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Edmunds_StarterKit/EdmundsScreenshot.png "Edmunds Starter Kit"
+  [3]: http://developer.edmunds.com "Edmunds"
+  [4]: https://json.codeplex.com/ "JSON.NET"
+  [5]: http://developer.mashery.com/ "Mashery.com"
+  [6]: http://developer.edmunds.com "Edmunds Developer Key"
+  [7]: http://developer.mashery.com/ "Register at Mashery.com"
+  [8]: http://developer.edmunds.com "Edmunds Developer Key"
+  [9]: http://apimash.github.io/StarterKits "APIMASH Starter Kits"
+  [10]: http://developer.edmunds.com/docs/read/the_editorial_api "Editorial API"
+  [11]: http://developer.edmunds.com/docs/read/The_Vehicle_API "Vehicle API"
+  [12]: http://developer.edmunds.com/docs/read/the_inventory_api "Inventory API"
+  [13]: http://developer.edmunds.com/docs/read/The_Dealer_API "Dealer API"
+  [14]: http://developer.edmunds.com/docs/read/the_vehicle_api/Make_Repository "Make Repository"
+  [15]: http://developer.edmunds.com/docs/read/the_vehicle_api/Year_Repository "Model Year Repository"
+  [16]: http://developer.edmunds.com/docs/read/the_vehicle_api/Photos "Photo Repository"
