@@ -29,7 +29,11 @@ namespace APIMASH_Edmunds_StarterKit
             _apiInvokeYearMakeModel = new APIMASHInvoke();
             _apiInvokeModelSpecs = new APIMASHInvoke();
             _apiInvokePhotoByStyleId = new APIMASHInvoke();
-           
+
+            _apiInvokeYearMakeModel.OnResponse += apiInvokeYearMakeModel_OnResponse;
+            _apiInvokeModelSpecs.OnResponse += _apiInvokeModelSpecs_OnResponse;
+            _apiInvokePhotoByStyleId.OnResponse += _apiInvokePhotoByStyleId_OnResponse;
+
             // adust the height of the ListView
             var bounds = Window.Current.Bounds;
             ModelList.Height = bounds.Height - 400;
@@ -57,7 +61,6 @@ namespace APIMASH_Edmunds_StarterKit
         private void InvokeYearMakeModel(string year)
         {
             Sleep(1000); 
-            _apiInvokeYearMakeModel.OnResponse += apiInvokeYearMakeModel_OnResponse;
             var apiCall = Globals.EDMUNDS_API_FINDBYYEAR + year;
             //var apiCall = Globals.EDMUNDS_API_FINDALL;
             _apiInvokeYearMakeModel.Invoke<MakeCollection>(apiCall);
@@ -72,23 +75,23 @@ namespace APIMASH_Edmunds_StarterKit
                 APIMASH_EdmundsCarCollection.Copy(response);
                 this.DefaultViewModel["Makes"] = APIMASH_EdmundsCarCollection.AllMakes();
                 MakeCombo.ItemsSource = APIMASH_EdmundsCarCollection.AllMakes();
-                MakeCombo.SelectedIndex = 1; //Audi is at position 1
+                MakeCombo.SelectedIndex = 1;
                 ModelList.ItemsSource = APIMASH_EdmundsCarCollection.Cars.All[1].Models;
                 ModelList.SelectedIndex = 0;
             }
             else
             {
                 var md = new MessageDialog(e.Message, "Error");
-                bool? result = null;
+                var result = true;
                 md.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler((cmd) => result = true)));
-                await md.ShowAsync();           
+                await md.ShowAsync();          
             }
         }
 
         private void InvokeModelSpecsByMakeModelYear(string make, string model, string year)
         {
             Sleep(1000);
-            _apiInvokeModelSpecs.OnResponse+=_apiInvokeModelSpecs_OnResponse;
+
             var apiCall = 
                 Globals.EDMUNDS_API_MODELSPECS_MAKE + make + 
                 Globals.EDMUNDS_API_MODELSPECS_MODEL + model + 
@@ -108,41 +111,25 @@ namespace APIMASH_Edmunds_StarterKit
                     {
                         if (response.ModelSpecs[0].Styles != null)
                             if (response.ModelSpecs[0].Styles.Length > 0)
-                                InvokePhotoById(response.ModelSpecs[0].Styles[0].Id);               
+                                InvokePhotoById(response.ModelSpecs[0].Styles[0].Id);
                     }
                     else
                     {
                         // this vehicle did not return spec data so display image place holders
-                        const int maxImages = 9;
-                        var images = new ImageSource[maxImages];
-
-                        for (var i = 0; i < maxImages; i++)
-                            images[i] = new BitmapImage(new Uri("ms-appx:///Assets/Car.png"));
-
-                        VehicleImage1.Source = images[0];
-                        VehicleImage2.Source = images[1];
-                        VehicleImage3.Source = images[2];
-                        VehicleImage4.Source = images[3];
-                        VehicleImage5.Source = images[4];
-                        VehicleImage6.Source = images[5];
-                        VehicleImage7.Source = images[6];
-                        VehicleImage8.Source = images[7];
-                        VehicleImage9.Source = images[8];
-                }
+                        DisplayPlaceholderImages();
+                    }
             }
             else
             {
-                var md = new MessageDialog(e.Message, "Error");
-                bool? result = null;
-                md.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler((cmd) => result = true)));
-                await md.ShowAsync();
+                // this vehicle did not return spec data so display image place holders
+                DisplayPlaceholderImages();
             }
         }
 
         private void InvokePhotoById(string styleId)
         {
             Sleep(1000);
-            _apiInvokePhotoByStyleId.OnResponse += _apiInvokePhotoByStyleId_OnResponse;
+
             var apiCall = Globals.EDMUNDS_API_PHOTOS + styleId;
             _apiInvokePhotoByStyleId.Invoke<PhotoCollection>(apiCall);
         }
@@ -151,11 +138,12 @@ namespace APIMASH_Edmunds_StarterKit
         {
             var response = (PhotoCollection)e.Object;
 
+            const int maxImages = 9;
+            var images = new ImageSource[maxImages];
+
             if (e.Status == APIMASHStatus.SUCCESS)
             {
                 APIMASH_EdmundsPhotoCollection.Copy(response);
-                const int maxImages = 9;
-                var images = new ImageSource[maxImages];
 
                 if (APIMASH_EdmundsPhotoCollection.Photos.All[0].Pictures.Count > 0)
                 {
@@ -169,30 +157,45 @@ namespace APIMASH_Edmunds_StarterKit
                     
                     for (var i = 0; i < totalImages; i++)
                         images[i] = new BitmapImage(new Uri(APIMASH_EdmundsPhotoCollection.Photos.All[i].Pictures[0]));
+
+                    VehicleImage1.Source = images[0];
+                    VehicleImage2.Source = images[1];
+                    VehicleImage3.Source = images[2];
+                    VehicleImage4.Source = images[3];
+                    VehicleImage5.Source = images[4];
+                    VehicleImage6.Source = images[5];
+                    VehicleImage7.Source = images[6];
+                    VehicleImage8.Source = images[7];
+                    VehicleImage9.Source = images[8];
                 }
                 else
                 {
-                    for (var i = 0; i < maxImages; i++)
-                        images[i] = new BitmapImage(new Uri("ms-appx:///Assets/Car.png"));
+                    DisplayPlaceholderImages();
                 }
-
-                VehicleImage1.Source = images[0];
-                VehicleImage2.Source = images[1];
-                VehicleImage3.Source = images[2];
-                VehicleImage4.Source = images[3];
-                VehicleImage5.Source = images[4];
-                VehicleImage6.Source = images[5];
-                VehicleImage7.Source = images[6];
-                VehicleImage8.Source = images[7];
-                VehicleImage9.Source = images[8];
             }
             else
             {
-                var md = new MessageDialog(e.Message, "Error");
-                bool? result = null;
-                md.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler((cmd) => result = true)));
-                await md.ShowAsync();
+                DisplayPlaceholderImages();
             }
+        }
+
+        private void DisplayPlaceholderImages()
+        {
+            const int maxImages = 9;
+            var images = new ImageSource[maxImages];
+
+            for (var i = 0; i < maxImages; i++)
+                images[i] = new BitmapImage(new Uri("ms-appx:///Assets/Car.png"));
+
+            VehicleImage1.Source = images[0];
+            VehicleImage2.Source = images[1];
+            VehicleImage3.Source = images[2];
+            VehicleImage4.Source = images[3];
+            VehicleImage5.Source = images[4];
+            VehicleImage6.Source = images[5];
+            VehicleImage7.Source = images[6];
+            VehicleImage8.Source = images[7];
+            VehicleImage9.Source = images[8];
         }
 
         private void ModelList_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
