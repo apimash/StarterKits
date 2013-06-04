@@ -38,10 +38,6 @@ API Partners
 ###2 - Customize the API calls and Update the User Experience
 ###3 - Submit your App to the Windows Store
 
-
-  [1]: APIMASH: Using API’s to create compelling Windows Apps "Using API's to create Compelling Windows Apps"
-
-
   [1]: http://theundocumentedapi.com/index.php/apimash-using-apis-to-create-compelling-windows-apps/
   [2]: http://theundocumentedapi.com/index.php/apimash-json-deserialization-for-c-developers/
   [3]: http://developers.mashery.com
