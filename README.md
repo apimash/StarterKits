@@ -21,7 +21,7 @@ API Partners
  2. [Rotten Tomatoes (XAML/C#)][7]
  3. [Tom-Tom + Bing Maps (XAML/C#)][8]
  4. Active [HTML5/JS]
- 5. Stackoverflow [ XAML/C#]
+ 5. StackExchange [ XAML/C#]
  6. Univision [XAML/C#]
  7. GeoNames + Wikipedia [XAML/C#]
  8. Yelp [XAML/C#]
