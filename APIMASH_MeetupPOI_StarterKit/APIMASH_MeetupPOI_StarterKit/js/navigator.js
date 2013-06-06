@@ -1,4 +1,8 @@
-﻿(function () {
+﻿/*
+ * LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt
+ */
+
+(function () {
     "use strict";
 
     var appView = Windows.UI.ViewManagement.ApplicationView;
