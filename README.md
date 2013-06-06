@@ -30,7 +30,7 @@ API Partners
  11. Messier Sky Objects [HTML5/JS
  12. Earthquakes + Bing [HTML5/JS]
  13. [World of Warcraft (HTML5/JS)][12] 
- 14. Chuck Norris Internet Database [XAML/C#]
+ 14. [Chuck Norris Internet Database (XAML/C#)][13]
  15. Twitter [XAML/C#]
 
 ###1 - Download the StarterKits
@@ -50,3 +50,4 @@ API Partners
   [10]: http://devhammer.net/blog/windows-store-app-template-to-live-data-in-3-easy-steps#.Ua4St17D-Uk
   [11]: http://thebitchwhocodes.com/2013/05/30/apimash-the-tumblr-api/
   [12]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
+  [13]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit/
