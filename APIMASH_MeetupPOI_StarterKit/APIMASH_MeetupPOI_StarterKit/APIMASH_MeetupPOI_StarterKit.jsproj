@@ -60,7 +60,6 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     <None Include="APIMASH_MeetupPOI_StarterKit_TemporaryKey.pfx" />
-    <None Include="APIMASH_MeetupPOI_StarterKit_StoreKey.pfx" />
     <Content Include="css\default.css" />
     <Content Include="html\about.html" />
     <Content Include="html\privacy.html" />
@@ -82,7 +81,6 @@
     <Content Include="js\default.js" />
     <Content Include="js\meetupData.js" />
     <Content Include="js\navigator.js" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="pages\itemDetail\itemDetail.css" />
     <Content Include="pages\itemDetail\itemDetail.html" />
     <Content Include="pages\itemDetail\itemDetail.js" />
