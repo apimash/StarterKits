@@ -23,6 +23,8 @@ APIMASH_ACTIVEACCESS API_StarterKit shows you how to interact with an external w
  - Mac Users : download a VM
  - Mashery.com account 
  - Active Access Search API Key
+ - [Bing Maps SDK for Windows Store apps][1] and [license key][2]
+
 
 
 
@@ -34,7 +36,12 @@ APIMASH_ACTIVEACCESS API_StarterKit shows you how to interact with an external w
 ----------
 
 ##Change Log
-###v0.0.1
+###v0.0.2
  - Add license information to all source files
  - Use the Geo location data to pin on to the map
+ - Added reference to Bing Map SDK and license key
+ 
+[1]:http://visualstudiogallery.msdn.microsoft.com/bb764f67-6b2c-4e14-b2d3-17477ae1eaca?SRC=Featured "Bing Maps SDK"
+[2]:http://msdn.microsoft.com/en-us/library/ff428642.aspx "Getting a Bing Maps Key"
+
 
