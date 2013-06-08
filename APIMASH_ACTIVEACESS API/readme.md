@@ -31,6 +31,7 @@ APIMASH_ACTIVEACCESS API_StarterKit shows you how to interact with an external w
 ###Setup
 
  - Download the Starter Kit Zip Portfolio from http://apimash.github.io/StarterKits/
+ - From within Visual Studio, install the *Bing Maps SDK for Windows Store Apps* by going to **Tools>Extensions and Updates...** and searching for "Bing Maps SDK" in the Visual Studio Gallery (or [download and install][3] separately)
  - Open the solution in Visual Studio and run
 
 ----------
@@ -43,5 +44,5 @@ APIMASH_ACTIVEACCESS API_StarterKit shows you how to interact with an external w
  
 [1]:http://visualstudiogallery.msdn.microsoft.com/bb764f67-6b2c-4e14-b2d3-17477ae1eaca?SRC=Featured "Bing Maps SDK"
 [2]:http://msdn.microsoft.com/en-us/library/ff428642.aspx "Getting a Bing Maps Key"
-
+[3]:http://visualstudiogallery.msdn.microsoft.com/bb764f67-6b2c-4e14-b2d3-17477ae1eaca "Bing Maps SDK for Windows Store Apps"
 
