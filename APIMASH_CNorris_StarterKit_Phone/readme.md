@@ -6,29 +6,29 @@
 
 ----------
 ###Description
-The Chuck Norris Starter Kit for Windows Phone is a XAML/C# Windows Phone 8 app that demonstrates calling a Web Service that returned a simple JSON payload. The JSON payload is deserialized into a View Model.
+The Chuck Norris Starter Kit for Windows Phone is a XAML/C# Windows Phone 8 app that demonstrates calling a Web Service that returns a simple JSON payload. The JSON payload is deserialized into a View Model and displayed on the screen.
 
 [See this article for details on the Chuck Norris Starter Kit][1]
 
 ![alt text][2]
 
 ###Features
- - Invokes the Internet Chuck Norris Database API (http://www.icndb.com/)
- - Demonstrates how to deserialize JSON to C#
- - Provides a baseline for a Windows Phone 8 Store App
+ - Invokes the [Internet Chuck Norris Database][3] API
+ - [Demonstrates how to deserialize JSON to C#][4]
+ - Provides a baseline for a [Windows Phone 8 Store App][5]
 
 ###Requirements
 
  - Windows 8
- - Visual Studio 2012 Express for Windows 8 or higher
- - Windows Phone 8 SDK
- - JSON.NET form Newtonsoft (https://json.codeplex.com/)
+ - [Visual Studio 2012 Express for Windows Phone][6]
+ - [Windows Phone 8 SDK][7]
+ - [JSON.NET form Newtonsoft][8]
 
 
 ###Setup
     
 
- - Download  the Starter Kit Zip Portfolio from http://apimash.github.io/StarterKits/
+ - Download the [Starter Kit Portfolio][9]
  - Open the Solution in Visual Studio
  - Update the reference to the JSON.NET Library in the APIMASHLib project
  - Compile and Run
@@ -47,4 +47,11 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 
   [1]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit/
-  [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_CNorris_StarterKit/CNorrisScreenshot.png "Chuck Norris Starter Kit"
+  [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_CNorris_StarterKit_Phone/APIMASH_CNorris_StarterKit_Screen1.png "Chuck Norris Starter Kit"
+  [3]: http://www.icndb.com/
+  [4]: http://theundocumentedapi.com/index.php/apimash-json-deserialization-for-c-developers/
+  [5]: http://dev.windowsphone.com/en-us
+  [6]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-windows-phone
+  [7]: http://dev.windowsphone.com/en-us/downloadsdk
+  [8]: https://json.codeplex.com/
+  [9]: http://apimash.github.io/StarterKits
