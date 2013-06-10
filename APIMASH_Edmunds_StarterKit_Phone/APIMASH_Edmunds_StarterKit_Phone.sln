@@ -1,0 +1,66 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASH_Edmunds_StarterKit_Phone", "APIMASH_Edmunds_StarterKit_Phone\APIMASH_Edmunds_StarterKit_Phone.csproj", "{0421560A-109D-4467-A5E9-BB5149F817B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASH_EdmundsLib", "APIMASH_EdmundsLib\APIMASH_EdmundsLib.csproj", "{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASHLib", "APIMASHLib\APIMASHLib.csproj", "{E27B56C6-E444-470C-A022-17B213B9201A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|ARM.ActiveCfg = Debug|ARM
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|ARM.Build.0 = Debug|ARM
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|ARM.Deploy.0 = Debug|ARM
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|x86.ActiveCfg = Debug|x86
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|x86.Build.0 = Debug|x86
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Debug|x86.Deploy.0 = Debug|x86
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|ARM.ActiveCfg = Release|ARM
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|ARM.Build.0 = Release|ARM
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|ARM.Deploy.0 = Release|ARM
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|x86.ActiveCfg = Release|x86
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|x86.Build.0 = Release|x86
+		{0421560A-109D-4467-A5E9-BB5149F817B1}.Release|x86.Deploy.0 = Release|x86
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Debug|ARM.Build.0 = Debug|ARM
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Debug|x86.ActiveCfg = Debug|x86
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Debug|x86.Build.0 = Debug|x86
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Release|ARM.ActiveCfg = Release|ARM
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Release|ARM.Build.0 = Release|ARM
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Release|x86.ActiveCfg = Release|x86
+		{6ECE79CA-B8DE-4F03-A261-04D93D5A5FCA}.Release|x86.Build.0 = Release|x86
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Debug|ARM.ActiveCfg = Debug|ARM
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Debug|ARM.Build.0 = Debug|ARM
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Debug|x86.ActiveCfg = Debug|x86
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Debug|x86.Build.0 = Debug|x86
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Release|ARM.ActiveCfg = Release|ARM
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Release|ARM.Build.0 = Release|ARM
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Release|x86.ActiveCfg = Release|x86
+		{E27B56C6-E444-470C-A022-17B213B9201A}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
