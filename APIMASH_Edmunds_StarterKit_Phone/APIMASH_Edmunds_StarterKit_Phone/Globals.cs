@@ -14,7 +14,7 @@ namespace APIMASH_Edmunds_StarterKit_Phone
     internal class Globals
     {
         // edmunds developer key
-        public static string EDMUNDS_API_DEVKEY = "&api_key=xsqe5hv9gq2zyv2v9mcsm5uu";
+        public static string EDMUNDS_API_DEVKEY = "&api_key=[YOUR DEV KEY HERE]";
 
         // get initial lists of makes and models by year
         public static string EDMUNDS_API_FINDBYYEAR = @"http://api.edmunds.com/v1/api/vehicle/makerepository/findmakesbymodelyear?fmt=json" + EDMUNDS_API_DEVKEY + @"&year=";
