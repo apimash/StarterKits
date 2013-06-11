@@ -38,7 +38,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
 
  
-##1 - Download the StarterKit
+##1 - Download the Starter Kits
 
 ##2 - Customize the API calls and Update the User Experience
 
