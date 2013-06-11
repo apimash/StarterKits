@@ -46,7 +46,7 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 ###v1.0.0
 
 
-  [1]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit/
+  [1]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit-for-windows-phone-8/
   [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_CNorris_StarterKit_Phone/APIMASH_CNorris_StarterKit_Screen1.png "Chuck Norris Starter Kit"
   [3]: http://www.icndb.com/
   [4]: http://theundocumentedapi.com/index.php/apimash-json-deserialization-for-c-developers/

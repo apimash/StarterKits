@@ -8,7 +8,7 @@
 ##Description
 The Edmunds Starter Kit for Windows Phone is a XAML/C# Windows Phone 8 app that demonstrates calling the Edmunds REST API's. The JSON payload for Makes, Models, Model Specs and Pictures is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to XAML controls. You can use the breadth and detail of the automotive information available through the Edmunds API to create mashups, visualizations and other applications that will provide an added dimension of user experience for the automotive consumer.
 
-Blog: [APIMASH Edmunds Starter Kit][1]
+Blog: [APIMASH Edmunds Starter Kit for Windows Phone][1]
 
 ![alt text][2]
 
@@ -99,7 +99,7 @@ Microsoft and I do not warrant, guarantee or make any representations regarding 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
 
 
-  [1]: http://theundocumentedapi.com/index.php/apimash-the-edmunds-starter-kit/
+  [1]: http://theundocumentedapi.com/index.php/apimash-edmunds-starter-kit-for-windows-phone-8/
   [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Edmunds_StarterKit_Phone/APIMASH_Edmunds_StarterKit_Screen3.png "Edmunds Starter Kit"
   [3]: http://developer.edmunds.com "Edmunds"
   [4]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-windows-phone
