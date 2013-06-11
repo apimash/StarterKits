@@ -100,7 +100,7 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 
   [1]: http://theundocumentedapi.com/index.php/apimash-edmunds-starter-kit-for-windows-phone-8/
-  [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Edmunds_StarterKit_Phone/APIMASH_Edmunds_StarterKit_Screen3.png "Edmunds Starter Kit"
+  [2]: https://raw.github.com/apimash/StarterKits/master/Windows%20Phone%20Starter%20Kits/APIMASH_Edmunds_StarterKit_Phone/APIMASH_Edmunds_StarterKit_Screen3.png "Edmunds Starter Kit"
   [3]: http://developer.edmunds.com "Edmunds"
   [4]: http://www.microsoft.com/visualstudio/eng/products/visual-studio-express-for-windows-phone
   [5]: https://json.codeplex.com/ "JSON.NET"
