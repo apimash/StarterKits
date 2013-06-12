@@ -136,10 +136,10 @@
     <PRIResource Include="Resources.resw" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Logo.png" />
-    <Content Include="Assets\SmallLogo.png" />
-    <Content Include="Assets\SplashScreen.png" />
-    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\APIMASH_Logo.png" />
+    <Content Include="Assets\APIMASH_Small.png" />
+    <Content Include="Assets\APIMASH_Splash.png" />
+    <Content Include="Assets\APIMASH_Store.png" />
     <Content Include="Common\ReadMe.txt" />
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\StackExchangeLogo.jpg" />
