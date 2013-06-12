@@ -8,15 +8,15 @@
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>APIMASH_StackExchange_StarterKit</RootNamespace>
-    <AssemblyName>APIMASH-StackExchange-StarterKit</AssemblyName>
+    <AssemblyName>APIMASH_StackExchange_StarterKit</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <PackageCertificateKeyFile>APIMASH-StackExchange-StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
-    <PackageCertificateThumbprint>CB87C58318B4A2B31CDD64601807A43A5C159A71</PackageCertificateThumbprint>
+    <PackageCertificateKeyFile>APIMASH_StackExchange_StarterKit_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateThumbprint>93F55E100C4EB5C42E975675ADB84643F9A3FFFC</PackageCertificateThumbprint>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -113,10 +113,10 @@
     <Compile Include="Common\LayoutAwarePage.cs" />
     <Compile Include="Common\RichTextColumns.cs" />
     <Compile Include="Common\SuspensionManager.cs" />
-    <Compile Include="Converters\HtmlToParagraphConverter.cs">
+    <Compile Include="Converters\HtmlToRichTextBlockConverter.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Converters\XamlBuilder.cs" />
+    <Compile Include="Converters\HtmlToXamlConverter.cs" />
     <Compile Include="QuestionGroupDetailPage.xaml.cs">
       <DependentUpon>QuestionGroupDetailPage.xaml</DependentUpon>
     </Compile>
@@ -167,7 +167,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\APIMASHLib\APIMASHLib\APIMASHLib.csproj">
+    <ProjectReference Include="..\APIMASHLib\APIMASHLib.csproj">
       <Project>{a7cb71b9-c19e-4a82-8308-d83490f16ef2}</Project>
       <Name>APIMASHLib</Name>
     </ProjectReference>
@@ -177,14 +177,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="APIMASH-StackExchange-StarterKit_TemporaryKey.pfx" />
+    <None Include="APIMASH_StackExchange_StarterKit_TemporaryKey.pfx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\packages\HtmlAgilityPack.1.4.6\lib\winrt45\HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Newtonsoft.Json.5.0.4\lib\netcore45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -193,6 +194,7 @@
     <VisualStudioVersion>11.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
-  <Identity Name="c1fd7166-89f6-4a72-98cb-915cec13d1c2" Version="1.0.0.0" Publisher="CN=mcumming" />
+  <Identity Name="c1fd7166-89f6-4a72-98cb-915cec13d1c2" Version="1.0.0.0" Publisher="CN=APIMASH" />
   <Properties>
-    <DisplayName>APIMASH-StackExchange-StarterKit</DisplayName>
-    <Logo>Assets\StoreLogo.png</Logo>
-    <PublisherDisplayName>mcumming</PublisherDisplayName>
+    <DisplayName>APIMASH StackExchange StarterKit</DisplayName>
+    <Logo>Assets\APIMASH_StoreLogo.png</Logo>
+    <PublisherDisplayName>APIMash</PublisherDisplayName>
   </Properties>
   <Prerequisites>
     <OSMinVersion>6.2.1</OSMinVersion>
@@ -15,9 +15,9 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_StackExchange_StarterKit.App">
-      <VisualElements DisplayName="APIMASH-StackExchange-StarterKit" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="APIMASH-StackExchange-StarterKit" ForegroundText="light" BackgroundColor="#464646">
+      <VisualElements DisplayName="APIMASH StackExchange StarterKit" Logo="Assets\APIMASH_Logo.png" SmallLogo="Assets\APIMASH_SmallLogo.png" Description="APIMASH StackExchange StarterKit" ForegroundText="light" BackgroundColor="#464646">
         <DefaultTile ShowName="allLogos" />
-        <SplashScreen Image="Assets\SplashScreen.png" />
+        <SplashScreen Image="Assets\APIMASH_Splash.png" />
       </VisualElements>
     </Application>
   </Applications>

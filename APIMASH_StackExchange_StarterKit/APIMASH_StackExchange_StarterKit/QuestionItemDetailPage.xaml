@@ -8,16 +8,17 @@
     xmlns:common="using:APIMASH_StackExchange_StarterKit.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:rt="using:APIMASH_StackExchangeLib"
+    xmlns:conv="using:APIMASH_StackExchange_StarterKit.Converters"
     mc:Ignorable="d">
 
     <Page.Resources>
+        <conv:HtmlToRichTextBlockConverter x:Key="htmlToXamlConverter"/>
 
         <!-- Collection of items displayed by this page -->
         <CollectionViewSource
             x:Name="itemsViewSource"
-            Source="{Binding All}"
-            ItemsPath="Items"
-            />
+            Source="{Binding Items}"
+             d:Source="{Binding AllGroups[0].Items, Source={d:DesignInstance Type=rt:APIMASH_StackExchangeCollection, IsDesignTimeCreatable=False}}"/>
     </Page.Resources>
 
     <!--
@@ -27,8 +28,8 @@
     -->
     <Grid Style="{StaticResource LayoutRootStyle}"
           
-          DataContext="{Binding Item}"
-          d:DataContext="{Binding AllGroups[0].Items[0], Source={d:DesignInstance Type=rt:APIMASH_StackExchangeCollection, IsDesignTimeCreatable=False}}">
+          DataContext="{Binding Group}"
+          d:DataContext="{Binding AllGroups[0], Source={d:DesignInstance Type=rt:APIMASH_StackExchangeCollection, IsDesignTimeCreatable=False}}">
         
         <Grid.Background>
             <ImageBrush ImageSource="Images/bg.jpg"/>
@@ -67,20 +68,35 @@
                     -->
                     <UserControl Loaded="StartLayoutUpdates" Unloaded="StopLayoutUpdates">
                         <ScrollViewer x:Name="scrollViewer" Style="{StaticResource HorizontalScrollViewerStyle}" Grid.Row="1" Loaded="ScrollViewer_OnLoaded">
-                            
                             <!-- Content is allowed to flow across as many columns as needed -->
-                            <common:RichTextColumns x:Name="richTextColumns" Margin="117,0,117,47">
-                                <RichTextBlock x:Name="richTextBlock" Width="560" Style="{StaticResource ItemRichTextStyle}" IsTextSelectionEnabled="False">
+                            <common:RichTextColumns x:Name="richTextColumns" Margin="117,0,117,47"> <!--RichTextContent="{Binding Body, Converter={StaticResource htmlToXamlConverter}}"-->
+                                <RichTextBlock x:Name="richTextBlock" Width="640" Style="{StaticResource ItemRichTextStyle}" IsTextSelectionEnabled="False">
                                     <Paragraph>
-                                        <Run FontSize="26.667" FontWeight="Light" Text="{Binding Title}"/>
-                                        <LineBreak/>
+                                        <InlineUIContainer>
+                                            <HyperlinkButton Content="{Binding Title}" NavigateUri="{Binding Url}" FontSize="28" Style="{StaticResource StackExchangeHyperlinkTitleButtonStyle}" />
+                                        </InlineUIContainer>
                                         <LineBreak/>
                                     </Paragraph>
                                     <Paragraph>
-                                        <Run FontWeight="SemiLight" Text="{Binding Body}"/>
+                                        <Run FontSize="13.335" FontWeight="Light" Text="{Binding Body}"/>
+                                    </Paragraph>
+                                    <Paragraph>
+                                        <InlineUIContainer>
+                                            <Grid Grid.Row="2" HorizontalAlignment="Right">
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="40" />
+                                                    <ColumnDefinition Width="150" />
+                                                </Grid.ColumnDefinitions>
+                                                <Image Grid.Column="0" Width="32" Height="32" Stretch="UniformToFill" Source="{Binding Owner.ProfileImageUrl}"></Image>
+                                                <StackPanel Grid.Column="1" Orientation="Vertical">
+                                                    <TextBlock Text="{Binding Owner.Title}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                                    <TextBlock Text="{Binding Owner.Reputation}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                                </StackPanel>
+                                            </Grid>
+                                        </InlineUIContainer>
                                     </Paragraph>
                                 </RichTextBlock>
-
+                                
                                 <!-- Additional columns are created from this template -->
                                 <common:RichTextColumns.ColumnTemplate>
                                     <DataTemplate>

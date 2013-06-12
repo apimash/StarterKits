@@ -49,12 +49,12 @@ namespace APIMASH_StackExchange_StarterKit
             // TODO: Assign a bindable group to this.DefaultViewModel["Group"]
             // TODO: Assign a collection of bindable items to this.DefaultViewModel["Items"]
             // TODO: Assign the selected item to this.flipView.SelectedItem
-            var qg = APIMASH_StackExchangeCollection.GetGroupByTitle("All");
-            this.DefaultViewModel["All"] = qg;
-            var selectedItem = APIMASH_StackExchangeCollection.GetItem((int)navigationParameter);
-            this.DefaultViewModel["Item"] = selectedItem;
-            this.flipView.SelectedIndex = 0;
-            QuestionContent.NavigateToString(((QuestionItem)this.DefaultViewModel["Item"]).Body);
+            var group = APIMASH_StackExchangeCollection.GetGroupByTitle("All");
+            var item = APIMASH_StackExchangeCollection.GetItem((int)navigationParameter);
+            DefaultViewModel["Group"] = group;
+            DefaultViewModel["Items"] = group.Items;
+            this.flipView.SelectedItem = item;
+            QuestionContent.NavigateToString(item.Body);
         }
 
         /// <summary>
@@ -66,8 +66,7 @@ namespace APIMASH_StackExchange_StarterKit
         protected override void SaveState(Dictionary<String, Object> pageState)
         {
             var selectedItem = this.flipView.SelectedItem;
-            // TODO: Derive a serializable navigation parameter and assign it to pageState["SelectedItem"]
-            var qi = (QuestionItem)this.DefaultViewModel["Item"];
+            var qi = (QuestionItem) selectedItem;
             pageState["SelectedItem"] = qi.Id;
         }
 

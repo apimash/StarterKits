@@ -5,7 +5,6 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
-using System.Linq;
 using Newtonsoft.Json;
 
 namespace APIMASH_StackExchangeLib
@@ -18,7 +17,6 @@ namespace APIMASH_StackExchangeLib
 
         [DataMember(Name="quota_remaining")]
         public int QuotaRemaining { get; set; }
-
 
         [DataMember(Name="quota_max")]
         public int QuotaMax { get; set; }
@@ -49,6 +47,9 @@ namespace APIMASH_StackExchangeLib
 
         [DataMember(Name = "owner_user_id")]
         public int OwnerId { get; set; }
+
+        [DataMember(Name = "owner")]
+        public User Owner { get; set; }
 
         [DataMember(Name = "owner_display_name")]
         public string OwnerName { get; set; }
@@ -88,6 +89,9 @@ namespace APIMASH_StackExchangeLib
 
         [DataMember(Name = "body")]
         public string Body { get; set; }
+
+        [DataMember(Name = "link")]
+        public string Url { get; set; }
 
         [DataMember(Name = "comments")]
         public List<Comment> Comments { get; set; }
@@ -165,7 +169,8 @@ namespace APIMASH_StackExchangeLib
     [DataContract]
     public class Comment
     {
-        public int CommentId { get; set; }
+        [DataMember(Name = "comment_id")]
+        public int Id { get; set; }
 
         [DataMember(Name = "creation_date")]
         [JsonConverter(typeof(UnixDateTimeConverter))]
@@ -207,6 +212,9 @@ namespace APIMASH_StackExchangeLib
         [JsonConverter(typeof(UnixDateTimeConverter))]
         public DateTime CreateDate { get; set; }
 
+        [DataMember(Name = "profile_image")]
+        public string ProfileImage { get; set; }
+
         [DataMember(Name = "display_name")]
         public string DisplayName { get; set; }
 
@@ -222,7 +230,8 @@ namespace APIMASH_StackExchangeLib
         anonymous,
         registered,
         unregistered,
-        moderator
+        moderator,
+        does_not_exist
     }
 
 }
