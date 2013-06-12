@@ -26,7 +26,10 @@ namespace APIMASH_RottenTomatoes_StarterKit
             apiInvokePreview = new APIMASHInvoke();
             apiInvokeReviews = new APIMASHInvoke();
 
-            var settingsPane = Windows.UI.ApplicationSettings.SettingsPane.GetForCurrentView();
+            apiInvokePreview.OnResponse += apiInvokePreviews_OnResponse;
+            apiInvokeReviews.OnResponse += apiInvokeReviews_OnResponse;
+
+            var settingsPane = SettingsPane.GetForCurrentView();
             settingsPane.CommandsRequested += settingsPane_CommandsRequested;
         }
 
@@ -63,7 +66,7 @@ namespace APIMASH_RottenTomatoes_StarterKit
         private void PreviewButton_Click(object sender, RoutedEventArgs e)
         {
             var mi = (MovieItem)this.DefaultViewModel["Item"];
-            apiInvokePreview.OnResponse += apiInvokePreviews_OnResponse;
+
             var apiCall = mi.Clips + "?" + Globals.ROTTEN_TOMATOES_API_KEY;
             apiInvokePreview.Invoke<MoviePreviews>(apiCall);
         }
@@ -85,14 +88,13 @@ namespace APIMASH_RottenTomatoes_StarterKit
                 var md = new MessageDialog(e.Message, "Error");
                 bool? result = null;
                 md.Commands.Add(new UICommand("Ok", new UICommandInvokedHandler((cmd) => result = true)));
-                await md.ShowAsync(); // issue here intermitment
+                await md.ShowAsync(); 
             }
         }
 
         private void ReviewButton_Click(object sender, RoutedEventArgs e)
         {
             var mi = (MovieItem)this.DefaultViewModel["Item"];
-            apiInvokeReviews.OnResponse += apiInvokeReviews_OnResponse;
             var apiCall = mi.Reviews + "?" + Globals.ROTTEN_TOMATOES_API_KEY;
             apiInvokeReviews.Invoke<MovieReviews>(apiCall);
         }

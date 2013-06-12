@@ -20,6 +20,7 @@ namespace APIMASH_CNorris_StarterKit
         {
             this.InitializeComponent();
             apiInvoke = new APIMASHInvoke();
+            apiInvoke.OnResponse += apiInvoke_OnResponse;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -52,7 +53,6 @@ namespace APIMASH_CNorris_StarterKit
         ///////////////////////////////////////////////////////////////////////////////////
         private void Invoke()
         {
-            apiInvoke.OnResponse += apiInvoke_OnResponse;
             const string apiCall = @"http://api.icndb.com/jokes/random?exclude=[explicit]";
             apiInvoke.Invoke<CNorrisJoke>(apiCall);
         }

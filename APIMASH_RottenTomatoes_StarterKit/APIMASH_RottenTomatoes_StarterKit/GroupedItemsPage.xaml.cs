@@ -25,6 +25,7 @@ namespace APIMASH_RottenTomatoes_StarterKit
         {
             this.InitializeComponent();
             _apiInvokeInTheaters = new APIMASHInvoke();
+            _apiInvokeInTheaters.OnResponse += apiInvoke_OnResponseInTheaters;
 
             var settingsPane = SettingsPane.GetForCurrentView();
             settingsPane.CommandsRequested += settingsPane_CommandsRequested;
@@ -70,10 +71,10 @@ namespace APIMASH_RottenTomatoes_StarterKit
 
         private void Invoke()
         {
-            _apiInvokeInTheaters.OnResponse += apiInvoke_OnResponseInTheaters;
 
             // STEP 2. Change the API here to see different movie listings
-            var apiCall = Globals.ROTTEN_TOMATOES_API_MOVIES_INTHEATERS; 
+            var apiCall = Globals.ROTTEN_TOMATOES_API_MOVIES_INTHEATERS;
+            //var apiCall = Globals.ROTTEN_TOMATOES_API_DVD_TOPRENTALS;
             _apiInvokeInTheaters.Invoke<RottenTomatoesMovies>(apiCall);
         }
 
@@ -85,6 +86,7 @@ namespace APIMASH_RottenTomatoes_StarterKit
             {
                 // copy data into bindable format for UI
                 APIMASH_RottenTomatoesCollection.Copy(response, System.Guid.NewGuid().ToString(), "In Theaters");
+                //APIMASH_RottenTomatoesCollection.Copy(response, System.Guid.NewGuid().ToString(), "DVD Top Rentals");
                 this.DefaultViewModel["AllGroups"] = APIMASH_RottenTomatoesCollection.GetGroups("AllGroups");
                 _loaded = true;
             }

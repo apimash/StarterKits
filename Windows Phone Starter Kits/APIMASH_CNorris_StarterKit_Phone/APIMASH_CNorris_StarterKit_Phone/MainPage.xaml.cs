@@ -18,12 +18,12 @@ namespace APIMASH_CNorris_StareterKit_Phone
         {
             InitializeComponent();
             apiInvoke = new APIMASHInvoke();
+            apiInvoke.OnResponse += apiInvoke_OnResponse;
             Invoke();
         }
 
         private void Invoke()
         {
-            apiInvoke.OnResponse += apiInvoke_OnResponse;
             const string apiCall = @"http://api.icndb.com/jokes/random?exclude=[explicit]";
             apiInvoke.Invoke<CNorrisJoke>(apiCall);
         }
