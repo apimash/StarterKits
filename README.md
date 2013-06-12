@@ -11,29 +11,30 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
  - [Creating Compelling Windows 8 Apps  using API's][1]
  - [JSON Deserialization for C#  Developers][2]
+ - [APIMASH on Channel 9][3]
 
 ##API Partners
 
-![alt text][3]
-[Mashery][4]
+![alt text][4]
+[Mashery][5]
 
 ##Starter Kits
- 1. [Edmunds for Windows 8 (XAML/C#)][5]
- 2. [Edmunds for Windows Phone 8 (XAML/C#)][6]
- 3. [Rotten Tomatoes for Windows 8 (XAML/C#)][7]
- 4. [Tom-Tom + Bing Maps for Windows 8 (XAML/C#)][8]
+ 1. [Edmunds for Windows 8 (XAML/C#)][6]
+ 2. [Edmunds for Windows Phone 8 (XAML/C#)][7]
+ 3. [Rotten Tomatoes for Windows 8 (XAML/C#)][8]
+ 4. [Tom-Tom + Bing Maps for Windows 8 (XAML/C#)][9]
  5. Active for Windows 8 [HTML5/JS]
- 6. [StackExchange for Windows 8 (XAML/C#)][9]
- 7. Univision for Windows 8 (XAML/C#) [English][10], [Spanish][11]
+ 6. [StackExchange for Windows 8 (XAML/C#)][10]
+ 7. Univision for Windows 8 (XAML/C#) [English][11], [Spanish][12]
  8. GeoNames + Wikipedia for Windows 8 [XAML/C#]
  9. Yelp for Windows 8 [XAML/C#]
- 10. [Meetup + Bing for Windows 8 (HTML5/JS)][12]
- 11. [Tumblr for Windows 8 (HTML5/JS)][13]
+ 10. [Meetup + Bing for Windows 8 (HTML5/JS)][13]
+ 11. [Tumblr for Windows 8 (HTML5/JS)][14]
  12. Messier Sky Objects for Windows 8 [HTML5/JS]
  13. Earthquakes + Bing for Windows 8 [HTML5/JS]
- 14. [World of Warcraft for Windows 8 (HTML5/JS)][14]
- 15. [Chuck Norris for Windows 8 (XAML/C#)][15]
- 16. [Chuck Norris for Windows Phone 8 (XAML/C#)][16]
+ 14. [World of Warcraft for Windows 8 (HTML5/JS)][15]
+ 15. [Chuck Norris for Windows 8 (XAML/C#)][16]
+ 16. [Chuck Norris for Windows Phone 8 (XAML/C#)][17]
  17. Twitter for Windows 8 [XAML/C#]
 
 
@@ -47,17 +48,18 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
   [1]: http://theundocumentedapi.com/index.php/apimash-using-apis-to-create-compelling-windows-apps/
   [2]: http://theundocumentedapi.com/index.php/apimash-json-deserialization-for-c-developers/
-  [3]: https://raw.github.com/apimash/StarterKits/master/mashery_logo-small.png "Mashery"
-  [4]: http://dev.mashery.com "Mashery Developer Page"
-  [5]: http://theundocumentedapi.com/index.php/apimash-the-edmunds-starter-kit/
-  [6]: http://theundocumentedapi.com/index.php/category/development/
-  [7]: http://theundocumentedapi.com/index.php/apimash-the-rotten-tomatoes-api-starter-kit/
-  [8]: http://blogs.msdn.com/b/jimoneil/archive/2013/05/30/build-a-windows-8-mashup-app-with-bing-maps.aspx
-  [9]: http://geekswithblogs.net/Mathoms/archive/2013/06/06/apimash-the-stackexchange-starter-kit.aspx
-  [10]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/21/api-mashup-series-part-i.aspx
-  [11]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/27/serie-api-mashup-parte-i-en-espa-241-ol.aspx
-  [12]: http://devhammer.net/blog/windows-store-app-template-to-live-data-in-3-easy-steps#.Ua4St17D-Uk
-  [13]: http://thebitchwhocodes.com/2013/05/30/apimash-the-tumblr-api/
-  [14]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
-  [15]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit/
-  [16]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit-for-windows-phone-8/
+  [3]: http://channel9.msdn.com/Niners/apimash
+  [4]: https://raw.github.com/apimash/StarterKits/master/mashery_logo-small.png "Mashery"
+  [5]: http://dev.mashery.com "Mashery Developer Page"
+  [6]: http://theundocumentedapi.com/index.php/apimash-the-edmunds-starter-kit/
+  [7]: http://theundocumentedapi.com/index.php/category/development/
+  [8]: http://theundocumentedapi.com/index.php/apimash-the-rotten-tomatoes-api-starter-kit/
+  [9]: http://blogs.msdn.com/b/jimoneil/archive/2013/05/30/build-a-windows-8-mashup-app-with-bing-maps.aspx
+  [10]: http://geekswithblogs.net/Mathoms/archive/2013/06/06/apimash-the-stackexchange-starter-kit.aspx
+  [11]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/21/api-mashup-series-part-i.aspx
+  [12]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/27/serie-api-mashup-parte-i-en-espa-241-ol.aspx
+  [13]: http://devhammer.net/blog/windows-store-app-template-to-live-data-in-3-easy-steps#.Ua4St17D-Uk
+  [14]: http://thebitchwhocodes.com/2013/05/30/apimash-the-tumblr-api/
+  [15]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
+  [16]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit/
+  [17]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit-for-windows-phone-8/
