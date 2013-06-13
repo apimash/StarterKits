@@ -59,5 +59,5 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 Add version data here
 
 
-  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Univision_StarterKit/UnivisonAPIscreenshot.png "Screenshot"
+  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Univision_StarterKit/UnivisonAPIscreenshot.png "Screenshot"
   [2]: http://developer.univision.com/ "Univision API Documentation"
