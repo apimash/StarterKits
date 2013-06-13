@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="c1fd7166-89f6-4a72-98cb-915cec13d1c2" Publisher="CN=Test" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>Traffic Cams</DisplayName>
+    <PublisherDisplayName>Microsoft DPE</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_StarterKit.App">
+      <VisualElements DisplayName="Traffic Cams" Logo="Assets\Logo.png" SmallLogo="Assets\SmallLogo.png" Description="Mashup of Bing Maps with TomTom traffic cams" ForegroundText="light" BackgroundColor="#00FF00">
+        <DefaultTile ShowName="allLogos" ShortName="Starter Kit" />
+        <SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#000000" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash" />
+        </Extension>
+        <Extension Category="windows.search" />
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>

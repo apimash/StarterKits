@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="6c9dceac-8b12-4cc7-8924-171c3f9bd937" Publisher="CN=Tara" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>APIMASH_TwitterAPI_StarterKit</DisplayName>
+    <PublisherDisplayName>APIMASH</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_TwitterAPI_StarterKit.App">
+      <VisualElements DisplayName="APIMASH_TwitterAPI_StarterKit" Logo="Assets\APIMASH_TwitterLogo.png" SmallLogo="Assets\SmallLogo.png" Description="APIMASH_TwitterAPI_StarterKit" ForegroundText="light" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="Assets\APIMASH_TwitterSplashScreen.png" />
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash" />
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

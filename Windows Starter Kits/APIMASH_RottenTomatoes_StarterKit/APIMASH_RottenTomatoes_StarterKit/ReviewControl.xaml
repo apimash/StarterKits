@@ -1,0 +1,34 @@
+﻿<!-- LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt  -->
+<UserControl
+    xmlns:controls="using:WinRTXamlToolkit.Controls" 
+    x:Class="APIMASH_RottenTomatoes_StarterKit.ReviewControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:apimash="using:APIMASH_RottenTomatoesLib"
+    mc:Ignorable="d">
+
+    <Grid x:Name="RootPanel" Background="#FF212121">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="650"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Grid.Column="0" Orientation="Vertical">
+            <ListView
+                ItemsSource="{Binding Items}"
+                d:ItemsSource="{Binding Items, Source={d:DesignInstance Type=apimash:MovieReviewGroup, IsDesignTimeCreatable=False}}"
+                x:Name="MovieReviewItems"
+                AutomationProperties.AutomationId="MovieReviewItems"
+                AutomationProperties.Name="Items"
+                Height="770"
+                IsSwipeEnabled="False"
+                SelectionChanged="CriticsList_OnSelectionChanged"
+                ItemTemplate="{StaticResource Standard130ItemTemplate}" HorizontalAlignment="Left" Width="550" MaxHeight="600" Margin="100,0,0,0"/>
+        </StackPanel>
+
+        <controls:WebBrowser x:Name="ReviewPage" Grid.ColumnSpan="2" Margin="650,0,100,0"/>
+    </Grid>
+
+</UserControl>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="29262DevhammerUniversalDe.MeetupForCoffee" Version="1.0.0.0" Publisher="CN=4E4CF60E-8B44-4E4F-A6E5-025E3F710C90" />
+  <Properties>
+    <DisplayName>MeetupForCoffee</DisplayName>
+    <Logo>images\storelogo.png</Logo>
+    <PublisherDisplayName>Devhammer Universal Development Enterprises</PublisherDisplayName>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" StartPage="default.html">
+      <VisualElements DisplayName="MeetupForCoffee" Logo="images\Logo.png" SmallLogo="images\smalllogo.png" Description="APIMASH_MeetupPOI_StarterKit" ForegroundText="light" BackgroundColor="#464646">
+        <DefaultTile ShowName="allLogos" />
+        <SplashScreen Image="images\splashscreen.png" />
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash" />
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="Microsoft.SDKSamples.WindowsBlogReader.CS" Version="1.0.0.0" Publisher="CN=APIMash" />
+  <Properties>
+    <DisplayName>WindowsBlogReader C# sample</DisplayName>
+    <Logo>Assets\storeLogo-sdk.png</Logo>
+    <Description>WindowsBlogReader C# sample</Description>
+    <PublisherDisplayName>APIMash</PublisherDisplayName>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="UnivisionAPI.App">
+      <VisualElements DisplayName="API Mashup Starterkit" Logo="Assets\squareTile-sdk.png" SmallLogo="Assets\smallTile-sdk.png" Description="API Mashup Starterkit" ForegroundText="light" BackgroundColor="#00b2f0">
+        <DefaultTile ShowName="allLogos" ShortName="API Mashup Starterkit" />
+        <SplashScreen Image="Assets\splash-sdk.png" BackgroundColor="#00b2f0" />
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash">
+            <DisplayName>apimash</DisplayName>
+          </Protocol>
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

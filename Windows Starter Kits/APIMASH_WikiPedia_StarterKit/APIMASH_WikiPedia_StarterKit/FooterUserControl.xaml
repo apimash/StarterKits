@@ -1,0 +1,26 @@
+﻿<UserControl
+    x:Class="APIMASH_WikiPedia_StarterKit.FooterUserControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:APIMASH_WikiPedia_StarterKit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    
+    <Grid Grid.Row="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        
+        <TextBlock Grid.Column="0" x:Name="TextBlock_UserId"  VerticalAlignment="Bottom" FontSize="20" 
+                   Text="{Binding Source={StaticResource APIMASHGlobals},Path=UserIDDefaultIfBlank}"/>
+        
+        <TextBlock Grid.Column="1" x:Name="TextBlock_Status" Text="ready" VerticalAlignment="Bottom" FontSize="20"/>
+        <Image Grid.Column="2" Source="Assets/Wikipedia.png" Height="60"/>
+    </Grid>
+
+</UserControl>

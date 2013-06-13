@@ -1,0 +1,24 @@
+﻿<!--
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
+-->
+    
+<!--
+//
+// TODO: Add content for About settings flyout. If not needed, remove the reference to AboutFlyout in the
+//       OnWindowCreated implementation of App.xaml.cs
+//    
+-->
+ <UserControl
+    x:Class="APIMASH_StarterKit.Flyouts.AboutFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="700"
+    d:DesignWidth="346">
+    
+    <Grid>
+        <TextBlock Text="Update this UserControl with information describing your application." TextWrapping="Wrap"/>
+    </Grid>
+</UserControl>

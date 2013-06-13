@@ -1,0 +1,60 @@
+﻿<!-- LICENSE: http://opensource.org/licenses/ms-pl) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>itemDetailPage</title>
+
+	<!-- WinJS references -->
+	<link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+	<script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+	<script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+	<link href="/css/default.css" rel="stylesheet" />
+	<link href="/pages/itemDetail/itemDetail.css" rel="stylesheet" />
+	<script src="/Bing.Maps.JavaScript/js/veapicore.js"></script>
+	<script src="/Bing.Maps.JavaScript/js/veapiModules.js"></script>
+	<script src="../../js/customizeMe.js"></script>
+	<script src="/js/meetupData.js"></script>
+	<script src="/pages/itemDetail/itemDetail.js"></script>
+	<script type="text/javascript">WinJS.UI.processAll();</script>
+
+</head>
+<body>
+	<div class="itemtemplate" data-win-control="WinJS.Binding.Template">
+		<div class="item">
+			<div class="item-index win-type-medium" data-win-bind="textContent: index"></div>
+			<img class="item-image" src="../../images/CoffeeCup_100x100.svg" data-win-bind="alt: name" />
+			<div class="item-details">
+				<h3 class="item-title" data-win-bind="textContent: name"></h3>
+				<div class="item-subtitle" data-win-bind="textContent: address"></div>
+				<a class="item-directions" data-win-bind="href: dirlink">Get Directions</a><br />
+				<a class="item-citystate win-type-ellipsis" data-win-bind="textContent: website; href: website"></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- The content that will be loaded and displayed. -->
+	<div class="itemdetailpage fragment">
+		<header aria-label="Header content" role="banner">
+			<button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+			<h1 class="titlearea win-type-ellipsis">
+				<span class="pagetitle"></span>
+			</h1>
+		</header>
+		<div class="content" aria-label="Main content" role="main">
+			<article>
+				<div>
+					<header>
+						<h2 class="item-title win-type-ellipsis"></h2>
+						<h4 class="item-subtitle"></h4>
+					</header>
+					<div id="myMap" style="position: absolute; height: 240px; width: 460px;" class="item-image"></div>
+					<div class="item-content"></div>
+				</div>
+			</article>
+		</div>
+		<div id="searchResults" data-win-control="WinJS.UI.ListView" data-win-options="{layout: {type: WinJS.UI.ListLayout}}"></div>
+	</div>
+</body>
+</html>

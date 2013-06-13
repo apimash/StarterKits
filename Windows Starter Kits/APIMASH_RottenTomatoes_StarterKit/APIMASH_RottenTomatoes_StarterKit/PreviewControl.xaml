@@ -1,0 +1,16 @@
+﻿<!-- LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt  -->
+ <UserControl 
+    xmlns:Controls="using:WinRTXamlToolkit.Controls" 
+    x:Class="APIMASH_RottenTomatoes_StarterKit.PreviewControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Tapped="ClipsControl_OnTapped">
+
+    <Grid x:Name="RootPanel" Background="#FF212121" Opacity=".75">
+        <!--<WebView x:Name="ClipsPage" Margin="100,10,100,100" />-->
+        <Controls:WebBrowser x:Name="PreviewPage" Margin="100,10,100,10"  />
+    </Grid>
+
+</UserControl>

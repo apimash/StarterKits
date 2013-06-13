@@ -1,0 +1,41 @@
+﻿<!-- LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt -->
+
+<!doctype HTML>
+<html>
+    <head>
+        <title>About settings flyout</title>
+        <link href="/css/settings.css" rel="stylesheet" />
+    </head>
+    <body >
+        <!-- BEGINSETTINGSFLYOUT -->
+        <div data-win-control="WinJS.UI.SettingsFlyout" aria-label="About World of Warcraft API Kit settings flyout" data-win-options="{settingsCommandId:'aboutSettings',width:'wide'}">
+            <!-- Use either 'win-ui-light' or 'win-ui-dark' depending on the contrast between the header title and background color -->
+            <div class="win-ui-dark win-header" > <!-- Background color reflects app's personality -->
+                <button type="button" onclick="WinJS.UI.SettingsFlyout.show()" class="win-backbutton"></button>
+                <div class="win-label">About the Meetup/Bing Maps API Kit</div>
+                </div>
+            <div class="win-content" >
+                <div class="win-settings-section">
+                    <div id="aboutNearMyMeetup">
+                       The Meetup/Bing Maps API Starter Kit is a completely free app for educational and entertainment purposes only.  
+                       The code for this app is open source and available on Github <a href="https://github.com/apimash/StarterKits" target="_blank" >here.</a><p>
+                    For more information about my other apps and developer information check out <a href="http://devhammer.net" target="_blank" >my blog</a>.<p>
+                    Other Apps from the Devhammer:<br />
+                    <ul>
+                        <li>Community Megaphone (<a href="http://apps.microsoft.com/windows/en-US/app/community-megaphone/65b28d25-c987-410f-8f72-c05cdb6fc55c" target="_blank" >Windows Store</a>)</li>
+                        <li>Devhammer (<a href="http://bit.ly/devhammerapp" target="_blank">Windows Phone</a>)</li>
+                        <li>Color Matcher (<a href="http://www.windowsphone.com/en-us/store/app/color-matcher/c162bbe1-e62d-406d-8d4d-bcd522a1c567?appid=c162bbe1-e62d-406d-8d4d-bcd522a1c567" target="_blank" >Windows Phone 8</a>)</li>
+                        <li>Color Matcher (<a href="http://apps.microsoft.com/windows/en-US/app/color-matcher/bf70dace-a171-4c5b-b227-0596475bc130" target="_blank" >Windows Store</a>)</li>
+                    </ul>
+                    Image Attribution:
+                        <ul>
+                            <li>Coffee Mug SVG: <a href="http://en.wikipedia.org/wiki/File:CoffeeCup.svg">WifiLeech on Wikipedia</a></li>
+                            <li>Map Pushpins: <a href="http://bingmapstrainingkit.codeplex.com/">Bing Maps for Windows Store Apps Training Kit</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ENDSETTINGSFLYOUT -->
+    </body>
+</html>

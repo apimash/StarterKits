@@ -1,0 +1,49 @@
+new field: geoNameId
+new field: thumbnailImg
+new field: feature
+
+also need FeatureHelper.cs from wikipedia link - potentially have FeatureImages too mapped to glyphs down the road?
+
+
+{"geonames":
+[{
+"summary":"London is the capital city of England and the United Kingdom, and the largest city, urban zone and metropolitan area in the United Kingdom, and the European Union by most measures. Located on the River Thames, London has been a major settlement for two millennia, its history going back to its (...)",
+"rank":100,
+"title":"London",
+"wikipediaUrl":"en.wikipedia.org/wiki/London",
+"elevation":2,
+"countryCode":"GB",
+"lng":-0.07857,
+"feature":"city",
+"thumbnailImg":"http://www.geonames.org/img/wikipedia/43000/thumb-42715-100.jpg",
+"geoNameId":2643743,"lang":"en","lat":51.504872
+},
+{
+"summary":"London Bridge railway station is a central London railway terminus and London Underground complex in the London Borough of Southwark, occupying a large area on two levels immediately south-east of London Bridge and 1.6 miles (2.6 km) east of Charing Cross (...)",
+"rank":100,
+"title":"London Bridge station",
+"wikipediaUrl":"en.wikipedia.org/wiki/London_Bridge_station",
+"elevation":18,
+"countryCode":"GB",
+"lng":-0.0866,
+"feature":"landmark",
+"thumbnailImg":"http://www.geonames.org/img/wikipedia/115000/thumb-114758-100.jpg",
+"geoNameId":2643739,
+"lang":"en",
+"lat":51.5055
+},
+{
+"summary":"London is a city in Southwestern Ontario, Canada, situated along the Quebec City–Windsor Corridor. The city has a population of 366,151 according to the 2011 Canadian census. London is the seat of Middlesex County, at the forks of the non-navigable Thames River, approximately halfway between (...)",
+"rank":100,
+"title":"London, Ontario",
+"wikipediaUrl":"en.wikipedia.org/wiki/London%2C_Ontario",
+"elevation":262,
+"countryCode":"CA",
+"lng":-81.2497,
+"feature":"city",
+"thumbnailImg":"http://www.geonames.org/img/wikipedia/58000/thumb-57388-100.jpg",
+"geoNameId":6058560,
+"lang":"en",
+"lat":42.9837
+},
+{"summary":"New London is a city and a port of entry on the northeast coast of the United States. It is located at the mouth of the Thames River (pronounced as to rhyme with \"James\") in New London County, southeastern Connecticut (...)","rank":100,"title":"New London, Connecticut","wikipediaUrl":"en.wikipedia.org/wiki/New_London%2C_Connecticut","elevation":27,"countryCode":"US","lng":-72.10083333333333,"feature":"city","thumbnailImg":"http://www.geonames.org/img/wikipedia/160000/thumb-159123-100.jpg","geoNameId":4839416,"lang":"en","lat":41.355555555555554},{"summary":"The London Borough of Croydon (pronunciation) is a London borough in South London, England and is part of Outer London. It covers an area of and is the largest London borough by population. It is the southernmost borough of London (...)","rank":100,"title":"London Borough of Croydon","wikipediaUrl":"en.wikipedia.org/wiki/London_Borough_of_Croydon","elevation":153,"countryCode":"GB","lng":-0.083333,"feature":"adm1st","thumbnailImg":"http://www.geonames.org/img/wikipedia/115000/thumb-114716-100.jpg","lang":"en","lat":51.333333},{"summary":"The London Eye is a giant Ferris wheel situated on the banks of the River Thames in London, England. The entire structure is tall and the wheel has a diameter of . It is the tallest Ferris wheel in Europe, and the most popular paid tourist attraction in the United Kingdom, visited by over 3 (...)","rank":98,"title":"London Eye","wikipediaUrl":"en.wikipedia.org/wiki/London_Eye","elevation":3,"countryCode":"GB","lng":-0.11972222222222223,"feature":"landmark","thumbnailImg":"http://www.geonames.org/img/wikipedia/153000/thumb-152429-100.jpg","geoNameId":6545168,"lang":"en","lat":51.50333333333333},{"summary":"London Bridge refers to several bridges that have spanned the River Thames between the City of London and Southwark, in central London. The current crossing, which opened to traffic in 1973, is a box girder bridge constructed from concrete and steel (...)","rank":100,"title":"London Bridge","wikipediaUrl":"en.wikipedia.org/wiki/London_Bridge","elevation":3,"countryCode":"GB","lng":-0.08778333333333332,"feature":"landmark","thumbnailImg":"http://www.geonames.org/img/wikipedia/95000/thumb-94442-100.jpg","geoNameId":6619889,"lang":"en","lat":51.507955555555554},{"summary":"The Museum of London documents the history of London from the Prehistoric to the present day. The museum is located close to the Barbican Centre, as part of the striking Barbican complex of buildings created in the 1960s and 70s as an innovative approach to re-development within a bomb damaged area (...)","rank":97,"title":"Museum of London","wikipediaUrl":"en.wikipedia.org/wiki/Museum_of_London","elevation":38,"countryCode":"GB","lng":-0.09680833333333333,"feature":"landmark","thumbnailImg":"http://www.geonames.org/img/wikipedia/13000/thumb-12748-100.jpg","geoNameId":7303445,"lang":"en","lat":51.51770555555555},{"summary":"The London Borough of Hackney (pronunciation) is a London borough located northeast of the City of London. It is currently part of the subregion of East London, though was formerly included in North/North East London/ (...)","rank":100,"title":"London Borough of Hackney","wikipediaUrl":"en.wikipedia.org/wiki/London_Borough_of_Hackney","elevation":21,"countryCode":"GB","lng":-0.083333,"feature":"adm1st","thumbnailImg":"http://www.geonames.org/img/wikipedia/121000/thumb-120276-100.jpg","lang":"en","lat":51.533333},{"summary":"London Victoria station, also known simply as Victoria, is a central London railway terminus and London Underground complex. It is named after nearby Victoria Street. With over 73 million passenger entries and exits between April 2010 and March 2011, Victoria is the second busiest railway terminus (...)","rank":100,"title":"London Victoria station","wikipediaUrl":"en.wikipedia.org/wiki/London_Victoria_station","elevation":16,"countryCode":"GB","lng":-0.144197,"feature":"landmark","thumbnailImg":"http://www.geonames.org/img/wikipedia/83000/thumb-82452-100.jpg","geoNameId":2634959,"lang":"en","lat":51.495888}]}

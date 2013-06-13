@@ -1,0 +1,51 @@
+﻿{
+"geonames":[
+{
+"summary":"The Public Land Survey System (PLSS) is the surveying method used historically over the largest fraction of the United States to survey and spatially identify land parcels before designation of eventual ownership, particularly for rural, wild or undeveloped land (...)",
+"rank":100,
+"title":"Public Land Survey System",
+"wikipediaUrl":"en.wikipedia.org/wiki/Public_Land_Survey_System",
+"elevation":1905,
+"lng":-104.05444444444444,
+"lang":"en",
+"lat":43.995555555555555
+},
+{
+"summary":"Robert Francis \"Bobby\" Kennedy (November 20, 1925 – June 6, 1968), also referred to by his initials RFK, was an American politician, a Democratic senator from New York, and a noted civil-rights activist. An icon of modern American liberalism and a member of the Kennedy family, he was a younger (...)",
+"rank":100,
+"title":"Robert F. Kennedy",
+"wikipediaUrl":"en.wikipedia.org/wiki/Robert_F._Kennedy",
+"elevation":51,
+"countryCode":"US",
+"lng":-77.0715,
+"feature":"landmark",
+"lang":"en",
+"lat":38.88118
+},
+{
+"summary":"Wyoming is a state in the mountain region of the Western United States. Wyoming is the 10th most extensive, but the least populous and the second least densely populated of the 50 United States. The western two thirds of the state is covered mostly with the mountain ranges and rangelands in the (...)",
+"rank":100,
+"title":"Wyoming",
+"wikipediaUrl":"en.wikipedia.org/wiki/Wyoming",
+"elevation":1826,
+"countryCode":"US",
+"lng":-107.46666666666667,
+"feature":"adm1st",
+"geoNameId":5843591,
+"lang":"en",
+"lat":43.083333333333336
+},
+{
+"summary":"Maryland For those who distinguish them, Maryland is pronounced as in merry , not as in the name Mary . (Random House Dictionary) is a U.S. state located in the Mid-Atlantic region of the United States, bordering Virginia, West Virginia, and the District of Columbia to its south and west; (...)",
+"rank":100,
+"title":"Maryland",
+"wikipediaUrl":"en.wikipedia.org/wiki/Maryland",
+"elevation":33,
+"lng":-76.71666666666667,
+"feature":"adm1st",
+"geoNameId":4361885,
+"lang":"en",
+"lat":38.93333333333333
+},
+{
+"summary":"Chicago (or) is the most populous city in the U.S. state of Illinois, and the third most populous city in the United States, with approximately 2.8 million residents. Its metropolitan area (also called \"Chicagoland\"), which extends into Indiana and Wisconsin, is the third-largest in the United (...)","rank":100,"title":"Chicago","wikipediaUrl":"en.wikipedia.org/wiki/Chicago","elevation":188,"countryCode":"US","lng":-87.630901,"feature":"city","geoNameId":4887398,"lang":"en","lat":41.882598},{"summary":"Burger King, often abbreviated as BK, is a global chain of hamburger fast food restaurants headquartered in unincorporated Miami-Dade County, Florida, United States. The company began in 1953 as Insta-Burger King, a Jacksonville, Florida-based restaurant chain (...)","rank":100,"title":"Burger King","wikipediaUrl":"en.wikipedia.org/wiki/Burger_King","elevation":9,"countryCode":"US","lng":-80.24666666666667,"feature":"landmark","lang":"en","lat":25.809444444444445},{"summary":"The Federal Bureau of Investigation (FBI) is a governmental agency belonging to the United States Department of Justice that serves as both a federal criminal investigative body and an internal intelligence agency (counterintelligence) (...)","rank":100,"title":"Federal Bureau of Investigation","wikipediaUrl":"en.wikipedia.org/wiki/Federal_Bureau_of_Investigation","elevation":34,"countryCode":"US","lng":-77.025243,"feature":"landmark","lang":"en","lat":38.8954168},{"summary":"The Yangtze River, or Chang Jiang (English or ; Mandarin) is the longest river in Asia, and the third longest in the world. It flows for from the glaciers on the Qinghai-Tibet Plateau in Qinghai eastward across southwest, central and eastern China before emptying into the East China Sea at Shanghai (...)","rank":100,"title":"Yangtze River","wikipediaUrl":"en.wikipedia.org/wiki/Yangtze_River","elevation":5390,"countryCode":"CN","lng":91.19583333333334,"feature":"landmark","lang":"en","lat":33.46805555555556},{"summary":"The Dominican Republic is a nation on the island of Hispaniola, part of the Greater Antilles archipelago in the Caribbean region. The western third of the island is occupied by the nation of Haiti, making Hispaniola one of two Caribbean islands, along with Saint Martin, that are shared by two (...)","rank":100,"title":"Dominican Republic","wikipediaUrl":"en.wikipedia.org/wiki/Dominican_Republic","elevation":65,"countryCode":"DO","lng":-69.80833333333334,"feature":"country","geoNameId":3508796,"lang":"en","lat":18.83611111111111},{"summary":"WEEI is a sports radio station in Boston, Massachusetts, that broadcasts on 850 kHz from a transmitter in Needham, Massachusetts, and is owned by Entercom Communications and operated by The Walt Disney Company, ESPN Radio's majority owner, under a local marketing agreement (...)","rank":100,"title":"WEEI","wikipediaUrl":"en.wikipedia.org/wiki/WEEI","elevation":42,"countryCode":"US","lng":-71.26672222222223,"feature":"landmark","lang":"en","lat":42.278166666666664},{"summary":"==Events== * 305 &ndash; Diocletian and Maximian retire from the office of Roman Emperor. * 524 &ndash; King Sigismund of Burgundy is executed at Orléans after an 8-year reign and is succeeded by his brother Godomar (...)","rank":100,"title":"May 1","wikipediaUrl":"en.wikipedia.org/wiki/May_1","elevation":5,"countryCode":"AR","lng":130.6,"lang":"en","lat":32.5},{"summary":"French Guiana (; ; officially just ') is an overseas region of France on the North Atlantic coast of South America. It has borders with two nations: Brazil to the east and south, and Suriname to the west. Its have a very low population density of less than , with half of its 236,250 people in 2011 (...)","rank":100,"title":"French Guiana","wikipediaUrl":"en.wikipedia.org/wiki/French_Guiana","elevation":129,"countryCode":"BR","lng":-52.98888888888889,"lang":"en","lat":4.229166666666667},{"summary":"Houston is the fourth-largest city in the United States of America, and the largest city in the state of Texas. According to the 2010 U.S. Census, the city had a population of 2.1 million people within an area of  (...)","rank":100,"title":"Houston","wikipediaUrl":"en.wikipedia.org/wiki/Houston","elevation":11,"countryCode":"US","lng":-95.383056,"feature":"city","geoNameId":4699066,"lang":"en","lat":29.762778},{"summary":"The Amazon River (or ; Spanish &) in South America is the second longest river in the world and by far the largest by waterflow with an average discharge greater than the next seven largest rivers combined (not including Madeira and Rio Negro, which are tributaries of the Amazon) (...)","rank":100,"title":"Amazon River","wikipediaUrl":"en.wikipedia.org/wiki/Amazon_River","elevation":10,"countryCode":"BR","lng":-55.51847,"feature":"landmark","lang":"en","lat":-1.91852},{"summary":"Mao Zedong (also transliterated as Mao Tse-tung listen), commonly referred to as Chairman Mao (December 26, 1893September 9, 1976), was a Chinese communist revolutionary, political theorist and politician. The founding father of the People's Republic of China from its establishment in 1949, he (...)","rank":100,"title":"Mao Zedong","wikipediaUrl":"en.wikipedia.org/wiki/Mao_Zedong","elevation":58,"countryCode":"CN","lng":116.3915,"lang":"en","lat":39.901},{"summary":"Mass Transit Railway (MTR) is the rapid transit railway system in Hong Kong. Originally opened in 1979, the system now includes of rail with 155 stations, including 86 railway stations and 69 light rail stops. The MTR system is currently operated by MTR Corporation Limited (MTRCL) (...)","rank":100,"title":"MTR","wikipediaUrl":"en.wikipedia.org/wiki/MTR","elevation":22,"lng":114.21345277777777,"lang":"en","lat":22.321258333333333},{"summary":"==Events== *752 BC &ndash; Romulus, legendary first king of Rome, celebrates the first Roman triumph after his victory over the Caeninenses, following The Rape of the Sabine Women. *509 BC &ndash; Publius Valerius Publicola, Roman consul, celebrates the first triumph of the Roman Republic after his (...)","rank":100,"title":"March 1","wikipediaUrl":"en.wikipedia.org/wiki/March_1","elevation":1968,"countryCode":"GB","lng":103.5,"lang":"en","lat":35.8},{"summary":"This is a complete List of National Historic Landmarks in California. The United States National Historic Landmark (NHL) program is operated under the auspices of the National Park Service, and recognizes structures, districts, objects, and similar resources nationwide according to a list of (...)","rank":100,"title":"List of National Historic Landmarks in California","wikipediaUrl":"en.wikipedia.org/wiki/List_of_National_Historic_Landmarks_in_California","elevation":1224,"countryCode":"US","lng":-119.57416666666666,"lang":"en","lat":37.74575},{"summary":"The provinces of Cuba are divided into 169 municipalities or municipios. They were defined by Cuban Law Number 1304 of July 3, 1976.Fifth United Nations Conference on the Standardization of Geographical Names, Vol. II, published by the United Nations, New York, 1991  (...)","rank":100,"title":"Municipalities of Cuba","wikipediaUrl":"en.wikipedia.org/wiki/Municipalities_of_Cuba","elevation":22,"lng":-82.58277777777778,"feature":"city","lang":"en","lat":22.80666666666667},{"summary":"Uttarakhand, formerly Uttaranchal, is a state in the northern part of the India. It is often referred to as the \"Land of the Gods\" due to the many holy Hindu temples and pilgrimage centres found throughout the state (...)","rank":100,"title":"Uttarakhand","wikipediaUrl":"en.wikipedia.org/wiki/Uttarakhand","elevation":695,"countryCode":"IN","lng":78.06,"lang":"en","lat":30.33}]}

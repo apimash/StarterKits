@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="36ccc304-e45a-48b9-a111-9967adf6b323" Version="1.0.0.0" Publisher="CN=APIMASH" />
+  <Properties>
+    <DisplayName>APIMASH_Edmunds_StarterKit</DisplayName>
+    <Logo>Assets\APIMASH_Store.png</Logo>
+    <PublisherDisplayName>APIMASH</PublisherDisplayName>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="APIMASH_Edmunds_StarterKit.App">
+      <VisualElements DisplayName="APIMASH_Edmunds_StarterKit" Logo="Assets\APIMASH_Logo.png" SmallLogo="Assets\APIMASH_Small.png" Description="APIMASH_Edmunds_StarterKit" ForegroundText="light" BackgroundColor="#ffffff">
+        <DefaultTile ShowName="allLogos" ShortName="Edmunds" />
+        <SplashScreen Image="Assets\APIMASH_Splash.png" />
+      </VisualElements>
+      <Extensions>
+        <Extension Category="windows.protocol">
+          <Protocol Name="apimash" />
+        </Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>

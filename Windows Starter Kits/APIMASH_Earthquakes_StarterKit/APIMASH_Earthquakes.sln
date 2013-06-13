@@ -1,0 +1,46 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "APIMASH_Earthquakes", "APIMASH_Earthquakes_StarterKit\APIMASH_Earthquakes.jsproj", "{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|ARM.ActiveCfg = Debug|ARM
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|ARM.Build.0 = Debug|ARM
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|ARM.Deploy.0 = Debug|ARM
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|x64.ActiveCfg = Debug|x64
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|x64.Build.0 = Debug|x64
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|x64.Deploy.0 = Debug|x64
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|x86.ActiveCfg = Debug|x86
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|x86.Build.0 = Debug|x86
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Debug|x86.Deploy.0 = Debug|x86
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|ARM.ActiveCfg = Release|ARM
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|ARM.Build.0 = Release|ARM
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|ARM.Deploy.0 = Release|ARM
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|x64.ActiveCfg = Release|x64
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|x64.Build.0 = Release|x64
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|x64.Deploy.0 = Release|x64
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|x86.ActiveCfg = Release|x86
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|x86.Build.0 = Release|x86
+		{9B8B22C1-1F55-4093-BB2F-CFF74E2FCACA}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

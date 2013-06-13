@@ -1,0 +1,42 @@
+﻿<!-- LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt -->
+
+<local:LayoutAwarePage
+    x:Class="APIMASH_CNorris_StarterKit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:APIMASH_CNorris_StarterKit"
+    xmlns:apimash="using:APIMASH_CNorrisLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <Grid Background="Black">
+        <TextBox x:Name="Joke" IsReadOnly="True" Background="Black" BorderBrush="White" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" FontSize="40" Margin="120,120,120,120"/>
+        <Button x:Name="HitMe" Content="Hit Me!" Click="HitMeButtonClick" FontSize="26"  BorderBrush="White" Background="Black" Foreground="White" Width="200" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,100"/>
+    </Grid>
+
+    <VisualStateManager.VisualStateGroups>
+
+        <!-- Visual states reflect the application's view state -->
+        <VisualStateGroup x:Name="ApplicationViewStates">
+            <VisualState x:Name="FullScreenLandscapeOrWide"/>
+            <VisualState x:Name="FullScreenPortrait_Detail"/>
+            <VisualState x:Name="FilledOrNarrow"/>
+            <VisualState x:Name="FullScreenPortrait"/>
+
+            <VisualState x:Name="Snapped">
+                <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Joke" Storyboard.TargetProperty="Visibility">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HitMe" Storyboard.TargetProperty="Visibility">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                    </ObjectAnimationUsingKeyFrames>
+                </Storyboard>
+            </VisualState>
+
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
+</local:LayoutAwarePage>

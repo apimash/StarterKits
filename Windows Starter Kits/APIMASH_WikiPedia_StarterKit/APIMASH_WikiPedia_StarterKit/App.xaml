@@ -1,0 +1,17 @@
+﻿<Application
+    x:Class="APIMASH_WikiPedia_StarterKit.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:common="using:APIMASH_WikiPedia_StarterKit.Common"
+    xmlns:local="using:APIMASH_WikiPedia_StarterKit">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Common/StandardStyles.xaml"/>
+                <ResourceDictionary Source="Common/CharmsStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <common:APIMASHGlobals x:Key="APIMASHGlobals"></common:APIMASHGlobals>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
