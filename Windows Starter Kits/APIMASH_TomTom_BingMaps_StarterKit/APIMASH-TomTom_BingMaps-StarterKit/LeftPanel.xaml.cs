@@ -154,25 +154,30 @@ namespace APIMASH_StarterKit
         #region event handlers (API agnostic thus requiring no modification)
 
         // handle synchronization for new selection in the list with the map
+        AsyncLock _lock = new AsyncLock();
         private async void MappableListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // get newly selected and deseleced item
-            object newItem = e.AddedItems.FirstOrDefault();
-            object oldItem = e.RemovedItems.FirstOrDefault();
+            using (await _lock.LockAsync())
+            {
 
-            // process new selection
-            if (newItem != null)
-                await ProcessSelectedItem(newItem);
+                // get newly selected and deselected item
+                object newItem = e.AddedItems.FirstOrDefault();
+                object oldItem = e.RemovedItems.FirstOrDefault();
 
-            // HACK ALERT: explicitly setting visibility because a reset of list isn't triggering the rebinding so 
-            // that the XAML converter for Visibility kicks in.  
-            MappableItem.Visibility = newItem == null ? Visibility.Collapsed : Visibility.Visible;
+                // process new selection
+                if (newItem != null)
+                    await ProcessSelectedItem(newItem);
 
-            // attach handler to ensure selected item is in view after layout adjustments
-            MappableListView.LayoutUpdated += MappableListView_LayoutUpdated;
+                // HACK ALERT: explicitly setting visibility because a reset of list isn't triggering the rebinding so 
+                // that the XAML converter for Visibility kicks in.  
+                MappableItem.Visibility = newItem == null ? Visibility.Collapsed : Visibility.Visible;
 
-            // notify event listeners that new item has been selected
-            OnItemSelected(new ItemSelectedEventArgs(newItem, oldItem));
+                // attach handler to ensure selected item is in view after layout adjustments
+                MappableListView.LayoutUpdated += MappableListView_LayoutUpdated;
+
+                // notify event listeners that new item has been selected
+                OnItemSelected(new ItemSelectedEventArgs(newItem, oldItem));
+            }
         }
 
         // make sure selected item is visible whenever list updates

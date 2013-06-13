@@ -111,6 +111,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Common\ApiStatusToVisibilityConverter.cs" />
+    <Compile Include="Common\AsyncLock.cs" />
     <Compile Include="Common\BindableBase.cs" />
     <Compile Include="Common\CityStateStringConverter.cs" />
     <Compile Include="Common\LayoutAwarePanel.cs" />
