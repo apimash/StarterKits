@@ -1,0 +1,57 @@
+﻿<!-- LICENSE: https://raw.github.com/apimash/StarterKits/master/LicenseTerms-SampleApps%20.txt -->
+
+<local:LayoutAwarePage
+    x:Class="APIMASH_Facebook_StarterKit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:APIMASH_Facebook_StarterKit"
+    xmlns:apimash="using:APIMASH_CNorrisLib"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:facebookControls="using:Facebook.Client.Controls"
+    mc:Ignorable="d"
+    Background="Black">
+
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="Welcome" Text="Please Login" HorizontalAlignment="Left" Margin="120,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="144" FontSize="24" FontFamily="Global User Interface"/>
+        <TextBlock Text="{Binding CurrentUser.Name, ElementName=loginButton}" HorizontalAlignment="Left" Margin="269,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="39" Width="296" FontSize="24"/>
+
+        <Button x:Name="HitMe" Visibility="Collapsed" Content="New Joke" Click="HitMeButtonClick" FontSize="26"  BorderBrush="White" Background="Black" Foreground="White" Width="250" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="44,0,1072,33" Grid.Row="1"/>
+        <Button x:Name="Post" Visibility="Collapsed" Content="Post to FB"  FontSize="26"  BorderBrush="White" Background="Black" Foreground="White" Width="250" Height="60" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="559,0,557,33" Grid.Row="1" Click="Post_Click"/>
+        <facebookControls:LoginButton x:Name="loginButton" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,43,33" SessionStateChanged="loginButton_SessionStateChanged" Grid.Row="1" Width="250" Height="60"/>
+
+        <StackPanel Grid.Row="1" x:Name="FriendStack" Width="Auto" HorizontalAlignment="Center">
+            <TextBox x:Name="Joke" IsReadOnly="True"  Visibility="Collapsed" Background="Black" BorderBrush="White" TextWrapping="Wrap" TextAlignment="Center" Foreground="White" FontSize="24" Height="Auto"/>
+            <facebookControls:FriendPicker x:Name="FriendPicker" SelectionMode="Single" AccessToken="{Binding CurrentSession.AccessToken, ElementName=loginButton}" DisplayOrder="DisplayFirstNameFirst" MaxHeight="400" SelectionChanged="FriendPicker_SelectionChanged" />
+        </StackPanel>
+    </Grid>
+
+    <VisualStateManager.VisualStateGroups>
+
+        <!-- Visual states reflect the application's view state -->
+        <VisualStateGroup x:Name="ApplicationViewStates">
+            <VisualState x:Name="FullScreenLandscapeOrWide"/>
+            <VisualState x:Name="FullScreenPortrait_Detail"/>
+            <VisualState x:Name="FilledOrNarrow"/>
+            <VisualState x:Name="FullScreenPortrait"/>
+
+            <VisualState x:Name="Snapped">
+                <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Joke" Storyboard.TargetProperty="Visibility">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="HitMe" Storyboard.TargetProperty="Visibility">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Collapsed"/>
+                    </ObjectAnimationUsingKeyFrames>
+                </Storyboard>
+            </VisualState>
+
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
+</local:LayoutAwarePage>
