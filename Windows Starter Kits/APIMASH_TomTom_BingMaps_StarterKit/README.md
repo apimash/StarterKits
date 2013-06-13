@@ -1,6 +1,6 @@
 #APIMASH TomTom/BingMaps Starter Kit
-##Date: 5.30.2013
-##Version: v1.0.2
+##Date: 6.13.2013
+##Version: v1.0.3
 ##Author(s): Jim O'Neil
 ##URL: http://github.com/apimash/starterkits
 
@@ -32,7 +32,7 @@ The TomTom/BingMaps Starter Kit is a XAML/C# Windows Store application that demo
   - From within Visual Studio, install the *Bing Maps SDK for Windows Store Apps* by going to **Tools>Extensions and Updates...** and searching for "Bing Maps SDK" in the Visual Studio Gallery (or [download and install][11] separately)
   - In Visual Studio select **Tools>Options>Package Manager>General** and make sure *Allow NuGet to download missing packages during build* is checked
   - If you get an error indicating the build type of "Any CPU" is not supported, change the build configuration of the solution to "x86" as shown in the image below 
-    ![Build Configuration](config.png)
+    ![Build Configuration](config.PNG)
   - Paste your Bing Maps API and TomTom Traffic Cam API keys into designated portion of the **App.xaml** file
 
 ###Customization
@@ -63,6 +63,7 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 1.0.1: added more detail to the Setup section and added Customization guidance
 1.0.2: called out inclusion of Search contract
+1.0.3: added screen shot of Configuration Manager
 
 [1]:http://developer.tomtom.com/docs/read/traffic_cameras "TrafficCam API"
 [2]:http://msdn.microsoft.com/en-us/library/hh846481.aspx "Bing Maps for Windows Store Apps"
