@@ -1,0 +1,27 @@
+﻿<!--
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
+-->
+    
+<!--
+//
+// TODO: Add content for Privacy policy settings flyout. A privacy policy is required for any application that accesses
+//       the Internet, and you should include a link in this flyout to the on-line version of your policy, the link for
+//       which you must also include when you supply information about your application via your Windows developer dashboard 
+//       prior to submitting to the Windows Store.
+//    
+-->
+    
+ <UserControl
+    x:Class="APIMASH_StarterKit.Flyouts.PrivacyFlyout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="700"
+    d:DesignWidth="346">
+    
+    <Grid>
+        <TextBlock Text="Update this UserControl with information and links about this application's privacy policy. This is required due to the use of Internet (client) capability." TextWrapping="Wrap"/>
+    </Grid>
+</UserControl>
