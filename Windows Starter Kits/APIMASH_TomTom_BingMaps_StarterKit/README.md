@@ -31,7 +31,8 @@ The TomTom/BingMaps Starter Kit is a XAML/C# Windows Store application that demo
  - In order to compile the application:
   - From within Visual Studio, install the *Bing Maps SDK for Windows Store Apps* by going to **Tools>Extensions and Updates...** and searching for "Bing Maps SDK" in the Visual Studio Gallery (or [download and install][11] separately)
   - In Visual Studio select **Tools>Options>Package Manager>General** and make sure *Allow NuGet to download missing packages during build* is checked
-  - If you get an error indicating the build type of "Any CPU" is not supported, change the build configuration of the solution to "x86"
+  - If you get an error indicating the build type of "Any CPU" is not supported, change the build configuration of the solution to "x86" as shown in the image below 
+    ![Build Configuration](config.png)
   - Paste your Bing Maps API and TomTom Traffic Cam API keys into designated portion of the **App.xaml** file
 
 ###Customization
