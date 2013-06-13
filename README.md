@@ -36,7 +36,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
  15. [Chuck Norris for Windows 8 (XAML/C#)][17]
  16. [Chuck Norris for Windows Phone 8 (XAML/C#)][18]
  17. Twitter for Windows 8 [XAML/C#]
-
+ 18. Facebook for Windows 8 [XAML/C#]
 
  
 ##1 - Download the Starter Kits
