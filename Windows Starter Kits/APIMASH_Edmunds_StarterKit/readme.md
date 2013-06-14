@@ -102,7 +102,7 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 
   [1]: http://theundocumentedapi.com/index.php/apimash-the-edmunds-starter-kit/
-  [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Edmunds_StarterKit/EdmundsScreenshot.png "Edmunds Starter Kit"
+  [2]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Edmunds_StarterKit/EdmundsScreenshot.png "Edmunds Starter Kit"
   [3]: http://developer.edmunds.com "Edmunds"
   [4]: https://json.codeplex.com/ "JSON.NET"
   [5]: http://developer.mashery.com/ "Mashery.com"

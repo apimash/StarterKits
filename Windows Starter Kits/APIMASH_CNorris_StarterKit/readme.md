@@ -43,4 +43,4 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 
   [1]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit/
-  [2]: https://raw.github.com/apimash/StarterKits/master/APIMASH_CNorris_StarterKit/CNorrisScreenshot.png "Chuck Norris Starter Kit"
+  [2]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_CNorris_StarterKit/CNorrisScreenshot.png "Chuck Norris Starter Kit"
