@@ -77,7 +77,7 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 
   [1]: http://theundocumentedapi.com/index.php/apimash-the-rotten-tomatoes-api-starter-kit/
-  [2]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_RottenTomatoes_StarterKit/RottenTomatoesScreenshot.png"Rotten Tomatoes Starter Kit"
+  [2]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_RottenTomatoes_StarterKit/RottenTomatoesScreenshot.png "Rotten Tomatoes Starter Kit"
   [3]: http://developer.rottentomatoes.com/docs/read/JSON "other API's:"
   [4]: http://developer.mashery.com/iodocs "I/O Docs page"
   [5]: https://github.com/apimash/StarterKits/tree/master/APIMASH_BingMaps_StarterKit "Bing Maps Starter Kit"
