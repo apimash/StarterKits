@@ -65,7 +65,7 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
  - List item
 
 
-  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_MeetupPOI_StarterKit/homePage.png "Home Page"
+  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_MeetupPOI_StarterKit/homePage.png "Home Page"
   [2]: http://www.meetup.com/meetup_api/ "Meetup API"
   [3]: http://www.meetup.com/meetup_api/ "Meetup API"
   [4]: http://visualstudiogallery.msdn.microsoft.com/bb764f67-6b2c-4e14-b2d3-17477ae1eaca
