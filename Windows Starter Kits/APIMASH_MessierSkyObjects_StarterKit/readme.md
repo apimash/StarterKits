@@ -36,4 +36,4 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 ###v1.0.0
 
 
-  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_MessierSkyObjects_StarterKit/screenshot.png "Screenshot"
+  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_MessierSkyObjects_StarterKit/screenshot.png "Screenshot"

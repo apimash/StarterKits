@@ -15,6 +15,8 @@ This application loads earthquake data from the USGS and displays a pushpin for 
 ###Requirements
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
+ - Bing Maps SDK for Windows Store apps - Download [here][2], and follow the instructions [here][4] for adding a reference to the SDK to your app. 
+ - Bing Maps API Key (sign up [here][3] - Microsoft Account required for the Bing Maps Portal)
 
 ###Setup
  - Download the Starter Kit Zip Portfolio from http://apimash.github.io/StarterKits/
@@ -33,7 +35,11 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 ----------
 
 ##Change Log
-###v1.0.0
+###v1.0.1
+ - Updated download links to Bing maps SDK
+ - Fixed screenshot URL
 
-
-  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_Earthquakes_StarterKit/screenshot.png "Screenshot"
+  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Earthquakes_StarterKit/screenshot.png "Screenshot"
+  [2]: http://visualstudiogallery.msdn.microsoft.com/bb764f67-6b2c-4e14-b2d3-17477ae1eaca
+  [3]: https://www.bingmapsportal.com/ "Bing Maps Portal"
+  [4]: http://msdn.microsoft.com/en-us/library/hh852186.aspx
