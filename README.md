@@ -46,8 +46,8 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 ##3 - Submit your App to the Windows Store
 
 
-  [1]: http://theundocumentedapi.com/index.php/apimash-using-apis-to-create-compelling-windows-apps/
-  [2]: http://theundocumentedapi.com/index.php/apimash-json-deserialization-for-c-developers/
+  [1]: http://theundocumentedapi.com/2013/05/28/apimash-using-apis-to-create-compelling-windows-apps/
+  [2]: http://theundocumentedapi.com/2013/05/31/apimash-json-deserialization-for-c-developers/
   [3]: http://channel9.msdn.com/Niners/apimash
   [4]: https://raw.github.com/apimash/StarterKits/master/images/mashery_logo-small.png "Mashery"
   [5]: http://dev.mashery.com "Mashery Developer Page"
