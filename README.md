@@ -18,25 +18,27 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 ![alt text][4]
 [Mashery][5]
 
-##Starter Kits
+##Starter Kits for Windows
  1. [Edmunds for Windows 8 (XAML/C#)][6]
+ 2. [Rotten Tomatoes for Windows 8 (XAML/C#)][8]
+ 3. [Tom-Tom + Bing Maps for Windows 8 (XAML/C#)][9]
+ 4. [Active for Windows 8 (HTML5/JS)][10]
+ 5. [StackExchange for Windows 8 (XAML/C#)][11]
+ 6. Univision for Windows 8 (XAML/C#) [English][12], [Spanish][13]
+ 7. [GeoNames + Wikipedia for Windows 8 (XAML/C#)][14]
+ 8. Yelp for Windows 8 [XAML/C#]
+ 9. [Meetup + Bing for Windows 8 (HTML5/JS)][15]
+ 10. [Tumblr for Windows 8 (HTML5/JS)][16]
+ 11. Messier Sky Objects for Windows 8 [HTML5/JS]
+ 12. Earthquakes + Bing for Windows 8 [HTML5/JS]
+ 13. [World of Warcraft for Windows 8 (HTML5/JS)][17]
+ 14. [Chuck Norris for Windows 8 (XAML/C#)][18]
+ 15. Twitter for Windows 8 [XAML/C#]
+ 16. Facebook for Windows 8 [XAML/C#]
+
+##Starter Kits for Windows Phone
+ 1. [Chuck Norris for Windows Phone 8 (XAML/C#)][19]
  2. [Edmunds for Windows Phone 8 (XAML/C#)][7]
- 3. [Rotten Tomatoes for Windows 8 (XAML/C#)][8]
- 4. [Tom-Tom + Bing Maps for Windows 8 (XAML/C#)][9]
- 5. [Active for Windows 8 (HTML5/JS)][10]
- 6. [StackExchange for Windows 8 (XAML/C#)][11]
- 7. Univision for Windows 8 (XAML/C#) [English][12], [Spanish][13]
- 8. [GeoNames + Wikipedia for Windows 8 (XAML/C#)][14]
- 9. Yelp for Windows 8 [XAML/C#]
- 10. [Meetup + Bing for Windows 8 (HTML5/JS)][15]
- 11. [Tumblr for Windows 8 (HTML5/JS)][16]
- 12. Messier Sky Objects for Windows 8 [HTML5/JS]
- 13. Earthquakes + Bing for Windows 8 [HTML5/JS]
- 14. [World of Warcraft for Windows 8 (HTML5/JS)][17]
- 15. [Chuck Norris for Windows 8 (XAML/C#)][18]
- 16. [Chuck Norris for Windows Phone 8 (XAML/C#)][19]
- 17. Twitter for Windows 8 [XAML/C#]
- 18. Facebook for Windows 8 [XAML/C#]
 
  
 ##1 - Download the Starter Kits
