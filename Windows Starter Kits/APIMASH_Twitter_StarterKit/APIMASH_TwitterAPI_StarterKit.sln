@@ -1,0 +1,71 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASH_TwitterAPI_StarterKit", "APIMASH_TwitterAPI_StarterKit\APIMASH_TwitterAPI_StarterKit.csproj", "{F087D863-21A5-4C66-93F7-FA753E51D865}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIMASHTwitterAPI_Lib", "APIMASHTwitterAPI_Lib\APIMASHTwitterAPI_Lib.csproj", "{258A278F-3C7F-4BC4-AF78-EF630F352BD5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{4055367B-345D-4D1C-9AA8-F215F75D18FA}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|ARM.ActiveCfg = Debug|ARM
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|ARM.Build.0 = Debug|ARM
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|ARM.Deploy.0 = Debug|ARM
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|x64.ActiveCfg = Debug|x64
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|x64.Build.0 = Debug|x64
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|x64.Deploy.0 = Debug|x64
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|x86.ActiveCfg = Debug|x86
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|x86.Build.0 = Debug|x86
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Debug|x86.Deploy.0 = Debug|x86
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|ARM.ActiveCfg = Release|ARM
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|ARM.Build.0 = Release|ARM
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|ARM.Deploy.0 = Release|ARM
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|x64.ActiveCfg = Release|x64
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|x64.Build.0 = Release|x64
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|x64.Deploy.0 = Release|x64
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|x86.ActiveCfg = Release|x86
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|x86.Build.0 = Release|x86
+		{F087D863-21A5-4C66-93F7-FA753E51D865}.Release|x86.Deploy.0 = Release|x86
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|ARM.ActiveCfg = Debug|ARM
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|ARM.Build.0 = Debug|ARM
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|x64.ActiveCfg = Debug|x64
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|x64.Build.0 = Debug|x64
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|x86.ActiveCfg = Debug|x86
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Debug|x86.Build.0 = Debug|x86
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|ARM.ActiveCfg = Release|ARM
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|ARM.Build.0 = Release|ARM
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|x64.ActiveCfg = Release|x64
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|x64.Build.0 = Release|x64
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|x86.ActiveCfg = Release|x86
+		{258A278F-3C7F-4BC4-AF78-EF630F352BD5}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

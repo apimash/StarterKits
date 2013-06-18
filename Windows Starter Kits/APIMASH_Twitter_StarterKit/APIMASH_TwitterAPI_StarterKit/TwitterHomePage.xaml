@@ -91,22 +91,23 @@
                             <TextBlock Margin="20" Text="Trends" Visibility="{Binding TrendGridVisible}" Style="{StaticResource GroupHeaderTextStyle}"/>
                         </DataTemplate>
                     </GridView.HeaderTemplate>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapGrid MaximumRowsOrColumns="5" VerticalChildrenAlignment="Top" HorizontalChildrenAlignment="Center" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
                     <GridView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Width="450" Margin="6">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-                                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Margin="0,0,0,10" Width="280" Height="50">
+                            <StackPanel Orientation="Horizontal" Width="515" Height="100">
+                                <Border Background="{StaticResource ListViewItemPlaceholderBackgroundThemeBrush}" Margin="0,0,0,10" Width="355" Height="50">
                                     <!--<Image Source="{Binding TweetImage}" Stretch="UniformToFill"/>-->
-                                    <TextBlock Text="{Binding TrendName}" Style="{StaticResource SubheaderTextStyle}" Width="235"/>
+                                    <TextBlock Text="{Binding TrendName}" Style="{StaticResource SubheaderTextStyle}" Width="350"/>
                                 </Border>
-                                <StackPanel Grid.Column="1" Margin="10,-10,0,0" Width="150">
+                                <StackPanel Margin="10,-10,0,0" Width="135" VerticalAlignment="Center">
                                     <TextBlock Text="{Binding TrendLocation}" Style="{StaticResource BodyTextStyle}" TextWrapping="NoWrap"/>
                                     <TextBlock Text="{Binding CreateDate}" Style="{StaticResource BodyTextStyle}" Foreground="{StaticResource ApplicationSecondaryForegroundThemeBrush}" TextWrapping="NoWrap"/>
                                 </StackPanel>
-                            </Grid>
+                            </StackPanel>
                         </DataTemplate>
                     </GridView.ItemTemplate>
                 </GridView>
@@ -126,18 +127,18 @@
                     </GridView.ItemsPanel>
                     <GridView.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" Width="515" Height="150">
-                                <Border Height="110" Width="110" Margin="12,10,0,12">
+                            <StackPanel Orientation="Horizontal" Width="435" Height="125">
+                                <Border Height="110" Width="110" Margin="12,10,2,12">
                                     <Image Source="{Binding ProfileImage}"  Stretch="UniformToFill"/>
                                 </Border>
-                                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,10,3,0">
+                                <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,10,15,0">
                                     <TextBlock Text="{Binding UserName}" Height="20" FontWeight="Bold" FontSize="15"/>
                                     <TextBlock Text="{Binding CreateDate}" Height="15" FontSize="12"/>
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
                                         <TextBlock Text="Followers:" Height="15" FontSize="12"/>
                                         <TextBlock Text="{Binding FollowerCount}" FontSize="12"/>
                                     </StackPanel>
-                                    <TextBlock Text="{Binding UserDescription}" Height="65" Width="300" TextWrapping="Wrap" FontSize="12"/>
+                                    <TextBlock Text="{Binding UserDescription}" Height="65" Width="330" TextWrapping="Wrap" FontSize="11"/>
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>

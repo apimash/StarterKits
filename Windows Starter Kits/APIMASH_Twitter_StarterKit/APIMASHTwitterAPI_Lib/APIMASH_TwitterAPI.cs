@@ -85,6 +85,9 @@ namespace TwitterAPIWin8Lib.APICalls
             {
                 case APIType.Home:
                     tweetParams.Add(TweetAPIConstants.APIEntityIncludeString, "false");
+                    //tweetParams.Add("since_id=", "1");
+                    tweetParams.Remove(TweetAPIConstants.APICountString);
+                    tweetParams.Add(TweetAPIConstants.APICountString, "500");
                     break;
 
                 case APIType.User:
@@ -148,7 +151,7 @@ namespace TwitterAPIWin8Lib.APICalls
                     break;
 
                 case APIType.UserInfo:
-                    tweetUrl = TweetAPIConstants.UserLookup;
+                    tweetUrl = TweetAPIConstants.MultiUserLookup;
                     break;
 
                 default:

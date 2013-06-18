@@ -263,7 +263,8 @@ namespace TwitterAPIWin8Lib.Model
         public const string TweetSearch = "https://api.twitter.com/1.1/search/tweets.json";
         public const string TrendSearch = "https://api.twitter.com/1.1/trends/place.json";
         public const string UserFollowers = "https://api.twitter.com/1.1/followers/list.json";
-        public const string UserLookup = "https://api.twitter.com/1.1/users/lookup.json";
+        public const string MultiUserLookup = "https://api.twitter.com/1.1/users/lookup.json";
+        public const string UserLookup = "https://api.twitter.com/1.1/users/show.json"; 
         public const string APICountString = "count=";
         public const string APIScreenNameString = "screen_name=";
         public const string APIEntityIncludeString = "include_entities=";
@@ -271,7 +272,7 @@ namespace TwitterAPIWin8Lib.Model
         public const string APISearchResultTypeString = "result_type=";
         public const string APITrendLocationWOEIDString = "id=";
         public static string APITrendLocationWOEID = "1"; //Can change this based upon Yahoo WOEID
-        public static int APICountKey = 50; //Can change this to your needs max for most calls is 200
+        public static int APICountKey = 75; //Can change this to your needs max for most calls is 200
         public static string APIUserID = String.Empty;
         public static string APIUserScreenName = String.Empty;
     }
