@@ -115,12 +115,12 @@ Updated the Twitter Starter Kit UI significantly, added feature to Get a specifi
 
 
   [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_Start_ScreenShot.png "APIMASH Twitter Starter Kit on Start Screen"
-  [2]: http://sdrv.ms/11u93aU "App Start Page"
-  [3]: http://sdrv.ms/13OOeKt "Authorized User Home Timeline"
-  [4]: http://sdrv.ms/17hstb9 "Specified User Timeline"
-  [5]: http://sdrv.ms/13OOpW8 "Keyword Search Tweets"
-  [6]: http://sdrv.ms/13OOwkz "Show Worldwide Trends"
-  [7]: http://sdrv.ms/13OOzwx "User Followers"
+  [2]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_HomeScreen_AppBar.png "App Start Page"
+  [3]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_TweetsbyHomeTimeline.png "Authorized User Home Timeline"
+  [4]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_TweetsbyUserTimeline.png "Specified User Timeline"
+  [5]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_TweetsbySearchTopic.png "Keyword Search Tweets"
+  [6]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_WorldwideTrendingTopics.png "Show Worldwide Trends"
+  [7]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_FollowersbyUser.png "User Followers"
   [8]: http://apimash.github.io/StarterKits/ "APIMash Starter Kits"
   [9]: https://dev.twitter.com/docs/api/1.1/get/users/show "Twitter User Lookup for One User"
   [10]: https://dev.twitter.com/docs/api/1.1/get/users/lookup "Twitter API for Multiple User Lookup"
