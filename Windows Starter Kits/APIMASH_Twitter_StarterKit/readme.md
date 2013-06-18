@@ -114,7 +114,7 @@ Initial Twitter Starter Kit loaded to GitHub
 Updated the Twitter Starter Kit UI significantly, added feature to Get a specific User followers, added App Bar 
 
 
-  [1]: https://skydrive.live.com/?cid=9d7b4cd699ab6e47&id=9D7B4CD699AB6E47%211822&sff=1 "APIMASH Twitter Starter Kit on Start Screen"
+  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Twitter_StarterKit/TwitterAPI_Start_ScreenShot.png "APIMASH Twitter Starter Kit on Start Screen"
   [2]: http://sdrv.ms/11u93aU "App Start Page"
   [3]: http://sdrv.ms/13OOeKt "Authorized User Home Timeline"
   [4]: http://sdrv.ms/17hstb9 "Specified User Timeline"
