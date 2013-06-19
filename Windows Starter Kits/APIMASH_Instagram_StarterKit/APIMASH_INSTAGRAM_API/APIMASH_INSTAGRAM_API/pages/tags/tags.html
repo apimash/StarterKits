@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>tags</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="tags.css" rel="stylesheet" />
+    <script src="tags.js"></script>
+</head>
+<body>
+    <div class="tags fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Instagram Tags</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+       
+             <div class="search">
+                <h2>Search For Tags By Name</h2>
+                <input class="search_field" type="text" value="snowy"/>
+                <button>Search</button>
+                <ul><li>Getting Current Tags...</li></ul>
+            </div>
+                     <div id="instagram-template" data-win-control="WinJS.Binding.Template">
+        <div>
+
+            <!-- Displays the "picture" field. -->
+            <img data-win-bind="src: images.thumbnail.url" width="150px" height="150px"/>
+            <div>
+
+                <!-- Displays the "title" field. -->
+               
+
+                <!-- Displays the "text" field. --> 
+                <h6 data-win-bind="innerText: user.username"></h6>
+            </div>
+        </div>
+    </div>     
+
+    <div id="basicListView" data-win-control="WinJS.UI.ListView" 
+        data-win-options="{itemDataSource : InstagramTags.itemList.dataSource,itemTemplate: select('#instagram-template'),layout: {type: WinJS.UI.GridLayout}}">
+      </div>
+
+           
+        </section>
+    </div>
+</body>
+</html>
