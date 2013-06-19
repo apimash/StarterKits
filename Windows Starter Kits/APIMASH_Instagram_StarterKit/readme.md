@@ -48,7 +48,7 @@ App Ideas:
 - Instatour - create a tour of an area through instagram photos
 
 ###Future Features
- - There is some bugginess with the layout using the List view control. Will be fixing this.
+
 
 ----------
 

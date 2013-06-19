@@ -14,6 +14,7 @@
             if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
                 // TODO: This application has been newly launched. Initialize
                 // your application here.
+                initializePages();
             } else {
                 // TODO: This application has been reactivated from suspension.
                 // Restore application state here.
@@ -40,6 +41,17 @@
         // suspended, call args.setPromise().
         app.sessionState.history = nav.history;
     };
+    function initializePages() {
 
+
+        //About and Privacy Policy Settings Charm
+        WinJS.Application.onsettings = function (e) {
+            e.detail.applicationcommands = {
+                "aboutSettings": { title: "About", href: "/pages/about.html" },
+                "privacySettings": { title: "Privacy Policy", href: "/pages/privacy.html" }
+            };
+            WinJS.UI.SettingsFlyout.populateSettings(e);
+        };
+    }
     app.start();
 })();

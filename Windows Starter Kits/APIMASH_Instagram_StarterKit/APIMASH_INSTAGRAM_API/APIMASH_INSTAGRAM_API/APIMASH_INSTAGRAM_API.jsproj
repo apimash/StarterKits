@@ -63,6 +63,7 @@
     <Content Include="js\instagram.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\navigator.js" />
+    <Content Include="pages\about.html" />
     <Content Include="pages\home\home.css" />
     <Content Include="pages\home\home.html" />
     <Content Include="pages\home\home.js" />
@@ -73,10 +74,10 @@
     <Content Include="pages\popular\popular.css" />
     <Content Include="pages\popular\popular.html" />
     <Content Include="pages\popular\popular.js" />
+    <Content Include="pages\privacy.html" />
     <Content Include="pages\tags\tags.css" />
     <Content Include="pages\tags\tags.html" />
     <Content Include="pages\tags\tags.js" />
-    <Content Include="readme.md" />
     <None Include="APIMASH_INSTAGRAM_API_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
