@@ -1,0 +1,63 @@
+﻿.location section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.location #basicListView {
+    width:50%;
+    height:100%;
+    float:left;
+    
+}
+.location ul {
+    list-style-type:none;
+      list-style-type:none;
+    height:300px;
+    overflow:auto;
+    padding-left:0px;
+    margin-left:0px;
+   
+}
+
+.location #msg {
+    width:200px;
+    left:50%;
+    font-size:24px;
+    top:50%;
+    position:absolute;
+
+}
+
+   .location #locationListView {
+    width:50%;
+    height:100%;
+    float:left;
+    margin-left:10px;
+    
+} 
+.location .instagram-template {
+    width:150px;
+    height:300px;
+}
+.location .right-col {
+    width:50%;
+    float:left;
+}
+.location .search {
+    float:left;
+    
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .location section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .location section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

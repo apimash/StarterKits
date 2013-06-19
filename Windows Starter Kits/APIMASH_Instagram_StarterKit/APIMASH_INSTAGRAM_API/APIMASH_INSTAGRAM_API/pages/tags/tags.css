@@ -1,0 +1,42 @@
+﻿.tags section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.tags #basicListView {
+    width:50%;
+    height:100%;
+    float:left;
+    
+}
+.tags ul {
+    list-style-type:none;
+    height:400px;
+    overflow:auto;
+   
+}
+
+    
+.tags .instagram-template {
+    width:150px;
+    height:300px;
+}
+
+.tags .search {
+    float:left;
+    margin-right:10px;
+    
+}
+@media screen and (-ms-view-state: snapped) {
+    .tags section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .tags section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

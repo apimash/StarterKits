@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/home/home.css" rel="stylesheet" />
+    <script src="/pages/home/home.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="fragment homepage">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Instagram API</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <p>The Instagram api lets you look for photos posted via the Instagram application. Documentation for the api can be found here:<a href="http://instagram.com/developer/endpoints/">http://instagram.com/developer/endpoints/</a>. All calls require a client id, which you can get by registering with the Instagram api</p>
+            <ul>
+                <li><a href="../location/location.html">Location Example</a>
+                    <p>Location related searches uses geolocation as part of the query. Search for locations that are identified in the Instagram data source near your current geolocation( or a geolocation of your choice ). Search for images based on a location  using either the geolocation coordinates or a location id. </p>
+                </li>
+                <li><a href="../tags/tags.html">Tags Example</a>
+                    <p>Tag related searches allows for a query to find tags that include a name parameter ( for example 'snowy'), returning a list of matching tags. Search for recent media based on a tag name. Instagram does not support a "popular" or "commonly" used tag endpoint that could be used to create a tag cloud. </p>
+
+                </li>
+                <li><a href="../popular/popular.html">Popular Example</a>
+                    <p>Popular searches return the most popular items currently. A limit or number of items requested is not possible, instead you need to look at the nextUrl property or use the max or min ids. </p>
+                </li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

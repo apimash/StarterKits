@@ -1,0 +1,41 @@
+﻿.popular section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.popular #popularListView {
+    width:50%;
+    height:100%;
+    float:left;
+    
+}
+.popular ul {
+    list-style-type:none;
+   
+}
+
+.popular .instagram-template {
+    width:150px;
+    height:300px;
+}
+
+.popular .search {
+    float:left;
+    
+}
+    
+
+
+@media screen and (-ms-view-state: snapped) {
+    .popular section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .popular section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

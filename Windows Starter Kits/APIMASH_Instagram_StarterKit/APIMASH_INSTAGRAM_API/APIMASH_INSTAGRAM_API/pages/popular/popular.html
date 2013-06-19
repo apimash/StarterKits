@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>popular</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="popular.css" rel="stylesheet" />
+    
+    <script src="popular.js"></script>
+</head>
+<body>
+    <div class="popular fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Instagram Popular Media</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+             <div id="instagram-template" data-win-control="WinJS.Binding.Template">
+        <div>
+
+            <!-- Displays the "picture" field. -->
+            <img data-win-bind="src: images.thumbnail.url" width="150px" height="150px"/>
+            <div>
+
+                <!-- Displays the "title" field. -->
+               
+
+                <!-- Displays the "text" field. --> 
+                <h6 data-win-bind="innerText: user.username"></h6>
+            </div>
+        </div>
+    </div>     
+
+    <div id="popularListView" data-win-control="WinJS.UI.ListView" 
+        data-win-options="{itemDataSource : InstagramPopular.itemList.dataSource,itemTemplate: select('#instagram-template'),layout: {type: WinJS.UI.GridLayout},loadingBehavior : 'incremental'}">
+      </div>
+            <div class="search">
+                <h2>Current Tags</h2>
+                <ul><li>Getting Current Tags...</li></ul>
+              
+            </div>
+        </section>
+    </div>
+</body>
+</html>
