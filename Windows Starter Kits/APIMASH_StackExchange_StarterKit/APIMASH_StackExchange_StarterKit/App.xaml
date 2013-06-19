@@ -49,18 +49,18 @@
 							<TextBlock Text="{Binding Description}" Style="{StaticResource BodyTextStyle}" MaxHeight="40" TextTrimming="WordEllipsis"/>
 						</StackPanel>
 						<StackPanel Grid.Row="1" Orientation="Horizontal">
-							<ListBox ItemsSource="{Binding Tags}" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" Margin="0,0,3,0" >
-                                <ListBox.ItemsPanel>
+                            <ListView ItemsSource="{Binding Tags}" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" Margin="0,0,3,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                                <ListView.ItemsPanel>
                                     <ItemsPanelTemplate>
                                         <StackPanel Margin="0" Orientation="Horizontal"></StackPanel>
                                     </ItemsPanelTemplate>
-                                </ListBox.ItemsPanel>
-                                <ListBox.ItemTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Margin="0" FontSize="10" Text="{Binding}"/>
                                     </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
+                                </ListView.ItemTemplate>
+                            </ListView>
 							<TextBlock Text="{Binding CreationDate}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
 						</StackPanel>
 						<Grid Grid.Row="2" HorizontalAlignment="Right">
@@ -78,7 +78,63 @@
 				</Grid>
 			</DataTemplate>
             
-			<Style x:Key="WrappingStyle" TargetType="TextBlock">
+            <DataTemplate x:Key="StackExchange80ItemTemplate">
+                <Grid Margin="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Height="135">
+                        <TextBlock Text="{Binding VoteCount}" Style="{StaticResource TitleTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Votes" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                        <TextBlock Text="{Binding AnswerCount}" Style="{StaticResource TitleTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                        <TextBlock Text="Answers" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ViewCount}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center" Margin="0,0,3,0"/>
+                            <TextBlock Text="Views" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="20" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" VerticalAlignment="Top" Margin="10,0,0,0">
+                            <TextBlock Text="{Binding Title}" Style="{StaticResource ItemTextStyle}" MaxHeight="40"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <ListView ItemsSource="{Binding Tags}" HorizontalContentAlignment="Stretch" HorizontalAlignment="Center" Margin="0,0,3,0" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                                <ListView.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <StackPanel Margin="0" Orientation="Horizontal"></StackPanel>
+                                    </ItemsPanelTemplate>
+                                </ListView.ItemsPanel>
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="0" FontSize="10" Text="{Binding}"/>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+                            <TextBlock Text="{Binding CreationDate}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <Grid Grid.Row="2" HorizontalAlignment="Right">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Width="32" Height="32" Stretch="UniformToFill" Source="{Binding Owner.ProfileImageUrl}"></Image>
+                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                <TextBlock Text="{Binding Owner.Title}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding Owner.Reputation}" Style="{StaticResource CaptionTextStyle}" TextWrapping="NoWrap" HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </DataTemplate>
+            
+            <Style x:Key="WrappingStyle" TargetType="TextBlock">
 				<Setter Property="TextWrapping" Value="Wrap"/>
 			</Style>
             

@@ -500,7 +500,7 @@ Microsoft and I do not warrant, guarantee or make any representations regarding 
 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
 
-  [1001]: https://raw.github.com/apimash/StarterKits/master/APIMASH_StackExchange_StarterKit/StackExchangeScreenshot.png "StackExchange Starter Kit"
+  [1001]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_StackExchange_StarterKit/StackExchangeScreenshot.png "StackExchange Starter Kit"
   [1002]: http://api.stackexchange.com "StackExchange"
   [1003]: https://json.codeplex.com/ "JSON.NET"
   [1004]: http://apimash.github.io/StarterKits "APIMASH Starter Kits"
