@@ -87,7 +87,7 @@ as a placeholder for customization by users of the Starter kit, the Twitter API 
 
 ***Step 6.*** Increase number of Tweets returned and implement Semantic Zoom. 
 
-***Step 7.*** Implement a feature that allows user select a Tweet and retrieve the retweets or replies and display information in an Item Detail page.
+***Step 7.*** Implement a feature that allows user to select a Tweet and retrieve the retweets or replies and display information in an Item Detail page.
 
 ***Step 8.*** Implement a feature that allows user to select a Tweet retrieve the user details and display information in an User Detail page.
 
