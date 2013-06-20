@@ -34,6 +34,9 @@ namespace APIMASH_TomTom
         public String Orientation { get; set; }
         public Int32 RefreshRate { get; set; }
 
+        private Byte[] _imageBytes;
+        public Byte[] ImageBytes { get; set; }
+       
         private BitmapImage _image;
         public BitmapImage Image
         {
@@ -130,9 +133,10 @@ namespace APIMASH_TomTom
             return resultsWereTruncated;
         }
 
-        public static void PopulateViewModel(BitmapImage camImage, TomTomCameraViewModel viewModel)
+        public static void PopulateViewModel(BitmapImage camImage, Byte[] imageBytes, TomTomCameraViewModel viewModel)
         {
             viewModel.Image = camImage;
+            viewModel.ImageBytes = imageBytes;
             viewModel.LastRefresh = DateTime.UtcNow;
         }
     }
@@ -259,7 +263,7 @@ namespace APIMASH_TomTom
             }
 
             // populate the ViewModel with the image
-            TomTomCamerasModel.PopulateViewModel(cameraImage, camera);
+            TomTomCamerasModel.PopulateViewModel(cameraImage, apiResponse.RawResponse, camera);
 
             // return a success status (there will always be an image returned)
             return ApiResponseStatus.Default;

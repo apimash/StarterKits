@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Search;
 using Windows.Devices.Geolocation;
 using Windows.Storage;
@@ -250,6 +251,17 @@ namespace APIMASH_StarterKit
                 // reset map to last known view
                 TheMap.SetView(new Location(_pageState.MapCenter.Latitude, _pageState.MapCenter.Longitude), _pageState.Zoom, MapAnimationDuration.None);
             }
+
+            DataTransferManager dtm = DataTransferManager.GetForCurrentView();
+            dtm.DataRequested += LeftPanel.GetSharedData;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            DataTransferManager dtm = DataTransferManager.GetForCurrentView();
+            dtm.DataRequested -= LeftPanel.GetSharedData;
         }
 
         /// <summary>

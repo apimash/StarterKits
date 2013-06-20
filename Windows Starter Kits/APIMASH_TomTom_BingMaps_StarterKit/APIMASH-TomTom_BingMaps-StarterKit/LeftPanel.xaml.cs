@@ -4,11 +4,17 @@ using APIMASH_StarterKit.Common;
 using APIMASH_StarterKit.Mapping;
 using Bing.Maps;
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.DataTransfer;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using System.IO;
+using System.Runtime.InteropServices.WindowsRuntime;
 
 //
 // LICENSE: http://aka.ms/LicenseTerms-SampleApps
@@ -110,7 +116,55 @@ namespace APIMASH_StarterKit
             this.DefaultViewModel["ApiViewModel"] = _tomTomApi.TomTomViewModel;
             _tomTomApi.TomTomViewModel.Results.CollectionChanged += Results_CollectionChanged;
         }
-     
+
+        //
+        // TODO: implement code needed to share item from main page
+        //
+public async void GetSharedData(DataTransferManager sender, DataRequestedEventArgs args)
+{
+    try
+    {
+        var currentCam = MappableListView.SelectedItem as APIMASH_TomTom.TomTomCameraViewModel;
+        if (currentCam != null)
+        {
+
+            DataRequestDeferral deferral = args.Request.GetDeferral();
+
+            args.Request.Data.Properties.Title = String.Format("TomTom Camera: {0}", currentCam.CameraId);
+            args.Request.Data.Properties.Description = currentCam.Name;
+
+            // share a file
+            var file = await StorageFile.CreateStreamedFileAsync(
+                String.Format("{0}_{1}.jpg", currentCam.CameraId, DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss")),
+                async stream =>
+                {
+                    await stream.WriteAsync(currentCam.ImageBytes.AsBuffer());
+                    await stream.FlushAsync();
+                    stream.Dispose();
+                },
+                null);
+            args.Request.Data.SetStorageItems(new List<IStorageItem> { file });
+
+            // share as bitmap
+            InMemoryRandomAccessStream raStream = new InMemoryRandomAccessStream();
+            await raStream.WriteAsync(currentCam.ImageBytes.AsBuffer());
+            await raStream.FlushAsync();
+            args.Request.Data.SetBitmap(RandomAccessStreamReference.CreateFromStream(raStream));
+
+            deferral.Complete();
+        }
+        else
+        {
+            args.Request.FailWithDisplayText("Select a camera to share its image.");
+        }
+    }
+    catch (Exception ex)
+    {
+        args.Request.FailWithDisplayText(ex.Message);
+    }
+}
+
+
         /// <summary>
         /// Carries out application-specific handling of the item selected in the listview. The synchronization with
         /// the map display is already accomodated.
