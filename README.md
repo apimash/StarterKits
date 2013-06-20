@@ -67,4 +67,4 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [16]: http://thebitchwhocodes.com/2013/05/30/apimash-the-tumblr-api/
   [17]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
   [18]: http://theundocumentedapi.com/2013/06/06/apimash-chuck-norris-starter-kit/
-  [19]: http://theundocumentedapi.com/2013/06/10/apimash-edmunds-starter-kit-for-windows-phone-8/
+  [19]: http://theundocumentedapi.com/2013/06/10/apimash-chuck-norris-starter-kit-for-windows-phone-8/
