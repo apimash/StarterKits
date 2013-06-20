@@ -63,7 +63,7 @@ User Followers
 
 ###Customization
 
-***Step 1***. Add your Comsumer Key and Consumer Secret in the App.xaml source file
+***Step 1***. Add your Consumer Key and Consumer Secret in the App.xaml source file
  
 ***Step 2.*** APIMASH_TwitterAPI.cs provides struct called TweetAPIConstants which contains the 9 API’s from Twitter this app supports: 
 
@@ -87,9 +87,9 @@ as a placeholder for customization by users of the Starter kit, the Twitter API 
 
 ***Step 6.*** Increase number of Tweets returned and implement Semantic Zoom. 
 
-***Step 7.*** Implement a feature that when user selects a Tweet it retrieves the retweets or replies and displays information in an Item Detail page.
+***Step 7.*** Implement a feature that allows user select a Tweet and retrieve the retweets or replies and display information in an Item Detail page.
 
-***Step 8.*** Implement a feature that  a feature that when user selects a Tweet it retrieves the user details and displays information in an User Detail page.
+***Step 8.*** Implement a feature that allows user to select a Tweet retrieve the user details and display information in an User Detail page.
 
 ***Step 9.*** Mash up Twitter Tweets or Users by Location by leveraging Maps and GPS service like Bing (check out [the Bing Map Starter Kit][11]!)
 
