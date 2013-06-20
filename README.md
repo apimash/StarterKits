@@ -54,9 +54,9 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [3]: http://channel9.msdn.com/Niners/apimash
   [4]: https://raw.github.com/apimash/StarterKits/master/images/mashery_logo-small.png "Mashery"
   [5]: http://dev.mashery.com "Mashery Developer Page"
-  [6]: http://theundocumentedapi.com/index.php/apimash-the-edmunds-starter-kit/
+  [6]: http://theundocumentedapi.com/2013/05/30/apimash-the-edmunds-starter-kit/
   [7]: http://theundocumentedapi.com/index.php/category/development/
-  [8]: http://theundocumentedapi.com/index.php/apimash-the-rotten-tomatoes-api-starter-kit/
+  [8]: http://theundocumentedapi.com/2013/05/29/apimash-the-rotten-tomatoes-api-starter-kit/
   [9]: http://blogs.msdn.com/b/jimoneil/archive/2013/05/30/build-a-windows-8-mashup-app-with-bing-maps.aspx
   [10]: http://marianaggaga.azurewebsites.net/?p=301
   [11]: http://geekswithblogs.net/Mathoms/archive/2013/06/06/apimash-the-stackexchange-starter-kit.aspx
@@ -66,5 +66,5 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [15]: http://devhammer.net/blog/windows-store-app-template-to-live-data-in-3-easy-steps#.Ua4St17D-Uk
   [16]: http://thebitchwhocodes.com/2013/05/30/apimash-the-tumblr-api/
   [17]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
-  [18]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit/
-  [19]: http://theundocumentedapi.com/index.php/apimash-chuck-norris-starter-kit-for-windows-phone-8/
+  [18]: http://theundocumentedapi.com/2013/06/10/apimash-chuck-norris-starter-kit-for-windows-phone-8/
+  [19]: http://theundocumentedapi.com/2013/06/10/apimash-edmunds-starter-kit-for-windows-phone-8/
