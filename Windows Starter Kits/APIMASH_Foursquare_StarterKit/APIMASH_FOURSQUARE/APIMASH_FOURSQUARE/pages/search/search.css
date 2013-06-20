@@ -1,0 +1,66 @@
+﻿.search section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+.intro {
+    width:80%;
+}
+.search #searchListView {
+    width:50%;
+    height:100%;
+    float:left;
+    
+}
+.search ul {
+    list-style-type:none;
+      list-style-type:none;
+    height:300px;
+    overflow:auto;
+    padding-left:0px;
+    margin-left:0px;
+   
+}
+
+.trending #msg {
+    width:200px;
+    left:50%;
+    font-size:24px;
+    top:50%;
+    position:absolute;
+
+}
+
+#venueListView {
+    width:50%;
+    height:100%;
+    float:left;
+    margin-left:10px;
+    
+} 
+.search .foursquare-template {
+   
+    height:300px;
+}
+.search .right-col {
+    width:50%;
+    float:left;
+}
+.search .search {
+    float:left;
+    height:100%;
+    
+}}
+
+@media screen and (-ms-view-state: snapped) {
+    .search section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .search section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

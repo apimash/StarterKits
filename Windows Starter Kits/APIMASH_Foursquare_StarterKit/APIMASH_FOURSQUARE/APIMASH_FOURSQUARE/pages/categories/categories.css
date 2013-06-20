@@ -1,0 +1,35 @@
+﻿.categories section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+.intro {
+    width:80%;
+}
+.cat-div {
+    width:125px;
+    float:left;
+    height:100%;
+  
+    padding-right:10px;
+    
+}
+    .cat-div ul {
+        list-style-type:none;
+        padding:0px;
+        margin:0px;
+        font-size:12px;
+
+    }
+@media screen and (-ms-view-state: snapped) {
+    .categories section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .categories section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

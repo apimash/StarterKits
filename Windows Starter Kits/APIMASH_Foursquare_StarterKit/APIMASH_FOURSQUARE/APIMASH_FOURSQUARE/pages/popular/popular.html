@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>popular</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="popular.css" rel="stylesheet" />
+    <script src="popular.js"></script>
+</head>
+<body>
+    <div class="popular fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Popular and Recommended</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <p class="intro">
+                Returns a list of recommended venues near the current location. This example does not show the sheer depth of the response from this query. 
+                Please see the documentation <a href="https://api.foursquare.com/v2/venues/explore">here</a> to understand the breadth of the response. 
+            </p>
+                          <div id="foursquare-template" data-win-control="WinJS.Binding.Template">
+        <div>
+
+            <!-- Displays the "picture" field. -->
+           
+            <div>
+                <h4 data-win-bind="innerText: name"></h4>
+                <h6 data-win-bind="innerText: location.address"></h6>
+                <p data-win-bind="innerText: hereNow.count">Here Now:</p>
+                
+
+            </div>
+        </div>
+    </div>   
+             
+    
+        
+
+   <div id="popularListView" data-win-control="WinJS.UI.ListView" 
+        data-win-options="{itemDataSource : FoursquarePopular.itemList.dataSource,itemTemplate: select('#foursquare-template'),layout: {type: WinJS.UI.GridLayout}}">
+      </div>
+        </section>
+    </div>
+</body>
+</html>
