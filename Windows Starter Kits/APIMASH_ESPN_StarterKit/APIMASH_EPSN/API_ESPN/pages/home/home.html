@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>homePage</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/pages/home/home.css" rel="stylesheet" />
+    <script src="/pages/home/home.js"></script>
+</head>
+<body>
+    <!-- The content that will be loaded and displayed. -->
+    <div class="fragment homepage">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">ESPN API EXPLORER</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <p>This app explores the EPSN api, and all avaiable endpoints for the basic tier access.</p>
+            <ul>
+                <li><h2><a href="/pages/teams/teams.html">Teams</a></h2><p>Api calls related to sports, leagues and teams.</p></li>
+                 <li><h2><a href="/pages/popular/popular.html">Popular</a></h2><p>Api calls about the most popular or top news</p></li>
+                <li><h2><a href="/pages/news/news.html">News</a></h2><p>Api calls for news</p></li>
+                <li><h2><a href="/pages/athletes/athletes.html">Athletes</a></h2><p>Information about Athletes</p></li>
+            </ul>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿.athletes section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.athletes ul.ath-resultsList {
+
+    width:700px;
+    height:100%;
+    list-style-type:none;
+}
+.athletes ul.ath-resultsList li {
+   display:inline-block;
+    padding-right:10px;
+    width:200px;
+}
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .athletes section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .athletes section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

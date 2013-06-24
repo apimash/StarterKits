@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>popular</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="news.css" rel="stylesheet" />
+    <script src="news.js"></script>
+</head>
+<body>
+    <div class="news fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">ESPN - NEWS</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            
+            <select class="api-select">
+                <option value="1">Get Top Headlines</option>
+                <option value="2">Get Top News</option>
+                <option value="3">Get Top News By League</option><option value="4">Get Fantasy Football news</option>
+
+            </select>
+             
+            <div class="news-container">
+                <select id="sport-select"></select>
+                <select id="leagues-select"></select>
+                <button class="popular-button">Get Top</button>
+            </div>
+
+            <ul class="resultsList"></ul>
+
+            
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿.homepage section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+ul {
+    list-style-type:none;
+}
+a {
+     color:#ffd800;
+}
+a:hover {
+    color:#ffd800;
+}
+.homepage ul {
+    list-style-type:none;
+    width:85%;
+}
+
+.homepage ul li a{
+    font-size:24px;
+    color:#ffd800;
+
+}
+.homepage ul li a:hover{
+    font-size:24px;
+    color:#ff6a00;
+}
+.homepage p {
+    font-size:18px;
+    line-height:30px;
+    width:70%;
+}
+.homepage ul li p{
+    font-size:18px;
+    line-height:30px;
+
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .homepage section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .homepage section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

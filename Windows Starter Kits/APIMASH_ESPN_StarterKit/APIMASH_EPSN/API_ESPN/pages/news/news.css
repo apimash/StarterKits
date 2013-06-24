@@ -1,0 +1,34 @@
+﻿.news section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+.resultsList a {
+    display:block;
+    color:#808080;
+}
+.resultsList a:hover {
+    color:#ffd800;
+}
+a.full-text {
+   text-transform:uppercase;
+}
+.resultsList li {
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .news section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .news section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
