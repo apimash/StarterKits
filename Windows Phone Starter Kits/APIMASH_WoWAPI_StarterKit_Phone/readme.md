@@ -1,33 +1,36 @@
-#APIMASH Windows 8 World of Warcraft API Kit
-##Date: 5.9.2013
+﻿#APIMASH Windows Phone 8 World of Warcraft API Kit
+##Date: 6.25.2013
 ##Version: v1.0.0
-##Author(s): David Isbitksi
-##URL: http://github.com/apimash/starterkits
+##Author(s): David Isbitski
+##URL: https://github.com/apimash/StarterKits/blob/master/Windows%20Phone%20Starter%20Kits/APIMASH_WoWAPI_StarterKit_Phone
 
 ----------
 ###Description
-The Windows 8 World of Warcraft API Kit is intended to teach Windows developers how to incorporate the World of Warcraft APIs into their own apps.
+The Windows Phone 8 World of Warcraft API Kit is intended to teach Windows developers how to incorporate the World of Warcraft APIs into their own apps.
 This Kit is for educational and entertainment purposes only.  World of Warcraft is a very successful online game from Blizzard Entertainment®.   
 Blizzard Entertainment® is the copyright holder to all World of Warcraft content and images used in this application.
 Blizzard Entertainment® is the owner of the World of Warcraft API which can be found at http://blizzard.github.io/api-wow-docs/.
 
-![alt text][1]
+![alt text][1]![alt text][2]![alt text][3]
+![alt text][4]
 ###Features
 WoW API
   - Realm Status (individual)
   - Realm Status (all)
-  - Localization (results from WOW API can be returned in en_US, es_MX, or pt_BR)
 
-Windows Store App
+Windows Phone App
   - Application Bar
-  - Share Contract
-  - Settings Panel
-  - Icons
+  - Settings Page 
+  - About Page 
+  - Web Browser Control
+  - Web Tasks
+  - Calling HTML5/JS from C#
+  - Small and Medium Tiles
 
 ###Requirements
 
  - Windows 8
- - Visual Studio 2012 Express for Windows 8 or higher
+ - Visual Studio 2012 Express for Windows Phone or higher
 
 ###Setup
 
@@ -41,9 +44,8 @@ Step 1. All of the Blizzard World of Warcraft API's do not require a developer k
 
 Step 2. Currently only Realm Status is implemented.  Adding additional functionality such as character or pvp info is as easy as calling the appropriate wow api (found in http://blizzard.github.io/api-wow-docs/) and then wrapping it in a function the same way realm status was done in /js/wowapi.js.
 
-Step 3. Once you have data returning you should bind to a listview in the same manner /realmstatus/realmstatus.js currently is.  
+Step 3. Once you have data returning you should load the results into a Web Browser Control using divs similar to /html/index.html.  
 
-Step 4. It is highly recommend you use WinJS page controls to follow standard convention.  Simply create a new folder in the root of the project, right click and add a new "Page Control".  Then edit the html, css, and js in the same manner that was done in the /realmstatus page control.
 
 ##DISCLAIMER: 
 
@@ -64,5 +66,8 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 ###v1.0.0 - Updated to point to new license file
 
 
-  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_WorldOfWarcraft_StarterKit/wowapikit_1366x768.png "Windows 8 Wow API Starter Kit"
+  [1]: https://raw.github.com/disbitski/WP8WoWAPIKit/master/AllRealms.png "All Realms"
+  [2]: https://raw.github.com/disbitski/WP8WoWAPIKit/master/SingleRealmMenu.png "Single Page with AppBar"
+  [3]: https://raw.github.com/disbitski/WP8WoWAPIKit/master/About.png "About"
+  [4]: https://raw.github.com/disbitski/WP8WoWAPIKit/master/settings.png "Settings"
  

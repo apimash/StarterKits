@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
+  <DefaultLanguage xmlns="" code="en-US" />
+  <App xmlns="" ProductID="{1b42d360-82ea-4fad-ad15-8b3c88ff1693}" Title="WoW Realm Status" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="WOWAPIKit author" Description="Current status fo World of Warcraf Realms" Publisher="WOWAPIKit" PublisherID="{0deae164-0007-4ff8-aa24-6588257af331}">
+    <IconPath IsRelative="true" IsResource="false">SmallTile.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
+      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
+      <Capability Name="ID_CAP_SENSORS" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="WOWAPIKitToken" TaskName="_default">
+        <TemplateFlip>
+          <SmallImageURI IsRelative="true" IsResource="false">SmallTile.png</SmallImageURI>
+          <Count>0</Count>
+          <BackgroundImageURI IsRelative="true" IsResource="false">MediumTile.png</BackgroundImageURI>
+          <Title>WP8 WOWKit</Title>
+          <BackContent>
+          </BackContent>
+          <BackBackgroundImageURI>
+          </BackBackgroundImageURI>
+          <BackTitle>
+          </BackTitle>
+          <DeviceLockImageURI>
+          </DeviceLockImageURI>
+          <HasLarge>
+          </HasLarge>
+        </TemplateFlip>
+      </PrimaryToken>
+    </Tokens>
+    <ScreenResolutions>
+      <ScreenResolution Name="ID_RESOLUTION_WVGA" />
+      <ScreenResolution Name="ID_RESOLUTION_WXGA" />
+      <ScreenResolution Name="ID_RESOLUTION_HD720P" />
+    </ScreenResolutions>
+  </App>
+</Deployment>

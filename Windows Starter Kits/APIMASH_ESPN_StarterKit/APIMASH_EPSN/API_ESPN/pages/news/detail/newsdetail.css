@@ -1,0 +1,27 @@
+﻿.newsdetail section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.detail-news {
+    margin-top:10px;
+}
+.detail-news p {
+    margin-bottom:5px;
+    margin-top:0px;
+    font-size:12px;
+}
+
+@media screen and (-ms-view-state: snapped) {
+    .newsdetail section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .newsdetail section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

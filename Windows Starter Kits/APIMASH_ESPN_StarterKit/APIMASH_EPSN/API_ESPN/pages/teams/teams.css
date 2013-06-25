@@ -1,0 +1,38 @@
+﻿.teams section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+.teams-button {
+    margin-top:10px;
+}
+.team-list {
+    width:500px;
+    height:100%;
+    list-style-type:none;
+}
+ .team-list li {
+    display:inline-block;
+    padding-right:10px;
+    width:200px;
+  
+ }
+
+.win-listview .win-container {
+    height:300px;
+    width:300px;
+}
+
+
+@media screen and (-ms-view-state: snapped) {
+    .teams section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .teams section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}
