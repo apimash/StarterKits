@@ -2,7 +2,7 @@
 ##Date: 6.25.2013
 ##Version: v1.0.0
 ##Author(s): David Isbitski
-##URL: http://github.com/disbitski/WP8WoWAPIKit
+##URL: https://github.com/apimash/StarterKits/blob/master/Windows%20Phone%20Starter%20Kits/APIMASH_WoWAPI_StarterKit_Phone
 
 ----------
 ###Description
