@@ -1,0 +1,30 @@
+﻿
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-size: 15pt;
+    font-family: "Segoe WP";
+    background-color: black;
+    color: white;
+    letter-spacing: 0.02em;
+    margin-left: 24px;
+}
+
+#page-title {
+    font-size: 24pt;
+}
+
+#divStatus {
+    width: 85%;
+    font-size: 16pt;
+    background-color: black;
+    color: white;
+    letter-spacing: 0.02em;
+    text-align: center;
+ 
+}
