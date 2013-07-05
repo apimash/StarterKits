@@ -8,7 +8,7 @@
 ###Description
 The TomTom Starter Kit is a XAML/C# Windows Phone 8 map-based application that overlays locations of traffic cameras across the US and Canada as provided by [TomTom][1].  The application has been built to easily display geocoded points-of-interest obtained from other APIs.
 
-![Traffic Cam application](screenshot.png)
+![Traffic Cam application](Screenshot.png)
 
 ###Features
  - Invokes the [TomTom Traffic Cameras API][2]
