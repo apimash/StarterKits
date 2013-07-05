@@ -1,0 +1,51 @@
+﻿<!--
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
+-->
+    
+ <UserControl
+    x:Class="TomTom_StarterKit_Phone.Mapping.PointOfInterestPin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="50">
+
+    <!-- TODO: (optional) modify the subtle animations that occurs when a point-of-interest pin is first selected.
+    -->
+    <UserControl.Resources>
+ 		<Storyboard x:Name="RotateEffect">
+ 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)" Storyboard.TargetName="CoronaEffect">
+ 				<EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+ 				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="360"/>
+ 				<EasingDoubleKeyFrame KeyTime="0:0:6" Value="720"/>
+ 			</DoubleAnimationUsingKeyFrames>
+ 			<ColorAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill).(GradientBrush.GradientStops)[0].(GradientStop.Color)" Storyboard.TargetName="CoronaEffect">
+ 				<EasingColorKeyFrame KeyTime="0:0:3.8" Value="#ACFFFFFF"/>
+ 				<EasingColorKeyFrame KeyTime="0:0:6.8" Value="Transparent"/>
+ 			</ColorAnimationUsingKeyFrames>
+ 		</Storyboard>
+ 	</UserControl.Resources>
+
+    <!-- TODO: (optional) modify rendering of the point-of-interest marker.  Be sure to change the AnchorPoint in the code
+               behind to reflect what point in the graphic should be anchored to the lat/long in the location.
+    -->
+    <Grid Width="50" Height="50">
+            <Ellipse x:Name="Corona" Fill="{StaticResource PhoneAccentBrush}" Visibility="Collapsed" />
+            <Ellipse x:Name="CoronaEffect" Visibility="Collapsed" RenderTransformOrigin="0.5,0.5" >
+            	<Ellipse.RenderTransform>
+            		<CompositeTransform/>
+            	</Ellipse.RenderTransform>
+            	<Ellipse.Fill>
+            		<LinearGradientBrush EndPoint="0.881,0.949" StartPoint="-0.397,-0.525">
+            			<GradientStop Color="#ACFFFFFF" Offset="1"/>
+            			<GradientStop Offset="0.397"/>
+            		</LinearGradientBrush>
+            	</Ellipse.Fill>
+            </Ellipse>
+            <Ellipse Width="30" Height="30" Fill="White" />
+            <Ellipse Width="26" Height="26" Fill="#FF4397FE" />
+            <TextBlock x:Name="PinLabel" Margin="0,2,0,0" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="16"/>
+    </Grid>
+</UserControl>

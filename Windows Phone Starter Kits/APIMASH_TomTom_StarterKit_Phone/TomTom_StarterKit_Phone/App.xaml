@@ -1,0 +1,44 @@
+﻿<Application
+    x:Class="TomTom_StarterKit_Phone.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+    xmlns:common="clr-namespace:TomTom_StarterKit_Phone.Common"
+    xmlns:local="clr-namespace:TomTom_StarterKit_Phone"
+    xmlns:apimash="clr-namespace:APIMASH;assembly=APIMASH">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <local:LocalizedStrings xmlns:local="clr-namespace:TomTom_StarterKit_Phone" x:Key="LocalizedStrings"/>
+        
+        <!-- converters used within app -->
+        <common:UpperCaseConverter x:Key="UpperCaseConverter" />
+        <common:MapColorModeConverter x:Key="MapColorModeConverter" />
+        <common:MapColorModeStringConverter x:Key="MapColorModeStringConverter" />
+        <common:ValueTypeToVisibilityConverter x:Key="ValueTypeToVisibilityConverter" />
+        <common:ObjectToVisibilityConverter x:Key="ObjectToVisiblityConverter" />
+        
+        <!-- static/global monitor object used to capture and show diagnostics from last API call-->
+        <apimash:ApiMonitor x:Key="ApiMonitor" />
+      
+        <!-- view model reflecting settings page --> 
+        <local:SettingsViewModel x:Key="SettingsViewModel" />
+
+        <!-- TODO: Replace with your API key -->
+        <sys:String x:Key="TomTomAPIKey">ENTER_YOUR_TOMTOM_API_KEY_HERE</sys:String>
+
+        <!-- TODO: (optional) Modify the default zoom level (1-20) that occurs when selecting a specific location -->
+        <sys:Double x:Key="DefaultZoomLevel">13</sys:Double>
+        
+        <sys:Int32 x:Key="MaxResults">25</sys:Int32>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService
+            Launching="Application_Launching" Closing="Application_Closing"
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+</Application>

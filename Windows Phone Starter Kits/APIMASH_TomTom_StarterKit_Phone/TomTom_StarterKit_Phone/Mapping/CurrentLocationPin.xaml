@@ -1,0 +1,21 @@
+﻿<!--
+// LICENSE: http://aka.ms/LicenseTerms-SampleApps
+-->
+    
+    <UserControl
+    x:Class="TomTom_StarterKit_Phone.Mapping.CurrentLocationPin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="20"
+    d:DesignWidth="20">
+    
+    <!-- TODO: (optional) modify rendering of current location marker.  Be sure to change the AnchorPoint in the code
+               behind to reflect what point in the graphic should be anchored to the lat/long in the location.
+    -->
+    <Grid>
+        <Polygon Points="10,2 18,10 10,18, 2,10" Stroke="Black" Fill="OrangeRed" StrokeThickness="3"/>
+    </Grid>
+</UserControl>
