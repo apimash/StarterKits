@@ -1,13 +1,13 @@
 ﻿#APIMASH Earthquake App for Windows Phone
 ##Date: 7.8.2013
-##Version: v1.0.0
+##Version: v1.0.1
 ##Author(s): Brian Hitney
 ##URL: http://github.com/apimash/starterkits
 
 
 ![alt text][1]
 ###Description
-This application loads earthquake data from the USGS and displays a pushpin for each earthquake on Bing maps.
+This application loads earthquake data from the USGS and displays a pushpin for each earthquake on Bing maps.  For more information on the Bing Maps SDK, visit [this page on MSDN][2].
 
 ###Features
 - Uses both USGS and Bing maps.
@@ -33,10 +33,13 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 ----------
 
 ##Change Log
+
+###v1.0.1
+-  Fixed screenshot
 ###v1.0.0
  - Initial check-in
 
-  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Starter%20Kits/APIMASH_Earthquakes_StarterKit/screenshot.png "Screenshot"
-  [2]: http://visualstudiogallery.msdn.microsoft.com/bb764f67-6b2c-4e14-b2d3-17477ae1eaca
+
+  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Phone%20Starter%20Kits/APIMASH_Earthquakes_StarterKit_Phone/screenshot.png "Screenshot"
+  [2]: http://msdn.microsoft.com/en-us/library/gg427610.aspx "this page on MSDN"
   [3]: https://www.bingmapsportal.com/ "Bing Maps Portal"
-  [4]: http://msdn.microsoft.com/en-us/library/hh852186.aspx
