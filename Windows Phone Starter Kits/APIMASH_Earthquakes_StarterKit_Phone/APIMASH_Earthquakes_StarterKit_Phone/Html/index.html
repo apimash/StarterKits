@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" type="text/css" href="/html/css/phone.css" />
+        <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
+
+        <!-- jquery references -->
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+        <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+
+        <title>APIMASH Earthquakes</title>
+        <script type="text/javascript">
+            var map = null;
+            var bingMapsKey = 'Your Key Here';
+            var url = 'http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/2.5_day.geojson';
+
+             function getMap() {
+                 map = new Microsoft.Maps.Map(document.getElementById('mapdiv'), { credentials: bingMapsKey });
+                 getEarthquakes();
+             }
+
+             function getEarthquakes() {
+                 $.getJSON(url, function (data) {
+
+                     var featureList = data.features;
+                     featureList.forEach(function (item) {
+                         //to access a property in the JSON, you do something like:
+                         //var something = item.geometry.coordinates[0]; //longitude
+                         addPin(item);
+                     });                  
+                 });
+             }
+             
+             function addPin(item) {
+                 var loc = new Microsoft.Maps.Location(item.geometry.coordinates[1],
+                     item.geometry.coordinates[0]);
+                 var pushpin = new Microsoft.Maps.Pushpin(loc, null);
+                 map.entities.push(pushpin);
+             }
+        </script>
+ 
+    </head>
+    <body onload="getMap();">
+        <div>
+            <div id="mapdiv"></div>
+        </div>
+        <div id="page-title">
+            <p>Earthquakes</p>
+        </div>
+    </body>
+</html>
