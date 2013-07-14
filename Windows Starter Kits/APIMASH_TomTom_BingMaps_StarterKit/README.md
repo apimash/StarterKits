@@ -62,8 +62,11 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 ###v1.0.4
 
 1.0.1: added more detail to the Setup section and added Customization guidance
+
 1.0.2: called out inclusion of Search contract
+
 1.0.3: added screen shot of Configuration Manager
+
 1.0.4: merged JSON class changes and MaxResults bugfix from boolship
 
 [1]:http://developer.tomtom.com/docs/read/traffic_cameras "TrafficCam API"
