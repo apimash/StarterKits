@@ -1,5 +1,6 @@
 ﻿using APIMASH;
 using APIMASH.Mapping;
+using BingMapsRESTService.Common.JSON;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -82,86 +83,19 @@ namespace APIMASH_BingMaps
         /// <summary>
         /// Root node of reponse data in raw format (JSON)
         /// </summary>
-        public RootObject ModelData { get; private set; }
-
-        #region model data generated via http://json2csharp.com
-        public class Point
-        {
-            public string type { get; set; }
-            public List<double> coordinates { get; set; }
-        }
-
-        public class Address
-        {
-            public string addressLine { get; set; }
-            public string adminDistrict { get; set; }
-            public string adminDistrict2 { get; set; }
-            public string countryRegion { get; set; }
-            public string formattedAddress { get; set; }
-            public string locality { get; set; }
-            public string landmark { get; set; }
-        }
-
-        public class GeocodePoint
-        {
-            public string type { get; set; }
-            public List<double> coordinates { get; set; }
-            public string calculationMethod { get; set; }
-            public List<string> usageTypes { get; set; }
-        }
-
-        [DataContract(Namespace = "http://schemas.microsoft.com/search/local/ws/rest/v1", Name = "Location")]
-        public class Resource
-        {
-            [DataMember]
-            public string __type { get; set; }
-            [DataMember]
-            public List<double> bbox { get; set; }
-            [DataMember]
-            public string name { get; set; }
-            [DataMember]
-            public Point point { get; set; }
-            [DataMember]
-            public Address address { get; set; }
-            [DataMember]
-            public string confidence { get; set; }
-            [DataMember]
-            public string entityType { get; set; }
-            [DataMember]
-            public List<GeocodePoint> geocodePoints { get; set; }
-            [DataMember]
-            public List<string> matchCodes { get; set; }
-        }
-
-        public class ResourceSet
-        {
-            public int estimatedTotal { get; set; }
-            public List<Resource> resources { get; set; }
-        }
-
-        public class RootObject
-        {
-            public string authenticationResultCode { get; set; }
-            public string brandLogoUri { get; set; }
-            public string copyright { get; set; }
-            public List<ResourceSet> resourceSets { get; set; }
-            public int statusCode { get; set; }
-            public string statusDescription { get; set; }
-            public string traceId { get; set; }
-        }
-        #endregion
+        public Response ModelData { get; private set; }
 
         /// <summary>
         /// Selects best candidate for view model "Address" field given the entity type
         /// </summary>
         /// <param name="mapResult">Resource returned from Bing Maps query</param>
         /// <returns>String containing text to be used as the "address" in resulting view model</returns>
-        private static String GetFormattedAddress(Resource mapResult)
+        private static String GetFormattedAddress(Location mapResult)
         {
-            if (mapResult.entityType == "Neighborhood")
-                return mapResult.address.locality;
+            if (mapResult.EntityType == "Neighborhood")
+                return mapResult.Address.Locality;
             else
-                return mapResult.address.landmark ?? mapResult.address.addressLine;
+                return mapResult.Address.Landmark ?? mapResult.Address.AddressLine;
         }
 
         /// <summary>
@@ -169,16 +103,16 @@ namespace APIMASH_BingMaps
         /// </summary>
         /// <param name="mapResult">Resource returned from Bing Maps query</param>
         /// <returns>String containing text to be used as the "city" in resulting view model</returns>
-        private static String GetFormattedCity(Resource mapResult)
+        private static String GetFormattedCity(Location mapResult)
         {
-            if (mapResult.entityType == "AdminDivision1")
+            if (mapResult.EntityType == "AdminDivision1")
                 return String.Empty;
-            else if (mapResult.entityType == "AdminDivision2")
-                return mapResult.address.adminDistrict2;
-            else if (mapResult.entityType == "Neighborhood")
-                return mapResult.address.adminDistrict2;
+            else if (mapResult.EntityType == "AdminDivision2")
+                return mapResult.Address.AdminDistrict2;
+            else if (mapResult.EntityType == "Neighborhood")
+                return mapResult.Address.AdminDistrict2;
             else
-                return mapResult.address.locality;
+                return mapResult.Address.Locality;
         }
 
         /// <summary>
@@ -186,12 +120,12 @@ namespace APIMASH_BingMaps
         /// </summary>
         /// <param name="mapResult">Resource returned from Bing Maps query</param>
         /// <returns>String containing text to be used as the "state" in resulting view model</returns>
-        private static String GetFormattedState(Resource mapResult)
+        private static String GetFormattedState(Location mapResult)
         {
-            if (mapResult.entityType == "AdminDivision1")
-                return mapResult.name;
+            if (mapResult.EntityType == "AdminDivision1")
+                return mapResult.Name;
             else
-                return mapResult.address.adminDistrict;
+                return mapResult.Address.AdminDistrict;
         }
 
         /// <summary>
@@ -200,7 +134,7 @@ namespace APIMASH_BingMaps
         /// <param name="model">Deserialized result from API call</param>
         /// <param name="maxResults">Maximum number of results to assign to view model (0 = assign all results)</param>
         /// <returns>Indicator of whether items were left out of the view model due to max size restrictions</returns>
-        public static Boolean PopulateViewModel(RootObject model, ObservableCollection<BingMapsLocationViewModel> viewModel, Int32 maxResults = 0)
+        public static Boolean PopulateViewModel(Response model, ObservableCollection<BingMapsLocationViewModel> viewModel, Int32 maxResults = 0)
         {
             // filter criteria
             String[] countryList = { "United States", "Canada" };
@@ -212,22 +146,24 @@ namespace APIMASH_BingMaps
             viewModel.Clear();
 
             // loop through resource sets (there should only be one)
-            foreach (var resourceSet in model.resourceSets)
+            foreach (var resourceSet in model.ResourceSets)
             {
+                // Note: Changed ResourceSet to hold Location[] vs Resources[] in BingMapsRESTServices.cs
+
                 // loop through resources in resource set
-                foreach (var resource in resourceSet.resources.Where((r) => countryList.Contains(r.address.countryRegion)))
+                foreach (var location in resourceSet.Locations.Where((r) => countryList.Contains(r.Address.CountryRegion)))
                 {
 
                     // add location to staging list list
                     stagingList.Add(new BingMapsLocationViewModel()
                     {
-                        Address = GetFormattedAddress(resource),
-                        City = GetFormattedCity(resource),
-                        State = GetFormattedState(resource),
-                        Position = new LatLong((resource.bbox[0] + resource.bbox[2]) / 2,(resource.bbox[1] + resource.bbox[3]) / 2),
+                        Address = GetFormattedAddress(location),
+                        City = GetFormattedCity(location),
+                        State = GetFormattedState(location),
+                        Position = new LatLong((location.BoundingBox[0] + location.BoundingBox[2]) / 2, (location.BoundingBox[1] + location.BoundingBox[3]) / 2),
                         Extent = Math.Max(
-                             MapUtilities.HaversineDistance(new LatLong(resource.bbox[0], resource.bbox[1]), new LatLong(resource.bbox[2], resource.bbox[1])),
-                             MapUtilities.HaversineDistance(new LatLong(resource.bbox[0], resource.bbox[1]), new LatLong(resource.bbox[0], resource.bbox[3]))
+                             MapUtilities.HaversineDistance(new LatLong(location.BoundingBox[0], location.BoundingBox[1]), new LatLong(location.BoundingBox[2], location.BoundingBox[1])),
+                             MapUtilities.HaversineDistance(new LatLong(location.BoundingBox[0], location.BoundingBox[1]), new LatLong(location.BoundingBox[0], location.BoundingBox[3]))
                              )
                     });
                 }
@@ -304,9 +240,10 @@ namespace APIMASH_BingMaps
             if (String.IsNullOrEmpty(searchCriteria) || (searchCriteria.Trim().Length == 0)) return ApiResponseStatus.Default;
             
             // invoke the API
-            var apiResponse = await Invoke<BingMapsLocationsModel.RootObject>(
-                "http://dev.virtualearth.net/REST/v1/Locations?q={0}&maxResults=20&key={1}",
+            var apiResponse = await Invoke<Response>(
+                "http://dev.virtualearth.net/REST/v1/Locations?q={0}&maxResults={1}&key={2}",
                 Uri.EscapeUriString(searchCriteria),
+                (maxResults > 0 ? maxResults : 20),
                 this._apiKey);
 
             // if successful, copy relevant portions from model to the view model
