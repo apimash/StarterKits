@@ -101,6 +101,7 @@
   <ItemGroup>
     <Compile Include="APIMASH_BingMaps.cs" />
     <Compile Include="APIMASH_TomTom.cs" />
+    <Compile Include="BingMapsRESTServices.cs" />
     <Compile Include="IMappable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="MapUtilities.cs" />
