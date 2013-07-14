@@ -58,8 +58,7 @@ Microsoft and I do not warrant, guarantee or make any representations regarding 
 Microsoft and I shall not be liable for any direct, indirect or consequential damages or costs of any type arising out of any action taken by you or others related to the sample code.
 
 
-##Change Log
-###v1.0.4
+###Change Log
 
 1.0.1: added more detail to the Setup section and added Customization guidance
 
