@@ -45,8 +45,8 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
  1. [Chuck Norris (XAML/C#)][18]
  2. [Edmunds (XAML/C#)][19]
- 3. TomTom Traffic Cameras (XAML/C#)
- 4. [World of Warcraft API (XAML/C#)][20]
+ 3. [TomTom Traffic Cameras (XAML/C#)][20]
+ 4. [World of Warcraft API (XAML/C#)][21]
 
 
  
@@ -76,4 +76,5 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [17]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
   [18]: http://theundocumentedapi.com/2013/06/10/apimash-chuck-norris-starter-kit-for-windows-phone-8/
   [19]: http://theundocumentedapi.com/2013/06/10/apimash-edmunds-starter-kit-for-windows-phone-8/
-  [20]: http://davedev.net/?p=3801
+  [20]: http://blogs.msdn.com/b/jimoneil/archive/2013/07/17/apimash-porting-to-windows-phone-8.aspx
+  [21]: http://davedev.net/?p=3801
