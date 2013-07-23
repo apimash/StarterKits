@@ -44,14 +44,16 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 ##Starter Kits for Windows Phone
 
  1. [Chuck Norris (XAML/C#)][18]
- 2. [Edmunds (XAML/C#)][19]
+ 2. [Edmunds - (XAML/C#)][19]
  3. [TomTom Traffic Cameras (XAML/C#)][20]
  4. [World of Warcraft API (XAML/C#)][21]
+ 5. Earthquakes (HTML5/JS)
 
-
- 
+   
+   
+    
 ##1 - Download the Starter Kits
-
+   
 ##2 - Customize the API calls and Update the User Experience
  
 ##3 - Submit your App to the Windows Store
