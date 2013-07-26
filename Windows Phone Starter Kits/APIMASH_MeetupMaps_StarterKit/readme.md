@@ -52,7 +52,7 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
  - initial release
 
 
-  [1]: https://raw.github.com/apimash/StarterKits/master/APIMASH_MeetupPOI_StarterKit/homePage.png "Home Page"
+  [1]: https://raw.github.com/apimash/StarterKits/master/Windows%20Phone%20Starter%20Kits/APIMASH_MeetupMaps_StarterKit/MainPage.png "Home Page"
   [2]: http://www.meetup.com/meetup_api/ "Meetup API"
   [3]: http://msdn.microsoft.com/en-US/library/windowsphone/develop/jj207045(v=vs.105).aspx
   [4]: http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj206989(v=vs.105).aspx
