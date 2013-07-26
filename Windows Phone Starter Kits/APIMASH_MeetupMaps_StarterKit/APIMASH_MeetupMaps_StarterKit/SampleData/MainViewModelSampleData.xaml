@@ -1,0 +1,15 @@
+﻿<vm:MainViewModel
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:vm="clr-namespace:APIMASH_MeetupMaps_StarterKit.ViewModels">
+
+    <vm:MainViewModel.Items>
+        <vm:MeetupViewModel ID="0" LatLong="47.6097, -122.3331" Name="meetup one" CityState="Seattle, WA" Description="Maecenas praesent accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur"/>
+        <vm:MeetupViewModel ID="1" LatLong="47.6097, -122.3331" Name="meetup two" CityState="Seattle, WA" Description="Pharetra placerat pulvinar sagittis senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent"/>
+        <vm:MeetupViewModel ID="2" LatLong="47.6097, -122.3331" Name="meetup three" CityState="Seattle, WA" Description="Accumsan bibendum dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat"/>
+        <vm:MeetupViewModel ID="3" LatLong="47.6097, -122.3331" Name="meetup four" CityState="Seattle, WA" Description="Pulvinar sagittis senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum"/>
+        <vm:MeetupViewModel ID="4" LatLong="47.6097, -122.3331" Name="meetup five" CityState="Seattle, WA" Description="Dictumst eleifend facilisi faucibus habitant inceptos interdum lobortis nascetur pharetra placerat pulvinar sagittis"/>
+        <vm:MeetupViewModel ID="5" LatLong="47.6097, -122.3331" Name="meetup six" CityState="Seattle, WA" Description="Senectus sociosqu suscipit torquent ultrices vehicula volutpat maecenas praesent accumsan bibendum dictumst eleifend"/>
+    </vm:MainViewModel.Items>
+
+</vm:MainViewModel>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="375.08493"
+   height="250.09512"
+   id="svg3016"
+   version="1.1"
+   inkscape:version="0.48.1 "
+   sodipodi:docname="meetupBadge.svg">
+  <defs
+     id="defs3018" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="4.4750949"
+     inkscape:cy="135.06325"
+     inkscape:document-units="px"
+     inkscape:current-layer="g2999"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3021">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(1.1462058,-803.60293)">
+    <g
+       id="g2999"
+       transform="matrix(0.99195126,0.12662026,-0.12662026,0.99195126,-78.367273,16.163759)">
+      <rect
+         ry="25.104076"
+         transform="matrix(0.96373247,-0.26687023,0.26671988,0.96377409,0,0)"
+         y="816.01355"
+         x="-55.464523"
+         height="249.81097"
+         width="374.91507"
+         id="rect2996"
+         style="fill:#f20017;fill-opacity:1;stroke:#910091;stroke-width:0.00525184;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:export-filename="C:\Users\gduthie\SkyDrive @ Microsoft 1\Apps\APIMASH_MeetupMaps_StarterKit\APIMASH_MeetupMaps_StarterKit\Assets\appiconsource.png"
+         inkscape:export-xdpi="74.220001"
+         inkscape:export-ydpi="74.220001" />
+      <rect
+         ry="0"
+         transform="matrix(0.96312035,-0.26907098,0.26782304,0.96346812,0,0)"
+         y="880.45398"
+         x="-50.676003"
+         height="153.53798"
+         width="366.37671"
+         id="rect2998"
+         style="fill:#ffffff;fill-opacity:1;stroke:#910091;stroke-width:0.00521298;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         inkscape:export-filename="C:\Users\gduthie\SkyDrive @ Microsoft 1\Apps\APIMASH_MeetupMaps_StarterKit\APIMASH_MeetupMaps_StarterKit\Assets\appiconsource.png"
+         inkscape:export-xdpi="74.220001"
+         inkscape:export-ydpi="74.220001" />
+      <text
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="14.139676"
+         y="943.0426"
+         id="text3001"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.96388757,-0.26630952,0.26630952,0.96388757,0,0)"
+         inkscape:export-filename="C:\Users\gduthie\SkyDrive @ Microsoft 1\Apps\APIMASH_MeetupMaps_StarterKit\APIMASH_MeetupMaps_StarterKit\Assets\appiconsource.png"
+         inkscape:export-xdpi="74.220001"
+         inkscape:export-ydpi="74.220001"><tspan
+           sodipodi:role="line"
+           id="tspan3003"
+           x="14.139676"
+           y="943.0426"
+           style="font-size:56px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">APIMASH</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:14px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
+         x="-29.431751"
+         y="1001.614"
+         id="text3013"
+         sodipodi:linespacing="125%"
+         transform="matrix(0.96388757,-0.26630952,0.26630952,0.96388757,0,0)"
+         inkscape:export-filename="C:\Users\gduthie\SkyDrive @ Microsoft 1\Apps\APIMASH_MeetupMaps_StarterKit\APIMASH_MeetupMaps_StarterKit\Assets\appiconsource.png"
+         inkscape:export-xdpi="74.220001"
+         inkscape:export-ydpi="74.220001"><tspan
+           sodipodi:role="line"
+           id="tspan3015"
+           x="-29.431751"
+           y="1001.614"
+           style="font-size:40px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Segoe UI;-inkscape-font-specification:Segoe UI">Meetup and Maps</tspan></text>
+    </g>
+  </g>
+</svg>
