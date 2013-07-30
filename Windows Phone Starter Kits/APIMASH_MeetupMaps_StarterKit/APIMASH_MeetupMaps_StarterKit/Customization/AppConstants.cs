@@ -18,7 +18,7 @@ namespace APIMASH_MeetupMaps_StarterKit.Customization
         // as desired to customize the results returned
 
         public static String meetupUri = "http://api.meetup.com/2/open_events.xml?text_format=plain&and_text=False&limited_events=False&desc=False&offset=0&status=upcoming&country=us&sign=true";
-        public static String meetupKey = "761e95611d1030124f306c2f3e4261";
+        public static String meetupKey = "YOUR_MEETUP_API_KEY_HERE";
         public static String meetupDistance = "50";
         public static String maxMeetupsToFind = "200";
         public static String meetupCity = "Seattle";
