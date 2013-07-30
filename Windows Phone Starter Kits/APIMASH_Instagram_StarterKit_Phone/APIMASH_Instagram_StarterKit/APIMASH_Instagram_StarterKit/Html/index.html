@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link rel="stylesheet" type="text/css" href="/html/css/phone.css" />
+          
+       
+        <script src="/html/js/apiglobals.js"></script>
+        <script src="/html/js/instagram.js"></script>
+        <script src="/html/js/home.js"></script>
+        <script src="/html/js/jquery.js"></script>
+        <title>Windows Phone</title>
+    </head>
+   <div>
+            <p>Instagram Explorer</p>
+        </div>
+        <div id="page-title">
+            <p id="test">INSTAGRAM</p>
+         </div>
+        <div>
+            <p>Basic Instagram API Explorer looking at locations, tags and popular endpoints.</p>
+            <ul class="main-page-nav">
+                <li><a href="locations">Locations</a></li>
+                <li><a href="tags">Tags</a></li>
+                <li><a href="popular">Popular</a></li>
+            </ul>
+
+        </div>
+        <div id="container"> 
+            <div class="page-locations">
+                <div class="form-items">
+                    <label class="label-directions">Search for Locations</label>
+                    <input id="geo" class="input-control-text"/>
+                    <button>Search</button>
+                    <div class="result-list-items">
+                        <label class="label-results">List of Locations</label>
+                        <select id="locations"></select>
+                    </div>
+                </div>
+               
+                <ul id="results"></ul>
+            </div>
+          
+        </div>
+        <script>
+            // Let's instantiate the main class when we are ready
+            $(document).ready(function () {
+                InstagramHome.ready('body');
+            });
+        </script>
+    </body>
+</html>

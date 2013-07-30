@@ -1,0 +1,152 @@
+﻿
+
+@media all and (orientation:portrait) {
+    @-ms-viewport {
+        width:320px;
+        user-zoom: fixed;
+        max-zoom: 1;
+        min-zoom: 1;
+    }
+}
+
+@media all and (orientation:landscape) {
+    @-ms-viewport {
+        width:480px;
+        user-zoom: fixed;
+        max-zoom: 1;
+        min-zoom: 1;
+    }
+}
+
+
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-size: 11pt;
+    font-family: "Segoe WP";
+    letter-spacing: 0.02em;
+    background-color: #000000;
+    color: #ffffff;
+    margin-left: 24px;
+}
+
+#page-title {
+    font-size: 24pt;
+}
+
+#container {
+    width:90%;
+
+    margin-top:5px;
+  
+   
+}
+select {
+    width:90%;
+    height:40px;
+    
+
+
+}
+
+label {
+    padding-bottom:5px;
+}
+
+#loader {
+    margin-left:50%;
+    margin-top:20px;
+}
+
+.main-page-nav li {
+    display:inline-block;
+    text-align:center;
+    width:25%;
+    text-transform:uppercase;
+}
+
+.main-page-nav a {
+      text-decoration:none;
+}
+
+.main-page-nav {
+   
+    padding:0px;
+    margin:0px;
+}
+
+
+.form-items, #loader{
+    display:none;
+}
+
+
+
+ul, li {
+    list-style-type:none;
+}
+#locations {
+    display:none;
+}
+label {
+  display:block;
+  width:100%;  
+  padding-top:5px;
+}
+
+.label-results {
+    display:none;
+}
+
+    li p {
+        width:150px;
+        text-align:center;
+
+    }
+button {
+    font-family: 'Segoe UI', 'Open Sans', Verdana, Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 9pt;
+    font-smooth: always;
+    line-height: 11pt;
+    font-size: 14px;
+    padding: 4px 12px;
+    line-height: 20px;
+    vertical-align: middle !important;
+    min-width: 90px;
+    min-height: 32px;
+    height: 42px;
+    background-color: #ccc;
+    border: 1px transparent solid;
+    color: #353535;
+    
+    
+    margin-bottom: 10px;
+    display: block;
+    float:left;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+  
+    outline: none;
+    border-radius: 0;
+}
+input{
+    border: 1px #bababa solid;
+    max-width:150px;
+    padding: 4px 6px 6px 5px;
+    background-color: #fff;
+    outline: 0;
+    min-height: 32px;
+    height:32px;
+    position: relative;
+    float:left;
+    margin-right:10px;
+    
+}
