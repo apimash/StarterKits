@@ -1,0 +1,40 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="APIMASHTwitterAPI_WP8StarterKit.TwitterAuthPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="{Binding Path=LocalizedResources.PageColor, Source={StaticResource LocalizedStrings}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel Grid.Row="0" Margin="12,2,0,2">
+            <TextBlock Text="{Binding Path=LocalizedResources.ApplicationTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}" Margin="12,0"/>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Assets/OpenTwitterIcon.png" Height="50" Width="50" Stretch="UniformToFill"/>
+                <TextBlock Text="{Binding LocalizedResources.PageTitle, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextTitle1Style}" FontSize="40"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="10,0,10,0">
+            <StackPanel>
+                <phone:WebBrowser x:Name="TwitterWebAuth" VerticalAlignment="Stretch" Height="505" Margin="10,0" ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.HorizontalScrollBarVisibility="Visible" VerticalContentAlignment="Stretch"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>
