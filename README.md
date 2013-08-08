@@ -22,23 +22,24 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
  1. [Active Access (HTML5/JS)][6]
  2. [Chuck Norris (XAML/C#)][7]
- 3. Earthquakes + Bing Maps (HTML5/JS)
- 4. [Edmunds (XAML/C#)][8]
- 5. Facebook (XAML/C#)
- 6. Foursquare (HTML5/JS)
- 7. Instagram (HTML5/JS)
- 8. [Meetup + Bing Maps (HTML5/JS)][9]
- 9. Messier Sky Objects + World Wide Telescope (HTML5/JS)
- 10. [Rotten Tomatoes (XAML/C#)][10]
- 11. [StackExchange (Xaml/C#)][11]
- 12. [TomTom Cameras + Bing Maps (XAML/C#)][12]
- 13. [Tumblr (HTML5/JS)][13]
- 14. Twitter (XAML/C#)
- 15. [Univision (XAML/C#)][14]  [Article in Spanish][15]
- 16. [Wikipedia (XAML/C#)][16]
- 17. [World of Warcraft (HTML5/JS)][17]
- 18. Yelp (XAML/C#)
- 19. ESPN (HTML/JS)
+ 3. Chuck Norris (XAML/VB)
+ 4. Earthquakes + Bing Maps (HTML5/JS)
+ 5. [Edmunds (XAML/C#)][8]
+ 6. Facebook (XAML/C#)
+ 7. Foursquare (HTML5/JS)
+ 8. Instagram (HTML5/JS)
+ 9. [Meetup + Bing Maps (HTML5/JS)][9]
+ 10. Messier Sky Objects + World Wide Telescope (HTML5/JS)
+ 11. [Rotten Tomatoes (XAML/C#)][10]
+ 12. [StackExchange (Xaml/C#)][11]
+ 13. [TomTom Cameras + Bing Maps (XAML/C#)][12]
+ 14. [Tumblr (HTML5/JS)][13]
+ 15. Twitter (XAML/C#)
+ 16. [Univision (XAML/C#)][14]  [Article in Spanish][15]
+ 17. [Wikipedia (XAML/C#)][16]
+ 18. [World of Warcraft (HTML5/JS)][17]
+ 19. Yelp (XAML/C#)
+ 20. ESPN (HTML/JS)
  
 
 ##Starter Kits for Windows Phone
