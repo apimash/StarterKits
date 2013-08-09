@@ -24,22 +24,23 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
  2. [Chuck Norris (XAML/C#)][7]
  3. Chuck Norris (XAML/VB)
  4. Earthquakes + Bing Maps (HTML5/JS)
- 5. [Edmunds (XAML/C#)][8]
- 6. Facebook (XAML/C#)
- 7. Foursquare (HTML5/JS)
- 8. Instagram (HTML5/JS)
- 9. [Meetup + Bing Maps (HTML5/JS)][9]
- 10. Messier Sky Objects + World Wide Telescope (HTML5/JS)
- 11. [Rotten Tomatoes (XAML/C#)][10]
- 12. [StackExchange (Xaml/C#)][11]
- 13. [TomTom Cameras + Bing Maps (XAML/C#)][12]
- 14. [Tumblr (HTML5/JS)][13]
- 15. Twitter (XAML/C#)
- 16. [Univision (XAML/C#)][14]  [Article in Spanish][15]
- 17. [Wikipedia (XAML/C#)][16]
- 18. [World of Warcraft (HTML5/JS)][17]
- 19. Yelp (XAML/C#)
- 20. ESPN (HTML/JS)
+ 5. [EchoNest (XAML/C#)][23]
+ 6. [Edmunds (XAML/C#)][8]
+ 7. Facebook (XAML/C#)
+ 8. Foursquare (HTML5/JS)
+ 9. Instagram (HTML5/JS)
+ 10. [Meetup + Bing Maps (HTML5/JS)][9]
+ 11. Messier Sky Objects + World Wide Telescope (HTML5/JS)
+ 12. [Rotten Tomatoes (XAML/C#)][10]
+ 13. [StackExchange (Xaml/C#)][11]
+ 14. [TomTom Cameras + Bing Maps (XAML/C#)][12]
+ 15. [Tumblr (HTML5/JS)][13]
+ 16. Twitter (XAML/C#)
+ 17. [Univision (XAML/C#)][14]  [Article in Spanish][15]
+ 18. [Wikipedia (XAML/C#)][16]
+ 19. [World of Warcraft (HTML5/JS)][17]
+ 20. Yelp (XAML/C#)
+ 21. ESPN (HTML/JS)
  
 
 ##Starter Kits for Windows Phone
@@ -85,3 +86,4 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [20]: http://devhammer.net/bringing-my-meetup-apimash-starter-kit-to-windows-phone?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+devhammer+%28Devhammer%27s+Den%29
   [21]: http://blogs.msdn.com/b/jimoneil/archive/2013/07/17/apimash-porting-to-windows-phone-8.aspx
   [22]: http://davedev.net/?p=3801
+  [23]: http://42base13.net/apimash-echonest-starter-kit/
