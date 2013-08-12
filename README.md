@@ -22,7 +22,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
  1. [EchoNest API (XAML/C#)][23]
 
-##Starter Kits for Windows
+##Starter Kits for Windows 8
 
  1. [Active Access (HTML5/JS)][6]
  2. [Chuck Norris (XAML/C#)][7]
@@ -35,7 +35,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
  9. [Meetup + Bing Maps (HTML5/JS)][9]
  10. Messier Sky Objects + World Wide Telescope (HTML5/JS)
  11. [Rotten Tomatoes (XAML/C#)][10]
- 12. [StackExchange (Xaml/C#)][11]
+ 12. [StackExchange (XAML/C#)][11]
  13. [TomTom Cameras + Bing Maps (XAML/C#)][12]
  14. [Tumblr (HTML5/JS)][13]
  15. Twitter (XAML/C#)
@@ -46,7 +46,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
  20. ESPN (HTML/JS)
  
 
-##Starter Kits for Windows Phone
+##Starter Kits for Windows Phone 8
 
  1. [Chuck Norris (XAML/C#)][18]
  2. [Edmunds - (XAML/C#)][19]
