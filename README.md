@@ -18,12 +18,17 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 ![alt text][4]
 [Mashery][5]
 
+##Starter Kits for Windows 8.1
+
+ 1. [EchoNest API (XAML/C#)][6]
+
 ##Starter Kits for Windows
 
- 1. [Active Access (HTML5/JS)][6]
- 2. [Chuck Norris (XAML/C#)][7]
+ 1. [Active Access (HTML5/JS)][7]
+ 2. [Chuck Norris (XAML/C#)][8]
  3. Chuck Norris (XAML/VB)
  4. Earthquakes + Bing Maps (HTML5/JS)
+<<<<<<< HEAD
  5. [EchoNest (XAML/C#)][23]
  6. [Edmunds (XAML/C#)][8]
  7. Facebook (XAML/C#)
@@ -41,17 +46,35 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
  19. [World of Warcraft (HTML5/JS)][17]
  20. Yelp (XAML/C#)
  21. ESPN (HTML/JS)
+=======
+ 5. [Edmunds (XAML/C#)][9]
+ 6. Facebook (XAML/C#)
+ 7. Foursquare (HTML5/JS)
+ 8. Instagram (HTML5/JS)
+ 9. [Meetup + Bing Maps (HTML5/JS)][10]
+ 10. Messier Sky Objects + World Wide Telescope (HTML5/JS)
+ 11. [Rotten Tomatoes (XAML/C#)][11]
+ 12. [StackExchange (Xaml/C#)][12]
+ 13. [TomTom Cameras + Bing Maps (XAML/C#)][13]
+ 14. [Tumblr (HTML5/JS)][14]
+ 15. Twitter (XAML/C#)
+ 16. [Univision (XAML/C#)][15]  [Article in Spanish][16]
+ 17. [Wikipedia (XAML/C#)][17]
+ 18. [World of Warcraft (HTML5/JS)][18]
+ 19. Yelp (XAML/C#)
+ 20. ESPN (HTML/JS)
+>>>>>>> Update Readme
  
 
 ##Starter Kits for Windows Phone
 
- 1. [Chuck Norris (XAML/C#)][18]
- 2. [Edmunds - (XAML/C#)][19]
- 3. [MeetupPOI - (XAML/C#)][20]
+ 1. [Chuck Norris (XAML/C#)][19]
+ 2. [Edmunds - (XAML/C#)][20]
+ 3. [MeetupPOI - (XAML/C#)][21]
  4. Twitter (XAML/C#)
  5. Instagram (HTML5/JS)
- 6. [TomTom Traffic Cameras (XAML/C#)][21]
- 7. [World of Warcraft API (XAML/C#)][22]
+ 6. [TomTom Traffic Cameras (XAML/C#)][22]
+ 7. [World of Warcraft API (XAML/C#)][23]
  8. Earthquakes (HTML5/JS)
 
    
@@ -69,6 +92,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [3]: http://channel9.msdn.com/Niners/apimash
   [4]: https://raw.github.com/apimash/StarterKits/master/images/mashery_logo-small.png "Mashery"
   [5]: http://dev.mashery.com "Mashery Developer Page"
+<<<<<<< HEAD
   [6]: http://marianaggaga.azurewebsites.net/?p=301
   [7]: http://theundocumentedapi.com/2013/06/06/apimash-chuck-norris-starter-kit/
   [8]: http://theundocumentedapi.com/2013/05/30/apimash-the-edmunds-starter-kit/
@@ -87,3 +111,23 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [21]: http://blogs.msdn.com/b/jimoneil/archive/2013/07/17/apimash-porting-to-windows-phone-8.aspx
   [22]: http://davedev.net/?p=3801
   [23]: http://42base13.net/apimash-echonest-starter-kit/
+=======
+  [6]: http://42base13.net/apimash-echonest-starter-kit/
+  [7]: http://marianaggaga.azurewebsites.net/?p=301
+  [8]: http://theundocumentedapi.com/2013/06/06/apimash-chuck-norris-starter-kit/
+  [9]: http://theundocumentedapi.com/2013/05/30/apimash-the-edmunds-starter-kit/
+  [10]: http://devhammer.net/blog/windows-store-app-template-to-live-data-in-3-easy-steps#.Ua4St17D-Uk
+  [11]: http://theundocumentedapi.com/2013/05/29/apimash-the-rotten-tomatoes-api-starter-kit/
+  [12]: http://geekswithblogs.net/Mathoms/archive/2013/06/06/apimash-the-stackexchange-starter-kit.aspx
+  [13]: http://blogs.msdn.com/b/jimoneil/archive/2013/05/30/build-a-windows-8-mashup-app-with-bing-maps.aspx
+  [14]: http://thebitchwhocodes.com/2013/05/30/apimash-the-tumblr-api/
+  [15]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/21/api-mashup-series-part-i.aspx
+  [16]: http://blogs.msdn.com/b/gamewords777/archive/2013/05/27/serie-api-mashup-parte-i-en-espa-241-ol.aspx
+  [17]: http://blogs.msdn.com/b/devfish/archive/2013/06/12/apimash-geonames-wikipedia-api-walkthrough.aspx
+  [18]: http://blogs.msdn.com/b/davedev/archive/2013/05/30/announcing-wowapi-and-apimash-free-starter-kits-for-your-windows-store-apps.aspx
+  [19]: http://theundocumentedapi.com/2013/06/10/apimash-chuck-norris-starter-kit-for-windows-phone-8/
+  [20]: http://theundocumentedapi.com/2013/06/10/apimash-edmunds-starter-kit-for-windows-phone-8/
+  [21]: http://devhammer.net/bringing-my-meetup-apimash-starter-kit-to-windows-phone?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%3A+devhammer+%28Devhammer%27s+Den%29
+  [22]: http://blogs.msdn.com/b/jimoneil/archive/2013/07/17/apimash-porting-to-windows-phone-8.aspx
+  [23]: http://davedev.net/?p=3801
+>>>>>>> Update Readme
