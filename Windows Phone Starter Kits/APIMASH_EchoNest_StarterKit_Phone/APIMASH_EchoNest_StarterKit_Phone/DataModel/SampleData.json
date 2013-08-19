@@ -1,0 +1,79 @@
+{"Groups":[
+  {
+    "UniqueId": "Beatles",
+    "Title": "Beatles",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/2/25/3_Savile_Row.jpg"
+  },
+  {
+    "UniqueId": "Pink Floyd",
+    "Title": "Pink Floyd",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/6/63/Dispersion_prism.jpg"
+  },
+  {
+    "UniqueId": "Foreigner",
+    "Title": "Foreigner",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/7/72/Foreigner2009.jpg"
+  },
+  {
+    "UniqueId": "Green Day",
+    "Title": "Green Day",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Green_Day_live.jpg/800px-Green_Day_live.jpg"
+  },
+  {
+    "UniqueId": "Bruno Mars",
+    "Title": "Bruno Mars",
+    "ImagePath": "http://userserve-ak.last.fm/serve/500/58897093/Bruno+Mars.png"
+  },
+  {
+    "UniqueId": "Pitbull",
+    "Title": "Pitbull",
+    "ImagePath": "http://userserve-ak.last.fm/serve/_/3241192.jpg"
+  },
+  {
+    "UniqueId": "One Direction",
+    "Title": "One Direction",
+    "ImagePath": "http://userserve-ak.last.fm/serve/_/67385488/One+Direction+What+makes+you+beautiful.png"
+  },
+  {
+    "UniqueId": "Selena Gomez",
+    "Title": "Selena Gomez",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/3/30/Selena_Gomez_2.jpg"
+  },
+    {
+    "UniqueId": "RadioHead",
+    "Title": "RadioHead",
+    "ImagePath": "http://userserve-ak.last.fm/serve/_/102639.jpg"
+  },
+    {
+    "UniqueId": "Black Eyed Peas",
+    "Title": "Black Eyed Peas",
+    "ImagePath": "http://userserve-ak.last.fm/serve/_/75832.jpg"
+  },
+    {
+    "UniqueId": "Fallout Boy",
+    "Title": "Fallout Boy",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/e/ec/Chicago_city_seal.png"
+  },
+    {
+    "UniqueId": "Kelly Clarkson",
+    "Title": "Kelly Clarkson",
+    "ImagePath": "http://userserve-ak.last.fm/serve/_/889262.jpg"
+  },
+    {
+    "UniqueId": "Keith Urban",
+    "Title": "Keith Urban",
+    "ImagePath": "http://userserve-ak.last.fm/serve/_/6741.jpg"
+  },
+    {
+    "UniqueId": "Bon Jovi",
+    "Title": "Bon Jovi",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/3/33/Richie_Sambora_at_the_2009_Tribeca_Film_Festival.jpg"
+  },
+    {
+    "UniqueId": "Rolling Stones",
+    "Title": "Rolling Stones",
+    "ImagePath": "http://upload.wikimedia.org/wikipedia/commons/8/8f/Mick_Taylor2.jpg"
+  }
+
+]
+}
