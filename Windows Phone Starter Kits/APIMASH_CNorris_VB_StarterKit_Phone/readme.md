@@ -9,6 +9,7 @@
 The Chuck Norris Starter Kit for Windows Phone is a XAML/vb.net Windows Phone 8 app that demonstrates calling a Web Service that returns a simple JSON payload. The JSON payload is deserialized into a View Model and displayed on the screen.
 
 [See this article for details on the Chuck Norris Starter Kit][1]
+
 [Some information about converting event handlers from c# to vb.net][10]
 
 ![alt text][2]
