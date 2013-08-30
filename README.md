@@ -26,7 +26,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 
  1. [Active Access (HTML5/JS)][6]
  2. [Chuck Norris (XAML/C#)][7]
- 3. Chuck Norris (XAML/VB)
+ 3. [Chuck Norris (XAML/VB)][24]
  4. Earthquakes + Bing Maps (HTML5/JS)
  5. [Edmunds (XAML/C#)][8]
  6. Facebook (XAML/C#)
@@ -49,13 +49,14 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
 ##Starter Kits for Windows Phone 8
 
  1. [Chuck Norris (XAML/C#)][18]
- 2. [Edmunds - (XAML/C#)][19]
- 3. [MeetupPOI - (XAML/C#)][20]
- 4. Twitter (XAML/C#)
- 5. Instagram (HTML5/JS)
- 6. [TomTom Traffic Cameras (XAML/C#)][21]
- 7. [World of Warcraft API (XAML/C#)][22]
- 8. Earthquakes (HTML5/JS)
+ 2. [Chuck Norris (XAML/VB)][25]
+ 3. [Edmunds - (XAML/C#)][19]
+ 4. [MeetupPOI - (XAML/C#)][20]
+ 5. Twitter (XAML/C#)
+ 6. Instagram (HTML5/JS)
+ 7. [TomTom Traffic Cameras (XAML/C#)][21]
+ 8. [World of Warcraft API (XAML/C#)][22]
+ 9. Earthquakes (HTML5/JS)
 
 
 ##1 - Download the Starter Kits
@@ -88,3 +89,6 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
   [21]: http://blogs.msdn.com/b/jimoneil/archive/2013/07/17/apimash-porting-to-windows-phone-8.aspx
   [22]: http://davedev.net/?p=3801
   [23]: http://42base13.net/apimash-echonest-starter-kit/
+  [24]: https://github.com/apimash/StarterKits/tree/master/Windows%20Starter%20Kits/APIMASH_CNorris_VB_StarterKit
+  [25]: https://github.com/apimash/StarterKits/tree/master/Windows%20Phone%20Starter%20Kits/APIMASH_CNorris_VB_StarterKit_Phone
+
