@@ -1,28 +1,28 @@
-#APIMASH Starter Kits
+# APIMASH Starter Kits
 
 
 ----------
 
 
-##Description
+## Description
 APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's such as Edmunds, Tom-Tom, Twitter, Tumblr, Yelp, Meetup and many others to create Windows 8 Store Apps. These Starter Kits will put you on the fast path to publishing your first App to the Windows Store.
 
-###Pre-reading
+### Pre-reading
 
  - [Creating Compelling Windows 8 Apps  using API's][1]
  - [JSON Deserialization for C#  Developers][2]
  - [APIMASH on Channel 9][3]
 
-##API Partners
+## API Partners
 
 ![alt text][4]
 [Mashery][5]
 
-##Starter Kits for Windows 8.1
+## Starter Kits for Windows 8.1
 
  1. [EchoNest API (XAML/C#)][23]
 
-##Starter Kits for Windows 8
+## Starter Kits for Windows 8
 
  1. [Active Access (HTML5/JS)][6]
  2. [Chuck Norris (XAML/C#)][7]
@@ -46,7 +46,7 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
  20. ESPN (HTML/JS)
  
 
-##Starter Kits for Windows Phone 8
+## Starter Kits for Windows Phone 8
 
  1. [Chuck Norris (XAML/C#)][18]
  2. [Chuck Norris (XAML/VB)][25]
@@ -59,11 +59,11 @@ APIMASH Starter Kits for Windows demonstrate how to use public Web Service API's
  9. Earthquakes (HTML5/JS)
 
 
-##1 - Download the Starter Kits
+## 1 - Download the Starter Kits
    
-##2 - Customize the API calls and Update the User Experience
+## 2 - Customize the API calls and Update the User Experience
  
-##3 - Submit your App to the Windows Store
+## 3 - Submit your App to the Windows Store
 
 
   [1]: http://theundocumentedapi.com/2013/05/28/apimash-using-apis-to-create-compelling-windows-apps/

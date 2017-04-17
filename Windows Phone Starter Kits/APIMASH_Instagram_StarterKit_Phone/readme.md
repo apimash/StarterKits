@@ -1,23 +1,23 @@
-#APIMASH Instagram Starter Kit for Windows Phone 8.0
-##Date: 7.30.2013
-##Version: v1.0.0
-##Author(s): Stacey Mulcahy
-##URL: http://github.com/apimash/starterkits
+# APIMASH Instagram Starter Kit for Windows Phone 8.0
+## Date: 7.30.2013
+## Version: v1.0.0
+## Author(s): Stacey Mulcahy
+## URL: http://github.com/apimash/starterkits
 
 ----------
-###Description
+### Description
 The Instagram Starter Kit for Windows Phone uses the Instagram api and illustrates how to use many of the endpoints that do not require authorization. It is an HTML5/js application for the Windows Phone. All calls do require a client id however.
 ![My image](image.png) 
 ![My image](image1.png) 
 ![My image](image2.png) 
-###Features
+### Features
  - Invokes the Instagram API (http://instagram.com/developer/)
  - Enables various endpoints including tags, location, media and popular. 
  - Demonstrates how to use the winjs list component
  - Provides a baseline for a Windows 8 Phone Application
  - For API documentation, please see http://instagram.com/developer/
 
-###Requirements
+### Requirements
 
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
@@ -25,7 +25,7 @@ The Instagram Starter Kit for Windows Phone uses the Instagram api and illustrat
  - Instagram application key ( client id ) http://instagram.com/developer/
  - Utilizes jQuery version 2.0.0 (http://code.jquery.com/jquery-2.0.0.js)
 
-###Setup
+### Setup
 
  - Register with Instagram and register a new application ( http://instagram.com/developer/clients/manage/)
  - Keep track of the client id once you have registered.
@@ -35,7 +35,7 @@ The Instagram Starter Kit for Windows Phone uses the Instagram api and illustrat
  - Compile and Run
  **NOTE**: You will need to add your own developer signing certificate to the project, by opening the package.appxmanifest file, and switching to the Packaging tab. On the packaging tab, click the "Choose Certificate..." button, and in the resulting dialog, click the "Configure Certificate..." drop-down, and select "Create test certificate..." then click OK to dismiss all dialogs, and save the app manifest file.
 
-###Customization
+### Customization
 This example exposes all the endpoints at their most basic level. Most of the endpoints do not have options, but a few do that include things like distance( for geolocation) or the max and min ideas for any endpoint that is getting recent media. Please see the Instagram API documentation - these parameters can be passed in through the calls via the options parameter, which is an object. 
 
 As some photos do carry geolocation information with them ( its a user's preference to add geolocation), mash ups with Maps are ideal. This template also provides and easy way to aggregate and show photos tagged with a specific hashtag, or that are in a location - making it an ideal complement to apis such as Yelp, Foursquare and Meetup to name a few. 
@@ -50,11 +50,11 @@ App Ideas:
 
 ----------
 
-##Change Log
-###v1.0.1
+## Change Log
+### v1.0.1
 - Modified readme
 
-##DISCLAIMER: 
+## DISCLAIMER: 
  
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
  

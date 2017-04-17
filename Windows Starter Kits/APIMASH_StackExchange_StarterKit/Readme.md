@@ -1,34 +1,34 @@
-#APIMASH StackExchange Starter Kit
-##Date: 5.10.2013
-##Version: v1.0.0
-##Author(s): Michael Cummings
-##URL: http://github.com/apimash/starterkits
+# APIMASH StackExchange Starter Kit
+## Date: 5.10.2013
+## Version: v1.0.0
+## Author(s): Michael Cummings
+## URL: http://github.com/apimash/starterkits
 
 ----------
-##Description
+## Description
 The StackExchange Starter Kit is a XAML/C# Windows 8 app based on the Blank Template that demonstrates calling the StackExchange REST API's. The JSON payload for Questions, Answers, Comments, Users is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to WinRT XAML controls. You can use the breadth and detail of the discussion information available through the StackExchange API to create mashups, visualizations and other applications that will provide an added dimension of user experience for the answer seeker.
 
 ![alt text][1001]
 
-##Features
+## Features
  - Invokes the [StackExchange REST API][1002]
  - Demonstrates how to deserialize compressed JSON to C# and bind to WinRT XAML Controls
  - Provides a baseline for a Windows 8 Store App
 
-##Requirements
+## Requirements
 
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
  - [JSON.NET from Newtonsoft][1003]
  - [HTML Agility Pack][1005]
 
-##Setup
+## Setup
 
  - [Download the Starter Kit Zip Portfolio][1004] 
  - Open the Solution in Visual Studio
  - Compile and Run
 
-##Customization
+## Customization
 
 The StackExchange API, one a scale of 1 to 10, where 1 is simple and 10 is complex, is an 9 :). StackExchange provides a rich set of API collections each with several API's and methods that give you access to Questions, Answers, Comments, Users, and Tags that can be used together or with other API's to create compelling apps.
 
@@ -493,7 +493,7 @@ These methods return data across the entire Stack Exchange network of sites. Acc
 
 You can also experiment with adding in the Editorial or Dealer API's to add color commentary and availability information.
 
-##DISCLAIMER: 
+## DISCLAIMER: 
 
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
 Microsoft and I do not warrant, guarantee or make any representations regarding the use, results of use, accuracy, timeliness or completeness of any data or information relating to the sample code. Microsoft and I disclaim all warranties, express or implied, and in particular, disclaims all warranties of merchantability, fitness for a particular purpose, and warranties related to the code, or any service or software related thereto. 

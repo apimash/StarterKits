@@ -1,12 +1,12 @@
-#Title:  ACTIVE ACCESS APIMASHUP STARTKIT
+# Title:  ACTIVE ACCESS APIMASHUP STARTKIT
 Active Access APIMASHUP STARTERKIT 
-##Date: 2/30/2013
-##Version: v0.0.2
-##Author(s): Maria Naggaga
+## Date: 2/30/2013
+## Version: v0.0.2
+## Author(s): Maria Naggaga
 
 
 ----------
-###Description
+### Description
 
 The Active Access Starter Kit is an HTML5 and JS  Windows 8 App  using the blank template. It leverages the Active Access API to populate a sporting , camping, concert etc based on a geographical location. 
 APIMASH_ACTIVEACCESS API_StarterKit shows you how to interact with an external webservice((in this case Active Access API) using the datadapter, Binding.ListAPI , ListDataSourceAPI, and how to display the grouped data using custom group and item datasources. 
@@ -20,14 +20,14 @@ This specific example uses XmlHttpRequest
  to access the Active Access search feature of <a href="http://developer.active.com"> [Active Access][2]</a>
  which is exposed as a web service.Key Rates Limits: 2 call per second and 10,000 calls per day.
 
-###Features
+### Features
  -  Make Calls to the  Active Access API - [WinJS.xhr][3] 
  - Creates a custom [IListDataAdapter][4] that connects to a web service and displays the data in a [ListView][5] control.
  -Implements the IListDataAdapter interface and creates a custom IListDataSource by inheriting from the [VirtualizedDataSource][6] calls. 
 
 
  
-###Requirements
+### Requirements
 
  - [Sign up for Mashery API Developers Key][7]
  - [Active Access Search API Key][8]
@@ -36,12 +36,12 @@ This specific example uses XmlHttpRequest
 
  
 
-###Setup
+### Setup
 
  1. Step 1 : Setup your developer's environment.  Install  Windows 8 and Visual Studio 2012. If you are on a Mac [Download a VM][10] .
  2. Step 2: Download the Starter Kits from [Github][11]
 
-###Kit Customization 
+### Kit Customization 
 
  1. Open the ActiveAccessAPI.JSGo to the
     getCount:Function ( ) edit the following: 
@@ -115,8 +115,8 @@ Search Results
 ----------
 
 
-##Change Log
-###v0.0.0
+## Change Log
+### v0.0.0
 Add version data here
 
 
