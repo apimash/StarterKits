@@ -1,16 +1,16 @@
-#APIMASH Foursquare Starter Kit
-##Date: 6.19.2013
-##Version: v1.0.0
-##Author(s): Stacey Mulcahy
-##URL: http://github.com/apimash/starterkits
+# APIMASH Foursquare Starter Kit
+## Date: 6.19.2013
+## Version: v1.0.0
+## Author(s): Stacey Mulcahy
+## URL: http://github.com/apimash/starterkits
 
 ----------
-###Description
+### Description
 The Foursquare Starter Kit uses the Foursquare api and illustrates how to use many of the endpoints that do not require authorization. All calls do require a client id however.
 ![My image](image.png) 
 ![My image](image1.png) 
 
-###Features
+### Features
  - Invokes the Foursquare API (https://developer.foursquare.com)
  - Enables various endpoints without oAuth - all venue calls ( search, get popular, categories ) 
  - Demonstrates how to use the winjs list component
@@ -18,14 +18,14 @@ The Foursquare Starter Kit uses the Foursquare api and illustrates how to use ma
  - Provides a baseline for a Windows 8 Store App
  - For API documentation, please see https://developer.foursquare.com
 
-###Requirements
+### Requirements
 
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
  - Foursquare application key ( client id ) https://developer.foursquare.com
  - Utilizes jQuery version 2.0.0 (http://code.jquery.com/jquery-2.0.0.js)
 
-###Setup
+### Setup
 
  - Register with Foursquare and register a new application ( https://developer.foursquare.com)
  - Keep track of the client id and secret once you have registered.
@@ -35,7 +35,7 @@ The Foursquare Starter Kit uses the Foursquare api and illustrates how to use ma
  - Compile and Run
  **NOTE**: You will need to add your own developer signing certificate to the project, by opening the package.appxmanifest file, and switching to the Packaging tab. On the packaging tab, click the "Choose Certificate..." button, and in the resulting dialog, click the "Configure Certificate..." drop-down, and select "Create test certificate..." then click OK to dismiss all dialogs, and save the app manifest file.
 
-###Customization
+### Customization
 This example exposes all the endpoints at their most basic level.Some endpoints have options or parameters to help tailor the result set, please refer to the documentation from Foursquare. The example provided use the defaults.  Venue information has geolocation information, so mash ups with maps, or other apis leveraging geolocation would work nicely.
 
 App Ideas:
@@ -43,16 +43,16 @@ App Ideas:
 - What is hot near you: Mash up with maps to find things near you that are popular
 - Dog Shelter finder: Search under categories for dog shelters 
 
-###Future Features
+### Future Features
 
 
 ----------
 
-##Change Log
-###v1.0.1
+## Change Log
+### v1.0.1
 - Modified readme
 
-##DISCLAIMER: 
+## DISCLAIMER: 
  
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
  

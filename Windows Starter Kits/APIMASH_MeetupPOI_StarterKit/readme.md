@@ -1,16 +1,16 @@
-#Meetup/Bing Maps Starter Kit
-##Date: 05/08/2013
-##Version: v0.0.2
-##Author(s): G. Andrew Duthie
-##URL: http://github.com/apimash/starterkits
+# Meetup/Bing Maps Starter Kit
+## Date: 05/08/2013
+## Version: v0.0.2
+## Author(s): G. Andrew Duthie
+## URL: http://github.com/apimash/starterkits
 
 ----------
-###Description
+### Description
 The Meetup/Bing Maps Starter Kit is a native HTML5 and JavaScript Windows Store app based on the Grid App template. It leverages the Meetup.com API to search for upcoming meetups near a given location, with optional keyword filtering. Once the meetups are retrieved, the starter kit maps a selected item, and queries the Bing Maps Search API for nearby coffee shops, and maps those as well.
 
 ![alt text][1]
 
-###Features
+### Features
  - Demonstrates using WinJS.xhr to call the [Meetup.com API][2]
  - Demonstrates integrating Bing Maps, and calling the Bing Maps Search API
  - Demonstrates how to load live data into the JavaScript Grid App template, and how to adapt the live data to display with minimal customization to the HTML and JavaScript files in the template
@@ -18,13 +18,13 @@ The Meetup/Bing Maps Starter Kit is a native HTML5 and JavaScript Windows Store 
  - Demonstrates the use of the Settings contract to provide About and Privacy pages
  - Demonstrates the use of the Share Source contract, to easily share app content with other installed apps
 
-###Requirements
+### Requirements
  - Meetup API Key (don't use your day-to-day meetup ID for this...create a unique account, and sign up for a key [here][3])
  - Bing Maps SDK for Windows Store apps - Download [here][4], and follow the instructions [here][5] for adding a reference to the SDK to your app. 
  - Bing Maps API Key (sign up [here][6] - Microsoft Account required for the Bing Maps Portal)
  - Windows Store Account (to submit app for certification)
 
-###Setup and Customization
+### Setup and Customization
 Basic customization is done via the file customizeMe.js, found in the js folder. Here are the key items you can customize:
 
  - meetupKey: Your custom Meetup API key
@@ -41,13 +41,13 @@ Basic customization is done via the file customizeMe.js, found in the js folder.
  
 More advanced customization is possible by digging into the code and stylesheets. All logic for retrieving and grouping Meetup data may be found in js/meetupData.js. App-wide styles may be found in css/default.css, and page-specific styles may be found in each respective page folder.
 
-###Known Issues
+### Known Issues
 Here are the currently known issues (aka learning opportunities for the developer):
 
  - Snapped View: Snapped view is partially implemented (via the CSS media queries from the Grid App template), but the snapped view will need to be improved prior to submitting an app for the Windows Store.
  - App Images: Splash Screen, app tile logos, etc. need to be provided prior to submitting an app based on this starter kit for certification in the Windows Store
 
-##**DISCLAIMER**: 
+## **DISCLAIMER**: 
 
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
 
@@ -57,8 +57,8 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 ----------
 
-##Change Log
-###v0.0.2
+## Change Log
+### v0.0.2
 
  - Added license information to all source files
 

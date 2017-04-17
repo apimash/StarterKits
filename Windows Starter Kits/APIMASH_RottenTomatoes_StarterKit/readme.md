@@ -1,22 +1,22 @@
-#APIMASH Rotten Tomatoes Starter Kit
-##Date: 5.10.2013
-##Version: v1.0.0
-##Author(s): Bob Familiar
-##URL: http://github.com/apimash/starterkits
+# APIMASH Rotten Tomatoes Starter Kit
+## Date: 5.10.2013
+## Version: v1.0.0
+## Author(s): Bob Familiar
+## URL: http://github.com/apimash/starterkits
 
 ----------
-###Description
+### Description
 The Rotten Tomatoes Starter Kit is a XAML/C# Windows 8 app based on the Grid Template that demonstrates calling the Rotten Tomatoes REST API's. The JSON payload for Movies or DVD's is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to the WinRT XAML controls.
 
 Blog: [APIMASH Rotten Tomatoes Starter Kit][1]
 
 ![alt text][2]
-###Features
+### Features
  - Invokes the Rotten Tomatoes REST API (http://developer.rottentomatoes.com/)
  - Demonstrates how to deserialize JSON to C# and bind to WinRT XAML Controls
  - Provides a baseline for a Windows 8 Store App
 
-###Requirements
+### Requirements
 
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
@@ -25,7 +25,7 @@ Blog: [APIMASH Rotten Tomatoes Starter Kit][1]
  - Mashery.com Developer Account (http://developer.mashery.com/)
  - Rotten Tomatoes Developer Key (http://developer.rottentomatoes.com/)
 
-###Setup
+### Setup
 
  - Register at Mashery.com (http://developer.mashery.com/)
  - Request a Developer Key from Rotten Tomatoes (http://developer.rottentomatoes.com/)
@@ -35,7 +35,7 @@ Blog: [APIMASH Rotten Tomatoes Starter Kit][1]
  - Update the reference to the Newtonsoft JSON.NET Library in the APIMASHLib project
  - Compile and Run
 
-###Customization
+### Customization
 
 Step 1. Add your Developer Key in the *Globals.cs* source file on line 20
 
@@ -68,7 +68,7 @@ Step 3. You can modify the parameters to each query such as the limit of the num
 
 Step 4. Movie information is EXTREMELY mashable! Experiment by combining Rotten Tomatoes with Bing Maps showing nearby movie theaters (check out [the Bing Map Starter Kit][5]!)
 
-##DISCLAIMER: 
+## DISCLAIMER: 
 
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
 Microsoft and I do not warrant, guarantee or make any representations regarding the use, results of use, accuracy, timeliness or completeness of any data or information relating to the sample code. Microsoft and I disclaim all warranties, express or implied, and in particular, disclaims all warranties of merchantability, fitness for a particular purpose, and warranties related to the code, or any service or software related thereto. 

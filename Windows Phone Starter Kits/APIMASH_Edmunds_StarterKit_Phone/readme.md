@@ -1,23 +1,23 @@
-#APIMASH Edmunds Starter Kit for Windows Phone
-##Date: 6.10.2013
-##Version: v1.0.0
-##Author(s): Bob Familiar
-##URL: http://github.com/apimash/starterkits
+# APIMASH Edmunds Starter Kit for Windows Phone
+## Date: 6.10.2013
+## Version: v1.0.0
+## Author(s): Bob Familiar
+## URL: http://github.com/apimash/starterkits
 
 ----------
-##Description
+## Description
 The Edmunds Starter Kit for Windows Phone is a XAML/C# Windows Phone 8 app that demonstrates calling the Edmunds REST API's. The JSON payload for Makes, Models, Model Specs and Pictures is deserialized into a set of C# classes that define the Data Model. That data then is selectively copied into the View Model for binding to XAML controls. You can use the breadth and detail of the automotive information available through the Edmunds API to create mashups, visualizations and other applications that will provide an added dimension of user experience for the automotive consumer.
 
 Blog: [APIMASH Edmunds Starter Kit for Windows Phone][1]
 
 ![alt text][2]
 
-##Features
+## Features
  - Invokes the [Edmunds REST API][3]
  - Demonstrates how to deserialize JSON to C# and bind to XAML Controls
  - Provides a baseline for a Windows 8 Phone Store App
 
-##Requirements
+## Requirements
 
  - Windows 8
  - [Visual Studio 2012 Express for Windows Phone 8][4]
@@ -25,7 +25,7 @@ Blog: [APIMASH Edmunds Starter Kit for Windows Phone][1]
  - [Mashery.com Developer Account][6]
  - [Edmunds Developer Key][7]
 
-##Setup
+## Setup
 
  - [Register at Mashery.com][8]
  - [Request a Developer Key at Edmunds][9]
@@ -35,7 +35,7 @@ Blog: [APIMASH Edmunds Starter Kit for Windows Phone][1]
  - Update the reference to the *Newtonsoft JSON.NET Library* in the *APIMASHLib* project
  - Compile and Run
 
-##Customization
+## Customization
 
 The Edmunds API, one a scale of 1 to 10, where 1 is simple and 10 is complex, is an 11 :). Edmunds provides a rich set of API collections each with several API's and methods that give you access to Articles, Vehicle Data, Dealer info and Inventory data that can be used together or with other API's to create compelling apps.
 
@@ -91,7 +91,7 @@ The Model Year Repository API also provides these methods:
 
 You can also experiment with adding in the Editorial or Dealer API's to add color commentary and availability information.
 
-##DISCLAIMER: 
+## DISCLAIMER: 
 
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
 Microsoft and I do not warrant, guarantee or make any representations regarding the use, results of use, accuracy, timeliness or completeness of any data or information relating to the sample code. Microsoft and I disclaim all warranties, express or implied, and in particular, disclaims all warranties of merchantability, fitness for a particular purpose, and warranties related to the code, or any service or software related thereto. 

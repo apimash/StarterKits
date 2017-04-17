@@ -1,14 +1,14 @@
-#APIMASH Twitter Starter Kit
-##Date: 05.30.2013
-##Version: v2.0.0
-##Author(s): Tara E. Walker
-##http://github.com/apimash/starterkits
+# APIMASH Twitter Starter Kit
+## Date: 05.30.2013
+## Version: v2.0.0
+## Author(s): Tara E. Walker
+## http://github.com/apimash/starterkits
 
 ----------
-###Description
+### Description
 The Twitter Starter Kit is an XAML/C# Windows 8 application using a lite MVVM commanding pattern that demonstrates how to call various Twitter REST APIs.  Each call returns a JSON payload that is then deserialized into a observable collection of set of C# classes that are derived from the Model (Data Model).  That observable collection is returned to the View Model and data therein is displayed via data binding of elements to the WinRT Xaml control.
 
-###ScreenShots
+### ScreenShots
 App on Start Screen
 
 ![alt text][1]
@@ -37,7 +37,7 @@ User Followers
 
 ![alt text][7]
 
-###Features
+### Features
  - Retrieves and creates OAuth required token and signatures to call Twitter OAuth required REST API
  - Can retrieve authorized user Home Timeline
  - Can retrieve any timeline of statuses per user screen name entered (as long as not protected)
@@ -45,7 +45,7 @@ User Followers
  - Can search on keyword or user to return associated tweets
  - Can return followers by user, if no user is specified will return followers by authorized user
 
-###Requirements
+### Requirements
  - Windows 8
  - Visual Studio 2012 Express for Windows 8 or higher
  - JSON.NET form Newtonsoft (https://json.codeplex.com/)
@@ -53,7 +53,7 @@ User Followers
  - Twitter Consumer Key and Consumer Secret (http://dev.twitter.com/)
  - List item
 
-###Setup
+### Setup
  1. Create an application record (which includes an API key) by navigating to https://dev.twitter.com/apps . Most integrations with the API will require you to identify your application to Twitter by way of an API key. On the Twitter platform, the term "API key" usually refers to  combination of two keys; an OAuth consumer key and the consumer secret.
  2. Download the Starter Kit Zip Portfolio from ([http://apimash.github.io/StarterKits/][8])
  3. Open the ***APIMASH_TwitterAPI_StarterKit*** Solution in Visual Studio 2012
@@ -61,7 +61,7 @@ User Followers
  5. Compile and Run
  6. You or user of app will be asked to authorize the app for use in obtaining Twitter information the first time of application is used.
 
-###Customization
+### Customization
 
 ***Step 1***. Add your Consumer Key and Consumer Secret in the App.xaml source file
  
@@ -96,7 +96,7 @@ as a placeholder for customization by users of the Starter kit, the Twitter API 
 ***Step 10.*** Mash up Twitter Tweets with FaceBook to have apps post to both simultaneously (check out the Facebook Starter Kit)
 
 
-##DISCLAIMER: 
+## DISCLAIMER: 
 
 The sample code described herein is provided on an "as is" basis, without warranty of any kind, to the fullest extent permitted by law. Both Microsoft and I do not warrant or guarantee the individual success developers may have in implementing the sample code on their development platforms or in using their own Web server configurations. 
 
@@ -107,10 +107,10 @@ Microsoft and I shall not be liable for any direct, indirect or consequential da
 
 ----------
 
-##Change Log
-###v1.0.0
+## Change Log
+### v1.0.0
 Initial Twitter Starter Kit loaded to GitHub
-###v2.0.0
+### v2.0.0
 Updated the Twitter Starter Kit UI significantly, added feature to Get a specific User followers, added App Bar 
 
 
